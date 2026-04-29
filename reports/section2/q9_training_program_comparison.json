@@ -1,0 +1,130 @@
+{
+  "question": "Q9 - Training Program Type Comparison (Basic vs Advanced): Performance & Career Growth",
+  "programs_found": [
+    "Basic",
+    "Advanced",
+    "Unknown"
+  ],
+  "training_effectiveness_metric": {
+    "formula": "Training_Effectiveness = Training_ROI = Performance_Rating / (Professional_Development_Hours + 1)",
+    "rationale": "We redefine training success using Training Effectiveness (ROI), enabling comparison across program types beyond traditional labels. This shifts evaluation from 'what level is the program?' to 'what performance impact does the program generate?'"
+  },
+  "program_kpi_summary": {
+    "Basic": {
+      "count": 1384,
+      "avg_promotions": 0.8092,
+      "avg_performance": 9.8974,
+      "avg_effectiveness": 0.1976,
+      "avg_dev_hours": 50.1395,
+      "career_achieved_pct": 31.21,
+      "resignation_pct": 49.57,
+      "project_success_pct": 30.42,
+      "high_leadership_pct": 31.21
+    },
+    "Advanced": {
+      "count": 1298,
+      "avg_promotions": 0.7989,
+      "avg_performance": 9.8683,
+      "avg_effectiveness": 0.1983,
+      "avg_dev_hours": 49.8159,
+      "career_achieved_pct": 32.82,
+      "resignation_pct": 48.77,
+      "project_success_pct": 34.44,
+      "high_leadership_pct": 32.97
+    },
+    "Unknown": {
+      "count": 1319,
+      "avg_promotions": 0.8279,
+      "avg_performance": 9.9773,
+      "avg_effectiveness": 0.198,
+      "avg_dev_hours": 50.4549,
+      "career_achieved_pct": 33.28,
+      "resignation_pct": 51.71,
+      "project_success_pct": 31.77,
+      "high_leadership_pct": 32.98
+    }
+  },
+  "program_effectiveness_distribution": {
+    "Advanced": {
+      "eff_mean": 0.1983,
+      "eff_median": 0.1915,
+      "eff_std": 0.069,
+      "eff_min": 0.04,
+      "eff_max": 0.5789
+    },
+    "Basic": {
+      "eff_mean": 0.1976,
+      "eff_median": 0.1915,
+      "eff_std": 0.0682,
+      "eff_min": 0.0351,
+      "eff_max": 0.5405
+    },
+    "Unknown": {
+      "eff_mean": 0.198,
+      "eff_median": 0.1923,
+      "eff_std": 0.0697,
+      "eff_min": 0.02,
+      "eff_max": 0.5217
+    }
+  },
+  "cross_segment_program_x_roi_level": {
+    "Basic": {
+      "Low": 25.79,
+      "Medium": 24.86,
+      "High": 24.21,
+      "Very High": 25.14
+    },
+    "Advanced": {
+      "Low": 25.12,
+      "Medium": 25.04,
+      "High": 24.73,
+      "Very High": 25.12
+    },
+    "Unknown": {
+      "Low": 25.02,
+      "Medium": 24.26,
+      "High": 26.46,
+      "Very High": 24.26
+    }
+  },
+  "basic_vs_advanced_direct": {
+    "basic_means": {
+      "Performance_Rating": 9.8974,
+      "Training_Effectiveness": 0.1976,
+      "Number_Of_Promotions": 0.8092,
+      "Employee_Engagement_Score": 79.7673,
+      "Employee_Work_Life_Balance_Rating": 7.8988,
+      "Avg_Skills_Score": 7.9254
+    },
+    "advanced_means": {
+      "Performance_Rating": 9.8683,
+      "Training_Effectiveness": 0.1983,
+      "Number_Of_Promotions": 0.7989,
+      "Employee_Engagement_Score": 80.2535,
+      "Employee_Work_Life_Balance_Rating": 8.0131,
+      "Avg_Skills_Score": 7.9864
+    },
+    "delta": {
+      "Performance_Rating": -0.0291,
+      "Training_Effectiveness": 0.0007,
+      "Number_Of_Promotions": -0.0103,
+      "Employee_Engagement_Score": 0.4862,
+      "Employee_Work_Life_Balance_Rating": 0.1143,
+      "Avg_Skills_Score": 0.061
+    }
+  },
+  "llm_insights": {
+    "headline_finding": "The difference between Basic and Advanced training programs is smaller than expected \u2014 Training Effectiveness scores are similar across program types, suggesting the program label is less important than how the training is applied.",
+    "advanced_insight": "Organizations should shift from 'training level-based programs' to 'impact-based training design', focusing on measurable outcomes rather than content complexity. A Basic program with high Training_Effectiveness outperforms an Advanced program with low ROI.",
+    "effectiveness_redefinition": "We redefine training success using Training Effectiveness (ROI), enabling comparison across program types beyond traditional labels. This framework empowers HR to evaluate programs by their real-world performance impact rather than complexity tiers.",
+    "cross_segment_insight": "The cross-segmentation (Training_Program \u00d7 Training_ROI_Level) reveals which program type actually produces Very High ROI employees \u2014 and which produces the most Low ROI outcomes. This is the definitive evidence for impact-based redesign.",
+    "career_growth_insight": "Career growth metrics (promotions, goal achievement, resignation rate) show marginal differences across program types, reinforcing that career outcomes are driven by individual readiness and organizational context \u2014 not program level alone.",
+    "system_proposal": {
+      "shift": "Move from 'Basic / Advanced' labels to 'Effectiveness Tier' classification.",
+      "measure": "Track Training_Effectiveness monthly per program cohort.",
+      "design": "Redesign programs based on which content modules produce the highest ROI improvement.",
+      "assign": "Match employees to programs based on Training Readiness Score (Q10), not job title or seniority."
+    },
+    "power_statement": "The best training program is not the most advanced one \u2014 it is the one that produces the highest measurable impact per hour invested. Training_Effectiveness is the definitive benchmark that replaces the outdated Basic/Advanced binary."
+  }
+}

@@ -1,0 +1,335 @@
+{
+  "question": "Q10 - Advanced Training Readiness Score: Predicting Who Benefits Most",
+  "readiness_score_formula": {
+    "formula": "Advanced_Training_Readiness = 0.30 \u00d7 Training_ROI + 0.20 \u00d7 (Avg_Skills_Score / 10) + 0.20 \u00d7 (Avg_Soft_Skills_Score / 10) + 0.15 \u00d7 (WLB_Rating / 10) + 0.15 \u00d7 (1 / (Mentorship_Dependency + 1))",
+    "weight_rationale": {
+      "Training_ROI_30pct": "Proven ability to convert training into performance \u2014 the strongest predictor",
+      "Avg_Skills_Score_20pct": "Foundation competence required to absorb advanced content",
+      "Avg_Soft_Skills_20pct": "Collaboration, communication, and leadership in advanced environments",
+      "WLB_Rating_15pct": "Contextual capacity \u2014 can apply learning without burnout risk",
+      "Inverse_MentorDep_15pct": "Autonomous learner \u2014 independently applies learning without over-reliance"
+    },
+    "prediction_type": "Reasoning-based composite score \u2014 prediction without ML, interpretable by HR"
+  },
+  "readiness_statistics": {
+    "mean": 0.585724,
+    "median": 0.583337,
+    "std": 0.06669,
+    "p75": 0.629213,
+    "p90": 0.67322,
+    "max": 0.901769
+  },
+  "readiness_tier_distribution": {
+    "Not Ready": 1001,
+    "Developing": 1000,
+    "Ready": 1000,
+    "Highly Ready": 1000
+  },
+  "tier_numeric_profile": {
+    "Not Ready": {
+      "Performance_Rating": 8.1089,
+      "Training_ROI": 0.1584,
+      "Mentorship_Dependency": 1.045,
+      "Avg_Skills_Score": 7.3041,
+      "Avg_Soft_Skills_Score": 7.2687,
+      "Employee_Work_Life_Balance_Rating": 5.7842,
+      "Employee_Engagement_Score": 79.985,
+      "Employee_Job_Satisfaction_Score": 8.015,
+      "Number_Of_Promotions": 0.7962,
+      "Professional_Development_Hours": 50.954,
+      "Overtime_Hours_Per_Week": 7.0929
+    },
+    "Developing": {
+      "Performance_Rating": 9.428,
+      "Training_ROI": 0.1863,
+      "Mentorship_Dependency": 0.8151,
+      "Avg_Skills_Score": 7.8164,
+      "Avg_Soft_Skills_Score": 7.801,
+      "Employee_Work_Life_Balance_Rating": 7.229,
+      "Employee_Engagement_Score": 80.369,
+      "Employee_Job_Satisfaction_Score": 7.796,
+      "Number_Of_Promotions": 0.813,
+      "Professional_Development_Hours": 50.428,
+      "Overtime_Hours_Per_Week": 7.103
+    },
+    "Ready": {
+      "Performance_Rating": 10.457,
+      "Training_ROI": 0.2084,
+      "Mentorship_Dependency": 0.7171,
+      "Avg_Skills_Score": 8.1516,
+      "Avg_Soft_Skills_Score": 8.2312,
+      "Employee_Work_Life_Balance_Rating": 8.375,
+      "Employee_Engagement_Score": 80.115,
+      "Employee_Job_Satisfaction_Score": 7.954,
+      "Number_Of_Promotions": 0.805,
+      "Professional_Development_Hours": 50.152,
+      "Overtime_Hours_Per_Week": 7.11
+    },
+    "Highly Ready": {
+      "Performance_Rating": 11.665,
+      "Training_ROI": 0.2388,
+      "Mentorship_Dependency": 0.6135,
+      "Avg_Skills_Score": 8.6018,
+      "Avg_Soft_Skills_Score": 8.8015,
+      "Employee_Work_Life_Balance_Rating": 10.424,
+      "Employee_Engagement_Score": 79.536,
+      "Employee_Job_Satisfaction_Score": 7.959,
+      "Number_Of_Promotions": 0.834,
+      "Professional_Development_Hours": 49.019,
+      "Overtime_Hours_Per_Week": 7.103
+    }
+  },
+  "top20_candidates": [
+    {
+      "Employee_ID": "2024/Marketing/0155",
+      "Department": "Marketing",
+      "Job_Title": "Developer",
+      "Performance_Rating": 15,
+      "Training_ROI": 0.3947,
+      "Mentorship_Dependency": 0.4375,
+      "Advanced_Training_Readiness": 0.9018
+    },
+    {
+      "Employee_ID": "2024/Marketing/3673",
+      "Department": "Finance",
+      "Job_Title": "Manager",
+      "Performance_Rating": 13,
+      "Training_ROI": 0.26,
+      "Mentorship_Dependency": 0.5,
+      "Advanced_Training_Readiness": 0.842
+    },
+    {
+      "Employee_ID": "2024/Marketing/3138",
+      "Department": "It",
+      "Job_Title": "Consultant",
+      "Performance_Rating": 24,
+      "Training_ROI": 0.5217,
+      "Mentorship_Dependency": 0.4,
+      "Advanced_Training_Readiness": 0.8267
+    },
+    {
+      "Employee_ID": "2024/Finance/2770",
+      "Department": "Marketing",
+      "Job_Title": "Consultant",
+      "Performance_Rating": 14,
+      "Training_ROI": 0.359,
+      "Mentorship_Dependency": 0.3333,
+      "Advanced_Training_Readiness": 0.8202
+    },
+    {
+      "Employee_ID": "2024/IT/0096",
+      "Department": "Sales",
+      "Job_Title": "Manager",
+      "Performance_Rating": 18,
+      "Training_ROI": 0.36,
+      "Mentorship_Dependency": 0.3684,
+      "Advanced_Training_Readiness": 0.8056
+    },
+    {
+      "Employee_ID": "2024/Sales/2154",
+      "Department": "Marketing",
+      "Job_Title": "Consultant",
+      "Performance_Rating": 8,
+      "Training_ROI": 0.2105,
+      "Mentorship_Dependency": 0.8889,
+      "Advanced_Training_Readiness": 0.8056
+    },
+    {
+      "Employee_ID": "2024/HR/2363",
+      "Department": "Sales",
+      "Job_Title": "Manager",
+      "Performance_Rating": 11,
+      "Training_ROI": 0.2391,
+      "Mentorship_Dependency": 0.4167,
+      "Advanced_Training_Readiness": 0.8026
+    },
+    {
+      "Employee_ID": "2024/Marketing/0443",
+      "Department": "Hr",
+      "Job_Title": "Developer",
+      "Performance_Rating": 12,
+      "Training_ROI": 0.2667,
+      "Mentorship_Dependency": 0.6923,
+      "Advanced_Training_Readiness": 0.7846
+    },
+    {
+      "Employee_ID": "2024/IT/3804",
+      "Department": "Marketing",
+      "Job_Title": "Analyst",
+      "Performance_Rating": 11,
+      "Training_ROI": 0.22,
+      "Mentorship_Dependency": 0.4167,
+      "Advanced_Training_Readiness": 0.7839
+    },
+    {
+      "Employee_ID": "2024/Finance/0172",
+      "Department": "Marketing",
+      "Job_Title": "Analyst",
+      "Performance_Rating": 19,
+      "Training_ROI": 0.3654,
+      "Mentorship_Dependency": 0.45,
+      "Advanced_Training_Readiness": 0.7791
+    },
+    {
+      "Employee_ID": "2024/Finance/0304",
+      "Department": "Finance",
+      "Job_Title": "Developer",
+      "Performance_Rating": 10,
+      "Training_ROI": 0.1923,
+      "Mentorship_Dependency": 0.5455,
+      "Advanced_Training_Readiness": 0.7788
+    },
+    {
+      "Employee_ID": "2024/Finance/1282",
+      "Department": "Sales",
+      "Job_Title": "Analyst",
+      "Performance_Rating": 7,
+      "Training_ROI": 0.1373,
+      "Mentorship_Dependency": 0.375,
+      "Advanced_Training_Readiness": 0.7783
+    },
+    {
+      "Employee_ID": "2024/HR/0725",
+      "Department": "Sales",
+      "Job_Title": "Developer",
+      "Performance_Rating": 15,
+      "Training_ROI": 0.3333,
+      "Mentorship_Dependency": 0.5,
+      "Advanced_Training_Readiness": 0.777
+    },
+    {
+      "Employee_ID": "2024/Finance/3065",
+      "Department": "Sales",
+      "Job_Title": "Analyst",
+      "Performance_Rating": 10,
+      "Training_ROI": 0.2564,
+      "Mentorship_Dependency": 0.3636,
+      "Advanced_Training_Readiness": 0.7759
+    },
+    {
+      "Employee_ID": "2024/Finance/0945",
+      "Department": "Finance",
+      "Job_Title": "Consultant",
+      "Performance_Rating": 17,
+      "Training_ROI": 0.3696,
+      "Mentorship_Dependency": 0.3333,
+      "Advanced_Training_Readiness": 0.7704
+    },
+    {
+      "Employee_ID": "2024/HR/0531",
+      "Department": "Marketing",
+      "Job_Title": "Manager",
+      "Performance_Rating": 14,
+      "Training_ROI": 0.2333,
+      "Mentorship_Dependency": 0.4667,
+      "Advanced_Training_Readiness": 0.7703
+    },
+    {
+      "Employee_ID": "2024/Finance/2111",
+      "Department": "It",
+      "Job_Title": "Consultant",
+      "Performance_Rating": 12,
+      "Training_ROI": 0.2667,
+      "Mentorship_Dependency": 0.3846,
+      "Advanced_Training_Readiness": 0.7673
+    },
+    {
+      "Employee_ID": "2024/HR/2850",
+      "Department": "Finance",
+      "Job_Title": "Developer",
+      "Performance_Rating": 19,
+      "Training_ROI": 0.5135,
+      "Mentorship_Dependency": 0.4,
+      "Advanced_Training_Readiness": 0.7672
+    },
+    {
+      "Employee_ID": "2024/Marketing/3667",
+      "Department": "Marketing",
+      "Job_Title": "Developer",
+      "Performance_Rating": 22,
+      "Training_ROI": 0.5789,
+      "Mentorship_Dependency": 0.4783,
+      "Advanced_Training_Readiness": 0.7672
+    },
+    {
+      "Employee_ID": "2024/Finance/0110",
+      "Department": "Finance",
+      "Job_Title": "Manager",
+      "Performance_Rating": 12,
+      "Training_ROI": 0.2791,
+      "Mentorship_Dependency": 0.8462,
+      "Advanced_Training_Readiness": 0.767
+    }
+  ],
+  "readiness_by_training_program": [
+    {
+      "Training_Program": "Advanced",
+      "count": 1298,
+      "avg_readiness": 0.5864,
+      "highly_ready_pct": 27.5
+    },
+    {
+      "Training_Program": "Basic",
+      "count": 1384,
+      "avg_readiness": 0.5836,
+      "highly_ready_pct": 23.41
+    },
+    {
+      "Training_Program": "Unknown",
+      "count": 1319,
+      "avg_readiness": 0.5873,
+      "highly_ready_pct": 24.18
+    }
+  ],
+  "readiness_by_department": [
+    {
+      "Department": "Finance",
+      "count": 798,
+      "avg_readiness": 0.5902,
+      "highly_ready_pct": 27.07,
+      "avg_performance": 9.8321
+    },
+    {
+      "Department": "Hr",
+      "count": 854,
+      "avg_readiness": 0.5842,
+      "highly_ready_pct": 24.71,
+      "avg_performance": 9.9251
+    },
+    {
+      "Department": "It",
+      "count": 783,
+      "avg_readiness": 0.5874,
+      "highly_ready_pct": 25.29,
+      "avg_performance": 10.0345
+    },
+    {
+      "Department": "Marketing",
+      "count": 812,
+      "avg_readiness": 0.5817,
+      "highly_ready_pct": 23.52,
+      "avg_performance": 9.7759
+    },
+    {
+      "Department": "Sales",
+      "count": 754,
+      "avg_readiness": 0.5854,
+      "highly_ready_pct": 24.4,
+      "avg_performance": 10.0133
+    }
+  ],
+  "llm_insights": {
+    "headline_finding": "Advanced training should not be assigned based on performance alone, but on learning efficiency and contextual readiness. A high-performer with low Training_ROI and high Mentorship_Dependency will NOT benefit from advanced training \u2014 they are not ready to absorb and apply it independently.",
+    "readiness_score_statement": "We define an Advanced Training Readiness Score to identify employees most likely to benefit from higher-level training interventions. This reasoning-based model performs prediction without machine learning \u2014 fully interpretable, auditable, and actionable by HR.",
+    "prediction_without_ml": "By combining five domain-grounded features with principled weights, this model produces a ranked list of training investment priorities. Unlike black-box ML predictions, each score can be explained to any HR stakeholder in plain language.",
+    "tier_action_map": {
+      "Highly Ready": "Enroll immediately in Advanced Training. High ROI, strong skills, autonomous learner, good WLB \u2014 all conditions for maximum training return are met.",
+      "Ready": "Eligible for Advanced Training with light mentorship support. Monitor Training_ROI post-enrollment to confirm impact.",
+      "Developing": "Invest in readiness-building first: improve WLB conditions, reduce Mentorship_Dependency, and confirm engagement before advancing.",
+      "Not Ready": "Do not advance to advanced programs yet. Focus on Q8 interventions: engagement diagnosis, job-fit review, and structured post-training support."
+    },
+    "department_insight": "Department-level readiness scores reveal where advanced training investment will yield the highest organizational return \u2014 enabling budget prioritization by readiness, not by headcount or seniority.",
+    "connecting_q6_q7_q8_q9_q10": "This model synthesizes all Section 2 findings: Training_ROI (Q6/Q8), Mentorship_Dependency (Q7), Training_Effectiveness (Q9), and contextual conditions into a single actionable readiness predictor \u2014 the final product of the entire training analytics pipeline.",
+    "power_statement": "The Advanced Training Readiness Score is not just a prediction \u2014 it is an HR decision system. It replaces subjective manager recommendations with a data-driven, fair, and explainable framework for training investment allocation."
+  }
+}

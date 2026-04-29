@@ -1,0 +1,204 @@
+{
+  "question": "Q5 - Ideal Employee Profile (Top 10% Performers)",
+  "performance_90th_pct_threshold": 14.0,
+  "score_90th_pct_threshold": 0.954048,
+  "top10_by_performance_count": 513,
+  "top10_by_score_count": 401,
+  "overlap_both_criteria": 291,
+  "ideal_numeric_profile": {
+    "Technical_Skills_Rating": 8.058,
+    "Communication_Skills_Rating": 8.156,
+    "Problem_Solving_Skills_Rating": 7.908,
+    "Leadership_Qualities_Rating": 8.086,
+    "Initiative_Rating": 8.15,
+    "Adaptability_Rating": 7.924,
+    "Creativity_Rating": 8.08,
+    "Strategic_Thinking_Rating": 8.039,
+    "Teamwork_Skills_Rating": 8.035,
+    "Employee_Engagement_Score": 80.152,
+    "Employee_Job_Satisfaction_Score": 7.885,
+    "Professional_Development_Hours": 50.057,
+    "Mentor_Rating": 8.055,
+    "Employee_Work_Life_Balance_Rating": 8.086,
+    "Avg_Skills_Score": 8.049,
+    "Avg_Soft_Skills_Score": 8.049,
+    "Training_Efficiency": 0.306,
+    "Engagement_Index": 25.465,
+    "Number_Of_Promotions": 0.77,
+    "Feedback_From_Colleagues": 6.994,
+    "Feedback_From_Supervisors": 6.83,
+    "Conflict_Resolution_Cases": 2.552,
+    "Overtime_Hours_Per_Week": 7.23,
+    "Tenure_Years": 4.666
+  },
+  "population_means": {
+    "Technical_Skills_Rating": 7.994,
+    "Communication_Skills_Rating": 7.899,
+    "Problem_Solving_Skills_Rating": 7.998,
+    "Leadership_Qualities_Rating": 7.984,
+    "Initiative_Rating": 8.018,
+    "Adaptability_Rating": 8.021,
+    "Creativity_Rating": 8.02,
+    "Strategic_Thinking_Rating": 8.042,
+    "Teamwork_Skills_Rating": 7.967,
+    "Employee_Engagement_Score": 80.001,
+    "Employee_Job_Satisfaction_Score": 7.931,
+    "Professional_Development_Hours": 50.138,
+    "Mentor_Rating": 7.952,
+    "Employee_Work_Life_Balance_Rating": 7.953,
+    "Avg_Skills_Score": 7.968,
+    "Avg_Soft_Skills_Score": 8.025,
+    "Training_Efficiency": 0.198,
+    "Engagement_Index": 25.463,
+    "Number_Of_Promotions": 0.812,
+    "Feedback_From_Colleagues": 6.981,
+    "Feedback_From_Supervisors": 6.94,
+    "Conflict_Resolution_Cases": 2.517,
+    "Overtime_Hours_Per_Week": 7.102,
+    "Tenure_Years": 4.701
+  },
+  "gap_from_population": {
+    "Technical_Skills_Rating": 0.064,
+    "Communication_Skills_Rating": 0.257,
+    "Problem_Solving_Skills_Rating": -0.09,
+    "Leadership_Qualities_Rating": 0.102,
+    "Initiative_Rating": 0.132,
+    "Adaptability_Rating": -0.097,
+    "Creativity_Rating": 0.06,
+    "Strategic_Thinking_Rating": -0.003,
+    "Teamwork_Skills_Rating": 0.068,
+    "Employee_Engagement_Score": 0.151,
+    "Employee_Job_Satisfaction_Score": -0.046,
+    "Professional_Development_Hours": -0.081,
+    "Mentor_Rating": 0.103,
+    "Employee_Work_Life_Balance_Rating": 0.133,
+    "Avg_Skills_Score": 0.081,
+    "Avg_Soft_Skills_Score": 0.024,
+    "Training_Efficiency": 0.108,
+    "Engagement_Index": 0.002,
+    "Number_Of_Promotions": -0.042,
+    "Feedback_From_Colleagues": 0.013,
+    "Feedback_From_Supervisors": -0.11,
+    "Conflict_Resolution_Cases": 0.035,
+    "Overtime_Hours_Per_Week": 0.128,
+    "Tenure_Years": -0.035
+  },
+  "top5_standout_traits": {
+    "Communication_Skills_Rating": 0.257,
+    "Employee_Engagement_Score": 0.151,
+    "Employee_Work_Life_Balance_Rating": 0.133,
+    "Initiative_Rating": 0.132,
+    "Overtime_Hours_Per_Week": 0.128
+  },
+  "ideal_categorical_profile": {
+    "Department": {
+      "Hr": 20.7,
+      "It": 20.3,
+      "Sales": 20.1,
+      "Marketing": 20.1
+    },
+    "Job_Title": {
+      "Manager": 27.900000000000002,
+      "Developer": 25.7,
+      "Consultant": 23.599999999999998,
+      "Analyst": 22.8
+    },
+    "Project_Role": {
+      "Analyst": 36.8,
+      "Developer": 32.4,
+      "Manager": 30.8
+    },
+    "Highest_Education_Level": {
+      "Phd": 38.6,
+      "Master": 33.900000000000006,
+      "Bachelor": 27.500000000000004
+    },
+    "Certifications": {
+      "Google Cloud": 20.9,
+      "Aws": 20.3,
+      "Cfa": 20.1,
+      "Unknown": 19.900000000000002
+    },
+    "Training_Program": {
+      "Basic": 34.300000000000004,
+      "Unknown": 33.300000000000004,
+      "Advanced": 32.4
+    },
+    "Hiring_Source": {
+      "Referral": 26.5,
+      "Internal": 25.5,
+      "Agency": 24.8,
+      "Job Board": 23.200000000000003
+    },
+    "Leadership_Potential": {
+      "Low": 34.300000000000004,
+      "Medium": 33.7,
+      "High": 32.0
+    },
+    "Project_Outcome": {
+      "In Progress": 36.3,
+      "Failed": 33.5,
+      "Successful": 30.2
+    },
+    "Mentor_Experience_Level": {
+      "Junior": 28.999999999999996,
+      "Mid-Senior": 24.6,
+      "Associate": 23.599999999999998,
+      "Senior": 22.8
+    },
+    "Career_Goals_Achievement_Status": {
+      "Achieved": 34.300000000000004,
+      "In Progress": 33.5,
+      "Not Started": 32.2
+    },
+    "Employee_Resignation_Status": {
+      "Yes": 52.6,
+      "No": 47.4
+    },
+    "Internship_Conversion_Status": {
+      "Not Converted": 52.400000000000006,
+      "Converted": 47.599999999999994
+    }
+  },
+  "scoring_formula": {
+    "formula": "Ideal_Employee_Score = 0.25\u00d7(Avg_Skills/20) + 0.25\u00d7(Avg_Soft_Skills/20) + 0.20\u00d7(Training_Efficiency\u00d710) + 0.15\u00d7(Engagement/max) + 0.15\u00d7(WLB/max)",
+    "weights_rationale": {
+      "Avg_Skills_Score": "25% \u2014 core competency foundation",
+      "Avg_Soft_Skills_Score": "25% \u2014 collaboration and leadership enablers",
+      "Training_Efficiency": "20% \u2014 output-per-effort, the key differentiator found in Q3",
+      "Employee_Engagement_Score": "15% \u2014 motivation and commitment",
+      "Employee_Work_Life_Balance_Rating": "15% \u2014 sustainability and long-term retention"
+    },
+    "score_stats": {
+      "mean": 0.764587,
+      "top10_mean": 1.041313,
+      "max": 1.565186
+    }
+  },
+  "llm_profile_description": {
+    "headline": "The ideal employee in this organization is not defined by raw skill superiority, but by efficient skill application, strong engagement, and balanced well-being.",
+    "trait_summary": {
+      "Skills": "Avg skill score of 8.05 \u2014 above population avg of 7.97",
+      "Soft_Skills": "Avg soft skill score of 8.05 \u2014 creativity, initiative and adaptability stand out",
+      "Efficiency": "Training efficiency of 0.306 vs population 0.198",
+      "Engagement": "Engagement score of 80.2 \u2014 consistently higher",
+      "Tenure": "Average tenure of 4.7 years \u2014 experienced contributors"
+    },
+    "system_extension_statement": "We extend the analysis by quantifying the ideal employee profile into a composite score, enabling organizations to identify and track high-potential talent dynamically.",
+    "final_statement": "Unlike static profiling, this approach enables dynamic identification of ideal employees using a data-driven scoring framework \u2014 reusable across departments, roles and time periods.",
+    "leadership_potential_note": "Leadership potential distribution is balanced among top performers (Low ~34%, High ~32%), indicating performance is not strictly tied to formal leadership roles \u2014 high-output individual contributors are just as valuable as leaders.",
+    "project_outcome_note": "High performers are also exposed to high-risk or complex projects, increasing failure exposure despite strong capabilities. A 33.5% failed project rate does not reflect poor performance, but rather willingness to take on challenging, high-stakes assignments."
+  },
+  "score_distribution_deciles": {
+    "D1": 0.592432,
+    "D2": 0.643775,
+    "D3": 0.683468,
+    "D4": 0.717207,
+    "D5": 0.74925,
+    "D6": 0.787239,
+    "D7": 0.828677,
+    "D8": 0.878214,
+    "D9": 0.954048,
+    "D10": 1.565186
+  }
+}

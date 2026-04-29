@@ -1,0 +1,144 @@
+{
+  "question": "Q2 - High Performance, Low Leadership Potential",
+  "total_high_performers": 1167,
+  "high_perf_low_leadership_count": 424,
+  "percentage_of_high_performers": 36.3,
+  "segment_numeric_means": {
+    "Performance_Rating": 13.58,
+    "Leadership_Qualities_Rating": 7.91,
+    "Technical_Skills_Rating": 7.96,
+    "Communication_Skills_Rating": 8.32,
+    "Problem_Solving_Skills_Rating": 7.99,
+    "Employee_Engagement_Score": 80.25,
+    "Employee_Job_Satisfaction_Score": 8.04,
+    "Overtime_Hours_Per_Week": 7.17,
+    "Professional_Development_Hours": 49.71,
+    "Number_Of_Promotions": 0.79,
+    "Conflict_Resolution_Cases": 2.44,
+    "Feedback_From_Supervisors": 7.05,
+    "Feedback_From_Colleagues": 6.94,
+    "Avg_Skills_Score": 8.05,
+    "Engagement_Index": 25.57
+  },
+  "comparison_means": {
+    "Performance_Rating": 13.73,
+    "Leadership_Qualities_Rating": 8.01,
+    "Technical_Skills_Rating": 8.12,
+    "Communication_Skills_Rating": 7.91,
+    "Problem_Solving_Skills_Rating": 7.97,
+    "Employee_Engagement_Score": 79.85,
+    "Employee_Job_Satisfaction_Score": 7.79,
+    "Overtime_Hours_Per_Week": 7.17,
+    "Professional_Development_Hours": 50.34,
+    "Number_Of_Promotions": 0.81,
+    "Conflict_Resolution_Cases": 2.56,
+    "Feedback_From_Supervisors": 6.83,
+    "Feedback_From_Colleagues": 6.99,
+    "Avg_Skills_Score": 7.99,
+    "Engagement_Index": 25.36
+  },
+  "categorical_profiles": {
+    "Department": {
+      "Finance": 22.6,
+      "It": 20.0,
+      "Sales": 19.8,
+      "Marketing": 18.9,
+      "Hr": 18.6
+    },
+    "Job_Title": {
+      "Consultant": 27.400000000000002,
+      "Manager": 25.5,
+      "Analyst": 24.8,
+      "Developer": 22.400000000000002
+    },
+    "Project_Role": {
+      "Manager": 35.6,
+      "Analyst": 32.300000000000004,
+      "Developer": 32.1
+    },
+    "Project_Outcome": {
+      "In Progress": 38.7,
+      "Successful": 30.7,
+      "Failed": 30.7
+    },
+    "Highest_Education_Level": {
+      "Master": 36.6,
+      "Phd": 33.7,
+      "Bachelor": 29.7
+    },
+    "Certifications": {
+      "Google Cloud": 21.9,
+      "Cfa": 21.7,
+      "Aws": 18.9,
+      "Unknown": 18.9,
+      "Pmp": 18.6
+    },
+    "Training_Program": {
+      "Basic": 37.7,
+      "Advanced": 34.4,
+      "Unknown": 27.800000000000004
+    },
+    "Innovation_Projects_Involvement": {
+      "Yes": 50.9,
+      "No": 49.1
+    },
+    "Work_Quality_Improvement_Plan": {
+      "Yes": 51.4,
+      "No": 48.6
+    },
+    "Career_Goals_Achievement_Status": {
+      "Not Started": 35.8,
+      "Achieved": 32.800000000000004,
+      "In Progress": 31.4
+    },
+    "Employee_Resignation_Status": {
+      "No": 55.00000000000001,
+      "Yes": 45.0
+    },
+    "Mentor_Experience_Level": {
+      "Senior": 26.700000000000003,
+      "Associate": 24.8,
+      "Junior": 24.3,
+      "Mid-Senior": 24.3
+    },
+    "Internship_Conversion_Status": {
+      "Not Converted": 50.2,
+      "Converted": 49.8
+    }
+  },
+  "possible_reasons": [
+    "Lower conflict resolution cases suggest limited team leadership experience.",
+    "Fewer development hours may signal lack of investment in leadership-building activities.",
+    "Fewer promotions despite high performance may reflect lack of visible leadership behaviours.",
+    "Individual contributors often excel technically without needing to manage or influence others.",
+    "Role type (Analyst/Developer) may naturally limit leadership exposure.",
+    "High performance may be task/output driven rather than people/strategy driven."
+  ],
+  "dept_breakdown": {
+    "Finance": 96,
+    "It": 85,
+    "Sales": 84,
+    "Marketing": 80,
+    "Hr": 79
+  },
+  "role_breakdown": {
+    "Consultant": 116,
+    "Manager": 108,
+    "Analyst": 105,
+    "Developer": 95
+  },
+  "project_role_breakdown": {
+    "Manager": 151,
+    "Analyst": 137,
+    "Developer": 136
+  },
+  "outcome_breakdown": {
+    "In Progress": 164,
+    "Successful": 130,
+    "Failed": 130
+  },
+  "resignation_breakdown": {
+    "No": 233,
+    "Yes": 191
+  }
+}

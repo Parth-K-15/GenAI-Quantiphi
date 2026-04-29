@@ -1,0 +1,248 @@
+{
+  "question": "Q3 - High (>=10) vs Low (<=5) Performance Behavioral Comparison",
+  "segment_sizes": {
+    "high_ge10": 2121,
+    "low_le5": 270
+  },
+  "numeric_means_high": {
+    "Technical_Skills_Rating": 8.054,
+    "Communication_Skills_Rating": 7.973,
+    "Problem_Solving_Skills_Rating": 7.985,
+    "Leadership_Qualities_Rating": 8.01,
+    "Initiative_Rating": 8.024,
+    "Adaptability_Rating": 7.965,
+    "Creativity_Rating": 8.096,
+    "Strategic_Thinking_Rating": 8.015,
+    "Teamwork_Skills_Rating": 8.009,
+    "Employee_Engagement_Score": 79.863,
+    "Employee_Job_Satisfaction_Score": 7.904,
+    "Professional_Development_Hours": 50.065,
+    "Overtime_Hours_Per_Week": 7.13,
+    "Number_Of_Promotions": 0.804,
+    "Conflict_Resolution_Cases": 2.533,
+    "Feedback_From_Colleagues": 6.996,
+    "Feedback_From_Supervisors": 6.933,
+    "Mentor_Rating": 7.991,
+    "Employee_Work_Life_Balance_Rating": 8.025,
+    "Avg_Skills_Score": 8.006,
+    "Avg_Soft_Skills_Score": 8.025,
+    "Engagement_Index": 25.424,
+    "Training_Efficiency": 0.244,
+    "Onboarding_Delay_Days": 90.667,
+    "Tenure_Years": 4.663
+  },
+  "numeric_means_low": {
+    "Technical_Skills_Rating": 8.167,
+    "Communication_Skills_Rating": 7.985,
+    "Problem_Solving_Skills_Rating": 7.911,
+    "Leadership_Qualities_Rating": 8.03,
+    "Initiative_Rating": 7.889,
+    "Adaptability_Rating": 8.144,
+    "Creativity_Rating": 7.893,
+    "Strategic_Thinking_Rating": 8.222,
+    "Teamwork_Skills_Rating": 8.011,
+    "Employee_Engagement_Score": 80.326,
+    "Employee_Job_Satisfaction_Score": 7.674,
+    "Professional_Development_Hours": 50.648,
+    "Overtime_Hours_Per_Week": 7.063,
+    "Number_Of_Promotions": 0.774,
+    "Conflict_Resolution_Cases": 2.419,
+    "Feedback_From_Colleagues": 7.085,
+    "Feedback_From_Supervisors": 6.967,
+    "Mentor_Rating": 8.237,
+    "Employee_Work_Life_Balance_Rating": 7.656,
+    "Avg_Skills_Score": 8.021,
+    "Avg_Soft_Skills_Score": 8.037,
+    "Engagement_Index": 25.513,
+    "Training_Efficiency": 0.088,
+    "Onboarding_Delay_Days": 89.9,
+    "Tenure_Years": 4.594
+  },
+  "numeric_diff": {
+    "Technical_Skills_Rating": -0.113,
+    "Communication_Skills_Rating": -0.012,
+    "Problem_Solving_Skills_Rating": 0.074,
+    "Leadership_Qualities_Rating": -0.02,
+    "Initiative_Rating": 0.135,
+    "Adaptability_Rating": -0.179,
+    "Creativity_Rating": 0.203,
+    "Strategic_Thinking_Rating": -0.207,
+    "Teamwork_Skills_Rating": -0.002,
+    "Employee_Engagement_Score": -0.463,
+    "Employee_Job_Satisfaction_Score": 0.23,
+    "Professional_Development_Hours": -0.583,
+    "Overtime_Hours_Per_Week": 0.067,
+    "Number_Of_Promotions": 0.03,
+    "Conflict_Resolution_Cases": 0.114,
+    "Feedback_From_Colleagues": -0.089,
+    "Feedback_From_Supervisors": -0.034,
+    "Mentor_Rating": -0.246,
+    "Employee_Work_Life_Balance_Rating": 0.369,
+    "Avg_Skills_Score": -0.015,
+    "Avg_Soft_Skills_Score": -0.012,
+    "Engagement_Index": -0.089,
+    "Training_Efficiency": 0.156,
+    "Onboarding_Delay_Days": 0.767,
+    "Tenure_Years": 0.069
+  },
+  "top_differentiators": [
+    "Onboarding_Delay_Days",
+    "Professional_Development_Hours",
+    "Employee_Engagement_Score",
+    "Employee_Work_Life_Balance_Rating",
+    "Mentor_Rating",
+    "Employee_Job_Satisfaction_Score",
+    "Strategic_Thinking_Rating",
+    "Creativity_Rating",
+    "Adaptability_Rating",
+    "Training_Efficiency"
+  ],
+  "categorical_high": {
+    "Department": {
+      "Hr": 21.0,
+      "It": 20.7,
+      "Marketing": 19.5,
+      "Finance": 19.5
+    },
+    "Job_Title": {
+      "Manager": 27.0,
+      "Consultant": 24.6,
+      "Developer": 24.6,
+      "Analyst": 23.799999999999997
+    },
+    "Project_Role": {
+      "Manager": 34.300000000000004,
+      "Developer": 33.0,
+      "Analyst": 32.7
+    },
+    "Project_Outcome": {
+      "In Progress": 35.6,
+      "Failed": 32.800000000000004,
+      "Successful": 31.6
+    },
+    "Highest_Education_Level": {
+      "Master": 34.300000000000004,
+      "Phd": 33.800000000000004,
+      "Bachelor": 31.900000000000002
+    },
+    "Training_Program": {
+      "Basic": 34.5,
+      "Unknown": 33.7,
+      "Advanced": 31.900000000000002
+    },
+    "Leadership_Potential": {
+      "Low": 36.1,
+      "Medium": 33.6,
+      "High": 30.4
+    },
+    "Career_Goals_Achievement_Status": {
+      "Not Started": 34.300000000000004,
+      "Achieved": 33.1,
+      "In Progress": 32.5
+    },
+    "Employee_Resignation_Status": {
+      "Yes": 51.0,
+      "No": 49.0
+    },
+    "Mentor_Experience_Level": {
+      "Associate": 25.3,
+      "Senior": 25.3,
+      "Mid-Senior": 25.0,
+      "Junior": 24.4
+    },
+    "Project_Complexity": {
+      "Simple": 34.2,
+      "Moderate": 34.0,
+      "Complex": 31.8
+    }
+  },
+  "categorical_low": {
+    "Department": {
+      "Marketing": 22.2,
+      "Finance": 21.9,
+      "It": 21.099999999999998,
+      "Hr": 20.7
+    },
+    "Job_Title": {
+      "Developer": 27.400000000000002,
+      "Manager": 24.4,
+      "Consultant": 24.4,
+      "Analyst": 23.7
+    },
+    "Project_Role": {
+      "Manager": 35.6,
+      "Analyst": 32.6,
+      "Developer": 31.900000000000002
+    },
+    "Project_Outcome": {
+      "Failed": 37.4,
+      "In Progress": 33.0,
+      "Successful": 29.599999999999998
+    },
+    "Highest_Education_Level": {
+      "Master": 34.8,
+      "Bachelor": 33.7,
+      "Phd": 31.5
+    },
+    "Training_Program": {
+      "Unknown": 35.199999999999996,
+      "Advanced": 33.300000000000004,
+      "Basic": 31.5
+    },
+    "Leadership_Potential": {
+      "High": 35.6,
+      "Low": 33.7,
+      "Medium": 30.7
+    },
+    "Career_Goals_Achievement_Status": {
+      "Not Started": 35.9,
+      "Achieved": 33.7,
+      "In Progress": 30.4
+    },
+    "Employee_Resignation_Status": {
+      "No": 59.3,
+      "Yes": 40.699999999999996
+    },
+    "Mentor_Experience_Level": {
+      "Mid-Senior": 30.0,
+      "Senior": 25.900000000000002,
+      "Junior": 23.0,
+      "Associate": 21.099999999999998
+    },
+    "Project_Complexity": {
+      "Moderate": 38.9,
+      "Simple": 37.4,
+      "Complex": 23.7
+    }
+  },
+  "llm_insights": {
+    "headline_finding": "Skill scores nearly identical: High Avg=8.01 vs Low Avg=8.02. Raw skill levels do NOT drive performance differences.",
+    "key_statement": "The findings challenge the traditional assumption that higher performance is directly linked to superior skills, instead highlighting the importance of execution efficiency and contextual/organizational factors.",
+    "power_line": "Performance is not a function of ability alone, but of how effectively that ability is leveraged within an organizational environment.",
+    "what_actually_differentiates": {
+      "Training_Efficiency": "High=0.244 vs Low=0.088 \u2014 High performers extract ~3x more output per dev hour.",
+      "Work_Life_Balance": "High=8.03 vs Low=7.66 \u2014 Better conditions = better output.",
+      "Job_Satisfaction": "High=7.90 vs Low=7.67 \u2014 Satisfaction drives performance.",
+      "Mentorship_Paradox": "Low performers have HIGHER mentor ratings (8.24 vs 7.99) \u2014 struggling employees need more support.",
+      "Creativity_Edge": "High performers show slightly higher creativity (8.10 vs 7.89)."
+    },
+    "deep_reasoning": {
+      "Skill_Saturation": "Skills cluster at ~8 across all employees \u2014 discriminative power lost.",
+      "Execution_Gap": "Low performers have capability but not efficiency (Training_Efficiency 3x lower).",
+      "Environmental_Factors": "Context (WLB, satisfaction, onboarding) explains variance more than skill.",
+      "Mentorship_Paradox": "High mentor support for low performers is a signal of struggle, not strength."
+    },
+    "cluster_summary": {
+      "Efficient_Performers_High_ge10": "Similar skills to low performers. Differentiated by higher training efficiency, better WLB, higher satisfaction, slight creativity advantage. Pattern: Effective execution under favorable conditions.",
+      "Inefficient_Performers_Low_le5": "Comparable skills. Lower efficiency, lower satisfaction, higher mentor reliance. Pattern: Capable but underperforming due to context or inefficiency."
+    },
+    "resignation_high": {
+      "Yes": 51.0,
+      "No": 49.0
+    },
+    "resignation_low": {
+      "No": 59.3,
+      "Yes": 40.699999999999996
+    }
+  }
+}

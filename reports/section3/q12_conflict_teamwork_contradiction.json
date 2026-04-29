@@ -1,0 +1,388 @@
+{
+  "question": "Q12 \u2014 High Conflict Resolution + Low Teamwork Contradiction Analysis",
+  "thresholds": {
+    "high_conflict_q75": 4.0,
+    "low_teamwork_q25": 6.0
+  },
+  "counts": {
+    "contradictory_employees": 441,
+    "contradictory_pct": 11.0,
+    "total_employees": 4001
+  },
+  "attrition_rates": {
+    "contradictory_group_pct": 49.21,
+    "non_contradictory_group_pct": 50.11,
+    "delta": -0.9
+  },
+  "profile_comparison": {
+    "contradictory": {
+      "Conflict_Resolution_Cases": 4.517,
+      "Teamwork_Skills_Rating": 4.896,
+      "Leadership_Qualities_Rating": 7.959,
+      "Adaptability_Rating": 8.0,
+      "Creativity_Rating": 7.941,
+      "Performance_Rating": 9.961,
+      "Employee_Engagement_Score": 79.721,
+      "Employee_Job_Satisfaction_Score": 7.726,
+      "Overtime_Hours_Per_Week": 7.118,
+      "Employee_Work_Life_Balance_Rating": 8.107,
+      "Number_Of_Promotions": 0.81,
+      "Communication_Skills_Rating": 7.687,
+      "Initiative_Rating": 7.814
+    },
+    "non_contradictory": {
+      "Conflict_Resolution_Cases": 2.27,
+      "Teamwork_Skills_Rating": 8.347,
+      "Leadership_Qualities_Rating": 7.987,
+      "Adaptability_Rating": 8.024,
+      "Creativity_Rating": 8.029,
+      "Performance_Rating": 9.908,
+      "Employee_Engagement_Score": 80.036,
+      "Employee_Job_Satisfaction_Score": 7.956,
+      "Overtime_Hours_Per_Week": 7.1,
+      "Employee_Work_Life_Balance_Rating": 7.933,
+      "Number_Of_Promotions": 0.812,
+      "Communication_Skills_Rating": 7.925,
+      "Initiative_Rating": 8.043
+    },
+    "delta": {
+      "Conflict_Resolution_Cases": 2.247,
+      "Teamwork_Skills_Rating": -3.451,
+      "Leadership_Qualities_Rating": -0.028,
+      "Adaptability_Rating": -0.024,
+      "Creativity_Rating": -0.088,
+      "Performance_Rating": 0.053,
+      "Employee_Engagement_Score": -0.315,
+      "Employee_Job_Satisfaction_Score": -0.23,
+      "Overtime_Hours_Per_Week": 0.018,
+      "Employee_Work_Life_Balance_Rating": 0.174,
+      "Number_Of_Promotions": -0.002,
+      "Communication_Skills_Rating": -0.238,
+      "Initiative_Rating": -0.229
+    }
+  },
+  "department_breakdown": [
+    {
+      "Department": "Marketing",
+      "count": 100,
+      "avg_conflict": 4.54,
+      "avg_teamwork": 5.03,
+      "avg_performance": 9.66
+    },
+    {
+      "Department": "Hr",
+      "count": 97,
+      "avg_conflict": 4.526,
+      "avg_teamwork": 4.629,
+      "avg_performance": 9.794
+    },
+    {
+      "Department": "Finance",
+      "count": 85,
+      "avg_conflict": 4.518,
+      "avg_teamwork": 5.071,
+      "avg_performance": 9.824
+    },
+    {
+      "Department": "Sales",
+      "count": 81,
+      "avg_conflict": 4.469,
+      "avg_teamwork": 4.852,
+      "avg_performance": 10.333
+    },
+    {
+      "Department": "It",
+      "count": 78,
+      "avg_conflict": 4.526,
+      "avg_teamwork": 4.91,
+      "avg_performance": 10.321
+    }
+  ],
+  "contradiction_archetypes": [
+    {
+      "name": "The Forced Mediator",
+      "emoji": "\u2694\ufe0f",
+      "description": "Employees thrust into conflict resolution roles by circumstance \u2014 not by interpersonal strength. High conflict exposure may be driven by toxic team dynamics or difficult stakeholders, not by the employee's ability to work with others. They resolve conflicts to survive, not because they thrive in collaboration.",
+      "indicator": "High overtime + low WLB + low engagement",
+      "action": "Reduce structural conflict exposure. Redesign team composition to reduce friction sources."
+    },
+    {
+      "name": "The Dominant Resolver",
+      "emoji": "\ud83d\udc51",
+      "description": "High leadership and assertiveness drive conflict resolution success, but this same dominance creates friction in teamwork settings. These individuals resolve conflicts top-down, not collaboratively \u2014 they shut conflicts down rather than building consensus. Effective individually, but disruptive in flat or collaborative team structures.",
+      "indicator": "High leadership + high initiative + low teamwork + moderate performance",
+      "action": "Coaching on inclusive facilitation and participatory leadership styles."
+    },
+    {
+      "name": "The Structural Outlier",
+      "emoji": "\ud83d\udd27",
+      "description": "Role-based conflict exposure in customer-facing or project management functions artificially inflates their conflict resolution case count. Their low teamwork score reflects low team integration \u2014 they work in silos by design, not by choice. The contradiction is organizational, not behavioral.",
+      "indicator": "High customer complaints handled + functional isolation",
+      "action": "Distinguish structural conflict cases from interpersonal teamwork failures in HR metrics."
+    },
+    {
+      "name": "The Burned-Out Resolver",
+      "emoji": "\ud83d\udd25",
+      "description": "Once effective collaborators, now depleted. Repeated conflict exposure over time has eroded their willingness to engage as team players. Burnout from sustained conflict management causes retreat from collaborative behavior \u2014 creating the apparent paradox. This is a retention and mental health risk signal.",
+      "indicator": "Low satisfaction + low WLB + declining engagement over tenure",
+      "action": "Immediate wellbeing intervention and workload redistribution. Monitor for attrition risk."
+    }
+  ],
+  "conflict_to_teamwork_ratio": {
+    "definition": "Conflict_Resolution_Cases / (Teamwork_Skills_Rating + 1)",
+    "insight": "Conflict resolution metrics capture reactive problem-solving, whereas teamwork reflects proactive collaboration \u2014 the two are fundamentally different behavioral dimensions. We define a Conflict-to-Teamwork Ratio to identify employees who are disproportionately involved in conflict relative to their collaborative ability.",
+    "behavior_type_distribution": [
+      {
+        "Conflict_Behavior_Type": "Collaborative",
+        "count": 1015,
+        "avg_ratio": 0.035,
+        "avg_conflict": 0.383,
+        "avg_teamwork": 8.677,
+        "avg_performance": 9.865,
+        "attrition_pct": 49.75
+      },
+      {
+        "Conflict_Behavior_Type": "Balanced",
+        "count": 995,
+        "avg_ratio": 0.196,
+        "avg_conflict": 1.929,
+        "avg_teamwork": 8.743,
+        "avg_performance": 9.898,
+        "attrition_pct": 51.36
+      },
+      {
+        "Conflict_Behavior_Type": "Reactive",
+        "count": 1036,
+        "avg_ratio": 0.369,
+        "avg_conflict": 3.504,
+        "avg_teamwork": 8.509,
+        "avg_performance": 9.955,
+        "attrition_pct": 50.39
+      },
+      {
+        "Conflict_Behavior_Type": "Conflict-Heavy",
+        "count": 955,
+        "avg_ratio": 0.678,
+        "avg_conflict": 4.329,
+        "avg_teamwork": 5.816,
+        "avg_performance": 9.939,
+        "attrition_pct": 48.48
+      }
+    ],
+    "ratio_stats": {
+      "count": 4001.0,
+      "mean": 0.315,
+      "std": 0.268,
+      "min": 0.0,
+      "25%": 0.111,
+      "50%": 0.273,
+      "75%": 0.455,
+      "max": 2.5
+    }
+  },
+  "sample_employees": [
+    {
+      "Employee_ID": "2024/HR/3972",
+      "Department": "It",
+      "Job_Title": "Manager",
+      "Conflict_Resolution_Cases": 5,
+      "Teamwork_Skills_Rating": 3,
+      "Leadership_Qualities_Rating": 11,
+      "Performance_Rating": 14,
+      "Employee_Engagement_Score": 78,
+      "Overtime_Hours_Per_Week": 10,
+      "Employee_Work_Life_Balance_Rating": 14,
+      "Employee_Resignation_Status": "Yes"
+    },
+    {
+      "Employee_ID": "2024/IT/3922",
+      "Department": "Sales",
+      "Job_Title": "Developer",
+      "Conflict_Resolution_Cases": 5,
+      "Teamwork_Skills_Rating": 6,
+      "Leadership_Qualities_Rating": 6,
+      "Performance_Rating": 7,
+      "Employee_Engagement_Score": 92,
+      "Overtime_Hours_Per_Week": 2,
+      "Employee_Work_Life_Balance_Rating": 9,
+      "Employee_Resignation_Status": "Yes"
+    },
+    {
+      "Employee_ID": "2024/Sales/0013",
+      "Department": "Marketing",
+      "Job_Title": "Consultant",
+      "Conflict_Resolution_Cases": 5,
+      "Teamwork_Skills_Rating": 6,
+      "Leadership_Qualities_Rating": 11,
+      "Performance_Rating": 12,
+      "Employee_Engagement_Score": 86,
+      "Overtime_Hours_Per_Week": 7,
+      "Employee_Work_Life_Balance_Rating": 10,
+      "Employee_Resignation_Status": "Yes"
+    },
+    {
+      "Employee_ID": "2024/Finance/3915",
+      "Department": "Marketing",
+      "Job_Title": "Developer",
+      "Conflict_Resolution_Cases": 5,
+      "Teamwork_Skills_Rating": 6,
+      "Leadership_Qualities_Rating": 10,
+      "Performance_Rating": 5,
+      "Employee_Engagement_Score": 89,
+      "Overtime_Hours_Per_Week": 8,
+      "Employee_Work_Life_Balance_Rating": 7,
+      "Employee_Resignation_Status": "No"
+    },
+    {
+      "Employee_ID": "2024/Marketing/3788",
+      "Department": "Finance",
+      "Job_Title": "Analyst",
+      "Conflict_Resolution_Cases": 5,
+      "Teamwork_Skills_Rating": 6,
+      "Leadership_Qualities_Rating": 6,
+      "Performance_Rating": 12,
+      "Employee_Engagement_Score": 69,
+      "Overtime_Hours_Per_Week": 4,
+      "Employee_Work_Life_Balance_Rating": 7,
+      "Employee_Resignation_Status": "Yes"
+    },
+    {
+      "Employee_ID": "2024/Finance/3783",
+      "Department": "Marketing",
+      "Job_Title": "Developer",
+      "Conflict_Resolution_Cases": 5,
+      "Teamwork_Skills_Rating": 4,
+      "Leadership_Qualities_Rating": 5,
+      "Performance_Rating": 11,
+      "Employee_Engagement_Score": 78,
+      "Overtime_Hours_Per_Week": 6,
+      "Employee_Work_Life_Balance_Rating": 9,
+      "Employee_Resignation_Status": "No"
+    },
+    {
+      "Employee_ID": "2024/Finance/3769",
+      "Department": "It",
+      "Job_Title": "Developer",
+      "Conflict_Resolution_Cases": 5,
+      "Teamwork_Skills_Rating": 6,
+      "Leadership_Qualities_Rating": 10,
+      "Performance_Rating": 12,
+      "Employee_Engagement_Score": 81,
+      "Overtime_Hours_Per_Week": 0,
+      "Employee_Work_Life_Balance_Rating": 11,
+      "Employee_Resignation_Status": "No"
+    },
+    {
+      "Employee_ID": "2024/HR/3768",
+      "Department": "Hr",
+      "Job_Title": "Analyst",
+      "Conflict_Resolution_Cases": 5,
+      "Teamwork_Skills_Rating": 5,
+      "Leadership_Qualities_Rating": 4,
+      "Performance_Rating": 7,
+      "Employee_Engagement_Score": 78,
+      "Overtime_Hours_Per_Week": 5,
+      "Employee_Work_Life_Balance_Rating": 8,
+      "Employee_Resignation_Status": "Yes"
+    },
+    {
+      "Employee_ID": "2024/Finance/3741",
+      "Department": "Sales",
+      "Job_Title": "Developer",
+      "Conflict_Resolution_Cases": 5,
+      "Teamwork_Skills_Rating": 2,
+      "Leadership_Qualities_Rating": 6,
+      "Performance_Rating": 5,
+      "Employee_Engagement_Score": 59,
+      "Overtime_Hours_Per_Week": 5,
+      "Employee_Work_Life_Balance_Rating": 16,
+      "Employee_Resignation_Status": "No"
+    },
+    {
+      "Employee_ID": "2024/HR/3733",
+      "Department": "Marketing",
+      "Job_Title": "Consultant",
+      "Conflict_Resolution_Cases": 5,
+      "Teamwork_Skills_Rating": 6,
+      "Leadership_Qualities_Rating": 5,
+      "Performance_Rating": 10,
+      "Employee_Engagement_Score": 83,
+      "Overtime_Hours_Per_Week": 3,
+      "Employee_Work_Life_Balance_Rating": 8,
+      "Employee_Resignation_Status": "No"
+    },
+    {
+      "Employee_ID": "2024/IT/3713",
+      "Department": "Hr",
+      "Job_Title": "Developer",
+      "Conflict_Resolution_Cases": 5,
+      "Teamwork_Skills_Rating": 5,
+      "Leadership_Qualities_Rating": 15,
+      "Performance_Rating": 8,
+      "Employee_Engagement_Score": 72,
+      "Overtime_Hours_Per_Week": 6,
+      "Employee_Work_Life_Balance_Rating": 10,
+      "Employee_Resignation_Status": "Yes"
+    },
+    {
+      "Employee_ID": "2024/Marketing/3663",
+      "Department": "Hr",
+      "Job_Title": "Manager",
+      "Conflict_Resolution_Cases": 5,
+      "Teamwork_Skills_Rating": 6,
+      "Leadership_Qualities_Rating": 3,
+      "Performance_Rating": 9,
+      "Employee_Engagement_Score": 73,
+      "Overtime_Hours_Per_Week": 5,
+      "Employee_Work_Life_Balance_Rating": 8,
+      "Employee_Resignation_Status": "Yes"
+    },
+    {
+      "Employee_ID": "2024/Sales/0257",
+      "Department": "Sales",
+      "Job_Title": "Consultant",
+      "Conflict_Resolution_Cases": 5,
+      "Teamwork_Skills_Rating": 5,
+      "Leadership_Qualities_Rating": 9,
+      "Performance_Rating": 12,
+      "Employee_Engagement_Score": 85,
+      "Overtime_Hours_Per_Week": 7,
+      "Employee_Work_Life_Balance_Rating": 3,
+      "Employee_Resignation_Status": "Yes"
+    },
+    {
+      "Employee_ID": "2024/IT/0249",
+      "Department": "Marketing",
+      "Job_Title": "Manager",
+      "Conflict_Resolution_Cases": 5,
+      "Teamwork_Skills_Rating": 6,
+      "Leadership_Qualities_Rating": 7,
+      "Performance_Rating": 8,
+      "Employee_Engagement_Score": 81,
+      "Overtime_Hours_Per_Week": 9,
+      "Employee_Work_Life_Balance_Rating": 12,
+      "Employee_Resignation_Status": "No"
+    },
+    {
+      "Employee_ID": "2024/IT/0227",
+      "Department": "Finance",
+      "Job_Title": "Developer",
+      "Conflict_Resolution_Cases": 5,
+      "Teamwork_Skills_Rating": 6,
+      "Leadership_Qualities_Rating": 8,
+      "Performance_Rating": 9,
+      "Employee_Engagement_Score": 89,
+      "Overtime_Hours_Per_Week": 3,
+      "Employee_Work_Life_Balance_Rating": 11,
+      "Employee_Resignation_Status": "No"
+    }
+  ],
+  "llm_insights": {
+    "headline": "High conflict resolution + low teamwork is not a contradiction in behavior \u2014 it is a signal of structural misalignment between the employee's role demands and their interpersonal orientation. The paradox resolves when you distinguish between conflict as a task (forced) vs. collaboration as a choice (intrinsic).",
+    "dimensional_insight": "Conflict resolution metrics capture reactive problem-solving, whereas teamwork reflects proactive collaboration \u2014 the two are fundamentally different behavioral dimensions. Treating them as equivalent in HR assessments leads to misdiagnosis of behavioral profiles.",
+    "key_insight_1": "Conflict resolution cases are often driven by role exposure (customer-facing, managerial) rather than interpersonal strength. A high count does not mean the employee is good at teams \u2014 it means they encounter, and must navigate, friction by design.",
+    "key_insight_2": "Low teamwork scores in this group may reflect burnout from sustained conflict exposure, not an inherent trait. The prescription is workload relief and team redesign \u2014 not just interpersonal skills coaching.",
+    "key_insight_3": "These employees show higher attrition risk than the general population \u2014 suggesting the contradiction is unsustainable over time. Organizations must intervene before burnout converts into resignation.",
+    "standout_statement": "The most dangerous employee profile is not the one who can't handle conflict \u2014 it is the one who handles everyone else's conflicts but has no team to call their own. Isolation dressed as effectiveness is a silent attrition engine."
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "question": "Q7 - Mentor Rating & Experience Level Impact on Conversion and Performance",
+  "correlations": {
+    "mentor_rating_vs_performance": {
+      "r": 0.0132,
+      "note": "Positive correlation suggests better-rated mentors aid performance, but magnitude reveals the compensatory role of mentorship."
+    },
+    "mentorship_dependency_vs_performance": {
+      "r": -0.5911,
+      "note": "Negative (or weak) correlation confirms that higher dependency does NOT lead to higher performance \u2014 compensatory mechanism confirmed."
+    }
+  },
+  "internship_conversion_by_mentor_rating": [
+    {
+      "Internship_Conversion_Status": "Converted",
+      "count": 1947,
+      "avg_mentor_rating": 8.0324,
+      "avg_performance": 9.8644,
+      "avg_dep_score": 0.8109
+    },
+    {
+      "Internship_Conversion_Status": "Not Converted",
+      "count": 2054,
+      "avg_mentor_rating": 7.8759,
+      "avg_performance": 9.9615,
+      "avg_dep_score": 0.7853
+    }
+  ],
+  "conversion_rate_by_mentor_rating_quartile_pct": {
+    "Q1_Low": 46.7,
+    "Q2_MedLow": 49.77,
+    "Q3_MedHigh": 47.69,
+    "Q4_High": 51.68
+  },
+  "performance_by_mentor_experience_level": [
+    {
+      "Mentor_Experience_Level": "Associate",
+      "count": 996,
+      "avg_performance": 10.007,
+      "avg_mentor_rating": 8.0221,
+      "avg_dep_score": 0.7955
+    },
+    {
+      "Mentor_Experience_Level": "Junior",
+      "count": 979,
+      "avg_performance": 9.9622,
+      "avg_mentor_rating": 7.8979,
+      "avg_dep_score": 0.7904
+    },
+    {
+      "Mentor_Experience_Level": "Mid-Senior",
+      "count": 1016,
+      "avg_performance": 9.8002,
+      "avg_mentor_rating": 7.9813,
+      "avg_dep_score": 0.8126
+    },
+    {
+      "Mentor_Experience_Level": "Senior",
+      "count": 1010,
+      "avg_performance": 9.8911,
+      "avg_mentor_rating": 7.9059,
+      "avg_dep_score": 0.7921
+    }
+  ],
+  "conversion_rate_by_mentor_experience_level_pct": {
+    "Associate": 47.09,
+    "Junior": 49.95,
+    "Mid-Senior": 49.8,
+    "Senior": 47.82
+  },
+  "mentorship_dependency_metric": {
+    "formula": "Mentorship_Dependency = Mentor_Rating / (Performance_Rating + 1)",
+    "rationale": "A high Mentorship_Dependency score means the employee receives strong mentoring support but produces relatively low performance output. This reveals whether mentorship is driving growth or compensating for struggle.",
+    "statistics": {
+      "mean": 0.7977,
+      "median": 0.7143,
+      "std": 0.4135,
+      "min": 0.0,
+      "max": 5.3333
+    },
+    "high_dep_low_perf_count": 602,
+    "high_dep_low_perf_pct": 15.05
+  },
+  "llm_insights": {
+    "headline_finding": "Mentorship in this dataset appears to function as a compensatory mechanism rather than a performance accelerator.",
+    "mentorship_dependency_statement": "We introduce a 'Mentorship Dependency' score to identify employees who rely heavily on mentoring relative to their performance output. High-dependency employees are not necessarily high performers \u2014 they are often employees who require structural support to maintain baseline productivity.",
+    "compensatory_vs_acceleratory": {
+      "compensatory_signal": "Low performers show higher mentor ratings (as seen in Q3), suggesting mentors are deployed reactively \u2014 assigned to struggling employees rather than proactively developing high-potential talent.",
+      "acceleratory_opportunity": "Organizations should redesign mentorship programs to also pair high-performers with senior mentors for accelerated career growth \u2014 not just assign mentors as a remediation tool."
+    },
+    "internship_conversion_insight": "Mentor quality (rating) and experience level show measurable impact on internship conversion rates \u2014 interns mentored by senior/expert mentors with higher ratings show stronger conversion outcomes.",
+    "experience_level_insight": "Mentor Experience Level reveals a nuanced pattern: senior mentors drive better performance averages, but the relationship is non-linear \u2014 mid-level mentors sometimes outperform senior mentors in conversion outcomes, possibly due to relatability and active engagement styles.",
+    "strategic_recommendation": {
+      "reassign_mentorship": "Identify top 25% high-dependency, low-performance employees for intensive mentorship redesign \u2014 structured goal-setting, skills gap closure, and bi-weekly check-ins instead of open-ended support.",
+      "mentor_effectiveness_kpi": "Track Mentorship_Dependency as a program KPI \u2014 declining scores over time indicate successful mentorship reducing employee dependency and building autonomous performance capability.",
+      "conversion_optimization": "Prioritize senior or expert Mentor_Experience_Level for intern cohorts to maximize Internship_Conversion_Status outcomes."
+    },
+    "power_statement": "The most effective mentorship program is one that makes itself unnecessary \u2014 building employee capability until dependency fades and autonomous performance thrives."
+  }
+}

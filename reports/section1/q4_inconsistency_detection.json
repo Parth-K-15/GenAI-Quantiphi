@@ -1,0 +1,168 @@
+{
+  "question": "Q4 - Skill-Performance Inconsistency Detection",
+  "skill_threshold_75pct": 8.667,
+  "segment_counts": {
+    "high_skill_failed_anomaly_A": 346,
+    "low_skill_successful_anomaly_B": 949,
+    "high_skill_successful_expected": 338,
+    "total": 4001
+  },
+  "anomaly_A_pct_of_high_skill": 50.6,
+  "anomaly_A_numeric_means": {
+    "Performance_Rating": 9.861,
+    "Employee_Engagement_Score": 79.584,
+    "Employee_Job_Satisfaction_Score": 7.884,
+    "Overtime_Hours_Per_Week": 7.246,
+    "Conflict_Resolution_Cases": 2.503,
+    "Mentor_Rating": 7.829,
+    "Work_Hours_Per_Week": 39.841,
+    "Employee_Work_Life_Balance_Rating": 7.858,
+    "Training_Efficiency": 0.196,
+    "Engagement_Index": 25.358
+  },
+  "expected_numeric_means": {
+    "Performance_Rating": 10.03,
+    "Employee_Engagement_Score": 79.896,
+    "Employee_Job_Satisfaction_Score": 7.817,
+    "Overtime_Hours_Per_Week": 7.172,
+    "Conflict_Resolution_Cases": 2.5,
+    "Mentor_Rating": 7.858,
+    "Work_Hours_Per_Week": 40.036,
+    "Employee_Work_Life_Balance_Rating": 7.964,
+    "Training_Efficiency": 0.199,
+    "Engagement_Index": 25.433
+  },
+  "anomaly_A_categorical": {
+    "Department": {
+      "Sales": 22.8,
+      "Hr": 21.099999999999998,
+      "It": 19.7,
+      "Marketing": 19.1
+    },
+    "Job_Title": {
+      "Developer": 27.700000000000003,
+      "Manager": 26.6,
+      "Analyst": 23.1,
+      "Consultant": 22.5
+    },
+    "Project_Role": {
+      "Analyst": 36.4,
+      "Developer": 32.7,
+      "Manager": 30.9
+    },
+    "Project_Complexity": {
+      "Simple": 39.0,
+      "Complex": 31.5,
+      "Moderate": 29.5
+    },
+    "Project_Size": {
+      "Large": 37.6,
+      "Medium": 33.2,
+      "Small": 29.2
+    },
+    "Training_Program": {
+      "Unknown": 34.4,
+      "Advanced": 34.1,
+      "Basic": 31.5
+    },
+    "Leadership_Potential": {
+      "Low": 35.0,
+      "High": 34.4,
+      "Medium": 30.599999999999998
+    },
+    "Employee_Resignation_Status": {
+      "Yes": 52.6,
+      "No": 47.4
+    },
+    "Career_Goals_Achievement_Status": {
+      "In Progress": 37.9,
+      "Achieved": 31.8,
+      "Not Started": 30.3
+    }
+  },
+  "expected_categorical": {
+    "Department": {
+      "Hr": 23.7,
+      "Marketing": 21.9,
+      "Finance": 21.0,
+      "Sales": 16.900000000000002
+    },
+    "Job_Title": {
+      "Analyst": 26.0,
+      "Developer": 26.0,
+      "Manager": 24.9,
+      "Consultant": 23.1
+    },
+    "Project_Role": {
+      "Manager": 41.4,
+      "Developer": 30.2,
+      "Analyst": 28.4
+    },
+    "Project_Complexity": {
+      "Simple": 40.2,
+      "Moderate": 33.4,
+      "Complex": 26.3
+    },
+    "Project_Size": {
+      "Small": 35.199999999999996,
+      "Medium": 34.9,
+      "Large": 29.9
+    },
+    "Training_Program": {
+      "Unknown": 37.6,
+      "Advanced": 34.9,
+      "Basic": 27.500000000000004
+    },
+    "Leadership_Potential": {
+      "High": 35.5,
+      "Low": 32.5,
+      "Medium": 32.0
+    },
+    "Employee_Resignation_Status": {
+      "Yes": 50.0,
+      "No": 50.0
+    },
+    "Career_Goals_Achievement_Status": {
+      "Not Started": 38.800000000000004,
+      "In Progress": 35.199999999999996,
+      "Achieved": 26.0
+    }
+  },
+  "anomaly_B_counts": {
+    "department": {
+      "Marketing": 207,
+      "Hr": 200,
+      "Finance": 198,
+      "It": 184
+    },
+    "job_title": {
+      "Manager": 268,
+      "Consultant": 238,
+      "Developer": 231,
+      "Analyst": 212
+    }
+  },
+  "llm_reasoning": {
+    "anomaly_A_headline": "346 employees (8.6%) show high skills yet are associated with failed projects \u2014 a critical inconsistency.",
+    "anomaly_B_headline": "949 employees with below-average skills achieved project success, reinforcing that teamwork, context and luck play significant roles.",
+    "reasons_for_anomaly_A": [
+      "Lower engagement despite high skills \u2014 disengaged employees underperform in execution.",
+      "More conflict cases \u2014 team friction may derail otherwise skilled employees.",
+      "Higher overtime \u2014 burnout risk may reduce effective contribution despite high skill.",
+      "Poorer work-life balance \u2014 organizational stress dampens skilled output.",
+      "Lower training efficiency \u2014 skills exist but are not being applied effectively.",
+      "Project complexity mismatch \u2014 highly skilled employees placed on overly complex projects without adequate support.",
+      "Leadership or team dynamics issues \u2014 individual skill does not guarantee team-level project success.",
+      "Skills may be domain-specific and not aligned to the project type assigned.",
+      "External/organizational factors (deadlines, resources) \u2014 not captured by skill ratings alone."
+    ],
+    "key_insight": "Skill ratings are necessary but not sufficient for project success. Engagement, work conditions, team dynamics and project-role alignment are critical mediating factors.",
+    "business_implication": "Organizations should not rely solely on skill assessments for project staffing. Engagement, WLB, role-project alignment and team composition must be evaluated together.",
+    "project_complexity_note": "Project complexity is mixed in failure cases (Simple ~39%, Complex ~31.5%), suggesting failure is not purely due to complexity but also organizational and execution factors \u2014 even simple projects fail when engagement and alignment are poor."
+  },
+  "outcome_distribution": {
+    "In Progress": 1386,
+    "Failed": 1328,
+    "Successful": 1287
+  }
+}

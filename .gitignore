@@ -38,9 +38,9 @@ dist/
 !.env.example
 
 # Project-generated artifacts
-data/processed/
-reports/**/*.json
-reports/**/*.csv
+# data/processed/
+# reports/**/*.json
+# reports/**/*.csv
 
 
 PS.txt

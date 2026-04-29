@@ -1,0 +1,311 @@
+{
+  "pipeline": "Employee Data Preprocessing",
+  "timestamp": "2026-04-27T19:55:24.694095",
+  "steps": [
+    {
+      "step": "0. Load Raw Data",
+      "details": {
+        "file": "E:\\Projects\\GenAI-Quantiphi\\data\\raw\\employee_data.csv",
+        "rows": 4001,
+        "columns": 109,
+        "memory_usage_MB": 12.33
+      }
+    },
+    {
+      "step": "1. Data Quality Inspection",
+      "details": {
+        "duplicate_rows": 0,
+        "unnamed_columns": [
+          "Unnamed: 105",
+          "Unnamed: 106",
+          "Unnamed: 107",
+          "Unnamed: 108"
+        ],
+        "columns_with_missing": 12,
+        "missing_details": {
+          "Training_Program": 1319,
+          "Mentor_ID": 2,
+          "Certifications": 796,
+          "Internship_Supervisor_ID": 2,
+          "Employee_Award_Recognition": 1325,
+          "Employee_Stock_Options": 2009,
+          "Employee_Leadership_Training": 2050,
+          "Employee_Stakeholder_Management_Skills": 7,
+          "Unnamed: 105": 4001,
+          "Unnamed: 106": 3999,
+          "Unnamed: 107": 3992,
+          "Unnamed: 108": 3999
+        },
+        "date_columns": [
+          "Hire_Date",
+          "Onboarding_Date",
+          "First_Project_Start_Date",
+          "Offer_Acceptance_Date"
+        ],
+        "mixed_type_columns": []
+      }
+    },
+    {
+      "step": "2. Remove Duplicate Rows",
+      "details": {
+        "rows_before": 4001,
+        "rows_after": 4001,
+        "duplicates_removed": 0
+      }
+    },
+    {
+      "step": "3. Drop Garbage Columns",
+      "details": {
+        "columns_before": 109,
+        "columns_after": 105,
+        "dropped_columns": [
+          "Unnamed: 105",
+          "Unnamed: 106",
+          "Unnamed: 107",
+          "Unnamed: 108"
+        ]
+      }
+    },
+    {
+      "step": "4. Fix Date Columns",
+      "details": {
+        "Hire_Date": {
+          "before_dtype": "object",
+          "after_dtype": "datetime64[ns]",
+          "invalid_dates": 0
+        },
+        "Onboarding_Date": {
+          "before_dtype": "object",
+          "after_dtype": "datetime64[ns]",
+          "invalid_dates": 0
+        },
+        "First_Project_Start_Date": {
+          "before_dtype": "object",
+          "after_dtype": "datetime64[ns]",
+          "invalid_dates": 0
+        },
+        "Offer_Acceptance_Date": {
+          "before_dtype": "object",
+          "after_dtype": "datetime64[ns]",
+          "invalid_dates": 0
+        },
+        "Future_Date": {
+          "before_dtype": "int64",
+          "after_dtype": "datetime64[ns]",
+          "note": "Converted from Excel serial date (origin=1899-12-30)",
+          "sample_values": [
+            "2118-11-30",
+            "2118-11-30",
+            "2119-04-26"
+          ]
+        }
+      }
+    },
+    {
+      "step": "5. Handle Missing Values",
+      "details": {
+        "total_missing_before": 7510,
+        "total_missing_after": 0,
+        "columns_imputed": 8,
+        "imputation_details": {
+          "Employee_Stakeholder_Management_Skills": {
+            "type": "numeric",
+            "strategy": "median",
+            "fill_value": 8.0,
+            "missing_count": 7
+          },
+          "Training_Program": {
+            "type": "categorical",
+            "strategy": "fill_unknown",
+            "fill_value": "Unknown",
+            "missing_count": 1319,
+            "pct_missing": 32.97
+          },
+          "Mentor_ID": {
+            "type": "categorical",
+            "strategy": "mode",
+            "fill_value": "2024/HR/0060",
+            "missing_count": 2,
+            "pct_missing": 0.05
+          },
+          "Certifications": {
+            "type": "categorical",
+            "strategy": "fill_unknown",
+            "fill_value": "Unknown",
+            "missing_count": 796,
+            "pct_missing": 19.9
+          },
+          "Internship_Supervisor_ID": {
+            "type": "categorical",
+            "strategy": "mode",
+            "fill_value": "2024/Sales/0098",
+            "missing_count": 2,
+            "pct_missing": 0.05
+          },
+          "Employee_Award_Recognition": {
+            "type": "categorical",
+            "strategy": "fill_unknown",
+            "fill_value": "Unknown",
+            "missing_count": 1325,
+            "pct_missing": 33.12
+          },
+          "Employee_Stock_Options": {
+            "type": "categorical",
+            "strategy": "fill_unknown",
+            "fill_value": "Unknown",
+            "missing_count": 2009,
+            "pct_missing": 50.21
+          },
+          "Employee_Leadership_Training": {
+            "type": "categorical",
+            "strategy": "fill_unknown",
+            "fill_value": "Unknown",
+            "missing_count": 2050,
+            "pct_missing": 51.24
+          }
+        }
+      }
+    },
+    {
+      "step": "6. Standardize Categories",
+      "details": {
+        "columns_processed": 24,
+        "columns_with_changes": 0,
+        "details": {}
+      }
+    },
+    {
+      "step": "7. Fix Mixed Data Types",
+      "details": {
+        "columns_fixed": 0,
+        "details": {}
+      }
+    },
+    {
+      "step": "8. Feature Engineering",
+      "details": {
+        "new_features_created": 7,
+        "details": {
+          "Onboarding_Delay_Days": {
+            "formula": "Onboarding_Date - Hire_Date",
+            "valid_values": 4001,
+            "mean": 89.96,
+            "median": 89.0,
+            "min": 0,
+            "max": 180
+          },
+          "Project_Start_Delay_Days": {
+            "formula": "First_Project_Start_Date - Onboarding_Date",
+            "valid_values": 4001,
+            "mean": 61.03,
+            "median": 61.0,
+            "min": 30,
+            "max": 1605
+          },
+          "Tenure_Years": {
+            "formula": "(Today - Hire_Date) / 365.25",
+            "mean": 4.7,
+            "median": 4.7,
+            "min": 1.7,
+            "max": 7.7
+          },
+          "Total_Skills_Score": {
+            "formula": "Sum of ['Technical_Skills_Rating', 'Communication_Skills_Rating', 'Problem_Solving_Skills_Rating', 'Teamwork_Skills_Rating', 'Leadership_Qualities_Rating']",
+            "mean": 39.84,
+            "median": 39.0
+          },
+          "Avg_Skills_Score": {
+            "formula": "Mean of ['Technical_Skills_Rating', 'Communication_Skills_Rating', 'Problem_Solving_Skills_Rating', 'Teamwork_Skills_Rating', 'Leadership_Qualities_Rating']",
+            "mean": 7.97,
+            "median": 7.8
+          },
+          "Total_Soft_Skills_Score": {
+            "formula": "Sum of ['Initiative_Rating', 'Adaptability_Rating', 'Creativity_Rating', 'Strategic_Thinking_Rating']",
+            "mean": 32.1
+          },
+          "Performance_Category": {
+            "formula": "Binned Performance_Rating: 0-5=Low, 6-10=Medium, 11-15=High, 16-20=Exceptional",
+            "distribution": {
+              "Medium": 2125,
+              "High": 1443,
+              "Low": 270,
+              "Exceptional": 160
+            }
+          }
+        }
+      }
+    },
+    {
+      "step": "9. Final Validation",
+      "details": {
+        "final_rows": 4001,
+        "final_columns": 114,
+        "remaining_missing_values": 0,
+        "data_types": {
+          "int64": 60,
+          "object": 45,
+          "datetime64[ns]": 5,
+          "float64": 4
+        },
+        "memory_usage_MB": 11.87,
+        "performance_rating_stats": {
+          "mean": 9.91,
+          "median": 10.0,
+          "std": 3.09,
+          "min": 1,
+          "max": 25,
+          "distribution": {
+            "1": 1,
+            "2": 6,
+            "3": 33,
+            "4": 59,
+            "5": 171,
+            "6": 248,
+            "7": 371,
+            "8": 478,
+            "9": 513,
+            "10": 515,
+            "11": 439,
+            "12": 385,
+            "13": 269,
+            "14": 196,
+            "15": 154,
+            "16": 75,
+            "17": 45,
+            "18": 14,
+            "19": 18,
+            "20": 8,
+            "22": 1,
+            "23": 1,
+            "25": 1
+          }
+        },
+        "department_distribution": {
+          "Hr": 854,
+          "Marketing": 812,
+          "Finance": 798,
+          "It": 783,
+          "Sales": 754
+        },
+        "resignation_status": {
+          "Yes": 2001,
+          "No": 2000
+        }
+      }
+    }
+  ],
+  "summary": {
+    "initial_shape": [
+      4001,
+      109
+    ],
+    "final_shape": [
+      4001,
+      114
+    ],
+    "rows_removed": 0,
+    "columns_removed": -5,
+    "new_features_added": 7,
+    "total_missing_resolved": 7510
+  }
+}

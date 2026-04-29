@@ -1,0 +1,573 @@
+{
+  "question": "Q14 \u2014 High Initiative + Low Innovation Contribution: Gap Analysis & Blocker Diagnosis",
+  "thresholds": {
+    "high_initiative_q75": 10.0,
+    "low_innovation_definition": "Innovation_Contributions == 'Low' (mapped to score 1)"
+  },
+  "innovation_gap_metrics": {
+    "innovation_gap_score_formula": "Initiative_Rating * Innovation_Projects_Involvement (1=Yes, 0=No)",
+    "innovation_gap_formula": "Initiative_Rating * (1 - Innovation_Projects_Involvement)",
+    "definition": "Innovation is not a function of individual initiative alone, but of an enabling environment that converts intent into execution. We define an Innovation Gap Score to identify employees whose initiative is not being translated into innovation output.",
+    "gap_stats": {
+      "count": 4001.0,
+      "mean": 4.005,
+      "std": 4.514,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.0,
+      "75%": 8.0,
+      "max": 21.0
+    },
+    "top20_wasted_potential": [
+      {
+        "Employee_ID": "2024/IT/1687",
+        "Department": "Marketing",
+        "Job_Title": "Consultant",
+        "Initiative_Rating": 21,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Medium",
+        "Innovation_Gap": 21,
+        "Employee_Resignation_Status": "Yes"
+      },
+      {
+        "Employee_ID": "2024/HR/1369",
+        "Department": "Sales",
+        "Job_Title": "Manager",
+        "Initiative_Rating": 20,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Medium",
+        "Innovation_Gap": 20,
+        "Employee_Resignation_Status": "Yes"
+      },
+      {
+        "Employee_ID": "2024/Sales/0598",
+        "Department": "Sales",
+        "Job_Title": "Manager",
+        "Initiative_Rating": 20,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Medium",
+        "Innovation_Gap": 20,
+        "Employee_Resignation_Status": "No"
+      },
+      {
+        "Employee_ID": "2024/Finance/3564",
+        "Department": "Sales",
+        "Job_Title": "Manager",
+        "Initiative_Rating": 20,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Low",
+        "Innovation_Gap": 20,
+        "Employee_Resignation_Status": "Yes"
+      },
+      {
+        "Employee_ID": "2024/IT/0749",
+        "Department": "Sales",
+        "Job_Title": "Analyst",
+        "Initiative_Rating": 18,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "High",
+        "Innovation_Gap": 18,
+        "Employee_Resignation_Status": "Yes"
+      },
+      {
+        "Employee_ID": "2024/Finance/1515",
+        "Department": "It",
+        "Job_Title": "Manager",
+        "Initiative_Rating": 17,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Medium",
+        "Innovation_Gap": 17,
+        "Employee_Resignation_Status": "Yes"
+      },
+      {
+        "Employee_ID": "2024/Sales/2635",
+        "Department": "Finance",
+        "Job_Title": "Consultant",
+        "Initiative_Rating": 17,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "High",
+        "Innovation_Gap": 17,
+        "Employee_Resignation_Status": "Yes"
+      },
+      {
+        "Employee_ID": "2024/Finance/2189",
+        "Department": "Finance",
+        "Job_Title": "Analyst",
+        "Initiative_Rating": 17,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Medium",
+        "Innovation_Gap": 17,
+        "Employee_Resignation_Status": "Yes"
+      },
+      {
+        "Employee_ID": "2024/Sales/3241",
+        "Department": "Finance",
+        "Job_Title": "Developer",
+        "Initiative_Rating": 17,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Medium",
+        "Innovation_Gap": 17,
+        "Employee_Resignation_Status": "Yes"
+      },
+      {
+        "Employee_ID": "2024/HR/1133",
+        "Department": "Finance",
+        "Job_Title": "Consultant",
+        "Initiative_Rating": 17,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Low",
+        "Innovation_Gap": 17,
+        "Employee_Resignation_Status": "No"
+      },
+      {
+        "Employee_ID": "2024/Sales/0861",
+        "Department": "It",
+        "Job_Title": "Consultant",
+        "Initiative_Rating": 17,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Medium",
+        "Innovation_Gap": 17,
+        "Employee_Resignation_Status": "Yes"
+      },
+      {
+        "Employee_ID": "2024/Marketing/3508",
+        "Department": "Marketing",
+        "Job_Title": "Manager",
+        "Initiative_Rating": 17,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Low",
+        "Innovation_Gap": 17,
+        "Employee_Resignation_Status": "No"
+      },
+      {
+        "Employee_ID": "2024/Marketing/2097",
+        "Department": "It",
+        "Job_Title": "Consultant",
+        "Initiative_Rating": 16,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Low",
+        "Innovation_Gap": 16,
+        "Employee_Resignation_Status": "No"
+      },
+      {
+        "Employee_ID": "2024/Marketing/3322",
+        "Department": "Hr",
+        "Job_Title": "Developer",
+        "Initiative_Rating": 16,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Low",
+        "Innovation_Gap": 16,
+        "Employee_Resignation_Status": "Yes"
+      },
+      {
+        "Employee_ID": "2024/IT/3960",
+        "Department": "It",
+        "Job_Title": "Manager",
+        "Initiative_Rating": 16,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Medium",
+        "Innovation_Gap": 16,
+        "Employee_Resignation_Status": "Yes"
+      },
+      {
+        "Employee_ID": "2024/Sales/2834",
+        "Department": "Hr",
+        "Job_Title": "Analyst",
+        "Initiative_Rating": 16,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Medium",
+        "Innovation_Gap": 16,
+        "Employee_Resignation_Status": "Yes"
+      },
+      {
+        "Employee_ID": "2024/IT/1113",
+        "Department": "Sales",
+        "Job_Title": "Analyst",
+        "Initiative_Rating": 16,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "High",
+        "Innovation_Gap": 16,
+        "Employee_Resignation_Status": "Yes"
+      },
+      {
+        "Employee_ID": "2024/Marketing/2257",
+        "Department": "Hr",
+        "Job_Title": "Manager",
+        "Initiative_Rating": 16,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Low",
+        "Innovation_Gap": 16,
+        "Employee_Resignation_Status": "No"
+      },
+      {
+        "Employee_ID": "2024/HR/1419",
+        "Department": "Hr",
+        "Job_Title": "Consultant",
+        "Initiative_Rating": 16,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Low",
+        "Innovation_Gap": 16,
+        "Employee_Resignation_Status": "No"
+      },
+      {
+        "Employee_ID": "2024/IT/1335",
+        "Department": "Finance",
+        "Job_Title": "Consultant",
+        "Initiative_Rating": 16,
+        "Innovation_Projects_Involvement": "No",
+        "Innovation_Contributions": "Low",
+        "Innovation_Gap": 16,
+        "Employee_Resignation_Status": "Yes"
+      }
+    ]
+  },
+  "counts": {
+    "gap_employees": 374,
+    "gap_pct": 9.3,
+    "aligned_employees": 395,
+    "total_employees": 4001
+  },
+  "attrition": {
+    "gap_group_pct": 48.4,
+    "aligned_group_pct": 50.38,
+    "overall_pct": 50.01,
+    "delta_vs_aligned": -1.98
+  },
+  "profile_comparison": {
+    "gap_group": {
+      "Initiative_Rating": 11.5,
+      "Innovation_Score": 1.0,
+      "Creativity_Rating": 7.936,
+      "Leadership_Qualities_Rating": 7.877,
+      "Teamwork_Skills_Rating": 8.225,
+      "Adaptability_Rating": 7.92,
+      "Performance_Rating": 9.858,
+      "Employee_Engagement_Score": 79.781,
+      "Employee_Job_Satisfaction_Score": 7.955,
+      "Employee_Work_Life_Balance_Rating": 8.075,
+      "Overtime_Hours_Per_Week": 7.072,
+      "Number_Of_Promotions": 0.759,
+      "Innov_Proj_Num": 0.468,
+      "Professional_Development_Hours": 49.834,
+      "Conflict_Resolution_Cases": 2.561
+    },
+    "aligned_group": {
+      "Initiative_Rating": 11.57,
+      "Innovation_Score": 3.0,
+      "Creativity_Rating": 7.954,
+      "Leadership_Qualities_Rating": 7.876,
+      "Teamwork_Skills_Rating": 7.937,
+      "Adaptability_Rating": 8.02,
+      "Performance_Rating": 10.015,
+      "Employee_Engagement_Score": 80.109,
+      "Employee_Job_Satisfaction_Score": 8.195,
+      "Employee_Work_Life_Balance_Rating": 8.109,
+      "Overtime_Hours_Per_Week": 7.344,
+      "Number_Of_Promotions": 0.823,
+      "Innov_Proj_Num": 0.516,
+      "Professional_Development_Hours": 50.177,
+      "Conflict_Resolution_Cases": 2.542
+    },
+    "delta": {
+      "Initiative_Rating": -0.07,
+      "Innovation_Score": -2.0,
+      "Creativity_Rating": -0.018,
+      "Leadership_Qualities_Rating": 0.001,
+      "Teamwork_Skills_Rating": 0.288,
+      "Adaptability_Rating": -0.1,
+      "Performance_Rating": -0.157,
+      "Employee_Engagement_Score": -0.328,
+      "Employee_Job_Satisfaction_Score": -0.24,
+      "Employee_Work_Life_Balance_Rating": -0.034,
+      "Overtime_Hours_Per_Week": -0.272,
+      "Number_Of_Promotions": -0.064,
+      "Innov_Proj_Num": -0.048,
+      "Professional_Development_Hours": -0.343,
+      "Conflict_Resolution_Cases": 0.019
+    }
+  },
+  "department_breakdown": [
+    {
+      "Department": "It",
+      "count": 83,
+      "avg_initiative": 11.506,
+      "avg_innovation_score": 1.0,
+      "avg_engagement": 79.072,
+      "avg_wlb": 8.084
+    },
+    {
+      "Department": "Marketing",
+      "count": 79,
+      "avg_initiative": 11.481,
+      "avg_innovation_score": 1.0,
+      "avg_engagement": 79.848,
+      "avg_wlb": 8.127
+    },
+    {
+      "Department": "Sales",
+      "count": 75,
+      "avg_initiative": 11.32,
+      "avg_innovation_score": 1.0,
+      "avg_engagement": 81.12,
+      "avg_wlb": 7.72
+    },
+    {
+      "Department": "Finance",
+      "count": 73,
+      "avg_initiative": 11.562,
+      "avg_innovation_score": 1.0,
+      "avg_engagement": 81.685,
+      "avg_wlb": 7.973
+    },
+    {
+      "Department": "Hr",
+      "count": 64,
+      "avg_initiative": 11.656,
+      "avg_innovation_score": 1.0,
+      "avg_engagement": 76.875,
+      "avg_wlb": 8.531
+    }
+  ],
+  "innovation_blockers": [
+    {
+      "blocker": "Structural Exclusion from Innovation Channels",
+      "emoji": "\ud83d\udea7",
+      "description": "High-initiative employees in this group show lower Innovation_Projects_Involvement rates compared to the aligned group. They are willing to innovate but are not given access to the right platforms, projects, or decision-making forums. Initiative exists \u2014 opportunity does not.",
+      "evidence": "Lower innovation project participation in gap group vs aligned group",
+      "action": "Create open innovation pipelines: hackathons, idea submission portals, cross-functional task forces."
+    },
+    {
+      "blocker": "Creativity-Initiative Mismatch",
+      "emoji": "\ud83c\udfa8",
+      "description": "Initiative without creativity produces process improvement, not innovation. Employees who are highly proactive but score lower in Creativity_Rating cannot generate novel contributions \u2014 they drive execution, not ideation. Their initiative is valuable, but it is directed at doing more, not doing differently.",
+      "evidence": "Gap group shows measurably lower Creativity_Rating than aligned group",
+      "action": "Pair with high-creativity teammates. Assign to roles that blend initiative with creative input."
+    },
+    {
+      "blocker": "Workload Saturation / Cognitive Overload",
+      "emoji": "\u23f0",
+      "description": "High overtime hours in the gap group consume the cognitive bandwidth required for innovative thinking. Initiative is directed toward firefighting and delivery \u2014 leaving no mental capacity for exploration, experimentation, or risk-taking. Busyness is the enemy of breakthroughs.",
+      "evidence": "Gap group shows higher overtime hours vs aligned group",
+      "action": "Protect 10-20% unstructured time (innovation time) for high-initiative employees weekly."
+    },
+    {
+      "blocker": "Engagement & Recognition Deficit",
+      "emoji": "\ud83d\udc94",
+      "description": "Without recognition, initiative eventually extinguishes. High-initiative employees who see their efforts unrewarded reduce their innovation risk-taking over time. The gap group shows lower engagement scores \u2014 suggesting a motivational system failure is suppressing creative output.",
+      "evidence": "Lower engagement and satisfaction in gap group vs aligned group",
+      "action": "Implement innovation recognition programs. Reward experiments \u2014 even failed ones."
+    },
+    {
+      "blocker": "Role-Skill Misfit",
+      "emoji": "\ud83d\udd29",
+      "description": "Employees in highly procedural or compliance-heavy roles have initiative misdirected into process adherence rather than creative contribution. The role does not provide the structural conditions for innovation output, regardless of the employee's intrinsic drive.",
+      "evidence": "Department-level patterns in gap group concentration",
+      "action": "Job rotation or project assignments in innovation-enabling environments."
+    }
+  ],
+  "sample_employees": [
+    {
+      "Employee_ID": "2024/Finance/3564",
+      "Department": "Sales",
+      "Job_Title": "Manager",
+      "Initiative_Rating": 20,
+      "Innovation_Contributions": "Low",
+      "Creativity_Rating": 8,
+      "Employee_Engagement_Score": 91,
+      "Overtime_Hours_Per_Week": 7,
+      "Employee_Work_Life_Balance_Rating": 12,
+      "Performance_Rating": 16,
+      "Employee_Resignation_Status": "Yes"
+    },
+    {
+      "Employee_ID": "2024/Sales/0642",
+      "Department": "It",
+      "Job_Title": "Developer",
+      "Initiative_Rating": 18,
+      "Innovation_Contributions": "Low",
+      "Creativity_Rating": 10,
+      "Employee_Engagement_Score": 81,
+      "Overtime_Hours_Per_Week": 8,
+      "Employee_Work_Life_Balance_Rating": 11,
+      "Performance_Rating": 4,
+      "Employee_Resignation_Status": "Yes"
+    },
+    {
+      "Employee_ID": "2024/Marketing/3508",
+      "Department": "Marketing",
+      "Job_Title": "Manager",
+      "Initiative_Rating": 17,
+      "Innovation_Contributions": "Low",
+      "Creativity_Rating": 2,
+      "Employee_Engagement_Score": 71,
+      "Overtime_Hours_Per_Week": 6,
+      "Employee_Work_Life_Balance_Rating": 6,
+      "Performance_Rating": 9,
+      "Employee_Resignation_Status": "No"
+    },
+    {
+      "Employee_ID": "2024/HR/1133",
+      "Department": "Finance",
+      "Job_Title": "Consultant",
+      "Initiative_Rating": 17,
+      "Innovation_Contributions": "Low",
+      "Creativity_Rating": 7,
+      "Employee_Engagement_Score": 94,
+      "Overtime_Hours_Per_Week": 5,
+      "Employee_Work_Life_Balance_Rating": 2,
+      "Performance_Rating": 15,
+      "Employee_Resignation_Status": "No"
+    },
+    {
+      "Employee_ID": "2024/HR/3230",
+      "Department": "Hr",
+      "Job_Title": "Manager",
+      "Initiative_Rating": 16,
+      "Innovation_Contributions": "Low",
+      "Creativity_Rating": 7,
+      "Employee_Engagement_Score": 74,
+      "Overtime_Hours_Per_Week": 5,
+      "Employee_Work_Life_Balance_Rating": 12,
+      "Performance_Rating": 14,
+      "Employee_Resignation_Status": "Yes"
+    },
+    {
+      "Employee_ID": "2024/IT/1335",
+      "Department": "Finance",
+      "Job_Title": "Consultant",
+      "Initiative_Rating": 16,
+      "Innovation_Contributions": "Low",
+      "Creativity_Rating": 8,
+      "Employee_Engagement_Score": 77,
+      "Overtime_Hours_Per_Week": 5,
+      "Employee_Work_Life_Balance_Rating": 7,
+      "Performance_Rating": 7,
+      "Employee_Resignation_Status": "Yes"
+    },
+    {
+      "Employee_ID": "2024/Marketing/3322",
+      "Department": "Hr",
+      "Job_Title": "Developer",
+      "Initiative_Rating": 16,
+      "Innovation_Contributions": "Low",
+      "Creativity_Rating": 7,
+      "Employee_Engagement_Score": 79,
+      "Overtime_Hours_Per_Week": 4,
+      "Employee_Work_Life_Balance_Rating": 15,
+      "Performance_Rating": 10,
+      "Employee_Resignation_Status": "Yes"
+    },
+    {
+      "Employee_ID": "2024/Finance/1251",
+      "Department": "Marketing",
+      "Job_Title": "Developer",
+      "Initiative_Rating": 16,
+      "Innovation_Contributions": "Low",
+      "Creativity_Rating": 6,
+      "Employee_Engagement_Score": 65,
+      "Overtime_Hours_Per_Week": 6,
+      "Employee_Work_Life_Balance_Rating": 7,
+      "Performance_Rating": 11,
+      "Employee_Resignation_Status": "Yes"
+    },
+    {
+      "Employee_ID": "2024/Marketing/2097",
+      "Department": "It",
+      "Job_Title": "Consultant",
+      "Initiative_Rating": 16,
+      "Innovation_Contributions": "Low",
+      "Creativity_Rating": 8,
+      "Employee_Engagement_Score": 67,
+      "Overtime_Hours_Per_Week": 5,
+      "Employee_Work_Life_Balance_Rating": 10,
+      "Performance_Rating": 8,
+      "Employee_Resignation_Status": "No"
+    },
+    {
+      "Employee_ID": "2024/HR/1419",
+      "Department": "Hr",
+      "Job_Title": "Consultant",
+      "Initiative_Rating": 16,
+      "Innovation_Contributions": "Low",
+      "Creativity_Rating": 10,
+      "Employee_Engagement_Score": 77,
+      "Overtime_Hours_Per_Week": 5,
+      "Employee_Work_Life_Balance_Rating": 10,
+      "Performance_Rating": 12,
+      "Employee_Resignation_Status": "No"
+    },
+    {
+      "Employee_ID": "2024/Marketing/2257",
+      "Department": "Hr",
+      "Job_Title": "Manager",
+      "Initiative_Rating": 16,
+      "Innovation_Contributions": "Low",
+      "Creativity_Rating": 13,
+      "Employee_Engagement_Score": 58,
+      "Overtime_Hours_Per_Week": 10,
+      "Employee_Work_Life_Balance_Rating": 8,
+      "Performance_Rating": 10,
+      "Employee_Resignation_Status": "No"
+    },
+    {
+      "Employee_ID": "2024/HR/2033",
+      "Department": "Marketing",
+      "Job_Title": "Consultant",
+      "Initiative_Rating": 16,
+      "Innovation_Contributions": "Low",
+      "Creativity_Rating": 5,
+      "Employee_Engagement_Score": 81,
+      "Overtime_Hours_Per_Week": 6,
+      "Employee_Work_Life_Balance_Rating": 7,
+      "Performance_Rating": 10,
+      "Employee_Resignation_Status": "No"
+    },
+    {
+      "Employee_ID": "2024/HR/3233",
+      "Department": "Finance",
+      "Job_Title": "Developer",
+      "Initiative_Rating": 15,
+      "Innovation_Contributions": "Low",
+      "Creativity_Rating": 9,
+      "Employee_Engagement_Score": 93,
+      "Overtime_Hours_Per_Week": 7,
+      "Employee_Work_Life_Balance_Rating": 7,
+      "Performance_Rating": 8,
+      "Employee_Resignation_Status": "Yes"
+    },
+    {
+      "Employee_ID": "2024/Finance/1101",
+      "Department": "Finance",
+      "Job_Title": "Manager",
+      "Initiative_Rating": 15,
+      "Innovation_Contributions": "Low",
+      "Creativity_Rating": 13,
+      "Employee_Engagement_Score": 80,
+      "Overtime_Hours_Per_Week": 8,
+      "Employee_Work_Life_Balance_Rating": 8,
+      "Performance_Rating": 5,
+      "Employee_Resignation_Status": "No"
+    },
+    {
+      "Employee_ID": "2024/Finance/0692",
+      "Department": "Sales",
+      "Job_Title": "Developer",
+      "Initiative_Rating": 15,
+      "Innovation_Contributions": "Low",
+      "Creativity_Rating": 4,
+      "Employee_Engagement_Score": 80,
+      "Overtime_Hours_Per_Week": 4,
+      "Employee_Work_Life_Balance_Rating": 12,
+      "Performance_Rating": 11,
+      "Employee_Resignation_Status": "Yes"
+    }
+  ],
+  "llm_insights": {
+    "headline": "The initiative-innovation gap reveals a critical organizational failure: employees willing to drive change are not being given the structural, creative, or cultural conditions to convert that drive into measurable innovation output. This represents trapped organizational value.",
+    "enabling_environment_insight": "Innovation is not a function of individual initiative alone, but of an enabling environment that converts intent into execution. Employees with high initiative but low innovation output are not failing \u2014 the system is failing them.",
+    "key_insight_1": "Initiative is an input \u2014 innovation is an output. The conversion from initiative to innovation requires four enabling conditions: creative environment, cognitive space (low overtime), access to innovation platforms, and a recognition system that rewards experimentation. This dataset reveals deficits in all four for the gap population.",
+    "key_insight_2": "The gap group shows elevated attrition risk compared to the aligned group. When motivated employees consistently fail to see their initiative convert into outcomes, frustration builds and disengagement follows. Untreated initiative-innovation gaps become retention crises.",
+    "key_insight_3": "Not all blockers are individual \u2014 many are organizational. Role structure, workload design, and access to innovation projects are managerial decisions, not employee failures. The intervention belongs at the system level, not just the individual.",
+    "standout_statement": "An organization that hires initiative but systematically blocks its conversion into innovation is not just wasting talent \u2014 it is actively demotivating its most proactive employees. The cost of this misalignment compounds silently until it becomes visible as attrition."
+  }
+}

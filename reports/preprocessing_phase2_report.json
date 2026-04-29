@@ -1,0 +1,179 @@
+{
+  "pipeline": "Phase-2 Preprocessing",
+  "timestamp": "2026-04-27T20:17:42.743529",
+  "steps": [
+    {
+      "step": "P2-1. Target Leakage Fix",
+      "details": {
+        "columns_dropped": [
+          "Performance_Category"
+        ],
+        "reason": "Performance_Category is directly derived from Performance_Rating; keeping both causes data leakage."
+      }
+    },
+    {
+      "step": "P2-2. Unique Employee ID Audit",
+      "details": {
+        "total_rows": 4001,
+        "unique_employee_ids": 4000,
+        "ids_are_unique": false,
+        "duplicate_id_samples (up to 10)": [
+          "2024/Finance/0001"
+        ],
+        "note": "Multiple records per Employee_ID found - same employee appears in different project rows. Analysis must be grouped by Employee_ID for per-employee insights."
+      }
+    },
+    {
+      "step": "P2-3. Low/Zero Variance Columns",
+      "details": {
+        "numeric_constant_cols": [],
+        "categorical_constant_cols": [],
+        "dropped": [],
+        "columns_remaining": 113
+      }
+    },
+    {
+      "step": "P2-4. Outlier Detection & Clipping (3xIQR)",
+      "details": {
+        "columns_checked": 56,
+        "columns_with_outliers": 5,
+        "total_values_clipped": 9,
+        "details": {
+          "Performance_Rating": {
+            "outliers_found": 1,
+            "clipped_to": [
+              -4.0,
+              24.0
+            ]
+          },
+          "Annual_Salary_Increase_Percentage": {
+            "outliers_found": 3,
+            "clipped_to": [
+              -6.0,
+              15.0
+            ]
+          },
+          "Performance_Bonus_Percentage": {
+            "outliers_found": 2,
+            "clipped_to": [
+              -4.0,
+              10.0
+            ]
+          },
+          "Strategic_Thinking_Rating": {
+            "outliers_found": 1,
+            "clipped_to": [
+              -6.0,
+              22.0
+            ]
+          },
+          "Hiring_Manager_Satisfaction": {
+            "outliers_found": 2,
+            "clipped_to": [
+              -3.0,
+              11.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "step": "P2-5. Advanced Feature Engineering",
+      "details": {
+        "new_features": 6,
+        "details": {
+          "Experience_Years": "Alias of Tenure_Years",
+          "Training_Efficiency": {
+            "formula": "Performance_Rating / (Professional_Development_Hours + 1)",
+            "mean": 0.198,
+            "median": 0.1915
+          },
+          "Engagement_Index": {
+            "formula": "Mean of ['Employee_Engagement_Score', 'Employee_Job_Satisfaction_Score', 'Feedback_From_Colleagues', 'Feedback_From_Supervisors']",
+            "mean": 25.46,
+            "median": 25.5
+          },
+          "Compensation_Score": {
+            "formula": "Proxy using Bonus as primary compensation indicator",
+            "mean": 4999.74
+          },
+          "Is_High_Performer": {
+            "formula": "Performance_Rating >= 12",
+            "high_performers": 1167,
+            "pct": 29.17
+          },
+          "Attrition_Risk": {
+            "formula": "Employee_Resignation_Status == 'Yes'",
+            "at_risk_count": 2001,
+            "pct": 50.01
+          }
+        }
+      }
+    },
+    {
+      "step": "P2-6. Final Validation",
+      "details": {
+        "final_rows": 4001,
+        "final_columns": 119,
+        "remaining_missing": 0,
+        "dtypes": {
+          "int64": 63,
+          "object": 44,
+          "float64": 7,
+          "datetime64[ns]": 5
+        }
+      }
+    }
+  ],
+  "summary": {
+    "input_shape": [
+      4001,
+      120
+    ],
+    "output_shape": [
+      4001,
+      119
+    ],
+    "leakage_cols_dropped": [
+      "Performance_Category"
+    ],
+    "low_var_cols_dropped": [],
+    "outlier_cols_clipped": 5,
+    "new_features": 6,
+    "remaining_missing": 0,
+    "unique_employee_ids": 4000,
+    "total_rows": 4001,
+    "is_employee_unique": false,
+    "perf_rating_mean": 9.91,
+    "high_performer_pct": 29.17,
+    "attrition_pct": 50.01,
+    "dept_dist": {
+      "Hr": 854,
+      "Marketing": 812,
+      "Finance": 798,
+      "It": 783,
+      "Sales": 754
+    },
+    "perf_cat_dist": {
+      "Low (1-5)": 270,
+      "Medium (6-10)": 2125,
+      "High (11-15)": 1443,
+      "Exceptional (16+)": 163
+    },
+    "resignation_dist": {
+      "Yes": 2001,
+      "No": 2000
+    },
+    "project_outcome_dist": {
+      "In Progress": 1386,
+      "Failed": 1328,
+      "Successful": 1287
+    },
+    "training_efficiency_mean": 0.198,
+    "engagement_index_mean": 25.46,
+    "onboarding_delay_mean": 90.0,
+    "project_delay_mean": 61.0,
+    "tenure_mean": 4.7,
+    "avg_skills_mean": 7.97
+  }
+}
