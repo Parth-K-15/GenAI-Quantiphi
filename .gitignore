@@ -1,0 +1,46 @@
+# OS junk
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor settings
+.vscode/
+.idea/
+
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Packaging and build outputs
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs and local temp files
+*.log
+*.tmp
+*.swp
+
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+
+# Project-generated artifacts
+data/processed/
+reports/**/*.json
+reports/**/*.csv
+
+
+PS.txt
