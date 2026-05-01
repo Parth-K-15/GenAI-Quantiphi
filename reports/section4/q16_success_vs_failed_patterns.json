@@ -1,0 +1,1974 @@
+{
+  "question": "Q16 - Patterns Among Employees Involved in Successful vs Failed Projects",
+  "dataset_scope": {
+    "rows_used": 2615,
+    "outcomes_included": [
+      "Successful",
+      "Failed"
+    ]
+  },
+  "segment_sizes": {
+    "successful_projects": 1287,
+    "failed_projects": 1328,
+    "total_binary_outcome_projects": 2615
+  },
+  "overall_baseline_rates_pct": {
+    "successful_rate_pct": 49.216,
+    "failed_rate_pct": 50.784
+  },
+  "numeric_comparison": {
+    "all_features": [
+      {
+        "feature": "Performance_Rating",
+        "successful_mean": 9.8873,
+        "failed_mean": 9.869,
+        "delta_success_minus_failed": 0.0184,
+        "relative_diff_vs_failed_pct": 0.186,
+        "cohen_d": 0.0059,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.866557,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Technical_Skills_Rating",
+        "successful_mean": 7.9254,
+        "failed_mean": 8.0557,
+        "delta_success_minus_failed": -0.1303,
+        "relative_diff_vs_failed_pct": -1.618,
+        "cohen_d": -0.0446,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.305203,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Communication_Skills_Rating",
+        "successful_mean": 7.9635,
+        "failed_mean": 7.8652,
+        "delta_success_minus_failed": 0.0983,
+        "relative_diff_vs_failed_pct": 1.249,
+        "cohen_d": 0.0344,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.356262,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Problem_Solving_Skills_Rating",
+        "successful_mean": 8.0707,
+        "failed_mean": 7.9488,
+        "delta_success_minus_failed": 0.1219,
+        "relative_diff_vs_failed_pct": 1.534,
+        "cohen_d": 0.0436,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.1983,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Leadership_Qualities_Rating",
+        "successful_mean": 8.0008,
+        "failed_mean": 7.9443,
+        "delta_success_minus_failed": 0.0565,
+        "relative_diff_vs_failed_pct": 0.711,
+        "cohen_d": 0.0202,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.7436,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Initiative_Rating",
+        "successful_mean": 8.0109,
+        "failed_mean": 8.0316,
+        "delta_success_minus_failed": -0.0207,
+        "relative_diff_vs_failed_pct": -0.258,
+        "cohen_d": -0.0073,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.929929,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Adaptability_Rating",
+        "successful_mean": 7.9627,
+        "failed_mean": 8.0949,
+        "delta_success_minus_failed": -0.1322,
+        "relative_diff_vs_failed_pct": -1.633,
+        "cohen_d": -0.0474,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.210545,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Creativity_Rating",
+        "successful_mean": 7.9153,
+        "failed_mean": 8.0572,
+        "delta_success_minus_failed": -0.1419,
+        "relative_diff_vs_failed_pct": -1.761,
+        "cohen_d": -0.0512,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.165804,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Strategic_Thinking_Rating",
+        "successful_mean": 8.0699,
+        "failed_mean": 8.0512,
+        "delta_success_minus_failed": 0.0187,
+        "relative_diff_vs_failed_pct": 0.233,
+        "cohen_d": 0.0067,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.668396,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Teamwork_Skills_Rating",
+        "successful_mean": 7.8873,
+        "failed_mean": 8.0083,
+        "delta_success_minus_failed": -0.1209,
+        "relative_diff_vs_failed_pct": -1.51,
+        "cohen_d": -0.0428,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.173699,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Avg_Skills_Score",
+        "successful_mean": 7.9695,
+        "failed_mean": 7.9645,
+        "delta_success_minus_failed": 0.0051,
+        "relative_diff_vs_failed_pct": 0.064,
+        "cohen_d": 0.0039,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.780234,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Avg_Soft_Skills_Score",
+        "successful_mean": 7.9897,
+        "failed_mean": 8.0589,
+        "delta_success_minus_failed": -0.0692,
+        "relative_diff_vs_failed_pct": -0.859,
+        "cohen_d": -0.0492,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.194762,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Training_Efficiency",
+        "successful_mean": 0.1969,
+        "failed_mean": 0.1957,
+        "delta_success_minus_failed": 0.0011,
+        "relative_diff_vs_failed_pct": 0.569,
+        "cohen_d": 0.0164,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.783458,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Employee_Engagement_Score",
+        "successful_mean": 80.1072,
+        "failed_mean": 79.8614,
+        "delta_success_minus_failed": 0.2458,
+        "relative_diff_vs_failed_pct": 0.308,
+        "cohen_d": 0.0278,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.478848,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Employee_Job_Satisfaction_Score",
+        "successful_mean": 7.9083,
+        "failed_mean": 7.9127,
+        "delta_success_minus_failed": -0.0043,
+        "relative_diff_vs_failed_pct": -0.055,
+        "cohen_d": -0.0015,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.851482,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "successful_mean": 7.958,
+        "failed_mean": 7.9285,
+        "delta_success_minus_failed": 0.0296,
+        "relative_diff_vs_failed_pct": 0.373,
+        "cohen_d": 0.0104,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.934865,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Overtime_Hours_Per_Week",
+        "successful_mean": 7.0886,
+        "failed_mean": 7.0896,
+        "delta_success_minus_failed": -0.001,
+        "relative_diff_vs_failed_pct": -0.015,
+        "cohen_d": -0.0004,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.962763,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Professional_Development_Hours",
+        "successful_mean": 50.2253,
+        "failed_mean": 50.3991,
+        "delta_success_minus_failed": -0.1738,
+        "relative_diff_vs_failed_pct": -0.345,
+        "cohen_d": -0.0246,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.766624,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Number_Of_Promotions",
+        "successful_mean": 0.8228,
+        "failed_mean": 0.8012,
+        "delta_success_minus_failed": 0.0216,
+        "relative_diff_vs_failed_pct": 2.701,
+        "cohen_d": 0.0271,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.448436,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Conflict_Resolution_Cases",
+        "successful_mean": 2.4996,
+        "failed_mean": 2.4992,
+        "delta_success_minus_failed": 0.0004,
+        "relative_diff_vs_failed_pct": 0.015,
+        "cohen_d": 0.0002,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.994487,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Feedback_From_Colleagues",
+        "successful_mean": 6.9021,
+        "failed_mean": 6.927,
+        "delta_success_minus_failed": -0.0249,
+        "relative_diff_vs_failed_pct": -0.359,
+        "cohen_d": -0.0093,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.720576,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Feedback_From_Supervisors",
+        "successful_mean": 7.0427,
+        "failed_mean": 6.9307,
+        "delta_success_minus_failed": 0.112,
+        "relative_diff_vs_failed_pct": 1.616,
+        "cohen_d": 0.043,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.371513,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Mentor_Rating",
+        "successful_mean": 7.9487,
+        "failed_mean": 7.9262,
+        "delta_success_minus_failed": 0.0225,
+        "relative_diff_vs_failed_pct": 0.284,
+        "cohen_d": 0.0078,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.834424,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Onboarding_Delay_Days",
+        "successful_mean": 92.2844,
+        "failed_mean": 88.8276,
+        "delta_success_minus_failed": 3.4568,
+        "relative_diff_vs_failed_pct": 3.892,
+        "cohen_d": 0.0659,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.092187,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Tenure_Years",
+        "successful_mean": 4.7773,
+        "failed_mean": 4.6215,
+        "delta_success_minus_failed": 0.1558,
+        "relative_diff_vs_failed_pct": 3.37,
+        "cohen_d": 0.0905,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.020187,
+        "is_statistically_significant_0_05": true
+      }
+    ],
+    "top_differentiators_by_effect_size": [
+      {
+        "feature": "Tenure_Years",
+        "successful_mean": 4.7773,
+        "failed_mean": 4.6215,
+        "delta_success_minus_failed": 0.1558,
+        "relative_diff_vs_failed_pct": 3.37,
+        "cohen_d": 0.0905,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.020187,
+        "is_statistically_significant_0_05": true
+      },
+      {
+        "feature": "Onboarding_Delay_Days",
+        "successful_mean": 92.2844,
+        "failed_mean": 88.8276,
+        "delta_success_minus_failed": 3.4568,
+        "relative_diff_vs_failed_pct": 3.892,
+        "cohen_d": 0.0659,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.092187,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Creativity_Rating",
+        "successful_mean": 7.9153,
+        "failed_mean": 8.0572,
+        "delta_success_minus_failed": -0.1419,
+        "relative_diff_vs_failed_pct": -1.761,
+        "cohen_d": -0.0512,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.165804,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Avg_Soft_Skills_Score",
+        "successful_mean": 7.9897,
+        "failed_mean": 8.0589,
+        "delta_success_minus_failed": -0.0692,
+        "relative_diff_vs_failed_pct": -0.859,
+        "cohen_d": -0.0492,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.194762,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Adaptability_Rating",
+        "successful_mean": 7.9627,
+        "failed_mean": 8.0949,
+        "delta_success_minus_failed": -0.1322,
+        "relative_diff_vs_failed_pct": -1.633,
+        "cohen_d": -0.0474,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.210545,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Technical_Skills_Rating",
+        "successful_mean": 7.9254,
+        "failed_mean": 8.0557,
+        "delta_success_minus_failed": -0.1303,
+        "relative_diff_vs_failed_pct": -1.618,
+        "cohen_d": -0.0446,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.305203,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Problem_Solving_Skills_Rating",
+        "successful_mean": 8.0707,
+        "failed_mean": 7.9488,
+        "delta_success_minus_failed": 0.1219,
+        "relative_diff_vs_failed_pct": 1.534,
+        "cohen_d": 0.0436,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.1983,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Feedback_From_Supervisors",
+        "successful_mean": 7.0427,
+        "failed_mean": 6.9307,
+        "delta_success_minus_failed": 0.112,
+        "relative_diff_vs_failed_pct": 1.616,
+        "cohen_d": 0.043,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.371513,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Teamwork_Skills_Rating",
+        "successful_mean": 7.8873,
+        "failed_mean": 8.0083,
+        "delta_success_minus_failed": -0.1209,
+        "relative_diff_vs_failed_pct": -1.51,
+        "cohen_d": -0.0428,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.173699,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Communication_Skills_Rating",
+        "successful_mean": 7.9635,
+        "failed_mean": 7.8652,
+        "delta_success_minus_failed": 0.0983,
+        "relative_diff_vs_failed_pct": 1.249,
+        "cohen_d": 0.0344,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.356262,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Employee_Engagement_Score",
+        "successful_mean": 80.1072,
+        "failed_mean": 79.8614,
+        "delta_success_minus_failed": 0.2458,
+        "relative_diff_vs_failed_pct": 0.308,
+        "cohen_d": 0.0278,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.478848,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Number_Of_Promotions",
+        "successful_mean": 0.8228,
+        "failed_mean": 0.8012,
+        "delta_success_minus_failed": 0.0216,
+        "relative_diff_vs_failed_pct": 2.701,
+        "cohen_d": 0.0271,
+        "effect_strength": "very_small",
+        "p_value_mannwhitney": 0.448436,
+        "is_statistically_significant_0_05": false
+      }
+    ]
+  },
+  "categorical_patterns": {
+    "min_category_count_for_ranking": 60,
+    "feature_wise": {
+      "Project_Complexity": {
+        "contingency_counts": {
+          "Successful": {
+            "Complex": 391,
+            "Moderate": 437,
+            "Simple": 459
+          },
+          "Failed": {
+            "Complex": 441,
+            "Moderate": 442,
+            "Simple": 445
+          }
+        },
+        "association_test": {
+          "chi2_statistic": 2.6079,
+          "p_value": 0.271461,
+          "degrees_of_freedom": 2,
+          "cramers_v": 0.0316,
+          "min_expected_cell_count": 409.4776,
+          "interpretation": "Association is very weak (Cramer's V=0.032) and not statistically significant at alpha=0.05."
+        },
+        "profiles": [
+          {
+            "feature": "Project_Complexity",
+            "category": "Simple",
+            "count": 904,
+            "successful_count": 459,
+            "failed_count": 445,
+            "successful_rate_pct": 50.774,
+            "failed_rate_pct": 49.226,
+            "successful_lift_vs_overall_pp": 1.558,
+            "failed_lift_vs_overall_pp": -1.558
+          },
+          {
+            "feature": "Project_Complexity",
+            "category": "Moderate",
+            "count": 879,
+            "successful_count": 437,
+            "failed_count": 442,
+            "successful_rate_pct": 49.716,
+            "failed_rate_pct": 50.284,
+            "successful_lift_vs_overall_pp": 0.5,
+            "failed_lift_vs_overall_pp": -0.5
+          },
+          {
+            "feature": "Project_Complexity",
+            "category": "Complex",
+            "count": 832,
+            "successful_count": 391,
+            "failed_count": 441,
+            "successful_rate_pct": 46.995,
+            "failed_rate_pct": 53.005,
+            "successful_lift_vs_overall_pp": -2.221,
+            "failed_lift_vs_overall_pp": 2.221
+          }
+        ]
+      },
+      "Project_Size": {
+        "contingency_counts": {
+          "Successful": {
+            "Large": 439,
+            "Medium": 431,
+            "Small": 417
+          },
+          "Failed": {
+            "Large": 455,
+            "Medium": 456,
+            "Small": 417
+          }
+        },
+        "association_test": {
+          "chi2_statistic": 0.3482,
+          "p_value": 0.8402,
+          "degrees_of_freedom": 2,
+          "cramers_v": 0.0115,
+          "min_expected_cell_count": 410.462,
+          "interpretation": "Association is very weak (Cramer's V=0.012) and not statistically significant at alpha=0.05."
+        },
+        "profiles": [
+          {
+            "feature": "Project_Size",
+            "category": "Large",
+            "count": 894,
+            "successful_count": 439,
+            "failed_count": 455,
+            "successful_rate_pct": 49.105,
+            "failed_rate_pct": 50.895,
+            "successful_lift_vs_overall_pp": -0.111,
+            "failed_lift_vs_overall_pp": 0.111
+          },
+          {
+            "feature": "Project_Size",
+            "category": "Medium",
+            "count": 887,
+            "successful_count": 431,
+            "failed_count": 456,
+            "successful_rate_pct": 48.591,
+            "failed_rate_pct": 51.409,
+            "successful_lift_vs_overall_pp": -0.625,
+            "failed_lift_vs_overall_pp": 0.625
+          },
+          {
+            "feature": "Project_Size",
+            "category": "Small",
+            "count": 834,
+            "successful_count": 417,
+            "failed_count": 417,
+            "successful_rate_pct": 50.0,
+            "failed_rate_pct": 50.0,
+            "successful_lift_vs_overall_pp": 0.784,
+            "failed_lift_vs_overall_pp": -0.784
+          }
+        ]
+      },
+      "Project_Role": {
+        "contingency_counts": {
+          "Successful": {
+            "Analyst": 389,
+            "Developer": 424,
+            "Manager": 474
+          },
+          "Failed": {
+            "Analyst": 455,
+            "Developer": 446,
+            "Manager": 427
+          }
+        },
+        "association_test": {
+          "chi2_statistic": 7.5282,
+          "p_value": 0.023188,
+          "degrees_of_freedom": 2,
+          "cramers_v": 0.0537,
+          "min_expected_cell_count": 415.3836,
+          "interpretation": "Association is very weak (Cramer's V=0.054) and statistically significant at alpha=0.05."
+        },
+        "profiles": [
+          {
+            "feature": "Project_Role",
+            "category": "Manager",
+            "count": 901,
+            "successful_count": 474,
+            "failed_count": 427,
+            "successful_rate_pct": 52.608,
+            "failed_rate_pct": 47.392,
+            "successful_lift_vs_overall_pp": 3.392,
+            "failed_lift_vs_overall_pp": -3.392
+          },
+          {
+            "feature": "Project_Role",
+            "category": "Developer",
+            "count": 870,
+            "successful_count": 424,
+            "failed_count": 446,
+            "successful_rate_pct": 48.736,
+            "failed_rate_pct": 51.264,
+            "successful_lift_vs_overall_pp": -0.48,
+            "failed_lift_vs_overall_pp": 0.48
+          },
+          {
+            "feature": "Project_Role",
+            "category": "Analyst",
+            "count": 844,
+            "successful_count": 389,
+            "failed_count": 455,
+            "successful_rate_pct": 46.09,
+            "failed_rate_pct": 53.91,
+            "successful_lift_vs_overall_pp": -3.126,
+            "failed_lift_vs_overall_pp": 3.126
+          }
+        ]
+      },
+      "Department": {
+        "contingency_counts": {
+          "Successful": {
+            "Finance": 269,
+            "Hr": 280,
+            "It": 240,
+            "Marketing": 281,
+            "Sales": 217
+          },
+          "Failed": {
+            "Finance": 250,
+            "Hr": 275,
+            "It": 258,
+            "Marketing": 269,
+            "Sales": 276
+          }
+        },
+        "association_test": {
+          "chi2_statistic": 8.073,
+          "p_value": 0.088939,
+          "degrees_of_freedom": 4,
+          "cramers_v": 0.0556,
+          "min_expected_cell_count": 242.6352,
+          "interpretation": "Association is very weak (Cramer's V=0.056) and not statistically significant at alpha=0.05."
+        },
+        "profiles": [
+          {
+            "feature": "Department",
+            "category": "Hr",
+            "count": 555,
+            "successful_count": 280,
+            "failed_count": 275,
+            "successful_rate_pct": 50.45,
+            "failed_rate_pct": 49.55,
+            "successful_lift_vs_overall_pp": 1.234,
+            "failed_lift_vs_overall_pp": -1.234
+          },
+          {
+            "feature": "Department",
+            "category": "Marketing",
+            "count": 550,
+            "successful_count": 281,
+            "failed_count": 269,
+            "successful_rate_pct": 51.091,
+            "failed_rate_pct": 48.909,
+            "successful_lift_vs_overall_pp": 1.875,
+            "failed_lift_vs_overall_pp": -1.875
+          },
+          {
+            "feature": "Department",
+            "category": "Finance",
+            "count": 519,
+            "successful_count": 269,
+            "failed_count": 250,
+            "successful_rate_pct": 51.83,
+            "failed_rate_pct": 48.17,
+            "successful_lift_vs_overall_pp": 2.614,
+            "failed_lift_vs_overall_pp": -2.614
+          },
+          {
+            "feature": "Department",
+            "category": "It",
+            "count": 498,
+            "successful_count": 240,
+            "failed_count": 258,
+            "successful_rate_pct": 48.193,
+            "failed_rate_pct": 51.807,
+            "successful_lift_vs_overall_pp": -1.023,
+            "failed_lift_vs_overall_pp": 1.023
+          },
+          {
+            "feature": "Department",
+            "category": "Sales",
+            "count": 493,
+            "successful_count": 217,
+            "failed_count": 276,
+            "successful_rate_pct": 44.016,
+            "failed_rate_pct": 55.984,
+            "successful_lift_vs_overall_pp": -5.2,
+            "failed_lift_vs_overall_pp": 5.2
+          }
+        ]
+      },
+      "Job_Title": {
+        "contingency_counts": {
+          "Successful": {
+            "Analyst": 300,
+            "Consultant": 316,
+            "Developer": 319,
+            "Manager": 352
+          },
+          "Failed": {
+            "Analyst": 325,
+            "Consultant": 332,
+            "Developer": 341,
+            "Manager": 330
+          }
+        },
+        "association_test": {
+          "chi2_statistic": 2.1958,
+          "p_value": 0.53278,
+          "degrees_of_freedom": 3,
+          "cramers_v": 0.029,
+          "min_expected_cell_count": 307.6004,
+          "interpretation": "Association is very weak (Cramer's V=0.029) and not statistically significant at alpha=0.05."
+        },
+        "profiles": [
+          {
+            "feature": "Job_Title",
+            "category": "Manager",
+            "count": 682,
+            "successful_count": 352,
+            "failed_count": 330,
+            "successful_rate_pct": 51.613,
+            "failed_rate_pct": 48.387,
+            "successful_lift_vs_overall_pp": 2.397,
+            "failed_lift_vs_overall_pp": -2.397
+          },
+          {
+            "feature": "Job_Title",
+            "category": "Developer",
+            "count": 660,
+            "successful_count": 319,
+            "failed_count": 341,
+            "successful_rate_pct": 48.333,
+            "failed_rate_pct": 51.667,
+            "successful_lift_vs_overall_pp": -0.883,
+            "failed_lift_vs_overall_pp": 0.883
+          },
+          {
+            "feature": "Job_Title",
+            "category": "Consultant",
+            "count": 648,
+            "successful_count": 316,
+            "failed_count": 332,
+            "successful_rate_pct": 48.765,
+            "failed_rate_pct": 51.235,
+            "successful_lift_vs_overall_pp": -0.451,
+            "failed_lift_vs_overall_pp": 0.451
+          },
+          {
+            "feature": "Job_Title",
+            "category": "Analyst",
+            "count": 625,
+            "successful_count": 300,
+            "failed_count": 325,
+            "successful_rate_pct": 48.0,
+            "failed_rate_pct": 52.0,
+            "successful_lift_vs_overall_pp": -1.216,
+            "failed_lift_vs_overall_pp": 1.216
+          }
+        ]
+      },
+      "Training_Program": {
+        "contingency_counts": {
+          "Successful": {
+            "Advanced": 447,
+            "Basic": 421,
+            "Unknown": 419
+          },
+          "Failed": {
+            "Advanced": 424,
+            "Basic": 463,
+            "Unknown": 441
+          }
+        },
+        "association_test": {
+          "chi2_statistic": 2.5234,
+          "p_value": 0.283172,
+          "degrees_of_freedom": 2,
+          "cramers_v": 0.0311,
+          "min_expected_cell_count": 423.2581,
+          "interpretation": "Association is very weak (Cramer's V=0.031) and not statistically significant at alpha=0.05."
+        },
+        "profiles": [
+          {
+            "feature": "Training_Program",
+            "category": "Basic",
+            "count": 884,
+            "successful_count": 421,
+            "failed_count": 463,
+            "successful_rate_pct": 47.624,
+            "failed_rate_pct": 52.376,
+            "successful_lift_vs_overall_pp": -1.592,
+            "failed_lift_vs_overall_pp": 1.592
+          },
+          {
+            "feature": "Training_Program",
+            "category": "Advanced",
+            "count": 871,
+            "successful_count": 447,
+            "failed_count": 424,
+            "successful_rate_pct": 51.32,
+            "failed_rate_pct": 48.68,
+            "successful_lift_vs_overall_pp": 2.104,
+            "failed_lift_vs_overall_pp": -2.104
+          },
+          {
+            "feature": "Training_Program",
+            "category": "Unknown",
+            "count": 860,
+            "successful_count": 419,
+            "failed_count": 441,
+            "successful_rate_pct": 48.721,
+            "failed_rate_pct": 51.279,
+            "successful_lift_vs_overall_pp": -0.495,
+            "failed_lift_vs_overall_pp": 0.495
+          }
+        ]
+      },
+      "Leadership_Potential": {
+        "contingency_counts": {
+          "Successful": {
+            "High": 434,
+            "Low": 438,
+            "Medium": 415
+          },
+          "Failed": {
+            "High": 421,
+            "Low": 450,
+            "Medium": 457
+          }
+        },
+        "association_test": {
+          "chi2_statistic": 1.7404,
+          "p_value": 0.418877,
+          "degrees_of_freedom": 2,
+          "cramers_v": 0.0258,
+          "min_expected_cell_count": 420.7973,
+          "interpretation": "Association is very weak (Cramer's V=0.026) and not statistically significant at alpha=0.05."
+        },
+        "profiles": [
+          {
+            "feature": "Leadership_Potential",
+            "category": "Low",
+            "count": 888,
+            "successful_count": 438,
+            "failed_count": 450,
+            "successful_rate_pct": 49.324,
+            "failed_rate_pct": 50.676,
+            "successful_lift_vs_overall_pp": 0.108,
+            "failed_lift_vs_overall_pp": -0.108
+          },
+          {
+            "feature": "Leadership_Potential",
+            "category": "Medium",
+            "count": 872,
+            "successful_count": 415,
+            "failed_count": 457,
+            "successful_rate_pct": 47.592,
+            "failed_rate_pct": 52.408,
+            "successful_lift_vs_overall_pp": -1.624,
+            "failed_lift_vs_overall_pp": 1.624
+          },
+          {
+            "feature": "Leadership_Potential",
+            "category": "High",
+            "count": 855,
+            "successful_count": 434,
+            "failed_count": 421,
+            "successful_rate_pct": 50.76,
+            "failed_rate_pct": 49.24,
+            "successful_lift_vs_overall_pp": 1.544,
+            "failed_lift_vs_overall_pp": -1.544
+          }
+        ]
+      },
+      "Innovation_Projects_Involvement": {
+        "contingency_counts": {
+          "Successful": {
+            "No": 639,
+            "Yes": 648
+          },
+          "Failed": {
+            "No": 660,
+            "Yes": 668
+          }
+        },
+        "association_test": {
+          "chi2_statistic": 0.0,
+          "p_value": 1.0,
+          "degrees_of_freedom": 1,
+          "cramers_v": 0.0,
+          "min_expected_cell_count": 639.3166,
+          "interpretation": "Association is very weak (Cramer's V=0.000) and not statistically significant at alpha=0.05."
+        },
+        "profiles": [
+          {
+            "feature": "Innovation_Projects_Involvement",
+            "category": "Yes",
+            "count": 1316,
+            "successful_count": 648,
+            "failed_count": 668,
+            "successful_rate_pct": 49.24,
+            "failed_rate_pct": 50.76,
+            "successful_lift_vs_overall_pp": 0.024,
+            "failed_lift_vs_overall_pp": -0.024
+          },
+          {
+            "feature": "Innovation_Projects_Involvement",
+            "category": "No",
+            "count": 1299,
+            "successful_count": 639,
+            "failed_count": 660,
+            "successful_rate_pct": 49.192,
+            "failed_rate_pct": 50.808,
+            "successful_lift_vs_overall_pp": -0.024,
+            "failed_lift_vs_overall_pp": 0.024
+          }
+        ]
+      },
+      "Employee_Resignation_Status": {
+        "contingency_counts": {
+          "Successful": {
+            "No": 637,
+            "Yes": 650
+          },
+          "Failed": {
+            "No": 656,
+            "Yes": 672
+          }
+        },
+        "association_test": {
+          "chi2_statistic": 0.0001,
+          "p_value": 0.99149,
+          "degrees_of_freedom": 1,
+          "cramers_v": 0.0002,
+          "min_expected_cell_count": 636.3637,
+          "interpretation": "Association is very weak (Cramer's V=0.000) and not statistically significant at alpha=0.05."
+        },
+        "profiles": [
+          {
+            "feature": "Employee_Resignation_Status",
+            "category": "Yes",
+            "count": 1322,
+            "successful_count": 650,
+            "failed_count": 672,
+            "successful_rate_pct": 49.168,
+            "failed_rate_pct": 50.832,
+            "successful_lift_vs_overall_pp": -0.048,
+            "failed_lift_vs_overall_pp": 0.048
+          },
+          {
+            "feature": "Employee_Resignation_Status",
+            "category": "No",
+            "count": 1293,
+            "successful_count": 637,
+            "failed_count": 656,
+            "successful_rate_pct": 49.265,
+            "failed_rate_pct": 50.735,
+            "successful_lift_vs_overall_pp": 0.049,
+            "failed_lift_vs_overall_pp": -0.049
+          }
+        ]
+      },
+      "Development_Plan_Completion": {
+        "contingency_counts": {
+          "Successful": {
+            "Complete": 414,
+            "Not Started": 421,
+            "Partial": 452
+          },
+          "Failed": {
+            "Complete": 463,
+            "Not Started": 432,
+            "Partial": 433
+          }
+        },
+        "association_test": {
+          "chi2_statistic": 2.6453,
+          "p_value": 0.266425,
+          "degrees_of_freedom": 2,
+          "cramers_v": 0.0318,
+          "min_expected_cell_count": 419.813,
+          "interpretation": "Association is very weak (Cramer's V=0.032) and not statistically significant at alpha=0.05."
+        },
+        "profiles": [
+          {
+            "feature": "Development_Plan_Completion",
+            "category": "Partial",
+            "count": 885,
+            "successful_count": 452,
+            "failed_count": 433,
+            "successful_rate_pct": 51.073,
+            "failed_rate_pct": 48.927,
+            "successful_lift_vs_overall_pp": 1.857,
+            "failed_lift_vs_overall_pp": -1.857
+          },
+          {
+            "feature": "Development_Plan_Completion",
+            "category": "Complete",
+            "count": 877,
+            "successful_count": 414,
+            "failed_count": 463,
+            "successful_rate_pct": 47.206,
+            "failed_rate_pct": 52.794,
+            "successful_lift_vs_overall_pp": -2.01,
+            "failed_lift_vs_overall_pp": 2.01
+          },
+          {
+            "feature": "Development_Plan_Completion",
+            "category": "Not Started",
+            "count": 853,
+            "successful_count": 421,
+            "failed_count": 432,
+            "successful_rate_pct": 49.355,
+            "failed_rate_pct": 50.645,
+            "successful_lift_vs_overall_pp": 0.139,
+            "failed_lift_vs_overall_pp": -0.139
+          }
+        ]
+      },
+      "Career_Goals_Achievement_Status": {
+        "contingency_counts": {
+          "Successful": {
+            "Achieved": 417,
+            "In Progress": 400,
+            "Not Started": 470
+          },
+          "Failed": {
+            "Achieved": 432,
+            "In Progress": 450,
+            "Not Started": 446
+          }
+        },
+        "association_test": {
+          "chi2_statistic": 3.193,
+          "p_value": 0.202607,
+          "degrees_of_freedom": 2,
+          "cramers_v": 0.0349,
+          "min_expected_cell_count": 417.8444,
+          "interpretation": "Association is very weak (Cramer's V=0.035) and not statistically significant at alpha=0.05."
+        },
+        "profiles": [
+          {
+            "feature": "Career_Goals_Achievement_Status",
+            "category": "Not Started",
+            "count": 916,
+            "successful_count": 470,
+            "failed_count": 446,
+            "successful_rate_pct": 51.31,
+            "failed_rate_pct": 48.69,
+            "successful_lift_vs_overall_pp": 2.094,
+            "failed_lift_vs_overall_pp": -2.094
+          },
+          {
+            "feature": "Career_Goals_Achievement_Status",
+            "category": "In Progress",
+            "count": 850,
+            "successful_count": 400,
+            "failed_count": 450,
+            "successful_rate_pct": 47.059,
+            "failed_rate_pct": 52.941,
+            "successful_lift_vs_overall_pp": -2.157,
+            "failed_lift_vs_overall_pp": 2.157
+          },
+          {
+            "feature": "Career_Goals_Achievement_Status",
+            "category": "Achieved",
+            "count": 849,
+            "successful_count": 417,
+            "failed_count": 432,
+            "successful_rate_pct": 49.117,
+            "failed_rate_pct": 50.883,
+            "successful_lift_vs_overall_pp": -0.099,
+            "failed_lift_vs_overall_pp": 0.099
+          }
+        ]
+      },
+      "Mentor_Experience_Level": {
+        "contingency_counts": {
+          "Successful": {
+            "Associate": 325,
+            "Junior": 325,
+            "Mid-Senior": 326,
+            "Senior": 311
+          },
+          "Failed": {
+            "Associate": 315,
+            "Junior": 325,
+            "Mid-Senior": 347,
+            "Senior": 341
+          }
+        },
+        "association_test": {
+          "chi2_statistic": 1.5494,
+          "p_value": 0.670907,
+          "degrees_of_freedom": 3,
+          "cramers_v": 0.0243,
+          "min_expected_cell_count": 314.9828,
+          "interpretation": "Association is very weak (Cramer's V=0.024) and not statistically significant at alpha=0.05."
+        },
+        "profiles": [
+          {
+            "feature": "Mentor_Experience_Level",
+            "category": "Mid-Senior",
+            "count": 673,
+            "successful_count": 326,
+            "failed_count": 347,
+            "successful_rate_pct": 48.44,
+            "failed_rate_pct": 51.56,
+            "successful_lift_vs_overall_pp": -0.776,
+            "failed_lift_vs_overall_pp": 0.776
+          },
+          {
+            "feature": "Mentor_Experience_Level",
+            "category": "Senior",
+            "count": 652,
+            "successful_count": 311,
+            "failed_count": 341,
+            "successful_rate_pct": 47.699,
+            "failed_rate_pct": 52.301,
+            "successful_lift_vs_overall_pp": -1.517,
+            "failed_lift_vs_overall_pp": 1.517
+          },
+          {
+            "feature": "Mentor_Experience_Level",
+            "category": "Junior",
+            "count": 650,
+            "successful_count": 325,
+            "failed_count": 325,
+            "successful_rate_pct": 50.0,
+            "failed_rate_pct": 50.0,
+            "successful_lift_vs_overall_pp": 0.784,
+            "failed_lift_vs_overall_pp": -0.784
+          },
+          {
+            "feature": "Mentor_Experience_Level",
+            "category": "Associate",
+            "count": 640,
+            "successful_count": 325,
+            "failed_count": 315,
+            "successful_rate_pct": 50.781,
+            "failed_rate_pct": 49.219,
+            "successful_lift_vs_overall_pp": 1.565,
+            "failed_lift_vs_overall_pp": -1.565
+          }
+        ]
+      }
+    },
+    "top_failure_risk_categories": [
+      {
+        "feature": "Department",
+        "category": "Sales",
+        "count": 493,
+        "successful_count": 217,
+        "failed_count": 276,
+        "successful_rate_pct": 44.016,
+        "failed_rate_pct": 55.984,
+        "successful_lift_vs_overall_pp": -5.2,
+        "failed_lift_vs_overall_pp": 5.2
+      },
+      {
+        "feature": "Project_Role",
+        "category": "Analyst",
+        "count": 844,
+        "successful_count": 389,
+        "failed_count": 455,
+        "successful_rate_pct": 46.09,
+        "failed_rate_pct": 53.91,
+        "successful_lift_vs_overall_pp": -3.126,
+        "failed_lift_vs_overall_pp": 3.126
+      },
+      {
+        "feature": "Project_Complexity",
+        "category": "Complex",
+        "count": 832,
+        "successful_count": 391,
+        "failed_count": 441,
+        "successful_rate_pct": 46.995,
+        "failed_rate_pct": 53.005,
+        "successful_lift_vs_overall_pp": -2.221,
+        "failed_lift_vs_overall_pp": 2.221
+      },
+      {
+        "feature": "Career_Goals_Achievement_Status",
+        "category": "In Progress",
+        "count": 850,
+        "successful_count": 400,
+        "failed_count": 450,
+        "successful_rate_pct": 47.059,
+        "failed_rate_pct": 52.941,
+        "successful_lift_vs_overall_pp": -2.157,
+        "failed_lift_vs_overall_pp": 2.157
+      },
+      {
+        "feature": "Development_Plan_Completion",
+        "category": "Complete",
+        "count": 877,
+        "successful_count": 414,
+        "failed_count": 463,
+        "successful_rate_pct": 47.206,
+        "failed_rate_pct": 52.794,
+        "successful_lift_vs_overall_pp": -2.01,
+        "failed_lift_vs_overall_pp": 2.01
+      },
+      {
+        "feature": "Leadership_Potential",
+        "category": "Medium",
+        "count": 872,
+        "successful_count": 415,
+        "failed_count": 457,
+        "successful_rate_pct": 47.592,
+        "failed_rate_pct": 52.408,
+        "successful_lift_vs_overall_pp": -1.624,
+        "failed_lift_vs_overall_pp": 1.624
+      },
+      {
+        "feature": "Training_Program",
+        "category": "Basic",
+        "count": 884,
+        "successful_count": 421,
+        "failed_count": 463,
+        "successful_rate_pct": 47.624,
+        "failed_rate_pct": 52.376,
+        "successful_lift_vs_overall_pp": -1.592,
+        "failed_lift_vs_overall_pp": 1.592
+      },
+      {
+        "feature": "Mentor_Experience_Level",
+        "category": "Senior",
+        "count": 652,
+        "successful_count": 311,
+        "failed_count": 341,
+        "successful_rate_pct": 47.699,
+        "failed_rate_pct": 52.301,
+        "successful_lift_vs_overall_pp": -1.517,
+        "failed_lift_vs_overall_pp": 1.517
+      },
+      {
+        "feature": "Job_Title",
+        "category": "Analyst",
+        "count": 625,
+        "successful_count": 300,
+        "failed_count": 325,
+        "successful_rate_pct": 48.0,
+        "failed_rate_pct": 52.0,
+        "successful_lift_vs_overall_pp": -1.216,
+        "failed_lift_vs_overall_pp": 1.216
+      },
+      {
+        "feature": "Department",
+        "category": "It",
+        "count": 498,
+        "successful_count": 240,
+        "failed_count": 258,
+        "successful_rate_pct": 48.193,
+        "failed_rate_pct": 51.807,
+        "successful_lift_vs_overall_pp": -1.023,
+        "failed_lift_vs_overall_pp": 1.023
+      },
+      {
+        "feature": "Job_Title",
+        "category": "Developer",
+        "count": 660,
+        "successful_count": 319,
+        "failed_count": 341,
+        "successful_rate_pct": 48.333,
+        "failed_rate_pct": 51.667,
+        "successful_lift_vs_overall_pp": -0.883,
+        "failed_lift_vs_overall_pp": 0.883
+      },
+      {
+        "feature": "Mentor_Experience_Level",
+        "category": "Mid-Senior",
+        "count": 673,
+        "successful_count": 326,
+        "failed_count": 347,
+        "successful_rate_pct": 48.44,
+        "failed_rate_pct": 51.56,
+        "successful_lift_vs_overall_pp": -0.776,
+        "failed_lift_vs_overall_pp": 0.776
+      }
+    ],
+    "top_success_advantage_categories": [
+      {
+        "feature": "Project_Role",
+        "category": "Manager",
+        "count": 901,
+        "successful_count": 474,
+        "failed_count": 427,
+        "successful_rate_pct": 52.608,
+        "failed_rate_pct": 47.392,
+        "successful_lift_vs_overall_pp": 3.392,
+        "failed_lift_vs_overall_pp": -3.392
+      },
+      {
+        "feature": "Department",
+        "category": "Finance",
+        "count": 519,
+        "successful_count": 269,
+        "failed_count": 250,
+        "successful_rate_pct": 51.83,
+        "failed_rate_pct": 48.17,
+        "successful_lift_vs_overall_pp": 2.614,
+        "failed_lift_vs_overall_pp": -2.614
+      },
+      {
+        "feature": "Job_Title",
+        "category": "Manager",
+        "count": 682,
+        "successful_count": 352,
+        "failed_count": 330,
+        "successful_rate_pct": 51.613,
+        "failed_rate_pct": 48.387,
+        "successful_lift_vs_overall_pp": 2.397,
+        "failed_lift_vs_overall_pp": -2.397
+      },
+      {
+        "feature": "Training_Program",
+        "category": "Advanced",
+        "count": 871,
+        "successful_count": 447,
+        "failed_count": 424,
+        "successful_rate_pct": 51.32,
+        "failed_rate_pct": 48.68,
+        "successful_lift_vs_overall_pp": 2.104,
+        "failed_lift_vs_overall_pp": -2.104
+      },
+      {
+        "feature": "Career_Goals_Achievement_Status",
+        "category": "Not Started",
+        "count": 916,
+        "successful_count": 470,
+        "failed_count": 446,
+        "successful_rate_pct": 51.31,
+        "failed_rate_pct": 48.69,
+        "successful_lift_vs_overall_pp": 2.094,
+        "failed_lift_vs_overall_pp": -2.094
+      },
+      {
+        "feature": "Department",
+        "category": "Marketing",
+        "count": 550,
+        "successful_count": 281,
+        "failed_count": 269,
+        "successful_rate_pct": 51.091,
+        "failed_rate_pct": 48.909,
+        "successful_lift_vs_overall_pp": 1.875,
+        "failed_lift_vs_overall_pp": -1.875
+      },
+      {
+        "feature": "Development_Plan_Completion",
+        "category": "Partial",
+        "count": 885,
+        "successful_count": 452,
+        "failed_count": 433,
+        "successful_rate_pct": 51.073,
+        "failed_rate_pct": 48.927,
+        "successful_lift_vs_overall_pp": 1.857,
+        "failed_lift_vs_overall_pp": -1.857
+      },
+      {
+        "feature": "Mentor_Experience_Level",
+        "category": "Associate",
+        "count": 640,
+        "successful_count": 325,
+        "failed_count": 315,
+        "successful_rate_pct": 50.781,
+        "failed_rate_pct": 49.219,
+        "successful_lift_vs_overall_pp": 1.565,
+        "failed_lift_vs_overall_pp": -1.565
+      },
+      {
+        "feature": "Project_Complexity",
+        "category": "Simple",
+        "count": 904,
+        "successful_count": 459,
+        "failed_count": 445,
+        "successful_rate_pct": 50.774,
+        "failed_rate_pct": 49.226,
+        "successful_lift_vs_overall_pp": 1.558,
+        "failed_lift_vs_overall_pp": -1.558
+      },
+      {
+        "feature": "Leadership_Potential",
+        "category": "High",
+        "count": 855,
+        "successful_count": 434,
+        "failed_count": 421,
+        "successful_rate_pct": 50.76,
+        "failed_rate_pct": 49.24,
+        "successful_lift_vs_overall_pp": 1.544,
+        "failed_lift_vs_overall_pp": -1.544
+      },
+      {
+        "feature": "Department",
+        "category": "Hr",
+        "count": 555,
+        "successful_count": 280,
+        "failed_count": 275,
+        "successful_rate_pct": 50.45,
+        "failed_rate_pct": 49.55,
+        "successful_lift_vs_overall_pp": 1.234,
+        "failed_lift_vs_overall_pp": -1.234
+      },
+      {
+        "feature": "Project_Size",
+        "category": "Small",
+        "count": 834,
+        "successful_count": 417,
+        "failed_count": 417,
+        "successful_rate_pct": 50.0,
+        "failed_rate_pct": 50.0,
+        "successful_lift_vs_overall_pp": 0.784,
+        "failed_lift_vs_overall_pp": -0.784
+      }
+    ],
+    "strongest_association_features": [
+      {
+        "feature": "Department",
+        "cramers_v": 0.0556,
+        "p_value": 0.088939,
+        "interpretation": "Association is very weak (Cramer's V=0.056) and not statistically significant at alpha=0.05."
+      },
+      {
+        "feature": "Project_Role",
+        "cramers_v": 0.0537,
+        "p_value": 0.023188,
+        "interpretation": "Association is very weak (Cramer's V=0.054) and statistically significant at alpha=0.05."
+      },
+      {
+        "feature": "Career_Goals_Achievement_Status",
+        "cramers_v": 0.0349,
+        "p_value": 0.202607,
+        "interpretation": "Association is very weak (Cramer's V=0.035) and not statistically significant at alpha=0.05."
+      },
+      {
+        "feature": "Development_Plan_Completion",
+        "cramers_v": 0.0318,
+        "p_value": 0.266425,
+        "interpretation": "Association is very weak (Cramer's V=0.032) and not statistically significant at alpha=0.05."
+      },
+      {
+        "feature": "Project_Complexity",
+        "cramers_v": 0.0316,
+        "p_value": 0.271461,
+        "interpretation": "Association is very weak (Cramer's V=0.032) and not statistically significant at alpha=0.05."
+      },
+      {
+        "feature": "Training_Program",
+        "cramers_v": 0.0311,
+        "p_value": 0.283172,
+        "interpretation": "Association is very weak (Cramer's V=0.031) and not statistically significant at alpha=0.05."
+      },
+      {
+        "feature": "Job_Title",
+        "cramers_v": 0.029,
+        "p_value": 0.53278,
+        "interpretation": "Association is very weak (Cramer's V=0.029) and not statistically significant at alpha=0.05."
+      },
+      {
+        "feature": "Leadership_Potential",
+        "cramers_v": 0.0258,
+        "p_value": 0.418877,
+        "interpretation": "Association is very weak (Cramer's V=0.026) and not statistically significant at alpha=0.05."
+      }
+    ]
+  },
+  "interaction_patterns": {
+    "combo_features": [
+      "Project_Complexity",
+      "Project_Size",
+      "Project_Role"
+    ],
+    "min_combo_count_for_ranking": 50,
+    "stable_combo_count": 27,
+    "top_combo_success_patterns": [
+      {
+        "project_complexity": "Simple",
+        "project_size": "Large",
+        "project_role": "Developer",
+        "count": 95,
+        "successful_rate_pct": 60.0,
+        "failed_rate_pct": 40.0,
+        "successful_lift_vs_overall_pp": 10.784,
+        "failed_lift_vs_overall_pp": -10.784
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Small",
+        "project_role": "Manager",
+        "count": 96,
+        "successful_rate_pct": 59.375,
+        "failed_rate_pct": 40.625,
+        "successful_lift_vs_overall_pp": 10.159,
+        "failed_lift_vs_overall_pp": -10.159
+      },
+      {
+        "project_complexity": "Complex",
+        "project_size": "Small",
+        "project_role": "Analyst",
+        "count": 81,
+        "successful_rate_pct": 55.556,
+        "failed_rate_pct": 44.444,
+        "successful_lift_vs_overall_pp": 6.339,
+        "failed_lift_vs_overall_pp": -6.339
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Small",
+        "project_role": "Manager",
+        "count": 87,
+        "successful_rate_pct": 54.023,
+        "failed_rate_pct": 45.977,
+        "successful_lift_vs_overall_pp": 4.807,
+        "failed_lift_vs_overall_pp": -4.807
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Medium",
+        "project_role": "Developer",
+        "count": 110,
+        "successful_rate_pct": 53.636,
+        "failed_rate_pct": 46.364,
+        "successful_lift_vs_overall_pp": 4.42,
+        "failed_lift_vs_overall_pp": -4.42
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Large",
+        "project_role": "Developer",
+        "count": 109,
+        "successful_rate_pct": 53.211,
+        "failed_rate_pct": 46.789,
+        "successful_lift_vs_overall_pp": 3.995,
+        "failed_lift_vs_overall_pp": -3.995
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Large",
+        "project_role": "Manager",
+        "count": 107,
+        "successful_rate_pct": 52.336,
+        "failed_rate_pct": 47.664,
+        "successful_lift_vs_overall_pp": 3.12,
+        "failed_lift_vs_overall_pp": -3.12
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Medium",
+        "project_role": "Manager",
+        "count": 107,
+        "successful_rate_pct": 52.336,
+        "failed_rate_pct": 47.664,
+        "successful_lift_vs_overall_pp": 3.12,
+        "failed_lift_vs_overall_pp": -3.12
+      }
+    ],
+    "top_combo_failure_patterns": [
+      {
+        "project_complexity": "Complex",
+        "project_size": "Medium",
+        "project_role": "Analyst",
+        "count": 83,
+        "successful_rate_pct": 39.759,
+        "failed_rate_pct": 60.241,
+        "successful_lift_vs_overall_pp": -9.457,
+        "failed_lift_vs_overall_pp": 9.457
+      },
+      {
+        "project_complexity": "Complex",
+        "project_size": "Large",
+        "project_role": "Analyst",
+        "count": 90,
+        "successful_rate_pct": 40.0,
+        "failed_rate_pct": 60.0,
+        "successful_lift_vs_overall_pp": -9.216,
+        "failed_lift_vs_overall_pp": 9.216
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Small",
+        "project_role": "Developer",
+        "count": 98,
+        "successful_rate_pct": 41.837,
+        "failed_rate_pct": 58.163,
+        "successful_lift_vs_overall_pp": -7.379,
+        "failed_lift_vs_overall_pp": 7.379
+      },
+      {
+        "project_complexity": "Complex",
+        "project_size": "Large",
+        "project_role": "Developer",
+        "count": 97,
+        "successful_rate_pct": 43.299,
+        "failed_rate_pct": 56.701,
+        "successful_lift_vs_overall_pp": -5.917,
+        "failed_lift_vs_overall_pp": 5.917
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Large",
+        "project_role": "Analyst",
+        "count": 88,
+        "successful_rate_pct": 44.318,
+        "failed_rate_pct": 55.682,
+        "successful_lift_vs_overall_pp": -4.898,
+        "failed_lift_vs_overall_pp": 4.898
+      },
+      {
+        "project_complexity": "Complex",
+        "project_size": "Medium",
+        "project_role": "Developer",
+        "count": 106,
+        "successful_rate_pct": 44.34,
+        "failed_rate_pct": 55.66,
+        "successful_lift_vs_overall_pp": -4.876,
+        "failed_lift_vs_overall_pp": 4.876
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Small",
+        "project_role": "Developer",
+        "count": 85,
+        "successful_rate_pct": 45.882,
+        "failed_rate_pct": 54.118,
+        "successful_lift_vs_overall_pp": -3.334,
+        "failed_lift_vs_overall_pp": 3.334
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Medium",
+        "project_role": "Analyst",
+        "count": 97,
+        "successful_rate_pct": 46.392,
+        "failed_rate_pct": 53.608,
+        "successful_lift_vs_overall_pp": -2.824,
+        "failed_lift_vs_overall_pp": 2.824
+      }
+    ]
+  },
+  "llm_evidence": {
+    "segment_sizes": {
+      "successful_projects": 1287,
+      "failed_projects": 1328,
+      "total_binary_outcome_projects": 2615
+    },
+    "overall_baseline_rates_pct": {
+      "successful_rate_pct": 49.216,
+      "failed_rate_pct": 50.784
+    },
+    "top_numeric_effects": [
+      {
+        "feature": "Tenure_Years",
+        "delta": 0.1558,
+        "cohen_d": 0.0905,
+        "p_value": 0.020187
+      },
+      {
+        "feature": "Onboarding_Delay_Days",
+        "delta": 3.4568,
+        "cohen_d": 0.0659,
+        "p_value": 0.092187
+      },
+      {
+        "feature": "Creativity_Rating",
+        "delta": -0.1419,
+        "cohen_d": -0.0512,
+        "p_value": 0.165804
+      },
+      {
+        "feature": "Avg_Soft_Skills_Score",
+        "delta": -0.0692,
+        "cohen_d": -0.0492,
+        "p_value": 0.194762
+      },
+      {
+        "feature": "Adaptability_Rating",
+        "delta": -0.1322,
+        "cohen_d": -0.0474,
+        "p_value": 0.210545
+      },
+      {
+        "feature": "Technical_Skills_Rating",
+        "delta": -0.1303,
+        "cohen_d": -0.0446,
+        "p_value": 0.305203
+      },
+      {
+        "feature": "Problem_Solving_Skills_Rating",
+        "delta": 0.1219,
+        "cohen_d": 0.0436,
+        "p_value": 0.1983
+      },
+      {
+        "feature": "Feedback_From_Supervisors",
+        "delta": 0.112,
+        "cohen_d": 0.043,
+        "p_value": 0.371513
+      }
+    ],
+    "top_failure_categories": [
+      {
+        "feature": "Department",
+        "category": "Sales",
+        "failed_lift_pp": 5.2,
+        "count": 493
+      },
+      {
+        "feature": "Project_Role",
+        "category": "Analyst",
+        "failed_lift_pp": 3.126,
+        "count": 844
+      },
+      {
+        "feature": "Project_Complexity",
+        "category": "Complex",
+        "failed_lift_pp": 2.221,
+        "count": 832
+      },
+      {
+        "feature": "Career_Goals_Achievement_Status",
+        "category": "In Progress",
+        "failed_lift_pp": 2.157,
+        "count": 850
+      },
+      {
+        "feature": "Development_Plan_Completion",
+        "category": "Complete",
+        "failed_lift_pp": 2.01,
+        "count": 877
+      },
+      {
+        "feature": "Leadership_Potential",
+        "category": "Medium",
+        "failed_lift_pp": 1.624,
+        "count": 872
+      },
+      {
+        "feature": "Training_Program",
+        "category": "Basic",
+        "failed_lift_pp": 1.592,
+        "count": 884
+      },
+      {
+        "feature": "Mentor_Experience_Level",
+        "category": "Senior",
+        "failed_lift_pp": 1.517,
+        "count": 652
+      }
+    ],
+    "top_success_categories": [
+      {
+        "feature": "Project_Role",
+        "category": "Manager",
+        "success_lift_pp": 3.392,
+        "count": 901
+      },
+      {
+        "feature": "Department",
+        "category": "Finance",
+        "success_lift_pp": 2.614,
+        "count": 519
+      },
+      {
+        "feature": "Job_Title",
+        "category": "Manager",
+        "success_lift_pp": 2.397,
+        "count": 682
+      },
+      {
+        "feature": "Training_Program",
+        "category": "Advanced",
+        "success_lift_pp": 2.104,
+        "count": 871
+      },
+      {
+        "feature": "Career_Goals_Achievement_Status",
+        "category": "Not Started",
+        "success_lift_pp": 2.094,
+        "count": 916
+      },
+      {
+        "feature": "Department",
+        "category": "Marketing",
+        "success_lift_pp": 1.875,
+        "count": 550
+      },
+      {
+        "feature": "Development_Plan_Completion",
+        "category": "Partial",
+        "success_lift_pp": 1.857,
+        "count": 885
+      },
+      {
+        "feature": "Mentor_Experience_Level",
+        "category": "Associate",
+        "success_lift_pp": 1.565,
+        "count": 640
+      }
+    ],
+    "strongest_associations": [
+      {
+        "feature": "Department",
+        "cramers_v": 0.0556,
+        "p_value": 0.088939,
+        "interpretation": "Association is very weak (Cramer's V=0.056) and not statistically significant at alpha=0.05."
+      },
+      {
+        "feature": "Project_Role",
+        "cramers_v": 0.0537,
+        "p_value": 0.023188,
+        "interpretation": "Association is very weak (Cramer's V=0.054) and statistically significant at alpha=0.05."
+      },
+      {
+        "feature": "Career_Goals_Achievement_Status",
+        "cramers_v": 0.0349,
+        "p_value": 0.202607,
+        "interpretation": "Association is very weak (Cramer's V=0.035) and not statistically significant at alpha=0.05."
+      },
+      {
+        "feature": "Development_Plan_Completion",
+        "cramers_v": 0.0318,
+        "p_value": 0.266425,
+        "interpretation": "Association is very weak (Cramer's V=0.032) and not statistically significant at alpha=0.05."
+      },
+      {
+        "feature": "Project_Complexity",
+        "cramers_v": 0.0316,
+        "p_value": 0.271461,
+        "interpretation": "Association is very weak (Cramer's V=0.032) and not statistically significant at alpha=0.05."
+      },
+      {
+        "feature": "Training_Program",
+        "cramers_v": 0.0311,
+        "p_value": 0.283172,
+        "interpretation": "Association is very weak (Cramer's V=0.031) and not statistically significant at alpha=0.05."
+      },
+      {
+        "feature": "Job_Title",
+        "cramers_v": 0.029,
+        "p_value": 0.53278,
+        "interpretation": "Association is very weak (Cramer's V=0.029) and not statistically significant at alpha=0.05."
+      },
+      {
+        "feature": "Leadership_Potential",
+        "cramers_v": 0.0258,
+        "p_value": 0.418877,
+        "interpretation": "Association is very weak (Cramer's V=0.026) and not statistically significant at alpha=0.05."
+      }
+    ],
+    "top_combo_failure_patterns": [
+      {
+        "project_complexity": "Complex",
+        "project_size": "Medium",
+        "project_role": "Analyst",
+        "count": 83,
+        "successful_rate_pct": 39.759,
+        "failed_rate_pct": 60.241,
+        "successful_lift_vs_overall_pp": -9.457,
+        "failed_lift_vs_overall_pp": 9.457
+      },
+      {
+        "project_complexity": "Complex",
+        "project_size": "Large",
+        "project_role": "Analyst",
+        "count": 90,
+        "successful_rate_pct": 40.0,
+        "failed_rate_pct": 60.0,
+        "successful_lift_vs_overall_pp": -9.216,
+        "failed_lift_vs_overall_pp": 9.216
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Small",
+        "project_role": "Developer",
+        "count": 98,
+        "successful_rate_pct": 41.837,
+        "failed_rate_pct": 58.163,
+        "successful_lift_vs_overall_pp": -7.379,
+        "failed_lift_vs_overall_pp": 7.379
+      },
+      {
+        "project_complexity": "Complex",
+        "project_size": "Large",
+        "project_role": "Developer",
+        "count": 97,
+        "successful_rate_pct": 43.299,
+        "failed_rate_pct": 56.701,
+        "successful_lift_vs_overall_pp": -5.917,
+        "failed_lift_vs_overall_pp": 5.917
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Large",
+        "project_role": "Analyst",
+        "count": 88,
+        "successful_rate_pct": 44.318,
+        "failed_rate_pct": 55.682,
+        "successful_lift_vs_overall_pp": -4.898,
+        "failed_lift_vs_overall_pp": 4.898
+      }
+    ],
+    "top_combo_success_patterns": [
+      {
+        "project_complexity": "Simple",
+        "project_size": "Large",
+        "project_role": "Developer",
+        "count": 95,
+        "successful_rate_pct": 60.0,
+        "failed_rate_pct": 40.0,
+        "successful_lift_vs_overall_pp": 10.784,
+        "failed_lift_vs_overall_pp": -10.784
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Small",
+        "project_role": "Manager",
+        "count": 96,
+        "successful_rate_pct": 59.375,
+        "failed_rate_pct": 40.625,
+        "successful_lift_vs_overall_pp": 10.159,
+        "failed_lift_vs_overall_pp": -10.159
+      },
+      {
+        "project_complexity": "Complex",
+        "project_size": "Small",
+        "project_role": "Analyst",
+        "count": 81,
+        "successful_rate_pct": 55.556,
+        "failed_rate_pct": 44.444,
+        "successful_lift_vs_overall_pp": 6.339,
+        "failed_lift_vs_overall_pp": -6.339
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Small",
+        "project_role": "Manager",
+        "count": 87,
+        "successful_rate_pct": 54.023,
+        "failed_rate_pct": 45.977,
+        "successful_lift_vs_overall_pp": 4.807,
+        "failed_lift_vs_overall_pp": -4.807
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Medium",
+        "project_role": "Developer",
+        "count": 110,
+        "successful_rate_pct": 53.636,
+        "failed_rate_pct": 46.364,
+        "successful_lift_vs_overall_pp": 4.42,
+        "failed_lift_vs_overall_pp": -4.42
+      }
+    ]
+  },
+  "llm_insights": {
+    "headline": "Project Success and Failure Linked to Employee Tenure and Departmental Performance",
+    "key_insight_1": "Employees with longer tenure (delta=0.1558, p=0.020) are more likely to be involved in successful projects. This suggests that accumulated experience and institutional knowledge may contribute to project success.",
+    "key_insight_2": "The Sales department shows a higher failure rate (failed_lift_pp=5.2) compared to other departments, while the Finance department has a higher success rate (success_lift_pp=2.614). This indicates potential differences in project management, resource allocation, or project type across departments.",
+    "hidden_insight": "Analysts in 'Complex' projects have a 60.241% failure rate, which is 9.457 percentage points higher than the overall failure rate. This pattern is observed in 83 such projects.",
+    "risk_alert": "The 'Sales' department experiences a 5.2 percentage point increase in project failure rates, indicating a potential area of concern for project delivery within this function.",
+    "business_implication": "Variations in project success rates across departments and the positive correlation with employee tenure suggest opportunities to leverage experienced employees more effectively and to investigate and address specific challenges within underperforming departments like Sales.",
+    "action_plan": [
+      "Analyze the characteristics of projects within the Sales department to identify root causes of higher failure rates.",
+      "Develop targeted training or mentorship programs for Analysts working on complex projects to improve their success rates.",
+      "Explore best practices from the Finance department's project management to identify transferable strategies.",
+      "Implement a system to identify and leverage employees with longer tenure for critical roles in high-stakes projects."
+    ],
+    "standout_statement": "While longer tenure is associated with project success (p=0.020), the Sales department faces a notable 5.2 percentage point increase in project failures, highlighting a critical area for intervention.",
+    "confidence_note": "The association between Tenure_Years and project outcomes is statistically significant (p=0.020). Associations for other features and categorical variables are directional or not statistically significant at the alpha=0.05 level. Cramer's V values for categorical associations are all below 0.06, indicating very weak relationships."
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1777670579,
+    "evidence_char_length": 4357
+  }
+}

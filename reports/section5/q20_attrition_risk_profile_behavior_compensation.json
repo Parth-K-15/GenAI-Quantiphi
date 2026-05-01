@@ -1,0 +1,680 @@
+{
+  "question": "Q20 - Attrition Risk Profile Using Behavioral and Compensation Features",
+  "target_definition": {
+    "resignation_class": "Employee_Resignation_Status == 'Yes'",
+    "retained_class": "Employee_Resignation_Status == 'No'"
+  },
+  "dataset_scope": {
+    "rows_used": 4001,
+    "resignation_count": 2001,
+    "retained_count": 2000,
+    "feature_count": 32,
+    "numeric_features": [
+      "Employee_Engagement_Score",
+      "Employee_Job_Satisfaction_Score",
+      "Employee_Work_Life_Balance_Rating",
+      "Overtime_Hours_Per_Week",
+      "Work_Hours_Per_Week",
+      "Conflict_Resolution_Cases",
+      "Feedback_From_Colleagues",
+      "Feedback_From_Supervisors",
+      "Mentor_Rating",
+      "Initiative_Rating",
+      "Adaptability_Rating",
+      "Creativity_Rating",
+      "Strategic_Thinking_Rating",
+      "Leadership_Qualities_Rating",
+      "Teamwork_Skills_Rating",
+      "Problem_Solving_Skills_Rating",
+      "Technical_Skills_Rating",
+      "Communication_Skills_Rating",
+      "Performance_Rating",
+      "Number_Of_Promotions",
+      "Annual_Salary_Increase_Percentage",
+      "Performance_Bonus_Percentage",
+      "Bonus",
+      "Employee_Annual_Salary_Adjustment",
+      "Employee_Compensation_Benefits",
+      "Employee_Travel_Allowance",
+      "Employee_Savings_Plans",
+      "Compensation_Score"
+    ],
+    "categorical_features": [
+      "Employee_Stock_Options",
+      "Employee_Health_Insurance_Coverage",
+      "Employee_Retirement_Benefits",
+      "Employee_Recognition_Programs_Participation"
+    ]
+  },
+  "modeling": {
+    "train_test_split": {
+      "train_rows": 3200,
+      "test_rows": 801,
+      "test_size": 0.2
+    },
+    "candidate_models": {
+      "logistic_regression": {
+        "test_metrics": {
+          "accuracy": 0.4931,
+          "balanced_accuracy": 0.4931,
+          "precision": 0.4938,
+          "recall": 0.4988,
+          "f1": 0.4963,
+          "roc_auc": 0.4817,
+          "pr_auc": 0.4824
+        },
+        "cv_roc_auc_mean": 0.4954,
+        "cv_roc_auc_std": 0.0152,
+        "cv_pr_auc_mean": 0.4957,
+        "cv_pr_auc_std": 0.0115
+      },
+      "random_forest": {
+        "test_metrics": {
+          "accuracy": 0.4757,
+          "balanced_accuracy": 0.4756,
+          "precision": 0.478,
+          "recall": 0.5137,
+          "f1": 0.4952,
+          "roc_auc": 0.4745,
+          "pr_auc": 0.497
+        },
+        "cv_roc_auc_mean": 0.5074,
+        "cv_roc_auc_std": 0.0101,
+        "cv_pr_auc_mean": 0.5059,
+        "cv_pr_auc_std": 0.0109
+      }
+    },
+    "selected_model": "random_forest",
+    "selected_model_test_metrics": {
+      "accuracy": 0.4757,
+      "balanced_accuracy": 0.4756,
+      "precision": 0.478,
+      "recall": 0.5137,
+      "f1": 0.4952,
+      "roc_auc": 0.4745,
+      "pr_auc": 0.497
+    },
+    "target_prevalence_resignation": 0.5001,
+    "model_signal_assessment": {
+      "is_weak_signal": true,
+      "note": "Predictive signal is weak in current data (performance is near random baseline). Use tiers as directional prioritization, not deterministic labels."
+    }
+  },
+  "risk_tiering": {
+    "tier_thresholds_probability": {
+      "q50": 0.501905,
+      "q75": 0.528268,
+      "q90": 0.550813
+    },
+    "tier_summary": [
+      {
+        "risk_tier": "Critical",
+        "count": 400,
+        "population_pct": 9.998,
+        "actual_resignation_rate_pct": 49.5,
+        "resignation_lift_vs_overall_pp": -0.512,
+        "avg_predicted_probability": 0.56986
+      },
+      {
+        "risk_tier": "High",
+        "count": 600,
+        "population_pct": 14.996,
+        "actual_resignation_rate_pct": 49.167,
+        "resignation_lift_vs_overall_pp": -0.846,
+        "avg_predicted_probability": 0.538424
+      },
+      {
+        "risk_tier": "Medium",
+        "count": 1000,
+        "population_pct": 24.994,
+        "actual_resignation_rate_pct": 52.2,
+        "resignation_lift_vs_overall_pp": 2.188,
+        "avg_predicted_probability": 0.51474
+      },
+      {
+        "risk_tier": "Low",
+        "count": 2001,
+        "population_pct": 50.012,
+        "actual_resignation_rate_pct": 49.275,
+        "resignation_lift_vs_overall_pp": -0.737,
+        "avg_predicted_probability": 0.468673
+      }
+    ],
+    "overall_resignation_rate_pct": 50.012
+  },
+  "critical_tier_profile": {
+    "critical_tier_count": 400,
+    "critical_tier_actual_resignation_rate_pct": 49.5,
+    "critical_profile_feature_gaps": [
+      {
+        "feature": "Employee_Compensation_Benefits",
+        "critical_tier_mean": 4978.97,
+        "overall_mean": 5001.089,
+        "gap": -22.119
+      },
+      {
+        "feature": "Bonus",
+        "critical_tier_mean": 5017.9525,
+        "overall_mean": 4999.7423,
+        "gap": 18.2102
+      },
+      {
+        "feature": "Compensation_Score",
+        "critical_tier_mean": 5017.9525,
+        "overall_mean": 4999.7423,
+        "gap": 18.2102
+      },
+      {
+        "feature": "Employee_Travel_Allowance",
+        "critical_tier_mean": 1498.205,
+        "overall_mean": 1500.6491,
+        "gap": -2.4441
+      },
+      {
+        "feature": "Employee_Savings_Plans",
+        "critical_tier_mean": 2999.31,
+        "overall_mean": 3001.0265,
+        "gap": -1.7165
+      },
+      {
+        "feature": "Employee_Engagement_Score",
+        "critical_tier_mean": 78.44,
+        "overall_mean": 80.0012,
+        "gap": -1.5612
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "critical_tier_mean": 6.835,
+        "overall_mean": 7.9525,
+        "gap": -1.1175
+      },
+      {
+        "feature": "Performance_Rating",
+        "critical_tier_mean": 10.7325,
+        "overall_mean": 9.9143,
+        "gap": 0.8182
+      },
+      {
+        "feature": "Technical_Skills_Rating",
+        "critical_tier_mean": 7.23,
+        "overall_mean": 7.994,
+        "gap": -0.764
+      },
+      {
+        "feature": "Initiative_Rating",
+        "critical_tier_mean": 8.675,
+        "overall_mean": 8.018,
+        "gap": 0.657
+      },
+      {
+        "feature": "Strategic_Thinking_Rating",
+        "critical_tier_mean": 8.4525,
+        "overall_mean": 8.0425,
+        "gap": 0.41
+      },
+      {
+        "feature": "Work_Hours_Per_Week",
+        "critical_tier_mean": 40.4,
+        "overall_mean": 40.018,
+        "gap": 0.382
+      },
+      {
+        "feature": "Mentor_Rating",
+        "critical_tier_mean": 8.31,
+        "overall_mean": 7.952,
+        "gap": 0.358
+      },
+      {
+        "feature": "Adaptability_Rating",
+        "critical_tier_mean": 8.3725,
+        "overall_mean": 8.0212,
+        "gap": 0.3513
+      },
+      {
+        "feature": "Leadership_Qualities_Rating",
+        "critical_tier_mean": 7.65,
+        "overall_mean": 7.9838,
+        "gap": -0.3338
+      }
+    ],
+    "critical_tier_concentration": {
+      "Department": [
+        {
+          "feature": "Department",
+          "category": "Sales",
+          "critical_tier_share_pct": 21.0,
+          "overall_share_pct": 18.845,
+          "over_index_ratio": 1.114
+        },
+        {
+          "feature": "Department",
+          "category": "Marketing",
+          "critical_tier_share_pct": 21.75,
+          "overall_share_pct": 20.295,
+          "over_index_ratio": 1.072
+        },
+        {
+          "feature": "Department",
+          "category": "Hr",
+          "critical_tier_share_pct": 20.25,
+          "overall_share_pct": 21.345,
+          "over_index_ratio": 0.949
+        },
+        {
+          "feature": "Department",
+          "category": "Finance",
+          "critical_tier_share_pct": 18.75,
+          "overall_share_pct": 19.945,
+          "over_index_ratio": 0.94
+        },
+        {
+          "feature": "Department",
+          "category": "It",
+          "critical_tier_share_pct": 18.25,
+          "overall_share_pct": 19.57,
+          "over_index_ratio": 0.933
+        }
+      ],
+      "Project_Role": [
+        {
+          "feature": "Project_Role",
+          "category": "Analyst",
+          "critical_tier_share_pct": 36.0,
+          "overall_share_pct": 32.192,
+          "over_index_ratio": 1.118
+        },
+        {
+          "feature": "Project_Role",
+          "category": "Developer",
+          "critical_tier_share_pct": 32.75,
+          "overall_share_pct": 33.392,
+          "over_index_ratio": 0.981
+        },
+        {
+          "feature": "Project_Role",
+          "category": "Manager",
+          "critical_tier_share_pct": 31.25,
+          "overall_share_pct": 34.416,
+          "over_index_ratio": 0.908
+        }
+      ],
+      "Job_Title": [
+        {
+          "feature": "Job_Title",
+          "category": "Analyst",
+          "critical_tier_share_pct": 26.5,
+          "overall_share_pct": 24.544,
+          "over_index_ratio": 1.08
+        },
+        {
+          "feature": "Job_Title",
+          "category": "Manager",
+          "critical_tier_share_pct": 26.25,
+          "overall_share_pct": 25.919,
+          "over_index_ratio": 1.013
+        },
+        {
+          "feature": "Job_Title",
+          "category": "Consultant",
+          "critical_tier_share_pct": 24.25,
+          "overall_share_pct": 25.044,
+          "over_index_ratio": 0.968
+        },
+        {
+          "feature": "Job_Title",
+          "category": "Developer",
+          "critical_tier_share_pct": 23.0,
+          "overall_share_pct": 24.494,
+          "over_index_ratio": 0.939
+        }
+      ]
+    }
+  },
+  "risk_combination_reasoning": {
+    "features_used": [
+      "Adaptability_Rating",
+      "Employee_Work_Life_Balance_Rating",
+      "Problem_Solving_Skills_Rating"
+    ],
+    "risk_directions": {
+      "Adaptability_Rating": "higher_is_riskier",
+      "Employee_Work_Life_Balance_Rating": "lower_is_riskier",
+      "Problem_Solving_Skills_Rating": "higher_is_riskier"
+    },
+    "risk_thresholds": {
+      "Adaptability_Rating": 10.0,
+      "Employee_Work_Life_Balance_Rating": 6.0,
+      "Problem_Solving_Skills_Rating": 10.0
+    },
+    "risk_combo_count": 91,
+    "risk_combo_resignation_rate_pct": 46.154,
+    "risk_combo_lift_vs_overall_pp": -3.859
+  },
+  "risk_scorecard": {
+    "formula": "Attrition_Risk = SUM(weight_i * normalized_feature_i) across top predictors",
+    "weights_top_features": [
+      {
+        "feature": "Employee_Health_Insurance_Coverage",
+        "weight": 0.1859
+      },
+      {
+        "feature": "Employee_Stock_Options",
+        "weight": 0.1733
+      },
+      {
+        "feature": "Adaptability_Rating",
+        "weight": 0.1205
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "weight": 0.119
+      },
+      {
+        "feature": "Problem_Solving_Skills_Rating",
+        "weight": 0.1018
+      },
+      {
+        "feature": "Annual_Salary_Increase_Percentage",
+        "weight": 0.0889
+      },
+      {
+        "feature": "Teamwork_Skills_Rating",
+        "weight": 0.0695
+      },
+      {
+        "feature": "Conflict_Resolution_Cases",
+        "weight": 0.0517
+      },
+      {
+        "feature": "Bonus",
+        "weight": 0.0467
+      },
+      {
+        "feature": "Employee_Retirement_Benefits",
+        "weight": 0.0428
+      }
+    ],
+    "note": "Weights are normalized from permutation-importance AUC drop; higher weight means stronger risk contribution."
+  },
+  "feature_influence": {
+    "permutation_importance_top": [
+      {
+        "feature": "Employee_Health_Insurance_Coverage",
+        "importance_mean_auc_drop": 0.00273,
+        "importance_std": 0.001708
+      },
+      {
+        "feature": "Employee_Stock_Options",
+        "importance_mean_auc_drop": 0.002545,
+        "importance_std": 0.001256
+      },
+      {
+        "feature": "Adaptability_Rating",
+        "importance_mean_auc_drop": 0.001769,
+        "importance_std": 0.003585
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "importance_mean_auc_drop": 0.001747,
+        "importance_std": 0.005005
+      },
+      {
+        "feature": "Problem_Solving_Skills_Rating",
+        "importance_mean_auc_drop": 0.001494,
+        "importance_std": 0.002574
+      },
+      {
+        "feature": "Annual_Salary_Increase_Percentage",
+        "importance_mean_auc_drop": 0.001306,
+        "importance_std": 0.003133
+      },
+      {
+        "feature": "Teamwork_Skills_Rating",
+        "importance_mean_auc_drop": 0.00102,
+        "importance_std": 0.003143
+      },
+      {
+        "feature": "Conflict_Resolution_Cases",
+        "importance_mean_auc_drop": 0.000759,
+        "importance_std": 0.003474
+      },
+      {
+        "feature": "Bonus",
+        "importance_mean_auc_drop": 0.000685,
+        "importance_std": 0.003161
+      },
+      {
+        "feature": "Employee_Retirement_Benefits",
+        "importance_mean_auc_drop": 0.000628,
+        "importance_std": 0.005427
+      },
+      {
+        "feature": "Leadership_Qualities_Rating",
+        "importance_mean_auc_drop": -1.9e-05,
+        "importance_std": 0.002082
+      },
+      {
+        "feature": "Performance_Rating",
+        "importance_mean_auc_drop": -0.000461,
+        "importance_std": 0.006341
+      }
+    ]
+  },
+  "outputs": {
+    "top_attrition_risk_csv": "E:\\Projects\\GenAI-Quantiphi\\reports\\section5\\q20_top_attrition_risk_employees.csv",
+    "top_attrition_risk_note": "Top employees ranked by out-of-fold predicted resignation probability."
+  },
+  "llm_evidence": {
+    "selected_model": "random_forest",
+    "selected_metrics": {
+      "accuracy": 0.4757,
+      "balanced_accuracy": 0.4756,
+      "precision": 0.478,
+      "recall": 0.5137,
+      "f1": 0.4952,
+      "roc_auc": 0.4745,
+      "pr_auc": 0.497
+    },
+    "target_prevalence_resignation": 0.5001,
+    "model_signal_assessment": {
+      "is_weak_signal": true,
+      "note": "Predictive signal is weak in current data (performance is near random baseline). Use tiers as directional prioritization, not deterministic labels."
+    },
+    "top_permutation_features": [
+      {
+        "feature": "Employee_Health_Insurance_Coverage",
+        "importance_mean_auc_drop": 0.00273,
+        "importance_std": 0.001708
+      },
+      {
+        "feature": "Employee_Stock_Options",
+        "importance_mean_auc_drop": 0.002545,
+        "importance_std": 0.001256
+      },
+      {
+        "feature": "Adaptability_Rating",
+        "importance_mean_auc_drop": 0.001769,
+        "importance_std": 0.003585
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "importance_mean_auc_drop": 0.001747,
+        "importance_std": 0.005005
+      },
+      {
+        "feature": "Problem_Solving_Skills_Rating",
+        "importance_mean_auc_drop": 0.001494,
+        "importance_std": 0.002574
+      },
+      {
+        "feature": "Annual_Salary_Increase_Percentage",
+        "importance_mean_auc_drop": 0.001306,
+        "importance_std": 0.003133
+      },
+      {
+        "feature": "Teamwork_Skills_Rating",
+        "importance_mean_auc_drop": 0.00102,
+        "importance_std": 0.003143
+      },
+      {
+        "feature": "Conflict_Resolution_Cases",
+        "importance_mean_auc_drop": 0.000759,
+        "importance_std": 0.003474
+      },
+      {
+        "feature": "Bonus",
+        "importance_mean_auc_drop": 0.000685,
+        "importance_std": 0.003161
+      },
+      {
+        "feature": "Employee_Retirement_Benefits",
+        "importance_mean_auc_drop": 0.000628,
+        "importance_std": 0.005427
+      }
+    ],
+    "tier_thresholds_probability": {
+      "q50": 0.501905,
+      "q75": 0.528268,
+      "q90": 0.550813
+    },
+    "tier_summary": [
+      {
+        "risk_tier": "Critical",
+        "count": 400,
+        "population_pct": 9.998,
+        "actual_resignation_rate_pct": 49.5,
+        "resignation_lift_vs_overall_pp": -0.512,
+        "avg_predicted_probability": 0.56986
+      },
+      {
+        "risk_tier": "High",
+        "count": 600,
+        "population_pct": 14.996,
+        "actual_resignation_rate_pct": 49.167,
+        "resignation_lift_vs_overall_pp": -0.846,
+        "avg_predicted_probability": 0.538424
+      },
+      {
+        "risk_tier": "Medium",
+        "count": 1000,
+        "population_pct": 24.994,
+        "actual_resignation_rate_pct": 52.2,
+        "resignation_lift_vs_overall_pp": 2.188,
+        "avg_predicted_probability": 0.51474
+      },
+      {
+        "risk_tier": "Low",
+        "count": 2001,
+        "population_pct": 50.012,
+        "actual_resignation_rate_pct": 49.275,
+        "resignation_lift_vs_overall_pp": -0.737,
+        "avg_predicted_probability": 0.468673
+      }
+    ],
+    "critical_profile_feature_gaps": [
+      {
+        "feature": "Employee_Compensation_Benefits",
+        "critical_tier_mean": 4978.97,
+        "overall_mean": 5001.089,
+        "gap": -22.119
+      },
+      {
+        "feature": "Bonus",
+        "critical_tier_mean": 5017.9525,
+        "overall_mean": 4999.7423,
+        "gap": 18.2102
+      },
+      {
+        "feature": "Compensation_Score",
+        "critical_tier_mean": 5017.9525,
+        "overall_mean": 4999.7423,
+        "gap": 18.2102
+      },
+      {
+        "feature": "Employee_Travel_Allowance",
+        "critical_tier_mean": 1498.205,
+        "overall_mean": 1500.6491,
+        "gap": -2.4441
+      },
+      {
+        "feature": "Employee_Savings_Plans",
+        "critical_tier_mean": 2999.31,
+        "overall_mean": 3001.0265,
+        "gap": -1.7165
+      },
+      {
+        "feature": "Employee_Engagement_Score",
+        "critical_tier_mean": 78.44,
+        "overall_mean": 80.0012,
+        "gap": -1.5612
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "critical_tier_mean": 6.835,
+        "overall_mean": 7.9525,
+        "gap": -1.1175
+      },
+      {
+        "feature": "Performance_Rating",
+        "critical_tier_mean": 10.7325,
+        "overall_mean": 9.9143,
+        "gap": 0.8182
+      },
+      {
+        "feature": "Technical_Skills_Rating",
+        "critical_tier_mean": 7.23,
+        "overall_mean": 7.994,
+        "gap": -0.764
+      },
+      {
+        "feature": "Initiative_Rating",
+        "critical_tier_mean": 8.675,
+        "overall_mean": 8.018,
+        "gap": 0.657
+      },
+      {
+        "feature": "Strategic_Thinking_Rating",
+        "critical_tier_mean": 8.4525,
+        "overall_mean": 8.0425,
+        "gap": 0.41
+      },
+      {
+        "feature": "Work_Hours_Per_Week",
+        "critical_tier_mean": 40.4,
+        "overall_mean": 40.018,
+        "gap": 0.382
+      }
+    ],
+    "risk_combo_summary": {
+      "features_used": [
+        "Adaptability_Rating",
+        "Employee_Work_Life_Balance_Rating",
+        "Problem_Solving_Skills_Rating"
+      ],
+      "risk_combo_resignation_rate_pct": 46.154,
+      "risk_combo_lift_vs_overall_pp": -3.859
+    }
+  },
+  "llm_insights": {
+    "headline": "Attrition Risk Model Shows Weak Predictive Power but Identifies Key Feature Gaps in Critical Risk Tiers",
+    "key_insight_1": "The Random Forest model, while exhibiting weak overall predictive accuracy (0.4757), indicates that 'Employee_Health_Insurance_Coverage' (0.00273 AUC drop) and 'Employee_Stock_Options' (0.002545 AUC drop) are the most influential features in predicting attrition. This suggests that benefits and equity are primary considerations for employees, even within a model with limited predictive capacity.",
+    "key_insight_2": "Employees in the 'Critical' risk tier (9.998% of the population) exhibit an actual resignation rate of 49.5%, which is only slightly lower than the overall population rate of 50.01%. However, their average predicted probability of resignation is 0.56986, indicating a potential underestimation of risk for this group by the model.",
+    "hidden_insight": "Despite the overall weak signal of the model, a combination of 'Adaptability_Rating', 'Employee_Work_Life_Balance_Rating', and 'Problem_Solving_Skills_Rating' is associated with a lower resignation rate (46.154%) compared to the overall population, suggesting these factors might be protective against attrition when present.",
+    "risk_alert": "The 'Critical' risk tier, representing 9.998% of the workforce, shows a resignation rate of 49.5%, which is nearly identical to the overall population's resignation rate. This indicates that the current model is not effectively isolating or prioritizing the highest-risk employees for intervention, potentially leading to missed opportunities for retention efforts.",
+    "business_implication": "The model's weak performance suggests that relying solely on its predictions for targeted interventions may be ineffective. However, the identified feature gaps in the 'Critical' risk tier, particularly in 'Employee_Compensation_Benefits' (-22.119 gap) and 'Bonus' (18.2102 gap), highlight areas where employee dissatisfaction might be contributing to attrition risk, even if not perfectly captured by the model.",
+    "action_plan": [
+      "Investigate the root causes of attrition within the 'Critical' risk tier, focusing on understanding the drivers behind the 49.5% resignation rate despite the model's average predicted probability.",
+      "Review compensation and benefits packages for employees in the 'Critical' risk tier to address identified gaps in 'Employee_Compensation_Benefits' and 'Bonus'.",
+      "Explore the protective factors identified in the 'hidden_insight' (Adaptability, Work-Life Balance, Problem Solving) and consider how to foster these attributes across the workforce to potentially reduce overall attrition.",
+      "Re-evaluate and potentially enhance the features used in the attrition model, incorporating more robust behavioral, attitudinal, or external market data to improve predictive accuracy beyond the current baseline.",
+      "Utilize the identified feature gaps as directional indicators for proactive engagement and support for employees, rather than relying on the model's probabilistic scores alone."
+    ],
+    "standout_statement": "While the attrition model's predictive power is weak, the critical risk tier shows a resignation rate nearly on par with the overall population, underscoring a significant gap in identifying and retaining high-risk employees.",
+    "confidence_note": "The model's performance metrics (e.g., accuracy of 0.4757) indicate a weak predictive signal, suggesting that the relationships observed are correlational and may not be stable or deterministic. The insights should be treated as directional guidance rather than definitive predictions."
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1777668135,
+    "evidence_char_length": 3709
+  }
+}

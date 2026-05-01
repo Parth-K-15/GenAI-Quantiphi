@@ -365,6 +365,15 @@
       "action": "Job rotation or project assignments in innovation-enabling environments."
     }
   ],
+  "business_action_layer": {
+    "title": "Recommended Actions",
+    "recommended_actions": [
+      "Create open innovation platforms",
+      "Allocate protected innovation time (10-20%)",
+      "Introduce idea-to-execution pipelines",
+      "Reward experimentation, not just success"
+    ]
+  },
   "sample_employees": [
     {
       "Employee_ID": "2024/Finance/3564",
@@ -568,6 +577,7 @@
     "key_insight_1": "Initiative is an input \u2014 innovation is an output. The conversion from initiative to innovation requires four enabling conditions: creative environment, cognitive space (low overtime), access to innovation platforms, and a recognition system that rewards experimentation. This dataset reveals deficits in all four for the gap population.",
     "key_insight_2": "The gap group shows elevated attrition risk compared to the aligned group. When motivated employees consistently fail to see their initiative convert into outcomes, frustration builds and disengagement follows. Untreated initiative-innovation gaps become retention crises.",
     "key_insight_3": "Not all blockers are individual \u2014 many are organizational. Role structure, workload design, and access to innovation projects are managerial decisions, not employee failures. The intervention belongs at the system level, not just the individual.",
-    "standout_statement": "An organization that hires initiative but systematically blocks its conversion into innovation is not just wasting talent \u2014 it is actively demotivating its most proactive employees. The cost of this misalignment compounds silently until it becomes visible as attrition."
+    "standout_insight": "This segment represents trapped organizational value \u2014 employees who are ready to innovate but are systematically prevented from doing so.",
+    "standout_statement": "This segment represents trapped organizational value \u2014 employees who are ready to innovate but are systematically prevented from doing so."
   }
 }

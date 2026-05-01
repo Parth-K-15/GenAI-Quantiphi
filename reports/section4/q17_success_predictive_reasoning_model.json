@@ -1,0 +1,421 @@
+{
+  "question": "Q17 - Predictive Reasoning Model: Combination of Skills and Ratings for Successful Outcomes",
+  "target_definition": {
+    "success_class": "Project_Outcome == 'Successful'",
+    "failure_class": "Project_Outcome == 'Failed'",
+    "in_progress_excluded": true
+  },
+  "dataset_scope": {
+    "rows_used": 2615,
+    "success_count": 1287,
+    "failed_count": 1328,
+    "feature_count": 25,
+    "feature_columns": [
+      "Technical_Skills_Rating",
+      "Communication_Skills_Rating",
+      "Problem_Solving_Skills_Rating",
+      "Leadership_Qualities_Rating",
+      "Initiative_Rating",
+      "Adaptability_Rating",
+      "Creativity_Rating",
+      "Strategic_Thinking_Rating",
+      "Teamwork_Skills_Rating",
+      "Feedback_From_Colleagues",
+      "Feedback_From_Supervisors",
+      "Mentor_Rating",
+      "Employee_Engagement_Score",
+      "Employee_Job_Satisfaction_Score",
+      "Employee_Work_Life_Balance_Rating",
+      "Performance_Rating",
+      "Avg_Skills_Score",
+      "Avg_Soft_Skills_Score",
+      "Training_Efficiency",
+      "Professional_Development_Hours",
+      "Conflict_Resolution_Cases",
+      "Number_Of_Promotions",
+      "Overtime_Hours_Per_Week",
+      "Onboarding_Delay_Days",
+      "Tenure_Years"
+    ]
+  },
+  "modeling": {
+    "train_test_split": {
+      "train_rows": 2092,
+      "test_rows": 523,
+      "test_size": 0.2
+    },
+    "candidate_models": {
+      "logistic_regression": {
+        "test_metrics": {
+          "accuracy": 0.4952,
+          "balanced_accuracy": 0.4947,
+          "precision": 0.4858,
+          "recall": 0.4669,
+          "f1": 0.4762,
+          "roc_auc": 0.4938,
+          "pr_auc": 0.501
+        },
+        "cv_roc_auc_mean": 0.4905,
+        "cv_roc_auc_std": 0.018,
+        "cv_pr_auc_mean": 0.4977,
+        "cv_pr_auc_std": 0.0108
+      },
+      "random_forest": {
+        "test_metrics": {
+          "accuracy": 0.5029,
+          "balanced_accuracy": 0.5025,
+          "precision": 0.494,
+          "recall": 0.4786,
+          "f1": 0.4862,
+          "roc_auc": 0.4959,
+          "pr_auc": 0.4989
+        },
+        "cv_roc_auc_mean": 0.519,
+        "cv_roc_auc_std": 0.0161,
+        "cv_pr_auc_mean": 0.5106,
+        "cv_pr_auc_std": 0.014
+      }
+    },
+    "selected_model": "random_forest",
+    "selected_model_test_metrics": {
+      "accuracy": 0.5029,
+      "balanced_accuracy": 0.5025,
+      "precision": 0.494,
+      "recall": 0.4786,
+      "f1": 0.4862,
+      "roc_auc": 0.4959,
+      "pr_auc": 0.4989
+    },
+    "target_prevalence_success": 0.4922,
+    "model_signal_assessment": {
+      "is_weak_signal": true,
+      "note": "Predictive signal is weak in current data (performance is near random baseline). Use the output as directional, not deterministic."
+    }
+  },
+  "feature_influence": {
+    "permutation_importance_top": [
+      {
+        "feature": "Creativity_Rating",
+        "importance_mean_auc_drop": 0.009375,
+        "importance_std": 0.006243
+      },
+      {
+        "feature": "Onboarding_Delay_Days",
+        "importance_mean_auc_drop": 0.005475,
+        "importance_std": 0.008988
+      },
+      {
+        "feature": "Overtime_Hours_Per_Week",
+        "importance_mean_auc_drop": 0.005154,
+        "importance_std": 0.00337
+      },
+      {
+        "feature": "Technical_Skills_Rating",
+        "importance_mean_auc_drop": 0.004264,
+        "importance_std": 0.004385
+      },
+      {
+        "feature": "Performance_Rating",
+        "importance_mean_auc_drop": 0.00422,
+        "importance_std": 0.004327
+      },
+      {
+        "feature": "Professional_Development_Hours",
+        "importance_mean_auc_drop": 0.003759,
+        "importance_std": 0.005719
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "importance_mean_auc_drop": 0.002418,
+        "importance_std": 0.00312
+      },
+      {
+        "feature": "Initiative_Rating",
+        "importance_mean_auc_drop": 0.001887,
+        "importance_std": 0.002366
+      }
+    ],
+    "logistic_coefficients_top_abs": [
+      {
+        "feature": "Tenure_Years",
+        "coefficient": 0.132401
+      },
+      {
+        "feature": "Problem_Solving_Skills_Rating",
+        "coefficient": 0.060667
+      },
+      {
+        "feature": "Creativity_Rating",
+        "coefficient": -0.055604
+      },
+      {
+        "feature": "Onboarding_Delay_Days",
+        "coefficient": 0.054518
+      },
+      {
+        "feature": "Technical_Skills_Rating",
+        "coefficient": -0.053685
+      },
+      {
+        "feature": "Strategic_Thinking_Rating",
+        "coefficient": 0.050337
+      },
+      {
+        "feature": "Feedback_From_Supervisors",
+        "coefficient": 0.041206
+      },
+      {
+        "feature": "Teamwork_Skills_Rating",
+        "coefficient": -0.040759
+      },
+      {
+        "feature": "Professional_Development_Hours",
+        "coefficient": -0.03347
+      },
+      {
+        "feature": "Employee_Engagement_Score",
+        "coefficient": 0.028401
+      },
+      {
+        "feature": "Conflict_Resolution_Cases",
+        "coefficient": -0.024652
+      },
+      {
+        "feature": "Adaptability_Rating",
+        "coefficient": -0.021746
+      }
+    ],
+    "logistic_intercept": -0.000293
+  },
+  "success_profile": {
+    "top_decile_probability_threshold": 0.556014,
+    "top_decile_count": 262,
+    "overall_success_rate_pct": 49.216,
+    "top_decile_actual_success_rate_pct": 51.908,
+    "success_lift_top_decile_pp": 2.692,
+    "probability_basis": "Out-of-fold (5-fold) predicted probability to avoid in-sample inflation",
+    "top_profile_feature_gaps": [
+      {
+        "feature": "Onboarding_Delay_Days",
+        "top_decile_mean": 108.3588,
+        "overall_mean": 90.5289,
+        "gap": 17.8299
+      },
+      {
+        "feature": "Employee_Engagement_Score",
+        "top_decile_mean": 81.3015,
+        "overall_mean": 79.9824,
+        "gap": 1.3191
+      },
+      {
+        "feature": "Creativity_Rating",
+        "top_decile_mean": 6.7366,
+        "overall_mean": 7.9874,
+        "gap": -1.2507
+      },
+      {
+        "feature": "Tenure_Years",
+        "top_decile_mean": 5.7899,
+        "overall_mean": 4.6982,
+        "gap": 1.0917
+      },
+      {
+        "feature": "Technical_Skills_Rating",
+        "top_decile_mean": 7.2786,
+        "overall_mean": 7.9916,
+        "gap": -0.713
+      },
+      {
+        "feature": "Teamwork_Skills_Rating",
+        "top_decile_mean": 7.3359,
+        "overall_mean": 7.9488,
+        "gap": -0.6129
+      },
+      {
+        "feature": "Feedback_From_Supervisors",
+        "top_decile_mean": 7.4542,
+        "overall_mean": 6.9859,
+        "gap": 0.4683
+      },
+      {
+        "feature": "Avg_Soft_Skills_Score",
+        "top_decile_mean": 7.584,
+        "overall_mean": 8.0249,
+        "gap": -0.4409
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "top_decile_mean": 8.3321,
+        "overall_mean": 7.943,
+        "gap": 0.389
+      },
+      {
+        "feature": "Problem_Solving_Skills_Rating",
+        "top_decile_mean": 8.3893,
+        "overall_mean": 8.0088,
+        "gap": 0.3805
+      },
+      {
+        "feature": "Feedback_From_Colleagues",
+        "top_decile_mean": 6.542,
+        "overall_mean": 6.9147,
+        "gap": -0.3727
+      },
+      {
+        "feature": "Professional_Development_Hours",
+        "top_decile_mean": 50.6641,
+        "overall_mean": 50.3136,
+        "gap": 0.3505
+      }
+    ]
+  },
+  "reasoning_combinations": {
+    "top3_features_by_importance": [
+      "Creativity_Rating",
+      "Onboarding_Delay_Days",
+      "Overtime_Hours_Per_Week"
+    ],
+    "high_thresholds_q75": {
+      "Creativity_Rating": 10.0,
+      "Onboarding_Delay_Days": 137.0,
+      "Overtime_Hours_Per_Week": 9.0
+    },
+    "low_thresholds_q25": {
+      "Creativity_Rating": 6.0,
+      "Onboarding_Delay_Days": 46.0,
+      "Overtime_Hours_Per_Week": 5.0
+    },
+    "high_combo_count": 50,
+    "high_combo_success_rate_pct": 56.0,
+    "high_combo_lift_vs_overall_pp": 6.784,
+    "low_combo_count": 59,
+    "low_combo_success_rate_pct": 57.627,
+    "low_combo_lift_vs_overall_pp": 8.411
+  },
+  "readiness_scorecard": {
+    "formula": "Success_Readiness = SUM(weight_i * normalized_feature_i) across top predictors",
+    "weights_top_features": [
+      {
+        "feature": "Creativity_Rating",
+        "weight": 0.2257
+      },
+      {
+        "feature": "Onboarding_Delay_Days",
+        "weight": 0.1318
+      },
+      {
+        "feature": "Overtime_Hours_Per_Week",
+        "weight": 0.1241
+      },
+      {
+        "feature": "Technical_Skills_Rating",
+        "weight": 0.1026
+      },
+      {
+        "feature": "Performance_Rating",
+        "weight": 0.1016
+      },
+      {
+        "feature": "Professional_Development_Hours",
+        "weight": 0.0905
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "weight": 0.0582
+      },
+      {
+        "feature": "Initiative_Rating",
+        "weight": 0.0454
+      }
+    ],
+    "note": "Weights are normalized from permutation-importance AUC drop; higher weight means stronger predictive contribution."
+  },
+  "outputs": {
+    "top_success_propensity_csv": "E:\\Projects\\GenAI-Quantiphi\\reports\\section4\\q17_top_success_propensity_employees.csv",
+    "top_success_propensity_note": "Ranked by out-of-fold predicted success probability."
+  },
+  "llm_evidence": {
+    "selected_model": "random_forest",
+    "selected_metrics": {
+      "accuracy": 0.5029,
+      "balanced_accuracy": 0.5025,
+      "precision": 0.494,
+      "recall": 0.4786,
+      "f1": 0.4862,
+      "roc_auc": 0.4959,
+      "pr_auc": 0.4989
+    },
+    "top_features": [
+      {
+        "feature": "Creativity_Rating",
+        "importance_mean_auc_drop": 0.009375,
+        "importance_std": 0.006243
+      },
+      {
+        "feature": "Onboarding_Delay_Days",
+        "importance_mean_auc_drop": 0.005475,
+        "importance_std": 0.008988
+      },
+      {
+        "feature": "Overtime_Hours_Per_Week",
+        "importance_mean_auc_drop": 0.005154,
+        "importance_std": 0.00337
+      },
+      {
+        "feature": "Technical_Skills_Rating",
+        "importance_mean_auc_drop": 0.004264,
+        "importance_std": 0.004385
+      },
+      {
+        "feature": "Performance_Rating",
+        "importance_mean_auc_drop": 0.00422,
+        "importance_std": 0.004327
+      },
+      {
+        "feature": "Professional_Development_Hours",
+        "importance_mean_auc_drop": 0.003759,
+        "importance_std": 0.005719
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "importance_mean_auc_drop": 0.002418,
+        "importance_std": 0.00312
+      },
+      {
+        "feature": "Initiative_Rating",
+        "importance_mean_auc_drop": 0.001887,
+        "importance_std": 0.002366
+      }
+    ],
+    "top3_features_by_importance": [
+      "Creativity_Rating",
+      "Onboarding_Delay_Days",
+      "Overtime_Hours_Per_Week"
+    ],
+    "high_combo_success_rate_pct": 56.0,
+    "high_combo_lift_vs_overall_pp": 6.784,
+    "low_combo_success_rate_pct": 57.627,
+    "low_combo_lift_vs_overall_pp": 8.411,
+    "top_decile_probability_threshold": 0.556014,
+    "top_decile_actual_success_rate_pct": 51.908,
+    "success_lift_top_decile_pp": 2.692,
+    "target_prevalence_success": 0.4922,
+    "model_signal_assessment": {
+      "is_weak_signal": true,
+      "note": "Predictive signal is weak in current data (performance is near random baseline). Use the output as directional, not deterministic."
+    }
+  },
+  "llm_insights": {
+    "headline": "Pending Gemini generation.",
+    "key_insight_1": "Pending Gemini generation.",
+    "key_insight_2": "Pending Gemini generation.",
+    "hidden_insight": "Pending Gemini generation.",
+    "risk_alert": "Pending Gemini generation.",
+    "business_implication": "Pending Gemini generation.",
+    "action_plan": [
+      "Pending Gemini generation."
+    ],
+    "standout_statement": "Pending Gemini generation.",
+    "confidence_note": "Pending Gemini generation."
+  }
+}

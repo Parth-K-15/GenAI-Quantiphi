@@ -216,6 +216,15 @@ result = {
     },
     "department_breakdown": dept_gap.to_dict(orient='records'),
     "innovation_blockers": blockers,
+    "business_action_layer": {
+        "title": "Recommended Actions",
+        "recommended_actions": [
+            "Create open innovation platforms",
+            "Allocate protected innovation time (10-20%)",
+            "Introduce idea-to-execution pipelines",
+            "Reward experimentation, not just success"
+        ]
+    },
     "sample_employees": sample.to_dict(orient='records'),
     "llm_insights": {
         "headline": (
@@ -247,11 +256,13 @@ result = {
             "are managerial decisions, not employee failures. "
             "The intervention belongs at the system level, not just the individual."
         ),
+        "standout_insight": (
+            "This segment represents trapped organizational value — employees who are ready "
+            "to innovate but are systematically prevented from doing so."
+        ),
         "standout_statement": (
-            "An organization that hires initiative but systematically blocks its conversion "
-            "into innovation is not just wasting talent — it is actively demotivating its "
-            "most proactive employees. The cost of this misalignment compounds silently "
-            "until it becomes visible as attrition."
+            "This segment represents trapped organizational value — employees who are ready "
+            "to innovate but are systematically prevented from doing so."
         )
     }
 }

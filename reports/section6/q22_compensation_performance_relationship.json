@@ -1,0 +1,264 @@
+{
+  "question": "Q22 - Relationship Between Salary Increase %, Bonus %, and Performance Rating",
+  "dataset_scope": {
+    "rows_used": 4001,
+    "features_used": [
+      "Annual_Salary_Increase_Percentage",
+      "Performance_Bonus_Percentage",
+      "Performance_Rating"
+    ]
+  },
+  "pairwise_correlations": {
+    "Annual_Salary_Increase_Percentage_vs_Performance_Bonus_Percentage": {
+      "pearson_r": 0.0091,
+      "pearson_p_value": 0.565131,
+      "spearman_rho": 0.0121,
+      "spearman_p_value": 0.445456
+    },
+    "Annual_Salary_Increase_Percentage_vs_Performance_Rating": {
+      "pearson_r": -0.0051,
+      "pearson_p_value": 0.744955,
+      "spearman_rho": -0.0187,
+      "spearman_p_value": 0.237679
+    },
+    "Performance_Bonus_Percentage_vs_Performance_Rating": {
+      "pearson_r": 0.0187,
+      "pearson_p_value": 0.235951,
+      "spearman_rho": 0.0166,
+      "spearman_p_value": 0.293599
+    }
+  },
+  "multivariable_regression": {
+    "target": "Performance_Rating",
+    "predictors": [
+      "Annual_Salary_Increase_Percentage",
+      "Performance_Bonus_Percentage"
+    ],
+    "coefficients": [
+      {
+        "feature": "Annual_Salary_Increase_Percentage",
+        "coefficient": -0.007338
+      },
+      {
+        "feature": "Performance_Bonus_Percentage",
+        "coefficient": 0.033199
+      }
+    ],
+    "intercept": 9.851033,
+    "in_sample_r2": 0.000379,
+    "cross_validated_r2": -0.001662,
+    "model_note": "Linear model quantifies directional relationship of compensation levers with performance."
+  },
+  "interaction_patterns": {
+    "salary_bonus_quartile_grid": [
+      {
+        "salary_band": "Q1",
+        "bonus_band": "Q1",
+        "count": 487,
+        "avg_performance": 10.0226,
+        "median_performance": 10.0
+      },
+      {
+        "salary_band": "Q1",
+        "bonus_band": "Q2",
+        "count": 229,
+        "avg_performance": 9.4541,
+        "median_performance": 9.0
+      },
+      {
+        "salary_band": "Q1",
+        "bonus_band": "Q3",
+        "count": 196,
+        "avg_performance": 10.0357,
+        "median_performance": 10.0
+      },
+      {
+        "salary_band": "Q1",
+        "bonus_band": "Q4",
+        "count": 177,
+        "avg_performance": 9.9944,
+        "median_performance": 10.0
+      },
+      {
+        "salary_band": "Q2",
+        "bonus_band": "Q1",
+        "count": 557,
+        "avg_performance": 10.0359,
+        "median_performance": 10.0
+      },
+      {
+        "salary_band": "Q2",
+        "bonus_band": "Q2",
+        "count": 332,
+        "avg_performance": 9.9729,
+        "median_performance": 10.0
+      },
+      {
+        "salary_band": "Q2",
+        "bonus_band": "Q3",
+        "count": 227,
+        "avg_performance": 10.163,
+        "median_performance": 10.0
+      },
+      {
+        "salary_band": "Q2",
+        "bonus_band": "Q4",
+        "count": 247,
+        "avg_performance": 9.996,
+        "median_performance": 10.0
+      },
+      {
+        "salary_band": "Q3",
+        "bonus_band": "Q1",
+        "count": 259,
+        "avg_performance": 9.5019,
+        "median_performance": 9.0
+      },
+      {
+        "salary_band": "Q3",
+        "bonus_band": "Q2",
+        "count": 126,
+        "avg_performance": 10.0,
+        "median_performance": 10.0
+      },
+      {
+        "salary_band": "Q3",
+        "bonus_band": "Q3",
+        "count": 115,
+        "avg_performance": 9.8174,
+        "median_performance": 10.0
+      },
+      {
+        "salary_band": "Q3",
+        "bonus_band": "Q4",
+        "count": 137,
+        "avg_performance": 9.4161,
+        "median_performance": 9.0
+      },
+      {
+        "salary_band": "Q4",
+        "bonus_band": "Q1",
+        "count": 393,
+        "avg_performance": 9.799,
+        "median_performance": 10.0
+      },
+      {
+        "salary_band": "Q4",
+        "bonus_band": "Q2",
+        "count": 199,
+        "avg_performance": 9.9347,
+        "median_performance": 10.0
+      },
+      {
+        "salary_band": "Q4",
+        "bonus_band": "Q3",
+        "count": 156,
+        "avg_performance": 10.1026,
+        "median_performance": 10.0
+      },
+      {
+        "salary_band": "Q4",
+        "bonus_band": "Q4",
+        "count": 164,
+        "avg_performance": 10.1463,
+        "median_performance": 10.0
+      }
+    ],
+    "high_salary_high_bonus_segment": {
+      "count": 164,
+      "avg_performance": 10.1463,
+      "segment_share_pct": 4.099
+    },
+    "low_salary_low_bonus_segment": {
+      "count": 487,
+      "avg_performance": 10.0226,
+      "segment_share_pct": 12.172
+    },
+    "avg_performance_gap_high_high_vs_low_low": 0.1238
+  },
+  "compensation_reward_ratio": {
+    "formula": "(Salary Increase % + Bonus %) / Performance Rating",
+    "distribution_stats": {
+      "mean": 0.900779,
+      "median": 0.8,
+      "std": 0.512922,
+      "p25": 0.571429,
+      "p75": 1.111111
+    }
+  },
+  "llm_evidence": {
+    "rows_used": 4001,
+    "pairwise_correlations": {
+      "Annual_Salary_Increase_Percentage_vs_Performance_Bonus_Percentage": {
+        "pearson_r": 0.0091,
+        "pearson_p_value": 0.565131,
+        "spearman_rho": 0.0121,
+        "spearman_p_value": 0.445456
+      },
+      "Annual_Salary_Increase_Percentage_vs_Performance_Rating": {
+        "pearson_r": -0.0051,
+        "pearson_p_value": 0.744955,
+        "spearman_rho": -0.0187,
+        "spearman_p_value": 0.237679
+      },
+      "Performance_Bonus_Percentage_vs_Performance_Rating": {
+        "pearson_r": 0.0187,
+        "pearson_p_value": 0.235951,
+        "spearman_rho": 0.0166,
+        "spearman_p_value": 0.293599
+      }
+    },
+    "multivariable_regression": {
+      "coefficients": [
+        {
+          "feature": "Annual_Salary_Increase_Percentage",
+          "coefficient": -0.007338
+        },
+        {
+          "feature": "Performance_Bonus_Percentage",
+          "coefficient": 0.033199
+        }
+      ],
+      "intercept": 9.851033,
+      "in_sample_r2": 0.000379,
+      "cross_validated_r2": -0.001662
+    },
+    "high_high_segment": {
+      "count": 164,
+      "avg_performance": 10.1463
+    },
+    "low_low_segment": {
+      "count": 487,
+      "avg_performance": 10.0226
+    },
+    "avg_performance_gap_high_high_vs_low_low": 0.1238,
+    "compensation_reward_ratio_stats": {
+      "mean": 0.900779,
+      "median": 0.8,
+      "std": 0.512922,
+      "p25": 0.571429,
+      "p75": 1.111111
+    }
+  },
+  "llm_insights": {
+    "headline": "Weak Link Between Compensation and Performance Metrics",
+    "key_insight_1": "There is no statistically significant correlation between Annual Salary Increase Percentage and Performance Bonus Percentage (Pearson r = 0.0091, p = 0.565). Similarly, Annual Salary Increase Percentage shows no significant correlation with Performance Rating (Pearson r = -0.0051, p = 0.745).",
+    "key_insight_2": "Performance Bonus Percentage also shows no statistically significant correlation with Performance Rating (Pearson r = 0.0187, p = 0.236). This suggests that current compensation adjustments and bonus payouts are not strongly aligned with performance evaluations.",
+    "hidden_insight": "The average performance score for the 'high-high' segment (employees with both high salary increase and high bonus) is 10.1463, which is only marginally higher than the 'low-low' segment (487 employees) with an average performance of 10.0226, a difference of 0.1238. This indicates minimal differentiation in performance between these groups.",
+    "risk_alert": "The lack of a clear link between performance metrics and compensation (salary increase and bonus) could lead to decreased employee motivation and engagement, as high performers may not feel adequately recognized or rewarded, potentially increasing attrition risk.",
+    "business_implication": "The current compensation and bonus structures may not be effectively driving or reinforcing desired performance outcomes. This could result in a workforce where incentives are not perceived as fair or motivating, impacting overall productivity and retention of top talent.",
+    "action_plan": [
+      "Review and redesign the performance management system to ensure clearer linkages between performance ratings, salary increases, and bonus payouts.",
+      "Conduct a compensation benchmarking study to ensure salary increase percentages and bonus targets are competitive and aligned with market practices for similar performance levels.",
+      "Communicate transparently to employees about how performance is measured and how it impacts compensation decisions to build trust and understanding.",
+      "Explore alternative incentive structures that may more directly reward specific performance outcomes or behaviors."
+    ],
+    "standout_statement": "Despite the intention to link compensation to performance, the data reveals a near-zero correlation, suggesting that current reward mechanisms are not effectively differentiating or motivating employees based on their performance ratings or bonus potential.",
+    "confidence_note": "The correlations observed are very weak and not statistically significant (p-values > 0.05 for all pairwise comparisons). The multivariable regression model also shows a very low in-sample R-squared (0.000379) and a negative cross-validated R-squared (-0.001662), indicating that these variables collectively explain very little variance in performance. Therefore, conclusions should be drawn with caution."
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1777669872,
+    "evidence_char_length": 1057
+  }
+}

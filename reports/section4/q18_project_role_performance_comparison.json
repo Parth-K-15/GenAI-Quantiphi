@@ -1,0 +1,256 @@
+{
+  "question": "Q18 - Performance Comparison Across Project Roles (Manager vs Developer vs Analyst)",
+  "dataset_scope": {
+    "rows_used": 4001,
+    "project_roles_included": [
+      "Manager",
+      "Developer",
+      "Analyst"
+    ]
+  },
+  "role_performance_profile": [
+    {
+      "project_role": "Analyst",
+      "count": 1288,
+      "avg_performance_rating": 10.0132,
+      "median_performance_rating": 10.0,
+      "std_performance_rating": 3.1621,
+      "iqr_performance_rating": 4.0,
+      "successful_rate_pct": 30.202,
+      "failed_rate_pct": 35.326,
+      "attrition_rate_pct": 50.388,
+      "promoted_pct": 56.522,
+      "performance_lift_vs_overall": 0.0989
+    },
+    {
+      "project_role": "Manager",
+      "count": 1377,
+      "avg_performance_rating": 9.8765,
+      "median_performance_rating": 10.0,
+      "std_performance_rating": 3.0386,
+      "iqr_performance_rating": 4.0,
+      "successful_rate_pct": 34.423,
+      "failed_rate_pct": 31.009,
+      "attrition_rate_pct": 49.165,
+      "promoted_pct": 56.79,
+      "performance_lift_vs_overall": -0.0377
+    },
+    {
+      "project_role": "Developer",
+      "count": 1336,
+      "avg_performance_rating": 9.8578,
+      "median_performance_rating": 10.0,
+      "std_performance_rating": 3.0655,
+      "iqr_performance_rating": 4.0,
+      "successful_rate_pct": 31.737,
+      "failed_rate_pct": 33.383,
+      "attrition_rate_pct": 50.524,
+      "promoted_pct": 57.186,
+      "performance_lift_vs_overall": -0.0565
+    }
+  ],
+  "performance_tests": {
+    "anova": {
+      "f_statistic": 0.9874,
+      "p_value": 0.372646,
+      "is_statistically_significant_0_05": false
+    },
+    "kruskal_wallis": {
+      "h_statistic": 1.7407,
+      "p_value": 0.418803,
+      "is_statistically_significant_0_05": false
+    },
+    "pairwise_role_differences": [
+      {
+        "role_a": "Developer",
+        "role_b": "Analyst",
+        "mean_role_a": 9.8578,
+        "mean_role_b": 10.0132,
+        "delta_a_minus_b": -0.1554,
+        "cohen_d": -0.0499,
+        "mannwhitney_p_value": 0.229618,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "role_a": "Manager",
+        "role_b": "Analyst",
+        "mean_role_a": 9.8765,
+        "mean_role_b": 10.0132,
+        "delta_a_minus_b": -0.1367,
+        "cohen_d": -0.0441,
+        "mannwhitney_p_value": 0.279116,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "role_a": "Manager",
+        "role_b": "Developer",
+        "mean_role_a": 9.8765,
+        "mean_role_b": 9.8578,
+        "delta_a_minus_b": 0.0188,
+        "cohen_d": 0.0061,
+        "mannwhitney_p_value": 0.888739,
+        "is_statistically_significant_0_05": false
+      }
+    ]
+  },
+  "role_outcome_association": {
+    "contingency_counts": {
+      "Failed": {
+        "Manager": 427,
+        "Developer": 446,
+        "Analyst": 455
+      },
+      "In Progress": {
+        "Manager": 476,
+        "Developer": 466,
+        "Analyst": 444
+      },
+      "Successful": {
+        "Manager": 474,
+        "Developer": 424,
+        "Analyst": 389
+      }
+    },
+    "association_test": {
+      "chi2_statistic": 7.5944,
+      "p_value": 0.107619,
+      "degrees_of_freedom": 4,
+      "cramers_v": 0.0308,
+      "min_expected_cell_count": 414.3104,
+      "interpretation": "Association is very weak (Cramer's V=0.031) and not statistically significant at alpha=0.05."
+    }
+  },
+  "role_attrition_association": {
+    "contingency_counts": {
+      "No": {
+        "Manager": 700,
+        "Developer": 661,
+        "Analyst": 639
+      },
+      "Yes": {
+        "Manager": 677,
+        "Developer": 675,
+        "Analyst": 649
+      }
+    },
+    "association_test": {
+      "chi2_statistic": 0.6083,
+      "p_value": 0.737763,
+      "degrees_of_freedom": 2,
+      "cramers_v": 0.0123,
+      "min_expected_cell_count": 643.839,
+      "interpretation": "Association is very weak (Cramer's V=0.012) and not statistically significant at alpha=0.05."
+    }
+  },
+  "summary_signals": {
+    "best_avg_performance_role": "Analyst",
+    "lowest_avg_performance_role": "Developer",
+    "performance_gap_best_vs_lowest": 0.1554
+  },
+  "llm_evidence": {
+    "role_performance_profile": [
+      {
+        "project_role": "Analyst",
+        "count": 1288,
+        "avg_performance_rating": 10.0132,
+        "performance_lift_vs_overall": 0.0989,
+        "successful_rate_pct": 30.202,
+        "failed_rate_pct": 35.326,
+        "attrition_rate_pct": 50.388
+      },
+      {
+        "project_role": "Manager",
+        "count": 1377,
+        "avg_performance_rating": 9.8765,
+        "performance_lift_vs_overall": -0.0377,
+        "successful_rate_pct": 34.423,
+        "failed_rate_pct": 31.009,
+        "attrition_rate_pct": 49.165
+      },
+      {
+        "project_role": "Developer",
+        "count": 1336,
+        "avg_performance_rating": 9.8578,
+        "performance_lift_vs_overall": -0.0565,
+        "successful_rate_pct": 31.737,
+        "failed_rate_pct": 33.383,
+        "attrition_rate_pct": 50.524
+      }
+    ],
+    "anova": {
+      "f_statistic": 0.9874,
+      "p_value": 0.372646,
+      "is_statistically_significant_0_05": false
+    },
+    "kruskal_wallis": {
+      "h_statistic": 1.7407,
+      "p_value": 0.418803,
+      "is_statistically_significant_0_05": false
+    },
+    "top_pairwise_effects": [
+      {
+        "role_a": "Developer",
+        "role_b": "Analyst",
+        "mean_role_a": 9.8578,
+        "mean_role_b": 10.0132,
+        "delta_a_minus_b": -0.1554,
+        "cohen_d": -0.0499,
+        "mannwhitney_p_value": 0.229618,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "role_a": "Manager",
+        "role_b": "Analyst",
+        "mean_role_a": 9.8765,
+        "mean_role_b": 10.0132,
+        "delta_a_minus_b": -0.1367,
+        "cohen_d": -0.0441,
+        "mannwhitney_p_value": 0.279116,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "role_a": "Manager",
+        "role_b": "Developer",
+        "mean_role_a": 9.8765,
+        "mean_role_b": 9.8578,
+        "delta_a_minus_b": 0.0188,
+        "cohen_d": 0.0061,
+        "mannwhitney_p_value": 0.888739,
+        "is_statistically_significant_0_05": false
+      }
+    ],
+    "role_outcome_association": {
+      "chi2_statistic": 7.5944,
+      "p_value": 0.107619,
+      "degrees_of_freedom": 4,
+      "cramers_v": 0.0308,
+      "min_expected_cell_count": 414.3104,
+      "interpretation": "Association is very weak (Cramer's V=0.031) and not statistically significant at alpha=0.05."
+    },
+    "role_attrition_association": {
+      "chi2_statistic": 0.6083,
+      "p_value": 0.737763,
+      "degrees_of_freedom": 2,
+      "cramers_v": 0.0123,
+      "min_expected_cell_count": 643.839,
+      "interpretation": "Association is very weak (Cramer's V=0.012) and not statistically significant at alpha=0.05."
+    },
+    "summary_signals": {
+      "best_avg_performance_role": "Analyst",
+      "lowest_avg_performance_role": "Developer"
+    }
+  },
+  "llm_insights": {
+    "headline": "Pending Gemini generation.",
+    "key_insight_1": "Pending Gemini generation.",
+    "key_insight_2": "Pending Gemini generation.",
+    "hidden_insight": "Pending Gemini generation.",
+    "risk_alert": "Pending Gemini generation.",
+    "business_implication": "Pending Gemini generation.",
+    "action_plan": [
+      "Pending Gemini generation."
+    ],
+    "standout_statement": "Pending Gemini generation.",
+    "confidence_note": "Pending Gemini generation."
+  }
+}

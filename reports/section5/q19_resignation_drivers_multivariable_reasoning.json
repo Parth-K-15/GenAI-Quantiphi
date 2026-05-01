@@ -1,0 +1,850 @@
+{
+  "question": "Q19 - Multi-Variable Drivers of Employee Resignation (Yes vs No)",
+  "target_definition": {
+    "resignation_class": "Employee_Resignation_Status == 'Yes'",
+    "retained_class": "Employee_Resignation_Status == 'No'"
+  },
+  "dataset_scope": {
+    "rows_used": 4001,
+    "resignation_count": 2001,
+    "retained_count": 2000,
+    "numeric_feature_count": 30,
+    "categorical_feature_count": 13,
+    "numeric_features": [
+      "Performance_Rating",
+      "Employee_Engagement_Score",
+      "Employee_Job_Satisfaction_Score",
+      "Employee_Work_Life_Balance_Rating",
+      "Overtime_Hours_Per_Week",
+      "Work_Hours_Per_Week",
+      "Number_Of_Promotions",
+      "Professional_Development_Hours",
+      "Annual_Salary_Increase_Percentage",
+      "Performance_Bonus_Percentage",
+      "Bonus",
+      "Employee_Annual_Salary_Adjustment",
+      "Employee_Compensation_Benefits",
+      "Employee_Travel_Allowance",
+      "Employee_Savings_Plans",
+      "Compensation_Score",
+      "Tenure_Years",
+      "Onboarding_Delay_Days",
+      "Feedback_From_Colleagues",
+      "Feedback_From_Supervisors",
+      "Mentor_Rating",
+      "Conflict_Resolution_Cases",
+      "Initiative_Rating",
+      "Adaptability_Rating",
+      "Creativity_Rating",
+      "Strategic_Thinking_Rating",
+      "Teamwork_Skills_Rating",
+      "Avg_Skills_Score",
+      "Avg_Soft_Skills_Score",
+      "Training_Efficiency"
+    ],
+    "categorical_features": [
+      "Department",
+      "Job_Title",
+      "Project_Role",
+      "Project_Complexity",
+      "Project_Size",
+      "Training_Program",
+      "Leadership_Potential",
+      "Development_Plan_Completion",
+      "Career_Goals_Achievement_Status",
+      "Mentor_Experience_Level",
+      "Employee_Stock_Options",
+      "Employee_Health_Insurance_Coverage",
+      "Hiring_Source"
+    ]
+  },
+  "modeling": {
+    "train_test_split": {
+      "train_rows": 3200,
+      "test_rows": 801,
+      "test_size": 0.2
+    },
+    "candidate_models": {
+      "logistic_regression": {
+        "test_metrics": {
+          "accuracy": 0.4744,
+          "balanced_accuracy": 0.4744,
+          "precision": 0.4745,
+          "recall": 0.4638,
+          "f1": 0.4691,
+          "roc_auc": 0.4728,
+          "pr_auc": 0.4799
+        },
+        "cv_roc_auc_mean": 0.4925,
+        "cv_roc_auc_std": 0.0187,
+        "cv_pr_auc_mean": 0.4987,
+        "cv_pr_auc_std": 0.0167
+      },
+      "random_forest": {
+        "test_metrics": {
+          "accuracy": 0.4794,
+          "balanced_accuracy": 0.4794,
+          "precision": 0.481,
+          "recall": 0.5037,
+          "f1": 0.4921,
+          "roc_auc": 0.4772,
+          "pr_auc": 0.4979
+        },
+        "cv_roc_auc_mean": 0.5053,
+        "cv_roc_auc_std": 0.0129,
+        "cv_pr_auc_mean": 0.5096,
+        "cv_pr_auc_std": 0.013
+      }
+    },
+    "selected_model": "random_forest",
+    "selected_model_test_metrics": {
+      "accuracy": 0.4794,
+      "balanced_accuracy": 0.4794,
+      "precision": 0.481,
+      "recall": 0.5037,
+      "f1": 0.4921,
+      "roc_auc": 0.4772,
+      "pr_auc": 0.4979
+    },
+    "target_prevalence_resignation": 0.5001,
+    "model_signal_assessment": {
+      "is_weak_signal": true,
+      "note": "Predictive signal is weak in current data (performance is near random baseline). Treat drivers as directional and triangulate with business context."
+    }
+  },
+  "factor_evidence": {
+    "permutation_importance_top": [
+      {
+        "feature": "Avg_Skills_Score",
+        "importance_mean_auc_drop": 0.007593,
+        "importance_std": 0.001818
+      },
+      {
+        "feature": "Performance_Rating",
+        "importance_mean_auc_drop": 0.007232,
+        "importance_std": 0.002974
+      },
+      {
+        "feature": "Avg_Soft_Skills_Score",
+        "importance_mean_auc_drop": 0.004337,
+        "importance_std": 0.007035
+      },
+      {
+        "feature": "Annual_Salary_Increase_Percentage",
+        "importance_mean_auc_drop": 0.004285,
+        "importance_std": 0.001776
+      },
+      {
+        "feature": "Employee_Job_Satisfaction_Score",
+        "importance_mean_auc_drop": 0.003342,
+        "importance_std": 0.002061
+      },
+      {
+        "feature": "Department",
+        "importance_mean_auc_drop": 0.002632,
+        "importance_std": 0.002661
+      },
+      {
+        "feature": "Job_Title",
+        "importance_mean_auc_drop": 0.002579,
+        "importance_std": 0.00243
+      },
+      {
+        "feature": "Tenure_Years",
+        "importance_mean_auc_drop": 0.002519,
+        "importance_std": 0.004684
+      },
+      {
+        "feature": "Project_Role",
+        "importance_mean_auc_drop": 0.002113,
+        "importance_std": 0.002091
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "importance_mean_auc_drop": 0.001639,
+        "importance_std": 0.004953
+      },
+      {
+        "feature": "Professional_Development_Hours",
+        "importance_mean_auc_drop": 0.001611,
+        "importance_std": 0.002003
+      },
+      {
+        "feature": "Employee_Stock_Options",
+        "importance_mean_auc_drop": 0.001524,
+        "importance_std": 0.001036
+      }
+    ],
+    "logistic_coefficients_top_abs": [
+      {
+        "feature": "Hiring_Source_Internal",
+        "coefficient": -0.151673,
+        "odds_ratio": 0.859269
+      },
+      {
+        "feature": "Department_Hr",
+        "coefficient": 0.124983,
+        "odds_ratio": 1.133129
+      },
+      {
+        "feature": "Hiring_Source_Referral",
+        "coefficient": 0.116611,
+        "odds_ratio": 1.123682
+      },
+      {
+        "feature": "Leadership_Potential_High",
+        "coefficient": 0.110449,
+        "odds_ratio": 1.11678
+      },
+      {
+        "feature": "Leadership_Potential_Medium",
+        "coefficient": -0.094217,
+        "odds_ratio": 0.910085
+      },
+      {
+        "feature": "Project_Complexity_Moderate",
+        "coefficient": -0.08886,
+        "odds_ratio": 0.914974
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "coefficient": -0.086322,
+        "odds_ratio": 0.917299
+      },
+      {
+        "feature": "Project_Complexity_Complex",
+        "coefficient": 0.083722,
+        "odds_ratio": 1.087327
+      },
+      {
+        "feature": "Career_Goals_Achievement_Status_Not Started",
+        "coefficient": 0.075874,
+        "odds_ratio": 1.078827
+      },
+      {
+        "feature": "Training_Program_Basic",
+        "coefficient": -0.075405,
+        "odds_ratio": 0.927368
+      },
+      {
+        "feature": "Initiative_Rating",
+        "coefficient": 0.071424,
+        "odds_ratio": 1.074037
+      },
+      {
+        "feature": "Department_Finance",
+        "coefficient": -0.068679,
+        "odds_ratio": 0.933626
+      },
+      {
+        "feature": "Career_Goals_Achievement_Status_Achieved",
+        "coefficient": -0.06751,
+        "odds_ratio": 0.934719
+      },
+      {
+        "feature": "Job_Title_Consultant",
+        "coefficient": -0.066475,
+        "odds_ratio": 0.935686
+      },
+      {
+        "feature": "Feedback_From_Supervisors",
+        "coefficient": -0.058086,
+        "odds_ratio": 0.943569
+      },
+      {
+        "feature": "Performance_Bonus_Percentage",
+        "coefficient": -0.053537,
+        "odds_ratio": 0.947871
+      },
+      {
+        "feature": "Department_Marketing",
+        "coefficient": -0.051704,
+        "odds_ratio": 0.94961
+      },
+      {
+        "feature": "Development_Plan_Completion_Partial",
+        "coefficient": 0.051626,
+        "odds_ratio": 1.052982
+      },
+      {
+        "feature": "Employee_Compensation_Benefits",
+        "coefficient": -0.051164,
+        "odds_ratio": 0.950123
+      },
+      {
+        "feature": "Training_Program_Unknown",
+        "coefficient": 0.050683,
+        "odds_ratio": 1.051989
+      }
+    ],
+    "numeric_effect_differences_top": [
+      {
+        "feature": "Initiative_Rating",
+        "resigned_mean": 8.1374,
+        "retained_mean": 7.8985,
+        "delta_resigned_minus_retained": 0.2389,
+        "cohen_d": 0.0837,
+        "mannwhitney_p_value": 0.009926,
+        "is_statistically_significant_0_05": true
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "resigned_mean": 7.8371,
+        "retained_mean": 8.068,
+        "delta_resigned_minus_retained": -0.2309,
+        "cohen_d": -0.0813,
+        "mannwhitney_p_value": 0.016589,
+        "is_statistically_significant_0_05": true
+      },
+      {
+        "feature": "Avg_Soft_Skills_Score",
+        "resigned_mean": 8.0745,
+        "retained_mean": 7.9764,
+        "delta_resigned_minus_retained": 0.0981,
+        "cohen_d": 0.0695,
+        "mannwhitney_p_value": 0.01644,
+        "is_statistically_significant_0_05": true
+      },
+      {
+        "feature": "Performance_Rating",
+        "resigned_mean": 10.0045,
+        "retained_mean": 9.824,
+        "delta_resigned_minus_retained": 0.1805,
+        "cohen_d": 0.0585,
+        "mannwhitney_p_value": 0.109029,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Training_Efficiency",
+        "resigned_mean": 0.1998,
+        "retained_mean": 0.1961,
+        "delta_resigned_minus_retained": 0.0037,
+        "cohen_d": 0.0543,
+        "mannwhitney_p_value": 0.093347,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Feedback_From_Supervisors",
+        "resigned_mean": 6.8841,
+        "retained_mean": 6.996,
+        "delta_resigned_minus_retained": -0.1119,
+        "cohen_d": -0.0428,
+        "mannwhitney_p_value": 0.24347,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Tenure_Years",
+        "resigned_mean": 4.6697,
+        "retained_mean": 4.7322,
+        "delta_resigned_minus_retained": -0.0625,
+        "cohen_d": -0.0361,
+        "mannwhitney_p_value": 0.251907,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Employee_Compensation_Benefits",
+        "resigned_mean": 4999.8656,
+        "retained_mean": 5002.313,
+        "delta_resigned_minus_retained": -2.4474,
+        "cohen_d": -0.0352,
+        "mannwhitney_p_value": 0.292195,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Adaptability_Rating",
+        "resigned_mean": 8.0655,
+        "retained_mean": 7.977,
+        "delta_resigned_minus_retained": 0.0885,
+        "cohen_d": 0.0318,
+        "mannwhitney_p_value": 0.264879,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Avg_Skills_Score",
+        "resigned_mean": 7.9494,
+        "retained_mean": 7.9872,
+        "delta_resigned_minus_retained": -0.0378,
+        "cohen_d": -0.0291,
+        "mannwhitney_p_value": 0.268706,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Conflict_Resolution_Cases",
+        "resigned_mean": 2.4953,
+        "retained_mean": 2.5395,
+        "delta_resigned_minus_retained": -0.0442,
+        "cohen_d": -0.026,
+        "mannwhitney_p_value": 0.414262,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Performance_Bonus_Percentage",
+        "resigned_mean": 2.9835,
+        "retained_mean": 3.0195,
+        "delta_resigned_minus_retained": -0.036,
+        "cohen_d": -0.0206,
+        "mannwhitney_p_value": 0.738754,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Teamwork_Skills_Rating",
+        "resigned_mean": 7.938,
+        "retained_mean": 7.9955,
+        "delta_resigned_minus_retained": -0.0575,
+        "cohen_d": -0.0204,
+        "mannwhitney_p_value": 0.423323,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Number_Of_Promotions",
+        "resigned_mean": 0.8056,
+        "retained_mean": 0.8185,
+        "delta_resigned_minus_retained": -0.0129,
+        "cohen_d": -0.0161,
+        "mannwhitney_p_value": 0.564003,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Strategic_Thinking_Rating",
+        "resigned_mean": 8.065,
+        "retained_mean": 8.02,
+        "delta_resigned_minus_retained": 0.045,
+        "cohen_d": 0.016,
+        "mannwhitney_p_value": 0.89118,
+        "is_statistically_significant_0_05": false
+      }
+    ],
+    "high_resignation_categories_top": [
+      {
+        "feature": "Department",
+        "category": "Hr",
+        "count": 854,
+        "resignation_rate_pct": 53.513,
+        "resignation_lift_vs_overall_pp": 3.5
+      },
+      {
+        "feature": "Leadership_Potential",
+        "category": "High",
+        "count": 1295,
+        "resignation_rate_pct": 52.896,
+        "resignation_lift_vs_overall_pp": 2.883
+      },
+      {
+        "feature": "Hiring_Source",
+        "category": "Referral",
+        "count": 1047,
+        "resignation_rate_pct": 51.958,
+        "resignation_lift_vs_overall_pp": 1.945
+      },
+      {
+        "feature": "Training_Program",
+        "category": "Unknown",
+        "count": 1319,
+        "resignation_rate_pct": 51.706,
+        "resignation_lift_vs_overall_pp": 1.693
+      },
+      {
+        "feature": "Job_Title",
+        "category": "Manager",
+        "count": 1037,
+        "resignation_rate_pct": 51.495,
+        "resignation_lift_vs_overall_pp": 1.482
+      },
+      {
+        "feature": "Career_Goals_Achievement_Status",
+        "category": "Not Started",
+        "count": 1421,
+        "resignation_rate_pct": 51.372,
+        "resignation_lift_vs_overall_pp": 1.36
+      },
+      {
+        "feature": "Development_Plan_Completion",
+        "category": "Partial",
+        "count": 1359,
+        "resignation_rate_pct": 51.214,
+        "resignation_lift_vs_overall_pp": 1.202
+      },
+      {
+        "feature": "Department",
+        "category": "Sales",
+        "count": 754,
+        "resignation_rate_pct": 51.061,
+        "resignation_lift_vs_overall_pp": 1.049
+      },
+      {
+        "feature": "Employee_Stock_Options",
+        "category": "Unknown",
+        "count": 2009,
+        "resignation_rate_pct": 51.02,
+        "resignation_lift_vs_overall_pp": 1.008
+      },
+      {
+        "feature": "Project_Complexity",
+        "category": "Complex",
+        "count": 1274,
+        "resignation_rate_pct": 51.02,
+        "resignation_lift_vs_overall_pp": 1.008
+      },
+      {
+        "feature": "Job_Title",
+        "category": "Analyst",
+        "count": 982,
+        "resignation_rate_pct": 50.916,
+        "resignation_lift_vs_overall_pp": 0.904
+      },
+      {
+        "feature": "Project_Complexity",
+        "category": "Simple",
+        "count": 1384,
+        "resignation_rate_pct": 50.795,
+        "resignation_lift_vs_overall_pp": 0.782
+      },
+      {
+        "feature": "Hiring_Source",
+        "category": "Job Board",
+        "count": 964,
+        "resignation_rate_pct": 50.726,
+        "resignation_lift_vs_overall_pp": 0.714
+      },
+      {
+        "feature": "Mentor_Experience_Level",
+        "category": "Associate",
+        "count": 996,
+        "resignation_rate_pct": 50.602,
+        "resignation_lift_vs_overall_pp": 0.59
+      },
+      {
+        "feature": "Project_Role",
+        "category": "Developer",
+        "count": 1336,
+        "resignation_rate_pct": 50.524,
+        "resignation_lift_vs_overall_pp": 0.511
+      }
+    ]
+  },
+  "risk_combination_reasoning": {
+    "features_used": [
+      "Avg_Skills_Score",
+      "Performance_Rating",
+      "Avg_Soft_Skills_Score"
+    ],
+    "risk_directions": {
+      "Avg_Skills_Score": "lower_is_riskier",
+      "Performance_Rating": "higher_is_riskier",
+      "Avg_Soft_Skills_Score": "higher_is_riskier"
+    },
+    "risk_thresholds": {
+      "Avg_Skills_Score": 7.0,
+      "Performance_Rating": 12.0,
+      "Avg_Soft_Skills_Score": 9.0
+    },
+    "protective_thresholds": {
+      "Avg_Skills_Score": 8.8,
+      "Performance_Rating": 8.0,
+      "Avg_Soft_Skills_Score": 7.0
+    },
+    "risk_combo_count": 59,
+    "risk_combo_resignation_rate_pct": 59.322,
+    "risk_combo_lift_vs_overall_pp": 9.31,
+    "protective_combo_count": 96,
+    "protective_combo_resignation_rate_pct": 46.875,
+    "protective_combo_lift_vs_overall_pp": -3.137
+  },
+  "llm_evidence": {
+    "selected_model": "random_forest",
+    "selected_metrics": {
+      "accuracy": 0.4794,
+      "balanced_accuracy": 0.4794,
+      "precision": 0.481,
+      "recall": 0.5037,
+      "f1": 0.4921,
+      "roc_auc": 0.4772,
+      "pr_auc": 0.4979
+    },
+    "target_prevalence_resignation": 0.5001,
+    "model_signal_assessment": {
+      "is_weak_signal": true,
+      "note": "Predictive signal is weak in current data (performance is near random baseline). Treat drivers as directional and triangulate with business context."
+    },
+    "top_permutation_features": [
+      {
+        "feature": "Avg_Skills_Score",
+        "importance_mean_auc_drop": 0.007593,
+        "importance_std": 0.001818
+      },
+      {
+        "feature": "Performance_Rating",
+        "importance_mean_auc_drop": 0.007232,
+        "importance_std": 0.002974
+      },
+      {
+        "feature": "Avg_Soft_Skills_Score",
+        "importance_mean_auc_drop": 0.004337,
+        "importance_std": 0.007035
+      },
+      {
+        "feature": "Annual_Salary_Increase_Percentage",
+        "importance_mean_auc_drop": 0.004285,
+        "importance_std": 0.001776
+      },
+      {
+        "feature": "Employee_Job_Satisfaction_Score",
+        "importance_mean_auc_drop": 0.003342,
+        "importance_std": 0.002061
+      },
+      {
+        "feature": "Department",
+        "importance_mean_auc_drop": 0.002632,
+        "importance_std": 0.002661
+      },
+      {
+        "feature": "Job_Title",
+        "importance_mean_auc_drop": 0.002579,
+        "importance_std": 0.00243
+      },
+      {
+        "feature": "Tenure_Years",
+        "importance_mean_auc_drop": 0.002519,
+        "importance_std": 0.004684
+      },
+      {
+        "feature": "Project_Role",
+        "importance_mean_auc_drop": 0.002113,
+        "importance_std": 0.002091
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "importance_mean_auc_drop": 0.001639,
+        "importance_std": 0.004953
+      }
+    ],
+    "top_logistic_coefficients": [
+      {
+        "feature": "Hiring_Source_Internal",
+        "coefficient": -0.151673,
+        "odds_ratio": 0.859269
+      },
+      {
+        "feature": "Department_Hr",
+        "coefficient": 0.124983,
+        "odds_ratio": 1.133129
+      },
+      {
+        "feature": "Hiring_Source_Referral",
+        "coefficient": 0.116611,
+        "odds_ratio": 1.123682
+      },
+      {
+        "feature": "Leadership_Potential_High",
+        "coefficient": 0.110449,
+        "odds_ratio": 1.11678
+      },
+      {
+        "feature": "Leadership_Potential_Medium",
+        "coefficient": -0.094217,
+        "odds_ratio": 0.910085
+      },
+      {
+        "feature": "Project_Complexity_Moderate",
+        "coefficient": -0.08886,
+        "odds_ratio": 0.914974
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "coefficient": -0.086322,
+        "odds_ratio": 0.917299
+      },
+      {
+        "feature": "Project_Complexity_Complex",
+        "coefficient": 0.083722,
+        "odds_ratio": 1.087327
+      },
+      {
+        "feature": "Career_Goals_Achievement_Status_Not Started",
+        "coefficient": 0.075874,
+        "odds_ratio": 1.078827
+      },
+      {
+        "feature": "Training_Program_Basic",
+        "coefficient": -0.075405,
+        "odds_ratio": 0.927368
+      },
+      {
+        "feature": "Initiative_Rating",
+        "coefficient": 0.071424,
+        "odds_ratio": 1.074037
+      },
+      {
+        "feature": "Department_Finance",
+        "coefficient": -0.068679,
+        "odds_ratio": 0.933626
+      }
+    ],
+    "top_numeric_effects": [
+      {
+        "feature": "Initiative_Rating",
+        "delta_resigned_minus_retained": 0.2389,
+        "cohen_d": 0.0837,
+        "p_value": 0.009926
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "delta_resigned_minus_retained": -0.2309,
+        "cohen_d": -0.0813,
+        "p_value": 0.016589
+      },
+      {
+        "feature": "Avg_Soft_Skills_Score",
+        "delta_resigned_minus_retained": 0.0981,
+        "cohen_d": 0.0695,
+        "p_value": 0.01644
+      },
+      {
+        "feature": "Performance_Rating",
+        "delta_resigned_minus_retained": 0.1805,
+        "cohen_d": 0.0585,
+        "p_value": 0.109029
+      },
+      {
+        "feature": "Training_Efficiency",
+        "delta_resigned_minus_retained": 0.0037,
+        "cohen_d": 0.0543,
+        "p_value": 0.093347
+      },
+      {
+        "feature": "Feedback_From_Supervisors",
+        "delta_resigned_minus_retained": -0.1119,
+        "cohen_d": -0.0428,
+        "p_value": 0.24347
+      },
+      {
+        "feature": "Tenure_Years",
+        "delta_resigned_minus_retained": -0.0625,
+        "cohen_d": -0.0361,
+        "p_value": 0.251907
+      },
+      {
+        "feature": "Employee_Compensation_Benefits",
+        "delta_resigned_minus_retained": -2.4474,
+        "cohen_d": -0.0352,
+        "p_value": 0.292195
+      },
+      {
+        "feature": "Adaptability_Rating",
+        "delta_resigned_minus_retained": 0.0885,
+        "cohen_d": 0.0318,
+        "p_value": 0.264879
+      },
+      {
+        "feature": "Avg_Skills_Score",
+        "delta_resigned_minus_retained": -0.0378,
+        "cohen_d": -0.0291,
+        "p_value": 0.268706
+      }
+    ],
+    "top_high_resignation_categories": [
+      {
+        "feature": "Department",
+        "category": "Hr",
+        "count": 854,
+        "resignation_rate_pct": 53.513,
+        "resignation_lift_vs_overall_pp": 3.5
+      },
+      {
+        "feature": "Leadership_Potential",
+        "category": "High",
+        "count": 1295,
+        "resignation_rate_pct": 52.896,
+        "resignation_lift_vs_overall_pp": 2.883
+      },
+      {
+        "feature": "Hiring_Source",
+        "category": "Referral",
+        "count": 1047,
+        "resignation_rate_pct": 51.958,
+        "resignation_lift_vs_overall_pp": 1.945
+      },
+      {
+        "feature": "Training_Program",
+        "category": "Unknown",
+        "count": 1319,
+        "resignation_rate_pct": 51.706,
+        "resignation_lift_vs_overall_pp": 1.693
+      },
+      {
+        "feature": "Job_Title",
+        "category": "Manager",
+        "count": 1037,
+        "resignation_rate_pct": 51.495,
+        "resignation_lift_vs_overall_pp": 1.482
+      },
+      {
+        "feature": "Career_Goals_Achievement_Status",
+        "category": "Not Started",
+        "count": 1421,
+        "resignation_rate_pct": 51.372,
+        "resignation_lift_vs_overall_pp": 1.36
+      },
+      {
+        "feature": "Development_Plan_Completion",
+        "category": "Partial",
+        "count": 1359,
+        "resignation_rate_pct": 51.214,
+        "resignation_lift_vs_overall_pp": 1.202
+      },
+      {
+        "feature": "Department",
+        "category": "Sales",
+        "count": 754,
+        "resignation_rate_pct": 51.061,
+        "resignation_lift_vs_overall_pp": 1.049
+      },
+      {
+        "feature": "Employee_Stock_Options",
+        "category": "Unknown",
+        "count": 2009,
+        "resignation_rate_pct": 51.02,
+        "resignation_lift_vs_overall_pp": 1.008
+      },
+      {
+        "feature": "Project_Complexity",
+        "category": "Complex",
+        "count": 1274,
+        "resignation_rate_pct": 51.02,
+        "resignation_lift_vs_overall_pp": 1.008
+      }
+    ],
+    "risk_combo_summary": {
+      "features_used": [
+        "Avg_Skills_Score",
+        "Performance_Rating",
+        "Avg_Soft_Skills_Score"
+      ],
+      "risk_combo_resignation_rate_pct": 59.322,
+      "risk_combo_lift_vs_overall_pp": 9.31,
+      "protective_combo_resignation_rate_pct": 46.875,
+      "protective_combo_lift_vs_overall_pp": -3.137
+    }
+  },
+  "llm_insights": {
+    "headline": "Employee Resignation Drivers Analysis",
+    "key_insight_1": "Employees in the HR department exhibit a higher resignation rate of 53.51%, which is 3.5 percentage points above the overall average. This suggests potential issues within the HR department's work environment or employee experience.",
+    "key_insight_2": "A higher 'Initiative_Rating' is directionally associated with increased resignations, with a delta of 0.2389 between resigned and retained employees. This could indicate that employees who are more proactive or take on more initiatives may be seeking opportunities elsewhere or are experiencing burnout.",
+    "hidden_insight": "Despite a weak overall predictive signal (accuracy of 0.4794), the 'Avg_Skills_Score' shows a slight negative association with resignation (delta of -0.0378), suggesting that employees with higher average skills might be marginally less likely to resign, though this effect is not statistically significant.",
+    "risk_alert": "Employees with 'High' leadership potential have a resignation rate of 52.90%, a 2.88 percentage point lift compared to the overall average. This indicates a risk of losing valuable talent identified for future leadership roles.",
+    "business_implication": "The analysis highlights potential areas of concern regarding employee retention, particularly within the HR department and among high-potential employees. Addressing these issues is crucial to maintain operational stability and leadership pipeline strength.",
+    "action_plan": [
+      "Conduct a targeted employee engagement survey within the HR department to identify specific drivers of dissatisfaction and turnover.",
+      "Review the workload and support structures for employees with high initiative ratings to mitigate potential burnout.",
+      "Analyze the career development paths and retention strategies for employees identified as having high leadership potential.",
+      "Investigate the reasons behind the higher resignation rate in the HR department, considering factors like workload, management, and career growth opportunities."
+    ],
+    "standout_statement": "The HR department itself is experiencing a higher-than-average resignation rate, signaling a potential internal challenge in employee retention for a critical function.",
+    "confidence_note": "The predictive model exhibits a weak signal, with an accuracy of 0.4794, near a random baseline. Therefore, the identified drivers should be treated as directional and require triangulation with qualitative data and business context for definitive conclusions. Some associations, like 'Initiative_Rating' and 'Employee_Work_Life_Balance_Rating', are statistically significant (p < 0.05), while others are directional."
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1777668104,
+    "evidence_char_length": 4357
+  }
+}

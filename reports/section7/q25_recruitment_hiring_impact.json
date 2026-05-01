@@ -1,0 +1,946 @@
+{
+  "question": "Q25 - Impact of Hiring Source, Time to Hire, and Recruitment Cost on Performance, Retention, and Job Satisfaction",
+  "dataset_scope": {
+    "rows_used": 4001,
+    "features_used": [
+      "Hiring_Source",
+      "Time_to_Hire",
+      "Recruitment_Cost"
+    ],
+    "targets": [
+      "Performance_Rating",
+      "Employee_Resignation_Status",
+      "Employee_Job_Satisfaction_Score"
+    ]
+  },
+  "hiring_source_profiles": [
+    {
+      "Hiring_Source": "Agency",
+      "count": 990,
+      "avg_performance": 10.0182,
+      "avg_satisfaction": 7.9576,
+      "avg_time_to_hire": 29.6515,
+      "avg_recruitment_cost": 5001.2172,
+      "resignation_rate_pct": 49.394,
+      "resignation_lift_vs_overall_pp": -0.618,
+      "performance_delta_vs_overall": 0.1039,
+      "satisfaction_delta_vs_overall": 0.0266
+    },
+    {
+      "Hiring_Source": "Internal",
+      "count": 1000,
+      "avg_performance": 9.944,
+      "avg_satisfaction": 7.953,
+      "avg_time_to_hire": 29.708,
+      "avg_recruitment_cost": 5004.433,
+      "resignation_rate_pct": 47.9,
+      "resignation_lift_vs_overall_pp": -2.112,
+      "performance_delta_vs_overall": 0.0297,
+      "satisfaction_delta_vs_overall": 0.022
+    },
+    {
+      "Hiring_Source": "Job Board",
+      "count": 964,
+      "avg_performance": 9.918,
+      "avg_satisfaction": 7.8558,
+      "avg_time_to_hire": 29.9575,
+      "avg_recruitment_cost": 4997.1442,
+      "resignation_rate_pct": 50.726,
+      "resignation_lift_vs_overall_pp": 0.714,
+      "performance_delta_vs_overall": 0.0037,
+      "satisfaction_delta_vs_overall": -0.0752
+    },
+    {
+      "Hiring_Source": "Referral",
+      "count": 1047,
+      "avg_performance": 9.7841,
+      "avg_satisfaction": 7.9542,
+      "avg_time_to_hire": 30.1528,
+      "avg_recruitment_cost": 5001.8825,
+      "resignation_rate_pct": 51.958,
+      "resignation_lift_vs_overall_pp": 1.946,
+      "performance_delta_vs_overall": -0.1302,
+      "satisfaction_delta_vs_overall": 0.0232
+    }
+  ],
+  "hiring_source_significance": {
+    "performance_anova": {
+      "f_statistic": 1.0249,
+      "p_value": 0.380359,
+      "is_statistically_significant_0_05": false
+    },
+    "performance_kruskal_wallis": {
+      "h_statistic": 4.1071,
+      "p_value": 0.250124,
+      "is_statistically_significant_0_05": false
+    },
+    "satisfaction_anova": {
+      "f_statistic": 0.3018,
+      "p_value": 0.824094,
+      "is_statistically_significant_0_05": false
+    },
+    "satisfaction_kruskal_wallis": {
+      "h_statistic": 0.6113,
+      "p_value": 0.893839,
+      "is_statistically_significant_0_05": false
+    },
+    "retention_association": {
+      "contingency_counts": {
+        "Yes": {
+          "Agency": 489,
+          "Internal": 479,
+          "Job Board": 489,
+          "Referral": 544
+        },
+        "No": {
+          "Agency": 501,
+          "Internal": 521,
+          "Job Board": 475,
+          "Referral": 503
+        }
+      },
+      "association_test": {
+        "chi2_statistic": 3.7181,
+        "p_value": 0.293562,
+        "degrees_of_freedom": 3,
+        "cramers_v": 0.0305,
+        "min_expected_cell_count": 481.8795,
+        "interpretation": "Association is very weak (Cramer's V=0.030) and not statistically significant at alpha=0.05."
+      }
+    }
+  },
+  "numeric_hiring_correlations": {
+    "Time_to_Hire": {
+      "vs_performance": {
+        "pearson_r": -0.0084,
+        "pearson_p_value": 0.593528,
+        "spearman_rho": -0.0085,
+        "spearman_p_value": 0.589038
+      },
+      "vs_job_satisfaction": {
+        "pearson_r": -0.0164,
+        "pearson_p_value": 0.300228,
+        "spearman_rho": -0.0182,
+        "spearman_p_value": 0.249424
+      },
+      "vs_retention_target_yes": {
+        "pearson_r": 0.0028,
+        "pearson_p_value": 0.860647,
+        "spearman_rho": 0.0016,
+        "spearman_p_value": 0.921853
+      }
+    },
+    "Recruitment_Cost": {
+      "vs_performance": {
+        "pearson_r": 0.0133,
+        "pearson_p_value": 0.398709,
+        "spearman_rho": 0.0145,
+        "spearman_p_value": 0.360106
+      },
+      "vs_job_satisfaction": {
+        "pearson_r": 0.0186,
+        "pearson_p_value": 0.238832,
+        "spearman_rho": 0.0173,
+        "spearman_p_value": 0.274024
+      },
+      "vs_retention_target_yes": {
+        "pearson_r": 0.0115,
+        "pearson_p_value": 0.465831,
+        "spearman_rho": 0.0119,
+        "spearman_p_value": 0.453497
+      }
+    }
+  },
+  "multivariable_models": {
+    "performance_model": {
+      "algorithm": "RandomForestRegressor",
+      "test_r2": -0.0145,
+      "cv_r2_mean": -0.0219,
+      "cv_r2_std": 0.0035,
+      "top_feature_importance": [
+        {
+          "feature": "Recruitment_Cost",
+          "importance_mean_r2_drop": 0.008291,
+          "importance_std": 0.006716
+        },
+        {
+          "feature": "Hiring_Source",
+          "importance_mean_r2_drop": 0.004837,
+          "importance_std": 0.003509
+        },
+        {
+          "feature": "Time_to_Hire",
+          "importance_mean_r2_drop": 0.000127,
+          "importance_std": 0.007424
+        }
+      ]
+    },
+    "retention_model": {
+      "algorithm": "RandomForestClassifier",
+      "test_metrics": {
+        "accuracy": 0.4732,
+        "balanced_accuracy": 0.4731,
+        "precision": 0.4754,
+        "recall": 0.5062,
+        "f1": 0.4903,
+        "roc_auc": 0.4694,
+        "pr_auc": 0.4724
+      },
+      "cv_roc_auc_mean": 0.4854,
+      "cv_roc_auc_std": 0.0165,
+      "cv_pr_auc_mean": 0.4838,
+      "cv_pr_auc_std": 0.0124,
+      "top_feature_importance": [
+        {
+          "feature": "Time_to_Hire",
+          "importance_mean_auc_drop": 0.003357,
+          "importance_std": 0.013067
+        },
+        {
+          "feature": "Recruitment_Cost",
+          "importance_mean_auc_drop": -0.016948,
+          "importance_std": 0.014663
+        },
+        {
+          "feature": "Hiring_Source",
+          "importance_mean_auc_drop": -0.019301,
+          "importance_std": 0.014622
+        }
+      ]
+    },
+    "job_satisfaction_model": {
+      "algorithm": "RandomForestRegressor",
+      "test_r2": -0.0113,
+      "cv_r2_mean": -0.0234,
+      "cv_r2_std": 0.0123,
+      "top_feature_importance": [
+        {
+          "feature": "Recruitment_Cost",
+          "importance_mean_r2_drop": 0.008527,
+          "importance_std": 0.006195
+        },
+        {
+          "feature": "Hiring_Source",
+          "importance_mean_r2_drop": 0.001594,
+          "importance_std": 0.004477
+        },
+        {
+          "feature": "Time_to_Hire",
+          "importance_mean_r2_drop": 0.000837,
+          "importance_std": 0.009024
+        }
+      ]
+    }
+  },
+  "interaction_patterns": {
+    "source_time_quartile_profiles": [
+      {
+        "Hiring_Source": "Agency",
+        "time_band": "Q1",
+        "count": 284,
+        "avg_performance": 10.0035,
+        "resignation_rate": 0.49295774647887325,
+        "avg_satisfaction": 7.9366,
+        "resignation_rate_pct": 49.296
+      },
+      {
+        "Hiring_Source": "Agency",
+        "time_band": "Q2",
+        "count": 275,
+        "avg_performance": 9.9636,
+        "resignation_rate": 0.5272727272727272,
+        "avg_satisfaction": 7.9709,
+        "resignation_rate_pct": 52.727
+      },
+      {
+        "Hiring_Source": "Agency",
+        "time_band": "Q3",
+        "count": 254,
+        "avg_performance": 9.9528,
+        "resignation_rate": 0.4448818897637795,
+        "avg_satisfaction": 8.0551,
+        "resignation_rate_pct": 44.488
+      },
+      {
+        "Hiring_Source": "Agency",
+        "time_band": "Q4",
+        "count": 177,
+        "avg_performance": 10.2203,
+        "resignation_rate": 0.5141242937853108,
+        "avg_satisfaction": 7.8305,
+        "resignation_rate_pct": 51.412
+      },
+      {
+        "Hiring_Source": "Internal",
+        "time_band": "Q1",
+        "count": 282,
+        "avg_performance": 10.156,
+        "resignation_rate": 0.5,
+        "avg_satisfaction": 8.2518,
+        "resignation_rate_pct": 50.0
+      },
+      {
+        "Hiring_Source": "Internal",
+        "time_band": "Q2",
+        "count": 290,
+        "avg_performance": 9.8,
+        "resignation_rate": 0.4517241379310345,
+        "avg_satisfaction": 7.9172,
+        "resignation_rate_pct": 45.172
+      },
+      {
+        "Hiring_Source": "Internal",
+        "time_band": "Q3",
+        "count": 243,
+        "avg_performance": 9.8272,
+        "resignation_rate": 0.49382716049382713,
+        "avg_satisfaction": 7.7037,
+        "resignation_rate_pct": 49.383
+      },
+      {
+        "Hiring_Source": "Internal",
+        "time_band": "Q4",
+        "count": 185,
+        "avg_performance": 10.0,
+        "resignation_rate": 0.4702702702702703,
+        "avg_satisfaction": 7.8811,
+        "resignation_rate_pct": 47.027
+      },
+      {
+        "Hiring_Source": "Job Board",
+        "time_band": "Q1",
+        "count": 276,
+        "avg_performance": 10.0181,
+        "resignation_rate": 0.4891304347826087,
+        "avg_satisfaction": 8.0109,
+        "resignation_rate_pct": 48.913
+      },
+      {
+        "Hiring_Source": "Job Board",
+        "time_band": "Q2",
+        "count": 246,
+        "avg_performance": 10.0569,
+        "resignation_rate": 0.532520325203252,
+        "avg_satisfaction": 7.6179,
+        "resignation_rate_pct": 53.252
+      },
+      {
+        "Hiring_Source": "Job Board",
+        "time_band": "Q3",
+        "count": 240,
+        "avg_performance": 9.825,
+        "resignation_rate": 0.5083333333333333,
+        "avg_satisfaction": 7.7583,
+        "resignation_rate_pct": 50.833
+      },
+      {
+        "Hiring_Source": "Job Board",
+        "time_band": "Q4",
+        "count": 202,
+        "avg_performance": 9.7228,
+        "resignation_rate": 0.5,
+        "avg_satisfaction": 8.0495,
+        "resignation_rate_pct": 50.0
+      },
+      {
+        "Hiring_Source": "Referral",
+        "time_band": "Q1",
+        "count": 259,
+        "avg_performance": 9.695,
+        "resignation_rate": 0.4826254826254826,
+        "avg_satisfaction": 7.8958,
+        "resignation_rate_pct": 48.263
+      },
+      {
+        "Hiring_Source": "Referral",
+        "time_band": "Q2",
+        "count": 302,
+        "avg_performance": 9.9702,
+        "resignation_rate": 0.5562913907284768,
+        "avg_satisfaction": 8.0927,
+        "resignation_rate_pct": 55.629
+      },
+      {
+        "Hiring_Source": "Referral",
+        "time_band": "Q3",
+        "count": 274,
+        "avg_performance": 9.5657,
+        "resignation_rate": 0.5145985401459854,
+        "avg_satisfaction": 7.9964,
+        "resignation_rate_pct": 51.46
+      },
+      {
+        "Hiring_Source": "Referral",
+        "time_band": "Q4",
+        "count": 212,
+        "avg_performance": 9.9104,
+        "resignation_rate": 0.5188679245283019,
+        "avg_satisfaction": 7.7736,
+        "resignation_rate_pct": 51.887
+      }
+    ],
+    "source_cost_quartile_profiles": [
+      {
+        "Hiring_Source": "Agency",
+        "cost_band": "Q1",
+        "count": 237,
+        "avg_performance": 10.0422,
+        "resignation_rate": 0.46835443037974683,
+        "avg_satisfaction": 7.8059,
+        "resignation_rate_pct": 46.835
+      },
+      {
+        "Hiring_Source": "Agency",
+        "cost_band": "Q2",
+        "count": 260,
+        "avg_performance": 9.5885,
+        "resignation_rate": 0.5,
+        "avg_satisfaction": 7.7769,
+        "resignation_rate_pct": 50.0
+      },
+      {
+        "Hiring_Source": "Agency",
+        "cost_band": "Q3",
+        "count": 250,
+        "avg_performance": 10.144,
+        "resignation_rate": 0.492,
+        "avg_satisfaction": 8.024,
+        "resignation_rate_pct": 49.2
+      },
+      {
+        "Hiring_Source": "Agency",
+        "cost_band": "Q4",
+        "count": 243,
+        "avg_performance": 10.3251,
+        "resignation_rate": 0.51440329218107,
+        "avg_satisfaction": 8.2305,
+        "resignation_rate_pct": 51.44
+      },
+      {
+        "Hiring_Source": "Internal",
+        "cost_band": "Q1",
+        "count": 237,
+        "avg_performance": 9.7975,
+        "resignation_rate": 0.4388185654008439,
+        "avg_satisfaction": 7.9409,
+        "resignation_rate_pct": 43.882
+      },
+      {
+        "Hiring_Source": "Internal",
+        "cost_band": "Q2",
+        "count": 255,
+        "avg_performance": 9.7255,
+        "resignation_rate": 0.5098039215686274,
+        "avg_satisfaction": 8.1647,
+        "resignation_rate_pct": 50.98
+      },
+      {
+        "Hiring_Source": "Internal",
+        "cost_band": "Q3",
+        "count": 255,
+        "avg_performance": 10.0039,
+        "resignation_rate": 0.47843137254901963,
+        "avg_satisfaction": 7.6863,
+        "resignation_rate_pct": 47.843
+      },
+      {
+        "Hiring_Source": "Internal",
+        "cost_band": "Q4",
+        "count": 253,
+        "avg_performance": 10.2411,
+        "resignation_rate": 0.48616600790513836,
+        "avg_satisfaction": 8.0198,
+        "resignation_rate_pct": 48.617
+      },
+      {
+        "Hiring_Source": "Job Board",
+        "cost_band": "Q1",
+        "count": 256,
+        "avg_performance": 10.043,
+        "resignation_rate": 0.5078125,
+        "avg_satisfaction": 7.8281,
+        "resignation_rate_pct": 50.781
+      },
+      {
+        "Hiring_Source": "Job Board",
+        "cost_band": "Q2",
+        "count": 242,
+        "avg_performance": 9.8388,
+        "resignation_rate": 0.512396694214876,
+        "avg_satisfaction": 7.781,
+        "resignation_rate_pct": 51.24
+      },
+      {
+        "Hiring_Source": "Job Board",
+        "cost_band": "Q3",
+        "count": 251,
+        "avg_performance": 10.0956,
+        "resignation_rate": 0.5338645418326693,
+        "avg_satisfaction": 7.9841,
+        "resignation_rate_pct": 53.386
+      },
+      {
+        "Hiring_Source": "Job Board",
+        "cost_band": "Q4",
+        "count": 215,
+        "avg_performance": 9.6512,
+        "resignation_rate": 0.4697674418604651,
+        "avg_satisfaction": 7.8233,
+        "resignation_rate_pct": 46.977
+      },
+      {
+        "Hiring_Source": "Referral",
+        "cost_band": "Q1",
+        "count": 273,
+        "avg_performance": 9.956,
+        "resignation_rate": 0.5091575091575091,
+        "avg_satisfaction": 7.9853,
+        "resignation_rate_pct": 50.916
+      },
+      {
+        "Hiring_Source": "Referral",
+        "cost_band": "Q2",
+        "count": 258,
+        "avg_performance": 9.6705,
+        "resignation_rate": 0.5348837209302325,
+        "avg_satisfaction": 7.7636,
+        "resignation_rate_pct": 53.488
+      },
+      {
+        "Hiring_Source": "Referral",
+        "cost_band": "Q3",
+        "count": 233,
+        "avg_performance": 9.6738,
+        "resignation_rate": 0.4892703862660944,
+        "avg_satisfaction": 7.9313,
+        "resignation_rate_pct": 48.927
+      },
+      {
+        "Hiring_Source": "Referral",
+        "cost_band": "Q4",
+        "count": 283,
+        "avg_performance": 9.8127,
+        "resignation_rate": 0.5406360424028268,
+        "avg_satisfaction": 8.1166,
+        "resignation_rate_pct": 54.064
+      }
+    ]
+  },
+  "llm_evidence": {
+    "rows_used": 4001,
+    "hiring_source_profiles": [
+      {
+        "Hiring_Source": "Agency",
+        "count": 990,
+        "avg_performance": 10.0182,
+        "avg_satisfaction": 7.9576,
+        "avg_time_to_hire": 29.6515,
+        "avg_recruitment_cost": 5001.2172,
+        "resignation_rate_pct": 49.394,
+        "resignation_lift_vs_overall_pp": -0.618,
+        "performance_delta_vs_overall": 0.1039,
+        "satisfaction_delta_vs_overall": 0.0266
+      },
+      {
+        "Hiring_Source": "Internal",
+        "count": 1000,
+        "avg_performance": 9.944,
+        "avg_satisfaction": 7.953,
+        "avg_time_to_hire": 29.708,
+        "avg_recruitment_cost": 5004.433,
+        "resignation_rate_pct": 47.9,
+        "resignation_lift_vs_overall_pp": -2.112,
+        "performance_delta_vs_overall": 0.0297,
+        "satisfaction_delta_vs_overall": 0.022
+      },
+      {
+        "Hiring_Source": "Job Board",
+        "count": 964,
+        "avg_performance": 9.918,
+        "avg_satisfaction": 7.8558,
+        "avg_time_to_hire": 29.9575,
+        "avg_recruitment_cost": 4997.1442,
+        "resignation_rate_pct": 50.726,
+        "resignation_lift_vs_overall_pp": 0.714,
+        "performance_delta_vs_overall": 0.0037,
+        "satisfaction_delta_vs_overall": -0.0752
+      },
+      {
+        "Hiring_Source": "Referral",
+        "count": 1047,
+        "avg_performance": 9.7841,
+        "avg_satisfaction": 7.9542,
+        "avg_time_to_hire": 30.1528,
+        "avg_recruitment_cost": 5001.8825,
+        "resignation_rate_pct": 51.958,
+        "resignation_lift_vs_overall_pp": 1.946,
+        "performance_delta_vs_overall": -0.1302,
+        "satisfaction_delta_vs_overall": 0.0232
+      }
+    ],
+    "hiring_source_significance": {
+      "performance_anova": {
+        "f_statistic": 1.0249,
+        "p_value": 0.380359,
+        "is_statistically_significant_0_05": false
+      },
+      "satisfaction_anova": {
+        "f_statistic": 0.3018,
+        "p_value": 0.824094,
+        "is_statistically_significant_0_05": false
+      },
+      "retention_association_test": {
+        "chi2_statistic": 3.7181,
+        "p_value": 0.293562,
+        "degrees_of_freedom": 3,
+        "cramers_v": 0.0305,
+        "min_expected_cell_count": 481.8795,
+        "interpretation": "Association is very weak (Cramer's V=0.030) and not statistically significant at alpha=0.05."
+      }
+    },
+    "numeric_hiring_correlations": {
+      "Time_to_Hire": {
+        "vs_performance": {
+          "pearson_r": -0.0084,
+          "pearson_p_value": 0.593528,
+          "spearman_rho": -0.0085,
+          "spearman_p_value": 0.589038
+        },
+        "vs_job_satisfaction": {
+          "pearson_r": -0.0164,
+          "pearson_p_value": 0.300228,
+          "spearman_rho": -0.0182,
+          "spearman_p_value": 0.249424
+        },
+        "vs_retention_target_yes": {
+          "pearson_r": 0.0028,
+          "pearson_p_value": 0.860647,
+          "spearman_rho": 0.0016,
+          "spearman_p_value": 0.921853
+        }
+      },
+      "Recruitment_Cost": {
+        "vs_performance": {
+          "pearson_r": 0.0133,
+          "pearson_p_value": 0.398709,
+          "spearman_rho": 0.0145,
+          "spearman_p_value": 0.360106
+        },
+        "vs_job_satisfaction": {
+          "pearson_r": 0.0186,
+          "pearson_p_value": 0.238832,
+          "spearman_rho": 0.0173,
+          "spearman_p_value": 0.274024
+        },
+        "vs_retention_target_yes": {
+          "pearson_r": 0.0115,
+          "pearson_p_value": 0.465831,
+          "spearman_rho": 0.0119,
+          "spearman_p_value": 0.453497
+        }
+      }
+    },
+    "model_metrics": {
+      "performance_model_cv_r2_mean": -0.0219,
+      "retention_model_cv_roc_auc_mean": 0.4854,
+      "retention_model_cv_pr_auc_mean": 0.4838,
+      "satisfaction_model_cv_r2_mean": -0.0234
+    },
+    "top_feature_influence": {
+      "performance": [
+        {
+          "feature": "Recruitment_Cost",
+          "importance_mean_r2_drop": 0.008291,
+          "importance_std": 0.006716
+        },
+        {
+          "feature": "Hiring_Source",
+          "importance_mean_r2_drop": 0.004837,
+          "importance_std": 0.003509
+        },
+        {
+          "feature": "Time_to_Hire",
+          "importance_mean_r2_drop": 0.000127,
+          "importance_std": 0.007424
+        }
+      ],
+      "retention": [
+        {
+          "feature": "Time_to_Hire",
+          "importance_mean_auc_drop": 0.003357,
+          "importance_std": 0.013067
+        },
+        {
+          "feature": "Recruitment_Cost",
+          "importance_mean_auc_drop": -0.016948,
+          "importance_std": 0.014663
+        },
+        {
+          "feature": "Hiring_Source",
+          "importance_mean_auc_drop": -0.019301,
+          "importance_std": 0.014622
+        }
+      ],
+      "satisfaction": [
+        {
+          "feature": "Recruitment_Cost",
+          "importance_mean_r2_drop": 0.008527,
+          "importance_std": 0.006195
+        },
+        {
+          "feature": "Hiring_Source",
+          "importance_mean_r2_drop": 0.001594,
+          "importance_std": 0.004477
+        },
+        {
+          "feature": "Time_to_Hire",
+          "importance_mean_r2_drop": 0.000837,
+          "importance_std": 0.009024
+        }
+      ]
+    },
+    "interaction_patterns_top": {
+      "source_time_quartile_profiles": [
+        {
+          "Hiring_Source": "Agency",
+          "time_band": "Q1",
+          "count": 284,
+          "avg_performance": 10.0035,
+          "resignation_rate": 0.49295774647887325,
+          "avg_satisfaction": 7.9366,
+          "resignation_rate_pct": 49.296
+        },
+        {
+          "Hiring_Source": "Agency",
+          "time_band": "Q2",
+          "count": 275,
+          "avg_performance": 9.9636,
+          "resignation_rate": 0.5272727272727272,
+          "avg_satisfaction": 7.9709,
+          "resignation_rate_pct": 52.727
+        },
+        {
+          "Hiring_Source": "Agency",
+          "time_band": "Q3",
+          "count": 254,
+          "avg_performance": 9.9528,
+          "resignation_rate": 0.4448818897637795,
+          "avg_satisfaction": 8.0551,
+          "resignation_rate_pct": 44.488
+        },
+        {
+          "Hiring_Source": "Agency",
+          "time_band": "Q4",
+          "count": 177,
+          "avg_performance": 10.2203,
+          "resignation_rate": 0.5141242937853108,
+          "avg_satisfaction": 7.8305,
+          "resignation_rate_pct": 51.412
+        },
+        {
+          "Hiring_Source": "Internal",
+          "time_band": "Q1",
+          "count": 282,
+          "avg_performance": 10.156,
+          "resignation_rate": 0.5,
+          "avg_satisfaction": 8.2518,
+          "resignation_rate_pct": 50.0
+        },
+        {
+          "Hiring_Source": "Internal",
+          "time_band": "Q2",
+          "count": 290,
+          "avg_performance": 9.8,
+          "resignation_rate": 0.4517241379310345,
+          "avg_satisfaction": 7.9172,
+          "resignation_rate_pct": 45.172
+        },
+        {
+          "Hiring_Source": "Internal",
+          "time_band": "Q3",
+          "count": 243,
+          "avg_performance": 9.8272,
+          "resignation_rate": 0.49382716049382713,
+          "avg_satisfaction": 7.7037,
+          "resignation_rate_pct": 49.383
+        },
+        {
+          "Hiring_Source": "Internal",
+          "time_band": "Q4",
+          "count": 185,
+          "avg_performance": 10.0,
+          "resignation_rate": 0.4702702702702703,
+          "avg_satisfaction": 7.8811,
+          "resignation_rate_pct": 47.027
+        },
+        {
+          "Hiring_Source": "Job Board",
+          "time_band": "Q1",
+          "count": 276,
+          "avg_performance": 10.0181,
+          "resignation_rate": 0.4891304347826087,
+          "avg_satisfaction": 8.0109,
+          "resignation_rate_pct": 48.913
+        },
+        {
+          "Hiring_Source": "Job Board",
+          "time_band": "Q2",
+          "count": 246,
+          "avg_performance": 10.0569,
+          "resignation_rate": 0.532520325203252,
+          "avg_satisfaction": 7.6179,
+          "resignation_rate_pct": 53.252
+        },
+        {
+          "Hiring_Source": "Job Board",
+          "time_band": "Q3",
+          "count": 240,
+          "avg_performance": 9.825,
+          "resignation_rate": 0.5083333333333333,
+          "avg_satisfaction": 7.7583,
+          "resignation_rate_pct": 50.833
+        },
+        {
+          "Hiring_Source": "Job Board",
+          "time_band": "Q4",
+          "count": 202,
+          "avg_performance": 9.7228,
+          "resignation_rate": 0.5,
+          "avg_satisfaction": 8.0495,
+          "resignation_rate_pct": 50.0
+        }
+      ],
+      "source_cost_quartile_profiles": [
+        {
+          "Hiring_Source": "Agency",
+          "cost_band": "Q1",
+          "count": 237,
+          "avg_performance": 10.0422,
+          "resignation_rate": 0.46835443037974683,
+          "avg_satisfaction": 7.8059,
+          "resignation_rate_pct": 46.835
+        },
+        {
+          "Hiring_Source": "Agency",
+          "cost_band": "Q2",
+          "count": 260,
+          "avg_performance": 9.5885,
+          "resignation_rate": 0.5,
+          "avg_satisfaction": 7.7769,
+          "resignation_rate_pct": 50.0
+        },
+        {
+          "Hiring_Source": "Agency",
+          "cost_band": "Q3",
+          "count": 250,
+          "avg_performance": 10.144,
+          "resignation_rate": 0.492,
+          "avg_satisfaction": 8.024,
+          "resignation_rate_pct": 49.2
+        },
+        {
+          "Hiring_Source": "Agency",
+          "cost_band": "Q4",
+          "count": 243,
+          "avg_performance": 10.3251,
+          "resignation_rate": 0.51440329218107,
+          "avg_satisfaction": 8.2305,
+          "resignation_rate_pct": 51.44
+        },
+        {
+          "Hiring_Source": "Internal",
+          "cost_band": "Q1",
+          "count": 237,
+          "avg_performance": 9.7975,
+          "resignation_rate": 0.4388185654008439,
+          "avg_satisfaction": 7.9409,
+          "resignation_rate_pct": 43.882
+        },
+        {
+          "Hiring_Source": "Internal",
+          "cost_band": "Q2",
+          "count": 255,
+          "avg_performance": 9.7255,
+          "resignation_rate": 0.5098039215686274,
+          "avg_satisfaction": 8.1647,
+          "resignation_rate_pct": 50.98
+        },
+        {
+          "Hiring_Source": "Internal",
+          "cost_band": "Q3",
+          "count": 255,
+          "avg_performance": 10.0039,
+          "resignation_rate": 0.47843137254901963,
+          "avg_satisfaction": 7.6863,
+          "resignation_rate_pct": 47.843
+        },
+        {
+          "Hiring_Source": "Internal",
+          "cost_band": "Q4",
+          "count": 253,
+          "avg_performance": 10.2411,
+          "resignation_rate": 0.48616600790513836,
+          "avg_satisfaction": 8.0198,
+          "resignation_rate_pct": 48.617
+        },
+        {
+          "Hiring_Source": "Job Board",
+          "cost_band": "Q1",
+          "count": 256,
+          "avg_performance": 10.043,
+          "resignation_rate": 0.5078125,
+          "avg_satisfaction": 7.8281,
+          "resignation_rate_pct": 50.781
+        },
+        {
+          "Hiring_Source": "Job Board",
+          "cost_band": "Q2",
+          "count": 242,
+          "avg_performance": 9.8388,
+          "resignation_rate": 0.512396694214876,
+          "avg_satisfaction": 7.781,
+          "resignation_rate_pct": 51.24
+        },
+        {
+          "Hiring_Source": "Job Board",
+          "cost_band": "Q3",
+          "count": 251,
+          "avg_performance": 10.0956,
+          "resignation_rate": 0.5338645418326693,
+          "avg_satisfaction": 7.9841,
+          "resignation_rate_pct": 53.386
+        },
+        {
+          "Hiring_Source": "Job Board",
+          "cost_band": "Q4",
+          "count": 215,
+          "avg_performance": 9.6512,
+          "resignation_rate": 0.4697674418604651,
+          "avg_satisfaction": 7.8233,
+          "resignation_rate_pct": 46.977
+        }
+      ]
+    }
+  },
+  "llm_insights": {
+    "headline": "Hiring Source and Time to Hire Show Minimal Impact on Performance, Satisfaction, and Retention",
+    "key_insight_1": "Across all hiring sources, average performance hovers around 9.9, and job satisfaction is around 7.9. Agency hires (990) show a slight positive performance delta of 0.1039 and satisfaction delta of 0.0266 compared to the overall average, while Referral hires (1047) show a negative performance delta of -0.1302. However, ANOVA tests indicate no statistically significant differences in performance (p=0.380) or satisfaction (p=0.824) across hiring sources.",
+    "key_insight_2": "Time to hire and recruitment cost have negligible influence on key employee outcomes. Pearson correlations show very weak relationships: Time to Hire vs. Performance (r=-0.0084, p=0.594), Time to Hire vs. Job Satisfaction (r=-0.0164, p=0.300), Recruitment Cost vs. Performance (r=0.0133, p=0.399), and Recruitment Cost vs. Job Satisfaction (r=0.0186, p=0.239). Model feature importance also shows minimal impact for Time to Hire on performance and satisfaction.",
+    "hidden_insight": "Despite overall similar resignation rates (ranging from 47.9% for Internal to 51.9% for Referral), there's a subtle interaction between hiring source and time to hire. For Agency hires, those in the fastest quartile for time to hire (Q1, count=284) have a resignation rate of 49.3%, while those in the slowest quartile (Q4, count=177) have a resignation rate of 51.4%. This suggests that while the overall effect is small, extremely long hiring times for agency candidates might be associated with a slight increase in attrition.",
+    "risk_alert": "The retention association test between hiring source and resignation rate shows a very weak association (Cramer's V=0.030) and is not statistically significant (p=0.294). This indicates that while Referral hires have the highest resignation rate (51.9%) and Internal hires the lowest (47.9%), the hiring source alone is not a strong predictor of retention, suggesting other factors are more dominant.",
+    "business_implication": "Current recruitment strategies, focusing on source, time, and cost, may not be effectively differentiating candidate quality or long-term fit. The lack of significant impact suggests that resources might be better allocated to other drivers of performance, satisfaction, and retention, or that the current metrics do not fully capture the nuances of hiring source effectiveness.",
+    "action_plan": [
+      "Investigate other potential drivers of performance, satisfaction, and retention beyond hiring source, time to hire, and recruitment cost.",
+      "Explore qualitative data or deeper dive analytics to understand the subtle differences in resignation rates for Agency hires based on time to hire.",
+      "Re-evaluate the definition and measurement of 'performance' and 'job satisfaction' to ensure they capture the most critical aspects of employee contribution and experience.",
+      "Conduct further analysis to identify the key factors influencing retention, given that hiring source is not a significant predictor."
+    ],
+    "standout_statement": "Despite significant variations in hiring volume (Internal: 1000, Referral: 1047, Agency: 990, Job Board: 964), the choice of hiring source, recruitment cost, and time to hire demonstrate a statistically insignificant impact on employee performance and job satisfaction.",
+    "confidence_note": "The analysis relies on correlational data and model-based feature importance. While trends are observed, causality cannot be inferred. The lack of statistical significance in several key tests (ANOVA for performance/satisfaction, retention association test) indicates that the observed differences are likely due to random variation or are too small to be reliably detected with the current data and sample size."
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1777669777,
+    "evidence_char_length": 4357
+  }
+}

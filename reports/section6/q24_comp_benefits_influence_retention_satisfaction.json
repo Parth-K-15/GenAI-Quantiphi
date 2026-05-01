@@ -1,0 +1,746 @@
+{
+  "question": "Q24 - Influence of Compensation Benefits on Retention and Satisfaction",
+  "dataset_scope": {
+    "rows_used": 4001,
+    "categorical_benefits": [
+      "Employee_Stock_Options",
+      "Employee_Health_Insurance_Coverage",
+      "Employee_Retirement_Benefits"
+    ],
+    "numeric_benefits": [
+      "Employee_Compensation_Benefits",
+      "Employee_Travel_Allowance",
+      "Employee_Savings_Plans"
+    ]
+  },
+  "baseline_metrics": {
+    "overall_resignation_rate_pct": 50.012,
+    "overall_avg_satisfaction": 7.931
+  },
+  "categorical_benefit_effects": {
+    "Employee_Stock_Options": {
+      "retention_association": {
+        "contingency_counts": {
+          "1": {
+            "Stock Options": 976,
+            "Unknown": 1025
+          },
+          "0": {
+            "Stock Options": 1016,
+            "Unknown": 984
+          }
+        },
+        "association_test": {
+          "chi2_statistic": 1.5597,
+          "p_value": 0.211706,
+          "degrees_of_freedom": 1,
+          "cramers_v": 0.0197,
+          "min_expected_cell_count": 995.7511,
+          "interpretation": "Association is very weak (Cramer's V=0.020) and not statistically significant at alpha=0.05."
+        }
+      },
+      "satisfaction_profiles": [
+        {
+          "Employee_Stock_Options": "Stock Options",
+          "count": 1992,
+          "avg_satisfaction": 7.9684,
+          "resignation_rate_pct": 48.996,
+          "resignation_lift_vs_overall_pp": -1.016,
+          "satisfaction_delta_vs_overall": 0.0374
+        },
+        {
+          "Employee_Stock_Options": "Unknown",
+          "count": 2009,
+          "avg_satisfaction": 7.894,
+          "resignation_rate_pct": 51.02,
+          "resignation_lift_vs_overall_pp": 1.008,
+          "satisfaction_delta_vs_overall": -0.037
+        }
+      ],
+      "satisfaction_tests": {
+        "anova": {
+          "f_statistic": 0.6971,
+          "p_value": 0.403816,
+          "is_statistically_significant_0_05": false
+        },
+        "kruskal_wallis": {
+          "h_statistic": 0.3532,
+          "p_value": 0.552308,
+          "is_statistically_significant_0_05": false
+        }
+      }
+    },
+    "Employee_Health_Insurance_Coverage": {
+      "retention_association": {
+        "contingency_counts": {
+          "1": {
+            "Basic": 691,
+            "Premium": 669,
+            "Standard": 641
+          },
+          "0": {
+            "Basic": 693,
+            "Premium": 667,
+            "Standard": 640
+          }
+        },
+        "association_test": {
+          "chi2_statistic": 0.0064,
+          "p_value": 0.996798,
+          "degrees_of_freedom": 2,
+          "cramers_v": 0.0013,
+          "min_expected_cell_count": 640.3399,
+          "interpretation": "Association is very weak (Cramer's V=0.001) and not statistically significant at alpha=0.05."
+        }
+      },
+      "satisfaction_profiles": [
+        {
+          "Employee_Health_Insurance_Coverage": "Basic",
+          "count": 1384,
+          "avg_satisfaction": 7.9176,
+          "resignation_rate_pct": 49.928,
+          "resignation_lift_vs_overall_pp": -0.084,
+          "satisfaction_delta_vs_overall": -0.0134
+        },
+        {
+          "Employee_Health_Insurance_Coverage": "Premium",
+          "count": 1336,
+          "avg_satisfaction": 7.9349,
+          "resignation_rate_pct": 50.075,
+          "resignation_lift_vs_overall_pp": 0.063,
+          "satisfaction_delta_vs_overall": 0.0039
+        },
+        {
+          "Employee_Health_Insurance_Coverage": "Standard",
+          "count": 1281,
+          "avg_satisfaction": 7.9415,
+          "resignation_rate_pct": 50.039,
+          "resignation_lift_vs_overall_pp": 0.027,
+          "satisfaction_delta_vs_overall": 0.0105
+        }
+      ],
+      "satisfaction_tests": {
+        "anova": {
+          "f_statistic": 0.0256,
+          "p_value": 0.974684,
+          "is_statistically_significant_0_05": false
+        },
+        "kruskal_wallis": {
+          "h_statistic": 0.0779,
+          "p_value": 0.961793,
+          "is_statistically_significant_0_05": false
+        }
+      }
+    },
+    "Employee_Retirement_Benefits": {
+      "retention_association": {
+        "contingency_counts": {
+          "1": {
+            "Basic": 670,
+            "Premium": 644,
+            "Standard": 687
+          },
+          "0": {
+            "Basic": 683,
+            "Premium": 685,
+            "Standard": 632
+          }
+        },
+        "association_test": {
+          "chi2_statistic": 3.6829,
+          "p_value": 0.158586,
+          "degrees_of_freedom": 2,
+          "cramers_v": 0.0303,
+          "min_expected_cell_count": 659.3352,
+          "interpretation": "Association is very weak (Cramer's V=0.030) and not statistically significant at alpha=0.05."
+        }
+      },
+      "satisfaction_profiles": [
+        {
+          "Employee_Retirement_Benefits": "Basic",
+          "count": 1353,
+          "avg_satisfaction": 7.8751,
+          "resignation_rate_pct": 49.52,
+          "resignation_lift_vs_overall_pp": -0.492,
+          "satisfaction_delta_vs_overall": -0.0559
+        },
+        {
+          "Employee_Retirement_Benefits": "Premium",
+          "count": 1329,
+          "avg_satisfaction": 7.9391,
+          "resignation_rate_pct": 48.457,
+          "resignation_lift_vs_overall_pp": -1.555,
+          "satisfaction_delta_vs_overall": 0.0081
+        },
+        {
+          "Employee_Retirement_Benefits": "Standard",
+          "count": 1319,
+          "avg_satisfaction": 7.9803,
+          "resignation_rate_pct": 52.085,
+          "resignation_lift_vs_overall_pp": 2.073,
+          "satisfaction_delta_vs_overall": 0.0493
+        }
+      ],
+      "satisfaction_tests": {
+        "anova": {
+          "f_statistic": 0.4733,
+          "p_value": 0.622967,
+          "is_statistically_significant_0_05": false
+        },
+        "kruskal_wallis": {
+          "h_statistic": 0.7111,
+          "p_value": 0.700786,
+          "is_statistically_significant_0_05": false
+        }
+      }
+    }
+  },
+  "numeric_benefit_gradients": [
+    {
+      "feature": "Employee_Compensation_Benefits",
+      "quartile_profiles": [
+        {
+          "benefit_band": "Q1",
+          "count": 1011,
+          "avg_satisfaction": 7.9693,
+          "avg_benefit_value": 4913.6617,
+          "resignation_rate_pct": 51.731,
+          "resignation_lift_vs_overall_pp": 1.719,
+          "satisfaction_delta_vs_overall": 0.0383
+        },
+        {
+          "benefit_band": "Q2",
+          "count": 1009,
+          "avg_satisfaction": 7.9663,
+          "avg_benefit_value": 4979.3974,
+          "resignation_rate_pct": 49.752,
+          "resignation_lift_vs_overall_pp": -0.26,
+          "satisfaction_delta_vs_overall": 0.0353
+        },
+        {
+          "benefit_band": "Q3",
+          "count": 990,
+          "avg_satisfaction": 7.7384,
+          "avg_benefit_value": 5023.4798,
+          "resignation_rate_pct": 48.687,
+          "resignation_lift_vs_overall_pp": -1.325,
+          "satisfaction_delta_vs_overall": -0.1926
+        },
+        {
+          "benefit_band": "Q4",
+          "count": 991,
+          "avg_satisfaction": 8.0484,
+          "avg_benefit_value": 5089.998,
+          "resignation_rate_pct": 49.849,
+          "resignation_lift_vs_overall_pp": -0.163,
+          "satisfaction_delta_vs_overall": 0.1174
+        }
+      ]
+    },
+    {
+      "feature": "Employee_Travel_Allowance",
+      "quartile_profiles": [
+        {
+          "benefit_band": "Q1",
+          "count": 1023,
+          "avg_satisfaction": 7.9922,
+          "avg_benefit_value": 1452.2219,
+          "resignation_rate_pct": 50.342,
+          "resignation_lift_vs_overall_pp": 0.33,
+          "satisfaction_delta_vs_overall": 0.0612
+        },
+        {
+          "benefit_band": "Q2",
+          "count": 1009,
+          "avg_satisfaction": 7.9346,
+          "avg_benefit_value": 1488.7403,
+          "resignation_rate_pct": 51.041,
+          "resignation_lift_vs_overall_pp": 1.029,
+          "satisfaction_delta_vs_overall": 0.0036
+        },
+        {
+          "benefit_band": "Q3",
+          "count": 990,
+          "avg_satisfaction": 7.7333,
+          "avg_benefit_value": 1513.8949,
+          "resignation_rate_pct": 48.889,
+          "resignation_lift_vs_overall_pp": -1.123,
+          "satisfaction_delta_vs_overall": -0.1977
+        },
+        {
+          "benefit_band": "Q4",
+          "count": 979,
+          "avg_satisfaction": 8.0633,
+          "avg_benefit_value": 1550.1318,
+          "resignation_rate_pct": 49.745,
+          "resignation_lift_vs_overall_pp": -0.267,
+          "satisfaction_delta_vs_overall": 0.1323
+        }
+      ]
+    },
+    {
+      "feature": "Employee_Savings_Plans",
+      "quartile_profiles": [
+        {
+          "benefit_band": "Q1",
+          "count": 1021,
+          "avg_satisfaction": 7.8119,
+          "avg_benefit_value": 2931.4192,
+          "resignation_rate_pct": 51.91,
+          "resignation_lift_vs_overall_pp": 1.898,
+          "satisfaction_delta_vs_overall": -0.1191
+        },
+        {
+          "benefit_band": "Q2",
+          "count": 1007,
+          "avg_satisfaction": 8.0109,
+          "avg_benefit_value": 2984.1271,
+          "resignation_rate_pct": 45.978,
+          "resignation_lift_vs_overall_pp": -4.034,
+          "satisfaction_delta_vs_overall": 0.0799
+        },
+        {
+          "benefit_band": "Q3",
+          "count": 986,
+          "avg_satisfaction": 8.0233,
+          "avg_benefit_value": 3020.3448,
+          "resignation_rate_pct": 50.507,
+          "resignation_lift_vs_overall_pp": 0.495,
+          "satisfaction_delta_vs_overall": 0.0923
+        },
+        {
+          "benefit_band": "Q4",
+          "count": 987,
+          "avg_satisfaction": 7.8804,
+          "avg_benefit_value": 3070.9747,
+          "resignation_rate_pct": 51.672,
+          "resignation_lift_vs_overall_pp": 1.66,
+          "satisfaction_delta_vs_overall": -0.0506
+        }
+      ]
+    }
+  ],
+  "multivariable_benefit_models": {
+    "retention_model": {
+      "algorithm": "RandomForestClassifier",
+      "test_metrics": {
+        "accuracy": 0.5019,
+        "balanced_accuracy": 0.5019,
+        "precision": 0.5026,
+        "recall": 0.4813,
+        "f1": 0.4917,
+        "roc_auc": 0.5149,
+        "pr_auc": 0.5096
+      },
+      "cv_roc_auc_mean": 0.5091,
+      "cv_roc_auc_std": 0.0127,
+      "cv_pr_auc_mean": 0.5057,
+      "cv_pr_auc_std": 0.0187,
+      "top_feature_importance": [
+        {
+          "feature": "Employee_Health_Insurance_Coverage",
+          "importance_mean_auc_drop": 0.010428,
+          "importance_std": 0.008691
+        },
+        {
+          "feature": "Employee_Retirement_Benefits",
+          "importance_mean_auc_drop": 0.010012,
+          "importance_std": 0.010725
+        },
+        {
+          "feature": "Employee_Stock_Options",
+          "importance_mean_auc_drop": 0.00968,
+          "importance_std": 0.011771
+        },
+        {
+          "feature": "Employee_Savings_Plans",
+          "importance_mean_auc_drop": 0.007304,
+          "importance_std": 0.0117
+        },
+        {
+          "feature": "Employee_Travel_Allowance",
+          "importance_mean_auc_drop": 0.000244,
+          "importance_std": 0.016455
+        },
+        {
+          "feature": "Employee_Compensation_Benefits",
+          "importance_mean_auc_drop": -0.002246,
+          "importance_std": 0.01038
+        }
+      ]
+    },
+    "satisfaction_model": {
+      "algorithm": "RandomForestRegressor",
+      "test_r2": -0.0142,
+      "cv_r2_mean": -0.0162,
+      "cv_r2_std": 0.0046,
+      "top_feature_importance": [
+        {
+          "feature": "Employee_Retirement_Benefits",
+          "importance_mean_r2_drop": 0.003671,
+          "importance_std": 0.002445
+        },
+        {
+          "feature": "Employee_Travel_Allowance",
+          "importance_mean_r2_drop": 0.003186,
+          "importance_std": 0.007772
+        },
+        {
+          "feature": "Employee_Savings_Plans",
+          "importance_mean_r2_drop": 0.000873,
+          "importance_std": 0.005167
+        },
+        {
+          "feature": "Employee_Compensation_Benefits",
+          "importance_mean_r2_drop": 0.000802,
+          "importance_std": 0.005811
+        },
+        {
+          "feature": "Employee_Stock_Options",
+          "importance_mean_r2_drop": -2.3e-05,
+          "importance_std": 0.001124
+        },
+        {
+          "feature": "Employee_Health_Insurance_Coverage",
+          "importance_mean_r2_drop": -0.000386,
+          "importance_std": 0.002277
+        }
+      ]
+    }
+  },
+  "llm_evidence": {
+    "baseline_metrics": {
+      "overall_resignation_rate_pct": 50.012,
+      "overall_avg_satisfaction": 7.931
+    },
+    "categorical_effect_summary": {
+      "Employee_Stock_Options": {
+        "retention_association_test": {
+          "chi2_statistic": 1.5597,
+          "p_value": 0.211706,
+          "degrees_of_freedom": 1,
+          "cramers_v": 0.0197,
+          "min_expected_cell_count": 995.7511,
+          "interpretation": "Association is very weak (Cramer's V=0.020) and not statistically significant at alpha=0.05."
+        },
+        "satisfaction_profiles_top": [
+          {
+            "Employee_Stock_Options": "Stock Options",
+            "count": 1992,
+            "avg_satisfaction": 7.9684,
+            "resignation_rate_pct": 48.996,
+            "resignation_lift_vs_overall_pp": -1.016,
+            "satisfaction_delta_vs_overall": 0.0374
+          },
+          {
+            "Employee_Stock_Options": "Unknown",
+            "count": 2009,
+            "avg_satisfaction": 7.894,
+            "resignation_rate_pct": 51.02,
+            "resignation_lift_vs_overall_pp": 1.008,
+            "satisfaction_delta_vs_overall": -0.037
+          }
+        ]
+      },
+      "Employee_Health_Insurance_Coverage": {
+        "retention_association_test": {
+          "chi2_statistic": 0.0064,
+          "p_value": 0.996798,
+          "degrees_of_freedom": 2,
+          "cramers_v": 0.0013,
+          "min_expected_cell_count": 640.3399,
+          "interpretation": "Association is very weak (Cramer's V=0.001) and not statistically significant at alpha=0.05."
+        },
+        "satisfaction_profiles_top": [
+          {
+            "Employee_Health_Insurance_Coverage": "Basic",
+            "count": 1384,
+            "avg_satisfaction": 7.9176,
+            "resignation_rate_pct": 49.928,
+            "resignation_lift_vs_overall_pp": -0.084,
+            "satisfaction_delta_vs_overall": -0.0134
+          },
+          {
+            "Employee_Health_Insurance_Coverage": "Standard",
+            "count": 1281,
+            "avg_satisfaction": 7.9415,
+            "resignation_rate_pct": 50.039,
+            "resignation_lift_vs_overall_pp": 0.027,
+            "satisfaction_delta_vs_overall": 0.0105
+          },
+          {
+            "Employee_Health_Insurance_Coverage": "Premium",
+            "count": 1336,
+            "avg_satisfaction": 7.9349,
+            "resignation_rate_pct": 50.075,
+            "resignation_lift_vs_overall_pp": 0.063,
+            "satisfaction_delta_vs_overall": 0.0039
+          }
+        ]
+      },
+      "Employee_Retirement_Benefits": {
+        "retention_association_test": {
+          "chi2_statistic": 3.6829,
+          "p_value": 0.158586,
+          "degrees_of_freedom": 2,
+          "cramers_v": 0.0303,
+          "min_expected_cell_count": 659.3352,
+          "interpretation": "Association is very weak (Cramer's V=0.030) and not statistically significant at alpha=0.05."
+        },
+        "satisfaction_profiles_top": [
+          {
+            "Employee_Retirement_Benefits": "Basic",
+            "count": 1353,
+            "avg_satisfaction": 7.8751,
+            "resignation_rate_pct": 49.52,
+            "resignation_lift_vs_overall_pp": -0.492,
+            "satisfaction_delta_vs_overall": -0.0559
+          },
+          {
+            "Employee_Retirement_Benefits": "Standard",
+            "count": 1319,
+            "avg_satisfaction": 7.9803,
+            "resignation_rate_pct": 52.085,
+            "resignation_lift_vs_overall_pp": 2.073,
+            "satisfaction_delta_vs_overall": 0.0493
+          },
+          {
+            "Employee_Retirement_Benefits": "Premium",
+            "count": 1329,
+            "avg_satisfaction": 7.9391,
+            "resignation_rate_pct": 48.457,
+            "resignation_lift_vs_overall_pp": -1.555,
+            "satisfaction_delta_vs_overall": 0.0081
+          }
+        ]
+      }
+    },
+    "numeric_benefit_gradients": [
+      {
+        "feature": "Employee_Compensation_Benefits",
+        "quartile_profiles": [
+          {
+            "benefit_band": "Q1",
+            "count": 1011,
+            "avg_satisfaction": 7.9693,
+            "avg_benefit_value": 4913.6617,
+            "resignation_rate_pct": 51.731,
+            "resignation_lift_vs_overall_pp": 1.719,
+            "satisfaction_delta_vs_overall": 0.0383
+          },
+          {
+            "benefit_band": "Q2",
+            "count": 1009,
+            "avg_satisfaction": 7.9663,
+            "avg_benefit_value": 4979.3974,
+            "resignation_rate_pct": 49.752,
+            "resignation_lift_vs_overall_pp": -0.26,
+            "satisfaction_delta_vs_overall": 0.0353
+          },
+          {
+            "benefit_band": "Q3",
+            "count": 990,
+            "avg_satisfaction": 7.7384,
+            "avg_benefit_value": 5023.4798,
+            "resignation_rate_pct": 48.687,
+            "resignation_lift_vs_overall_pp": -1.325,
+            "satisfaction_delta_vs_overall": -0.1926
+          },
+          {
+            "benefit_band": "Q4",
+            "count": 991,
+            "avg_satisfaction": 8.0484,
+            "avg_benefit_value": 5089.998,
+            "resignation_rate_pct": 49.849,
+            "resignation_lift_vs_overall_pp": -0.163,
+            "satisfaction_delta_vs_overall": 0.1174
+          }
+        ]
+      },
+      {
+        "feature": "Employee_Travel_Allowance",
+        "quartile_profiles": [
+          {
+            "benefit_band": "Q1",
+            "count": 1023,
+            "avg_satisfaction": 7.9922,
+            "avg_benefit_value": 1452.2219,
+            "resignation_rate_pct": 50.342,
+            "resignation_lift_vs_overall_pp": 0.33,
+            "satisfaction_delta_vs_overall": 0.0612
+          },
+          {
+            "benefit_band": "Q2",
+            "count": 1009,
+            "avg_satisfaction": 7.9346,
+            "avg_benefit_value": 1488.7403,
+            "resignation_rate_pct": 51.041,
+            "resignation_lift_vs_overall_pp": 1.029,
+            "satisfaction_delta_vs_overall": 0.0036
+          },
+          {
+            "benefit_band": "Q3",
+            "count": 990,
+            "avg_satisfaction": 7.7333,
+            "avg_benefit_value": 1513.8949,
+            "resignation_rate_pct": 48.889,
+            "resignation_lift_vs_overall_pp": -1.123,
+            "satisfaction_delta_vs_overall": -0.1977
+          },
+          {
+            "benefit_band": "Q4",
+            "count": 979,
+            "avg_satisfaction": 8.0633,
+            "avg_benefit_value": 1550.1318,
+            "resignation_rate_pct": 49.745,
+            "resignation_lift_vs_overall_pp": -0.267,
+            "satisfaction_delta_vs_overall": 0.1323
+          }
+        ]
+      },
+      {
+        "feature": "Employee_Savings_Plans",
+        "quartile_profiles": [
+          {
+            "benefit_band": "Q1",
+            "count": 1021,
+            "avg_satisfaction": 7.8119,
+            "avg_benefit_value": 2931.4192,
+            "resignation_rate_pct": 51.91,
+            "resignation_lift_vs_overall_pp": 1.898,
+            "satisfaction_delta_vs_overall": -0.1191
+          },
+          {
+            "benefit_band": "Q2",
+            "count": 1007,
+            "avg_satisfaction": 8.0109,
+            "avg_benefit_value": 2984.1271,
+            "resignation_rate_pct": 45.978,
+            "resignation_lift_vs_overall_pp": -4.034,
+            "satisfaction_delta_vs_overall": 0.0799
+          },
+          {
+            "benefit_band": "Q3",
+            "count": 986,
+            "avg_satisfaction": 8.0233,
+            "avg_benefit_value": 3020.3448,
+            "resignation_rate_pct": 50.507,
+            "resignation_lift_vs_overall_pp": 0.495,
+            "satisfaction_delta_vs_overall": 0.0923
+          },
+          {
+            "benefit_band": "Q4",
+            "count": 987,
+            "avg_satisfaction": 7.8804,
+            "avg_benefit_value": 3070.9747,
+            "resignation_rate_pct": 51.672,
+            "resignation_lift_vs_overall_pp": 1.66,
+            "satisfaction_delta_vs_overall": -0.0506
+          }
+        ]
+      }
+    ],
+    "retention_model_metrics": {
+      "test_metrics": {
+        "accuracy": 0.5019,
+        "balanced_accuracy": 0.5019,
+        "precision": 0.5026,
+        "recall": 0.4813,
+        "f1": 0.4917,
+        "roc_auc": 0.5149,
+        "pr_auc": 0.5096
+      },
+      "cv_roc_auc_mean": 0.5091,
+      "cv_pr_auc_mean": 0.5057
+    },
+    "satisfaction_model_metrics": {
+      "test_r2": -0.0142,
+      "cv_r2_mean": -0.0162
+    },
+    "top_retention_benefit_features": [
+      {
+        "feature": "Employee_Health_Insurance_Coverage",
+        "importance_mean_auc_drop": 0.010428,
+        "importance_std": 0.008691
+      },
+      {
+        "feature": "Employee_Retirement_Benefits",
+        "importance_mean_auc_drop": 0.010012,
+        "importance_std": 0.010725
+      },
+      {
+        "feature": "Employee_Stock_Options",
+        "importance_mean_auc_drop": 0.00968,
+        "importance_std": 0.011771
+      },
+      {
+        "feature": "Employee_Savings_Plans",
+        "importance_mean_auc_drop": 0.007304,
+        "importance_std": 0.0117
+      },
+      {
+        "feature": "Employee_Travel_Allowance",
+        "importance_mean_auc_drop": 0.000244,
+        "importance_std": 0.016455
+      },
+      {
+        "feature": "Employee_Compensation_Benefits",
+        "importance_mean_auc_drop": -0.002246,
+        "importance_std": 0.01038
+      }
+    ],
+    "top_satisfaction_benefit_features": [
+      {
+        "feature": "Employee_Retirement_Benefits",
+        "importance_mean_r2_drop": 0.003671,
+        "importance_std": 0.002445
+      },
+      {
+        "feature": "Employee_Travel_Allowance",
+        "importance_mean_r2_drop": 0.003186,
+        "importance_std": 0.007772
+      },
+      {
+        "feature": "Employee_Savings_Plans",
+        "importance_mean_r2_drop": 0.000873,
+        "importance_std": 0.005167
+      },
+      {
+        "feature": "Employee_Compensation_Benefits",
+        "importance_mean_r2_drop": 0.000802,
+        "importance_std": 0.005811
+      },
+      {
+        "feature": "Employee_Stock_Options",
+        "importance_mean_r2_drop": -2.3e-05,
+        "importance_std": 0.001124
+      },
+      {
+        "feature": "Employee_Health_Insurance_Coverage",
+        "importance_mean_r2_drop": -0.000386,
+        "importance_std": 0.002277
+      }
+    ]
+  },
+  "llm_insights": {
+    "headline": "Compensation Benefits Show Limited Impact on Retention and Satisfaction",
+    "key_insight_1": "Employees in the highest quartile (Q4) of Employee_Compensation_Benefits reported the highest average satisfaction (8.05), with a satisfaction delta of +0.12 compared to the overall average. However, their resignation rate was only marginally lower than the overall average (49.85% vs. 50.01%).",
+    "key_insight_2": "While Employee_Stock_Options show a weak association with retention (Cramer's V=0.020), employees receiving stock options had a slightly lower resignation rate (48.996%) compared to those without (51.02%). This difference is not statistically significant.",
+    "hidden_insight": "The third quartile (Q3) of Employee_Travel_Allowance shows a notable dip in average satisfaction (-0.20 vs. overall) and a lower resignation rate (-1.12% vs. overall), suggesting a potential non-linear relationship where mid-tier travel allowances may be less effective or even detrimental to satisfaction.",
+    "risk_alert": "No categorical benefits (Employee_Stock_Options, Employee_Health_Insurance_Coverage, Employee_Retirement_Benefits) show a statistically significant association with retention or satisfaction, indicating that current benefit offerings may not be effectively differentiating the company or driving employee engagement.",
+    "business_implication": "The company's current compensation and benefits structure does not appear to be a strong driver of employee retention or satisfaction. There is a missed opportunity to leverage benefits as a strategic tool for engagement and loyalty, and a risk that competitors with more impactful benefits may attract talent.",
+    "action_plan": [
+      "Conduct a comprehensive review of the current benefits package to identify underperforming or outdated offerings.",
+      "Benchmark competitor benefits packages to understand market best practices and identify potential gaps.",
+      "Explore the introduction of new, more impactful benefits or enhancements to existing ones, focusing on areas that demonstrably influence satisfaction and retention.",
+      "Consider targeted communication strategies to highlight the value of existing benefits to employees."
+    ],
+    "standout_statement": "Despite variations in compensation benefit levels, the overall impact on employee retention and satisfaction remains minimal, suggesting a need for a strategic re-evaluation of the benefits portfolio.",
+    "confidence_note": "The observed associations between compensation benefits and retention/satisfaction are largely correlational and not statistically significant. Therefore, conclusions about the direct influence of these benefits should be made with caution."
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1777669939,
+    "evidence_char_length": 4357
+  }
+}

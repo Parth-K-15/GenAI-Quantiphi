@@ -1,0 +1,734 @@
+{
+  "question": "Q15 - Impact of Project_Complexity and Project_Size on Project_Outcome",
+  "dataset_scope": {
+    "rows_used": 4001,
+    "project_complexity_levels": [
+      "Simple",
+      "Moderate",
+      "Complex"
+    ],
+    "project_size_levels": [
+      "Small",
+      "Medium",
+      "Large"
+    ],
+    "project_outcome_levels": [
+      "Successful",
+      "In Progress",
+      "Failed"
+    ]
+  },
+  "overall_outcome_baseline_pct": {
+    "successful_rate_pct": 32.167,
+    "failed_rate_pct": 33.192,
+    "in_progress_rate_pct": 34.641
+  },
+  "complexity_vs_outcome": {
+    "contingency_counts": {
+      "Successful": {
+        "Simple": 459,
+        "Moderate": 437,
+        "Complex": 391
+      },
+      "In Progress": {
+        "Simple": 480,
+        "Moderate": 464,
+        "Complex": 442
+      },
+      "Failed": {
+        "Simple": 445,
+        "Moderate": 442,
+        "Complex": 441
+      }
+    },
+    "row_profiles": [
+      {
+        "project_complexity": "Simple",
+        "count": 1384,
+        "successful_rate_pct": 33.165,
+        "failed_rate_pct": 32.153,
+        "successful_lift_vs_overall_pp": 0.998,
+        "failed_lift_vs_overall_pp": -1.039,
+        "outcome_distribution_pct": {
+          "Successful": 33.16,
+          "In Progress": 34.68,
+          "Failed": 32.15
+        }
+      },
+      {
+        "project_complexity": "Moderate",
+        "count": 1343,
+        "successful_rate_pct": 32.539,
+        "failed_rate_pct": 32.911,
+        "successful_lift_vs_overall_pp": 0.372,
+        "failed_lift_vs_overall_pp": -0.281,
+        "outcome_distribution_pct": {
+          "Successful": 32.54,
+          "In Progress": 34.55,
+          "Failed": 32.91
+        }
+      },
+      {
+        "project_complexity": "Complex",
+        "count": 1274,
+        "successful_rate_pct": 30.691,
+        "failed_rate_pct": 34.615,
+        "successful_lift_vs_overall_pp": -1.476,
+        "failed_lift_vs_overall_pp": 1.423,
+        "outcome_distribution_pct": {
+          "Successful": 30.69,
+          "In Progress": 34.69,
+          "Failed": 34.62
+        }
+      }
+    ],
+    "association_test": {
+      "chi2_statistic": 2.6137,
+      "p_value": 0.624398,
+      "degrees_of_freedom": 4,
+      "cramers_v": 0.0181,
+      "min_expected_cell_count": 409.807,
+      "interpretation": "Association is very weak (Cramer's V=0.018); not statistically significant at alpha=0.05."
+    }
+  },
+  "size_vs_outcome": {
+    "contingency_counts": {
+      "Successful": {
+        "Small": 417,
+        "Medium": 431,
+        "Large": 439
+      },
+      "In Progress": {
+        "Small": 476,
+        "Medium": 436,
+        "Large": 474
+      },
+      "Failed": {
+        "Small": 417,
+        "Medium": 456,
+        "Large": 455
+      }
+    },
+    "row_profiles": [
+      {
+        "project_size": "Small",
+        "count": 1310,
+        "successful_rate_pct": 31.832,
+        "failed_rate_pct": 31.832,
+        "successful_lift_vs_overall_pp": -0.335,
+        "failed_lift_vs_overall_pp": -1.36,
+        "outcome_distribution_pct": {
+          "Successful": 31.83,
+          "In Progress": 36.34,
+          "Failed": 31.83
+        }
+      },
+      {
+        "project_size": "Medium",
+        "count": 1323,
+        "successful_rate_pct": 32.577,
+        "failed_rate_pct": 34.467,
+        "successful_lift_vs_overall_pp": 0.41,
+        "failed_lift_vs_overall_pp": 1.275,
+        "outcome_distribution_pct": {
+          "Successful": 32.58,
+          "In Progress": 32.96,
+          "Failed": 34.47
+        }
+      },
+      {
+        "project_size": "Large",
+        "count": 1368,
+        "successful_rate_pct": 32.091,
+        "failed_rate_pct": 33.26,
+        "successful_lift_vs_overall_pp": -0.076,
+        "failed_lift_vs_overall_pp": 0.068,
+        "outcome_distribution_pct": {
+          "Successful": 32.09,
+          "In Progress": 34.65,
+          "Failed": 33.26
+        }
+      }
+    ],
+    "association_test": {
+      "chi2_statistic": 3.6688,
+      "p_value": 0.452674,
+      "degrees_of_freedom": 4,
+      "cramers_v": 0.0214,
+      "min_expected_cell_count": 421.3872,
+      "interpretation": "Association is very weak (Cramer's V=0.021); not statistically significant at alpha=0.05."
+    }
+  },
+  "complexity_size_interaction": {
+    "min_segment_size_for_ranking": 60,
+    "stable_segment_count": 9,
+    "top_success_segments": [
+      {
+        "project_complexity": "Simple",
+        "project_size": "Medium",
+        "count": 451,
+        "successful_rate_pct": 35.92,
+        "failed_rate_pct": 34.59,
+        "successful_lift_vs_overall_pp": 3.753,
+        "failed_lift_vs_overall_pp": 1.398,
+        "failure_synergy_vs_additive_expectation_pp": 1.162,
+        "outcome_distribution_pct": {
+          "Successful": 35.92,
+          "In Progress": 29.49,
+          "Failed": 34.59
+        }
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Large",
+        "count": 482,
+        "successful_rate_pct": 34.44,
+        "failed_rate_pct": 33.61,
+        "successful_lift_vs_overall_pp": 2.273,
+        "failed_lift_vs_overall_pp": 0.418,
+        "failure_synergy_vs_additive_expectation_pp": 0.631,
+        "outcome_distribution_pct": {
+          "Successful": 34.44,
+          "In Progress": 31.95,
+          "Failed": 33.61
+        }
+      },
+      {
+        "project_complexity": "Complex",
+        "project_size": "Small",
+        "count": 418,
+        "successful_rate_pct": 32.536,
+        "failed_rate_pct": 30.861,
+        "successful_lift_vs_overall_pp": 0.369,
+        "failed_lift_vs_overall_pp": -2.331,
+        "failure_synergy_vs_additive_expectation_pp": -2.394,
+        "outcome_distribution_pct": {
+          "Successful": 32.54,
+          "In Progress": 36.6,
+          "Failed": 30.86
+        }
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Large",
+        "count": 451,
+        "successful_rate_pct": 32.373,
+        "failed_rate_pct": 29.712,
+        "successful_lift_vs_overall_pp": 0.206,
+        "failed_lift_vs_overall_pp": -3.48,
+        "failure_synergy_vs_additive_expectation_pp": -2.509,
+        "outcome_distribution_pct": {
+          "Successful": 32.37,
+          "In Progress": 37.92,
+          "Failed": 29.71
+        }
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Small",
+        "count": 410,
+        "successful_rate_pct": 31.707,
+        "failed_rate_pct": 32.439,
+        "successful_lift_vs_overall_pp": -0.46,
+        "failed_lift_vs_overall_pp": -0.753,
+        "failure_synergy_vs_additive_expectation_pp": 0.888,
+        "outcome_distribution_pct": {
+          "Successful": 31.71,
+          "In Progress": 35.85,
+          "Failed": 32.44
+        }
+      }
+    ],
+    "top_failure_risk_segments": [
+      {
+        "project_complexity": "Complex",
+        "project_size": "Large",
+        "count": 435,
+        "successful_rate_pct": 29.195,
+        "failed_rate_pct": 36.552,
+        "successful_lift_vs_overall_pp": -2.972,
+        "failed_lift_vs_overall_pp": 3.36,
+        "failure_synergy_vs_additive_expectation_pp": 1.869,
+        "outcome_distribution_pct": {
+          "Successful": 29.2,
+          "In Progress": 34.25,
+          "Failed": 36.55
+        }
+      },
+      {
+        "project_complexity": "Complex",
+        "project_size": "Medium",
+        "count": 421,
+        "successful_rate_pct": 30.404,
+        "failed_rate_pct": 36.342,
+        "successful_lift_vs_overall_pp": -1.763,
+        "failed_lift_vs_overall_pp": 3.15,
+        "failure_synergy_vs_additive_expectation_pp": 0.452,
+        "outcome_distribution_pct": {
+          "Successful": 30.4,
+          "In Progress": 33.25,
+          "Failed": 36.34
+        }
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Medium",
+        "count": 451,
+        "successful_rate_pct": 35.92,
+        "failed_rate_pct": 34.59,
+        "successful_lift_vs_overall_pp": 3.753,
+        "failed_lift_vs_overall_pp": 1.398,
+        "failure_synergy_vs_additive_expectation_pp": 1.162,
+        "outcome_distribution_pct": {
+          "Successful": 35.92,
+          "In Progress": 29.49,
+          "Failed": 34.59
+        }
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Large",
+        "count": 482,
+        "successful_rate_pct": 34.44,
+        "failed_rate_pct": 33.61,
+        "successful_lift_vs_overall_pp": 2.273,
+        "failed_lift_vs_overall_pp": 0.418,
+        "failure_synergy_vs_additive_expectation_pp": 0.631,
+        "outcome_distribution_pct": {
+          "Successful": 34.44,
+          "In Progress": 31.95,
+          "Failed": 33.61
+        }
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Medium",
+        "count": 451,
+        "successful_rate_pct": 31.264,
+        "failed_rate_pct": 32.594,
+        "successful_lift_vs_overall_pp": -0.903,
+        "failed_lift_vs_overall_pp": -0.598,
+        "failure_synergy_vs_additive_expectation_pp": -1.592,
+        "outcome_distribution_pct": {
+          "Successful": 31.26,
+          "In Progress": 36.14,
+          "Failed": 32.59
+        }
+      }
+    ],
+    "top_failure_synergy_segments": [
+      {
+        "project_complexity": "Complex",
+        "project_size": "Large",
+        "count": 435,
+        "successful_rate_pct": 29.195,
+        "failed_rate_pct": 36.552,
+        "successful_lift_vs_overall_pp": -2.972,
+        "failed_lift_vs_overall_pp": 3.36,
+        "failure_synergy_vs_additive_expectation_pp": 1.869,
+        "outcome_distribution_pct": {
+          "Successful": 29.2,
+          "In Progress": 34.25,
+          "Failed": 36.55
+        }
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Small",
+        "count": 482,
+        "successful_rate_pct": 31.328,
+        "failed_rate_pct": 32.158,
+        "successful_lift_vs_overall_pp": -0.839,
+        "failed_lift_vs_overall_pp": -1.034,
+        "failure_synergy_vs_additive_expectation_pp": 1.365,
+        "outcome_distribution_pct": {
+          "Successful": 31.33,
+          "In Progress": 36.51,
+          "Failed": 32.16
+        }
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Medium",
+        "count": 451,
+        "successful_rate_pct": 35.92,
+        "failed_rate_pct": 34.59,
+        "successful_lift_vs_overall_pp": 3.753,
+        "failed_lift_vs_overall_pp": 1.398,
+        "failure_synergy_vs_additive_expectation_pp": 1.162,
+        "outcome_distribution_pct": {
+          "Successful": 35.92,
+          "In Progress": 29.49,
+          "Failed": 34.59
+        }
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Small",
+        "count": 410,
+        "successful_rate_pct": 31.707,
+        "failed_rate_pct": 32.439,
+        "successful_lift_vs_overall_pp": -0.46,
+        "failed_lift_vs_overall_pp": -0.753,
+        "failure_synergy_vs_additive_expectation_pp": 0.888,
+        "outcome_distribution_pct": {
+          "Successful": 31.71,
+          "In Progress": 35.85,
+          "Failed": 32.44
+        }
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Large",
+        "count": 482,
+        "successful_rate_pct": 34.44,
+        "failed_rate_pct": 33.61,
+        "successful_lift_vs_overall_pp": 2.273,
+        "failed_lift_vs_overall_pp": 0.418,
+        "failure_synergy_vs_additive_expectation_pp": 0.631,
+        "outcome_distribution_pct": {
+          "Successful": 34.44,
+          "In Progress": 31.95,
+          "Failed": 33.61
+        }
+      }
+    ]
+  },
+  "ordinal_trend_checks": {
+    "complexity_rank_vs_failure_spearman_rho": 0.0211,
+    "complexity_rank_vs_failure_p_value": 0.181566,
+    "size_rank_vs_failure_spearman_rho": 0.012,
+    "size_rank_vs_failure_p_value": 0.446259,
+    "complexity_rank_vs_success_spearman_rho": -0.0213,
+    "complexity_rank_vs_success_p_value": 0.176984,
+    "size_rank_vs_success_spearman_rho": 0.0021,
+    "size_rank_vs_success_p_value": 0.891964
+  },
+  "llm_evidence": {
+    "overall_outcome_baseline_pct": {
+      "successful_rate_pct": 32.167,
+      "failed_rate_pct": 33.192,
+      "in_progress_rate_pct": 34.641
+    },
+    "complexity_association": {
+      "chi2_statistic": 2.6137,
+      "p_value": 0.624398,
+      "degrees_of_freedom": 4,
+      "cramers_v": 0.0181,
+      "min_expected_cell_count": 409.807,
+      "interpretation": "Association is very weak (Cramer's V=0.018); not statistically significant at alpha=0.05."
+    },
+    "size_association": {
+      "chi2_statistic": 3.6688,
+      "p_value": 0.452674,
+      "degrees_of_freedom": 4,
+      "cramers_v": 0.0214,
+      "min_expected_cell_count": 421.3872,
+      "interpretation": "Association is very weak (Cramer's V=0.021); not statistically significant at alpha=0.05."
+    },
+    "complexity_profiles": [
+      {
+        "project_complexity": "Simple",
+        "count": 1384,
+        "successful_rate_pct": 33.165,
+        "failed_rate_pct": 32.153,
+        "failed_lift_vs_overall_pp": -1.039
+      },
+      {
+        "project_complexity": "Moderate",
+        "count": 1343,
+        "successful_rate_pct": 32.539,
+        "failed_rate_pct": 32.911,
+        "failed_lift_vs_overall_pp": -0.281
+      },
+      {
+        "project_complexity": "Complex",
+        "count": 1274,
+        "successful_rate_pct": 30.691,
+        "failed_rate_pct": 34.615,
+        "failed_lift_vs_overall_pp": 1.423
+      }
+    ],
+    "size_profiles": [
+      {
+        "project_size": "Small",
+        "count": 1310,
+        "successful_rate_pct": 31.832,
+        "failed_rate_pct": 31.832,
+        "failed_lift_vs_overall_pp": -1.36
+      },
+      {
+        "project_size": "Medium",
+        "count": 1323,
+        "successful_rate_pct": 32.577,
+        "failed_rate_pct": 34.467,
+        "failed_lift_vs_overall_pp": 1.275
+      },
+      {
+        "project_size": "Large",
+        "count": 1368,
+        "successful_rate_pct": 32.091,
+        "failed_rate_pct": 33.26,
+        "failed_lift_vs_overall_pp": 0.068
+      }
+    ],
+    "top_success_segments": [
+      {
+        "project_complexity": "Simple",
+        "project_size": "Medium",
+        "count": 451,
+        "successful_rate_pct": 35.92,
+        "failed_rate_pct": 34.59,
+        "successful_lift_vs_overall_pp": 3.753,
+        "failed_lift_vs_overall_pp": 1.398,
+        "failure_synergy_vs_additive_expectation_pp": 1.162,
+        "outcome_distribution_pct": {
+          "Successful": 35.92,
+          "In Progress": 29.49,
+          "Failed": 34.59
+        }
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Large",
+        "count": 482,
+        "successful_rate_pct": 34.44,
+        "failed_rate_pct": 33.61,
+        "successful_lift_vs_overall_pp": 2.273,
+        "failed_lift_vs_overall_pp": 0.418,
+        "failure_synergy_vs_additive_expectation_pp": 0.631,
+        "outcome_distribution_pct": {
+          "Successful": 34.44,
+          "In Progress": 31.95,
+          "Failed": 33.61
+        }
+      },
+      {
+        "project_complexity": "Complex",
+        "project_size": "Small",
+        "count": 418,
+        "successful_rate_pct": 32.536,
+        "failed_rate_pct": 30.861,
+        "successful_lift_vs_overall_pp": 0.369,
+        "failed_lift_vs_overall_pp": -2.331,
+        "failure_synergy_vs_additive_expectation_pp": -2.394,
+        "outcome_distribution_pct": {
+          "Successful": 32.54,
+          "In Progress": 36.6,
+          "Failed": 30.86
+        }
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Large",
+        "count": 451,
+        "successful_rate_pct": 32.373,
+        "failed_rate_pct": 29.712,
+        "successful_lift_vs_overall_pp": 0.206,
+        "failed_lift_vs_overall_pp": -3.48,
+        "failure_synergy_vs_additive_expectation_pp": -2.509,
+        "outcome_distribution_pct": {
+          "Successful": 32.37,
+          "In Progress": 37.92,
+          "Failed": 29.71
+        }
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Small",
+        "count": 410,
+        "successful_rate_pct": 31.707,
+        "failed_rate_pct": 32.439,
+        "successful_lift_vs_overall_pp": -0.46,
+        "failed_lift_vs_overall_pp": -0.753,
+        "failure_synergy_vs_additive_expectation_pp": 0.888,
+        "outcome_distribution_pct": {
+          "Successful": 31.71,
+          "In Progress": 35.85,
+          "Failed": 32.44
+        }
+      }
+    ],
+    "top_failure_risk_segments": [
+      {
+        "project_complexity": "Complex",
+        "project_size": "Large",
+        "count": 435,
+        "successful_rate_pct": 29.195,
+        "failed_rate_pct": 36.552,
+        "successful_lift_vs_overall_pp": -2.972,
+        "failed_lift_vs_overall_pp": 3.36,
+        "failure_synergy_vs_additive_expectation_pp": 1.869,
+        "outcome_distribution_pct": {
+          "Successful": 29.2,
+          "In Progress": 34.25,
+          "Failed": 36.55
+        }
+      },
+      {
+        "project_complexity": "Complex",
+        "project_size": "Medium",
+        "count": 421,
+        "successful_rate_pct": 30.404,
+        "failed_rate_pct": 36.342,
+        "successful_lift_vs_overall_pp": -1.763,
+        "failed_lift_vs_overall_pp": 3.15,
+        "failure_synergy_vs_additive_expectation_pp": 0.452,
+        "outcome_distribution_pct": {
+          "Successful": 30.4,
+          "In Progress": 33.25,
+          "Failed": 36.34
+        }
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Medium",
+        "count": 451,
+        "successful_rate_pct": 35.92,
+        "failed_rate_pct": 34.59,
+        "successful_lift_vs_overall_pp": 3.753,
+        "failed_lift_vs_overall_pp": 1.398,
+        "failure_synergy_vs_additive_expectation_pp": 1.162,
+        "outcome_distribution_pct": {
+          "Successful": 35.92,
+          "In Progress": 29.49,
+          "Failed": 34.59
+        }
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Large",
+        "count": 482,
+        "successful_rate_pct": 34.44,
+        "failed_rate_pct": 33.61,
+        "successful_lift_vs_overall_pp": 2.273,
+        "failed_lift_vs_overall_pp": 0.418,
+        "failure_synergy_vs_additive_expectation_pp": 0.631,
+        "outcome_distribution_pct": {
+          "Successful": 34.44,
+          "In Progress": 31.95,
+          "Failed": 33.61
+        }
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Medium",
+        "count": 451,
+        "successful_rate_pct": 31.264,
+        "failed_rate_pct": 32.594,
+        "successful_lift_vs_overall_pp": -0.903,
+        "failed_lift_vs_overall_pp": -0.598,
+        "failure_synergy_vs_additive_expectation_pp": -1.592,
+        "outcome_distribution_pct": {
+          "Successful": 31.26,
+          "In Progress": 36.14,
+          "Failed": 32.59
+        }
+      }
+    ],
+    "top_failure_synergy_segments": [
+      {
+        "project_complexity": "Complex",
+        "project_size": "Large",
+        "count": 435,
+        "successful_rate_pct": 29.195,
+        "failed_rate_pct": 36.552,
+        "successful_lift_vs_overall_pp": -2.972,
+        "failed_lift_vs_overall_pp": 3.36,
+        "failure_synergy_vs_additive_expectation_pp": 1.869,
+        "outcome_distribution_pct": {
+          "Successful": 29.2,
+          "In Progress": 34.25,
+          "Failed": 36.55
+        }
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Small",
+        "count": 482,
+        "successful_rate_pct": 31.328,
+        "failed_rate_pct": 32.158,
+        "successful_lift_vs_overall_pp": -0.839,
+        "failed_lift_vs_overall_pp": -1.034,
+        "failure_synergy_vs_additive_expectation_pp": 1.365,
+        "outcome_distribution_pct": {
+          "Successful": 31.33,
+          "In Progress": 36.51,
+          "Failed": 32.16
+        }
+      },
+      {
+        "project_complexity": "Simple",
+        "project_size": "Medium",
+        "count": 451,
+        "successful_rate_pct": 35.92,
+        "failed_rate_pct": 34.59,
+        "successful_lift_vs_overall_pp": 3.753,
+        "failed_lift_vs_overall_pp": 1.398,
+        "failure_synergy_vs_additive_expectation_pp": 1.162,
+        "outcome_distribution_pct": {
+          "Successful": 35.92,
+          "In Progress": 29.49,
+          "Failed": 34.59
+        }
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Small",
+        "count": 410,
+        "successful_rate_pct": 31.707,
+        "failed_rate_pct": 32.439,
+        "successful_lift_vs_overall_pp": -0.46,
+        "failed_lift_vs_overall_pp": -0.753,
+        "failure_synergy_vs_additive_expectation_pp": 0.888,
+        "outcome_distribution_pct": {
+          "Successful": 31.71,
+          "In Progress": 35.85,
+          "Failed": 32.44
+        }
+      },
+      {
+        "project_complexity": "Moderate",
+        "project_size": "Large",
+        "count": 482,
+        "successful_rate_pct": 34.44,
+        "failed_rate_pct": 33.61,
+        "successful_lift_vs_overall_pp": 2.273,
+        "failed_lift_vs_overall_pp": 0.418,
+        "failure_synergy_vs_additive_expectation_pp": 0.631,
+        "outcome_distribution_pct": {
+          "Successful": 34.44,
+          "In Progress": 31.95,
+          "Failed": 33.61
+        }
+      }
+    ],
+    "ordinal_trend_checks": {
+      "complexity_rank_vs_failure_spearman_rho": 0.0211,
+      "complexity_rank_vs_failure_p_value": 0.181566,
+      "size_rank_vs_failure_spearman_rho": 0.012,
+      "size_rank_vs_failure_p_value": 0.446259
+    }
+  },
+  "llm_insights": {
+    "headline": "Project Complexity and Size Show No Significant Impact on Project Outcome",
+    "key_insight_1": "Neither project complexity nor project size demonstrates a statistically significant association with project outcomes. The Cramer's V values for both complexity (0.018) and size (0.021) are very weak, and their respective p-values (0.624 and 0.453) are well above the 0.05 threshold.",
+    "key_insight_2": "The 'Complex' and 'Large' project combination presents the highest failure rate at 36.55%, with a 'failed_lift_vs_overall_pp' of 3.36, indicating a higher propensity for failure in this segment compared to the overall baseline of 33.19%.",
+    "hidden_insight": "Projects with 'Simple' complexity and 'Medium' size exhibit the highest success rate at 35.92%, with a 'successful_lift_vs_overall_pp' of 3.753, suggesting that a balanced approach to complexity and size may be optimal for success.",
+    "risk_alert": "The combination of 'Complex' and 'Large' projects carries the highest risk, with a failure rate of 36.55% and a 'failure_synergy_vs_additive_expectation_pp' of 1.869, suggesting a potential compounding effect on failure.",
+    "business_implication": "Current project management strategies may not be effectively leveraging or mitigating the perceived impacts of project complexity and size on outcomes. There's a missed opportunity to optimize project success by understanding the nuances of specific complexity-size combinations.",
+    "action_plan": [
+      "Investigate the underlying reasons for the higher failure rate in 'Complex' and 'Large' projects, focusing on resource allocation, risk management, and stakeholder alignment.",
+      "Analyze the success factors for 'Simple' complexity and 'Medium' size projects to identify best practices that can be scaled or adapted to other project types.",
+      "Review project intake and scoping processes to ensure that complexity and size are accurately assessed and that appropriate support structures are in place.",
+      "Develop targeted training for project managers on managing projects with high complexity and large scope."
+    ],
+    "standout_statement": "Despite common assumptions, project complexity and size, as measured, do not independently predict project success or failure, yet specific combinations like 'Complex' and 'Large' show a concerning elevated risk.",
+    "confidence_note": "The analysis indicates no statistically significant association between project complexity or size and project outcomes. The observed differences in success and failure rates for specific combinations are correlational and require further investigation to understand causal factors."
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1777670548,
+    "evidence_char_length": 4357
+  }
+}

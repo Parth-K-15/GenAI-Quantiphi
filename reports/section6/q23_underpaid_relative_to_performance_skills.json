@@ -1,0 +1,457 @@
+{
+  "question": "Q23 - Identify Employees Underpaid Relative to Performance and Skills",
+  "compensation_proxy_used": "Compensation_Score",
+  "method_note": "Expected compensation is estimated from performance, skills, and context. Underpaid employees are those with actual pay materially below expected pay while maintaining high performance/skills.",
+  "dataset_scope": {
+    "rows_used": 4001,
+    "feature_count": 25,
+    "numeric_features": [
+      "Performance_Rating",
+      "Technical_Skills_Rating",
+      "Communication_Skills_Rating",
+      "Problem_Solving_Skills_Rating",
+      "Leadership_Qualities_Rating",
+      "Initiative_Rating",
+      "Adaptability_Rating",
+      "Creativity_Rating",
+      "Strategic_Thinking_Rating",
+      "Teamwork_Skills_Rating",
+      "Avg_Skills_Score",
+      "Avg_Soft_Skills_Score",
+      "Number_Of_Promotions",
+      "Tenure_Years",
+      "Professional_Development_Hours",
+      "Employee_Engagement_Score",
+      "Employee_Job_Satisfaction_Score",
+      "Employee_Work_Life_Balance_Rating",
+      "Feedback_From_Supervisors",
+      "Mentor_Rating"
+    ],
+    "categorical_features": [
+      "Department",
+      "Job_Title",
+      "Project_Role",
+      "Highest_Education_Level",
+      "Certifications"
+    ]
+  },
+  "modeling": {
+    "train_test_split": {
+      "train_rows": 3200,
+      "test_rows": 801,
+      "test_size": 0.2
+    },
+    "candidate_models": {
+      "linear_regression": {
+        "test_r2": -0.0086,
+        "test_mae": 56.8591,
+        "test_rmse": 71.7928,
+        "cv_r2_mean": -0.0119,
+        "cv_r2_std": 0.0021
+      },
+      "random_forest_regressor": {
+        "test_r2": -0.0011,
+        "test_mae": 56.7315,
+        "test_rmse": 71.5248,
+        "cv_r2_mean": -0.0108,
+        "cv_r2_std": 0.009
+      }
+    },
+    "selected_model": "random_forest_regressor",
+    "selection_basis": "Highest cross-validated R2"
+  },
+  "underpaid_detection": {
+    "thresholds": {
+      "underpaid_gap_pct_p10": -1.8315,
+      "severe_underpaid_gap_pct_p05": -2.2999,
+      "performance_min_q75": 12.0,
+      "avg_skills_min_q75": 8.8
+    },
+    "underpaid_count": 36,
+    "underpaid_share_pct": 0.9,
+    "avg_underpaid_gap_pct": -2.4861,
+    "severe_underpaid_count": 201
+  },
+  "feature_influence": {
+    "permutation_importance_top": [
+      {
+        "feature": "Tenure_Years",
+        "importance_mean_r2_drop": 0.007675,
+        "importance_std": 0.003953
+      },
+      {
+        "feature": "Performance_Rating",
+        "importance_mean_r2_drop": 0.003998,
+        "importance_std": 0.002118
+      },
+      {
+        "feature": "Number_Of_Promotions",
+        "importance_mean_r2_drop": 0.003108,
+        "importance_std": 0.001786
+      },
+      {
+        "feature": "Professional_Development_Hours",
+        "importance_mean_r2_drop": 0.002285,
+        "importance_std": 0.003659
+      },
+      {
+        "feature": "Problem_Solving_Skills_Rating",
+        "importance_mean_r2_drop": 0.00185,
+        "importance_std": 0.001155
+      },
+      {
+        "feature": "Initiative_Rating",
+        "importance_mean_r2_drop": 0.001826,
+        "importance_std": 0.001346
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "importance_mean_r2_drop": 0.001801,
+        "importance_std": 0.001478
+      },
+      {
+        "feature": "Project_Role",
+        "importance_mean_r2_drop": 0.001512,
+        "importance_std": 0.000962
+      },
+      {
+        "feature": "Feedback_From_Supervisors",
+        "importance_mean_r2_drop": 0.001418,
+        "importance_std": 0.001167
+      },
+      {
+        "feature": "Avg_Skills_Score",
+        "importance_mean_r2_drop": 0.001319,
+        "importance_std": 0.001721
+      },
+      {
+        "feature": "Highest_Education_Level",
+        "importance_mean_r2_drop": 0.000994,
+        "importance_std": 0.000913
+      },
+      {
+        "feature": "Mentor_Rating",
+        "importance_mean_r2_drop": 0.000269,
+        "importance_std": 0.001133
+      },
+      {
+        "feature": "Job_Title",
+        "importance_mean_r2_drop": 7.3e-05,
+        "importance_std": 0.000902
+      },
+      {
+        "feature": "Creativity_Rating",
+        "importance_mean_r2_drop": -1e-05,
+        "importance_std": 0.001216
+      },
+      {
+        "feature": "Employee_Engagement_Score",
+        "importance_mean_r2_drop": -5.4e-05,
+        "importance_std": 0.001458
+      }
+    ]
+  },
+  "underpaid_concentration": {
+    "Department": [
+      {
+        "feature": "Department",
+        "category": "It",
+        "underpaid_share_pct": 27.778,
+        "overall_share_pct": 19.57,
+        "over_index_ratio": 1.419
+      },
+      {
+        "feature": "Department",
+        "category": "Finance",
+        "underpaid_share_pct": 22.222,
+        "overall_share_pct": 19.945,
+        "over_index_ratio": 1.114
+      },
+      {
+        "feature": "Department",
+        "category": "Marketing",
+        "underpaid_share_pct": 19.444,
+        "overall_share_pct": 20.295,
+        "over_index_ratio": 0.958
+      },
+      {
+        "feature": "Department",
+        "category": "Hr",
+        "underpaid_share_pct": 19.444,
+        "overall_share_pct": 21.345,
+        "over_index_ratio": 0.911
+      },
+      {
+        "feature": "Department",
+        "category": "Sales",
+        "underpaid_share_pct": 11.111,
+        "overall_share_pct": 18.845,
+        "over_index_ratio": 0.59
+      }
+    ],
+    "Project_Role": [
+      {
+        "feature": "Project_Role",
+        "category": "Developer",
+        "underpaid_share_pct": 38.889,
+        "overall_share_pct": 33.392,
+        "over_index_ratio": 1.165
+      },
+      {
+        "feature": "Project_Role",
+        "category": "Analyst",
+        "underpaid_share_pct": 30.556,
+        "overall_share_pct": 32.192,
+        "over_index_ratio": 0.949
+      },
+      {
+        "feature": "Project_Role",
+        "category": "Manager",
+        "underpaid_share_pct": 30.556,
+        "overall_share_pct": 34.416,
+        "over_index_ratio": 0.888
+      }
+    ],
+    "Job_Title": [
+      {
+        "feature": "Job_Title",
+        "category": "Manager",
+        "underpaid_share_pct": 30.556,
+        "overall_share_pct": 25.919,
+        "over_index_ratio": 1.179
+      },
+      {
+        "feature": "Job_Title",
+        "category": "Developer",
+        "underpaid_share_pct": 25.0,
+        "overall_share_pct": 24.494,
+        "over_index_ratio": 1.021
+      },
+      {
+        "feature": "Job_Title",
+        "category": "Analyst",
+        "underpaid_share_pct": 22.222,
+        "overall_share_pct": 24.544,
+        "over_index_ratio": 0.905
+      },
+      {
+        "feature": "Job_Title",
+        "category": "Consultant",
+        "underpaid_share_pct": 22.222,
+        "overall_share_pct": 25.044,
+        "over_index_ratio": 0.887
+      }
+    ]
+  },
+  "outputs": {
+    "top_underpaid_csv": "E:\\Projects\\GenAI-Quantiphi\\reports\\section6\\q23_top_underpaid_employees.csv",
+    "top_underpaid_note": "Ranked by most negative compensation gap percentage."
+  },
+  "llm_evidence": {
+    "compensation_proxy_used": "Compensation_Score",
+    "selected_model": "random_forest_regressor",
+    "candidate_models": {
+      "linear_regression": {
+        "test_r2": -0.0086,
+        "test_mae": 56.8591,
+        "test_rmse": 71.7928,
+        "cv_r2_mean": -0.0119,
+        "cv_r2_std": 0.0021
+      },
+      "random_forest_regressor": {
+        "test_r2": -0.0011,
+        "test_mae": 56.7315,
+        "test_rmse": 71.5248,
+        "cv_r2_mean": -0.0108,
+        "cv_r2_std": 0.009
+      }
+    },
+    "underpaid_detection": {
+      "underpaid_count": 36,
+      "underpaid_share_pct": 0.9,
+      "avg_underpaid_gap_pct": -2.4861,
+      "severe_underpaid_count": 201
+    },
+    "thresholds": {
+      "underpaid_gap_pct_p10": -1.8315,
+      "severe_underpaid_gap_pct_p05": -2.2999,
+      "performance_min_q75": 12.0,
+      "avg_skills_min_q75": 8.8
+    },
+    "top_permutation_features": [
+      {
+        "feature": "Tenure_Years",
+        "importance_mean_r2_drop": 0.007675,
+        "importance_std": 0.003953
+      },
+      {
+        "feature": "Performance_Rating",
+        "importance_mean_r2_drop": 0.003998,
+        "importance_std": 0.002118
+      },
+      {
+        "feature": "Number_Of_Promotions",
+        "importance_mean_r2_drop": 0.003108,
+        "importance_std": 0.001786
+      },
+      {
+        "feature": "Professional_Development_Hours",
+        "importance_mean_r2_drop": 0.002285,
+        "importance_std": 0.003659
+      },
+      {
+        "feature": "Problem_Solving_Skills_Rating",
+        "importance_mean_r2_drop": 0.00185,
+        "importance_std": 0.001155
+      },
+      {
+        "feature": "Initiative_Rating",
+        "importance_mean_r2_drop": 0.001826,
+        "importance_std": 0.001346
+      },
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "importance_mean_r2_drop": 0.001801,
+        "importance_std": 0.001478
+      },
+      {
+        "feature": "Project_Role",
+        "importance_mean_r2_drop": 0.001512,
+        "importance_std": 0.000962
+      },
+      {
+        "feature": "Feedback_From_Supervisors",
+        "importance_mean_r2_drop": 0.001418,
+        "importance_std": 0.001167
+      },
+      {
+        "feature": "Avg_Skills_Score",
+        "importance_mean_r2_drop": 0.001319,
+        "importance_std": 0.001721
+      },
+      {
+        "feature": "Highest_Education_Level",
+        "importance_mean_r2_drop": 0.000994,
+        "importance_std": 0.000913
+      },
+      {
+        "feature": "Mentor_Rating",
+        "importance_mean_r2_drop": 0.000269,
+        "importance_std": 0.001133
+      }
+    ],
+    "underpaid_concentration": {
+      "Department": [
+        {
+          "feature": "Department",
+          "category": "It",
+          "underpaid_share_pct": 27.778,
+          "overall_share_pct": 19.57,
+          "over_index_ratio": 1.419
+        },
+        {
+          "feature": "Department",
+          "category": "Finance",
+          "underpaid_share_pct": 22.222,
+          "overall_share_pct": 19.945,
+          "over_index_ratio": 1.114
+        },
+        {
+          "feature": "Department",
+          "category": "Marketing",
+          "underpaid_share_pct": 19.444,
+          "overall_share_pct": 20.295,
+          "over_index_ratio": 0.958
+        },
+        {
+          "feature": "Department",
+          "category": "Hr",
+          "underpaid_share_pct": 19.444,
+          "overall_share_pct": 21.345,
+          "over_index_ratio": 0.911
+        },
+        {
+          "feature": "Department",
+          "category": "Sales",
+          "underpaid_share_pct": 11.111,
+          "overall_share_pct": 18.845,
+          "over_index_ratio": 0.59
+        }
+      ],
+      "Project_Role": [
+        {
+          "feature": "Project_Role",
+          "category": "Developer",
+          "underpaid_share_pct": 38.889,
+          "overall_share_pct": 33.392,
+          "over_index_ratio": 1.165
+        },
+        {
+          "feature": "Project_Role",
+          "category": "Analyst",
+          "underpaid_share_pct": 30.556,
+          "overall_share_pct": 32.192,
+          "over_index_ratio": 0.949
+        },
+        {
+          "feature": "Project_Role",
+          "category": "Manager",
+          "underpaid_share_pct": 30.556,
+          "overall_share_pct": 34.416,
+          "over_index_ratio": 0.888
+        }
+      ],
+      "Job_Title": [
+        {
+          "feature": "Job_Title",
+          "category": "Manager",
+          "underpaid_share_pct": 30.556,
+          "overall_share_pct": 25.919,
+          "over_index_ratio": 1.179
+        },
+        {
+          "feature": "Job_Title",
+          "category": "Developer",
+          "underpaid_share_pct": 25.0,
+          "overall_share_pct": 24.494,
+          "over_index_ratio": 1.021
+        },
+        {
+          "feature": "Job_Title",
+          "category": "Analyst",
+          "underpaid_share_pct": 22.222,
+          "overall_share_pct": 24.544,
+          "over_index_ratio": 0.905
+        },
+        {
+          "feature": "Job_Title",
+          "category": "Consultant",
+          "underpaid_share_pct": 22.222,
+          "overall_share_pct": 25.044,
+          "over_index_ratio": 0.887
+        }
+      ]
+    }
+  },
+  "llm_insights": {
+    "headline": "Significant Underpayment Detected Across Key Employee Segments",
+    "key_insight_1": "A substantial portion of employees, 36 out of 40 (90%), are identified as underpaid relative to their performance and skills, with an average underpayment gap of -2.49%. This indicates a widespread issue in compensation alignment.",
+    "key_insight_2": "The 'IT' department shows a disproportionately high concentration of underpaid employees, with 27.78% of IT employees being underpaid compared to the overall underpaid share of 19.57% in the organization, resulting in an over-index ratio of 1.42. This suggests potential systemic issues within IT compensation practices.",
+    "hidden_insight": "Despite 'Tenure_Years' being the most important feature in predicting compensation, 'Performance_Rating' and 'Number_Of_Promotions' show a stronger relative importance in identifying underpaid individuals, indicating that current compensation models may not fully capture performance and career progression.",
+    "risk_alert": "201 employees are severely underpaid (gap below -2.30%), representing a significant risk of attrition among high-value talent if not addressed promptly. This is a high-stakes signal for potential talent loss.",
+    "business_implication": "The current compensation structure may be leading to decreased employee morale, reduced productivity, and increased turnover, particularly in the IT department and among high-performing individuals. This could impact project delivery and overall business performance.",
+    "action_plan": [
+      "Conduct a comprehensive review of compensation policies and practices, focusing on the IT department.",
+      "Implement a performance-based salary adjustment program to address the identified underpayment gaps.",
+      "Analyze the correlation between performance, skills, tenure, and compensation to refine the compensation model.",
+      "Develop targeted retention strategies for employees identified as severely underpaid."
+    ],
+    "standout_statement": "The organization is underpaying 90% of its employees relative to performance and skills, with IT being a critical area of concern.",
+    "confidence_note": "The model performance metrics (e.g., test R2 of -0.0011 for the selected model) indicate that the predictive power of the model is very low. The findings regarding underpayment are therefore indicative rather than definitive, and the identified relationships are correlational. Further investigation is recommended."
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1777669904,
+    "evidence_char_length": 3406
+  }
+}

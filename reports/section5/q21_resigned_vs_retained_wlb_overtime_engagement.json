@@ -1,0 +1,336 @@
+{
+  "question": "Q21 - Comparison of Work-Life Balance, Overtime, and Engagement: Resigned vs Retained",
+  "dataset_scope": {
+    "rows_used": 4001,
+    "resignation_status_classes": [
+      "Yes",
+      "No"
+    ],
+    "features_compared": [
+      "Employee_Work_Life_Balance_Rating",
+      "Overtime_Hours_Per_Week",
+      "Employee_Engagement_Score"
+    ]
+  },
+  "segment_sizes": {
+    "resigned_employees": 2001,
+    "retained_employees": 2000,
+    "total_employees": 4001
+  },
+  "overall_resignation_rate_pct": 50.012,
+  "feature_comparison": [
+    {
+      "feature": "Employee_Work_Life_Balance_Rating",
+      "feature_alias": "work_life_balance",
+      "resigned_mean": 7.8371,
+      "retained_mean": 8.068,
+      "delta_resigned_minus_retained": -0.2309,
+      "resigned_median": 8.0,
+      "retained_median": 8.0,
+      "cohen_d": -0.0813,
+      "mannwhitney_p_value": 0.016589,
+      "is_statistically_significant_0_05": true
+    },
+    {
+      "feature": "Employee_Engagement_Score",
+      "feature_alias": "engagement_score",
+      "resigned_mean": 79.932,
+      "retained_mean": 80.0705,
+      "delta_resigned_minus_retained": -0.1385,
+      "resigned_median": 80.0,
+      "retained_median": 80.0,
+      "cohen_d": -0.0158,
+      "mannwhitney_p_value": 0.498511,
+      "is_statistically_significant_0_05": false
+    },
+    {
+      "feature": "Overtime_Hours_Per_Week",
+      "feature_alias": "overtime_hours",
+      "resigned_mean": 7.1054,
+      "retained_mean": 7.099,
+      "delta_resigned_minus_retained": 0.0064,
+      "resigned_median": 7.0,
+      "retained_median": 7.0,
+      "cohen_d": 0.0024,
+      "mannwhitney_p_value": 0.968889,
+      "is_statistically_significant_0_05": false
+    }
+  ],
+  "quartile_risk_gradients": {
+    "Employee_Work_Life_Balance_Rating": [
+      {
+        "band": "Q1",
+        "count": 1283,
+        "resignation_rate_pct": 51.208,
+        "resignation_lift_vs_overall_pp": 1.196,
+        "band_mean_value": 4.8769
+      },
+      {
+        "band": "Q2",
+        "count": 1137,
+        "resignation_rate_pct": 50.923,
+        "resignation_lift_vs_overall_pp": 0.911,
+        "band_mean_value": 7.4925
+      },
+      {
+        "band": "Q3",
+        "count": 851,
+        "resignation_rate_pct": 49.236,
+        "resignation_lift_vs_overall_pp": -0.776,
+        "band_mean_value": 9.4418
+      },
+      {
+        "band": "Q4",
+        "count": 730,
+        "resignation_rate_pct": 47.397,
+        "resignation_lift_vs_overall_pp": -2.615,
+        "band_mean_value": 12.3384
+      }
+    ],
+    "Overtime_Hours_Per_Week": [
+      {
+        "band": "Q1",
+        "count": 1156,
+        "resignation_rate_pct": 49.654,
+        "resignation_lift_vs_overall_pp": -0.359,
+        "band_mean_value": 4.0458
+      },
+      {
+        "band": "Q2",
+        "count": 1173,
+        "resignation_rate_pct": 51.151,
+        "resignation_lift_vs_overall_pp": 1.138,
+        "band_mean_value": 6.5064
+      },
+      {
+        "band": "Q3",
+        "count": 949,
+        "resignation_rate_pct": 48.472,
+        "resignation_lift_vs_overall_pp": -1.54,
+        "band_mean_value": 8.4594
+      },
+      {
+        "band": "Q4",
+        "count": 723,
+        "resignation_rate_pct": 50.761,
+        "resignation_lift_vs_overall_pp": 0.748,
+        "band_mean_value": 11.1743
+      }
+    ],
+    "Employee_Engagement_Score": [
+      {
+        "band": "Q1",
+        "count": 1121,
+        "resignation_rate_pct": 51.383,
+        "resignation_lift_vs_overall_pp": 1.37,
+        "band_mean_value": 69.5094
+      },
+      {
+        "band": "Q2",
+        "count": 996,
+        "resignation_rate_pct": 49.598,
+        "resignation_lift_vs_overall_pp": -0.414,
+        "band_mean_value": 77.5964
+      },
+      {
+        "band": "Q3",
+        "count": 959,
+        "resignation_rate_pct": 49.322,
+        "resignation_lift_vs_overall_pp": -0.69,
+        "band_mean_value": 83.367
+      },
+      {
+        "band": "Q4",
+        "count": 925,
+        "resignation_rate_pct": 49.514,
+        "resignation_lift_vs_overall_pp": -0.499,
+        "band_mean_value": 91.8162
+      }
+    ]
+  },
+  "combination_risk_pattern": {
+    "high_risk_definition": {
+      "work_life_balance_le_q25": 6.0,
+      "overtime_ge_q75": 9.0,
+      "engagement_le_q25": 74.0
+    },
+    "protective_definition": {
+      "work_life_balance_ge_q75": 10.0,
+      "overtime_le_q25": 5.0,
+      "engagement_ge_q75": 86.0
+    },
+    "high_risk_group_count": 93,
+    "high_risk_group_resignation_rate_pct": 51.613,
+    "high_risk_lift_vs_overall_pp": 1.6,
+    "protective_group_count": 77,
+    "protective_group_resignation_rate_pct": 42.857,
+    "protective_lift_vs_overall_pp": -7.155
+  },
+  "llm_evidence": {
+    "segment_sizes": {
+      "resigned_employees": 2001,
+      "retained_employees": 2000,
+      "total_employees": 4001
+    },
+    "overall_resignation_rate_pct": 50.012,
+    "feature_comparison": [
+      {
+        "feature": "Employee_Work_Life_Balance_Rating",
+        "feature_alias": "work_life_balance",
+        "resigned_mean": 7.8371,
+        "retained_mean": 8.068,
+        "delta_resigned_minus_retained": -0.2309,
+        "resigned_median": 8.0,
+        "retained_median": 8.0,
+        "cohen_d": -0.0813,
+        "mannwhitney_p_value": 0.016589,
+        "is_statistically_significant_0_05": true
+      },
+      {
+        "feature": "Employee_Engagement_Score",
+        "feature_alias": "engagement_score",
+        "resigned_mean": 79.932,
+        "retained_mean": 80.0705,
+        "delta_resigned_minus_retained": -0.1385,
+        "resigned_median": 80.0,
+        "retained_median": 80.0,
+        "cohen_d": -0.0158,
+        "mannwhitney_p_value": 0.498511,
+        "is_statistically_significant_0_05": false
+      },
+      {
+        "feature": "Overtime_Hours_Per_Week",
+        "feature_alias": "overtime_hours",
+        "resigned_mean": 7.1054,
+        "retained_mean": 7.099,
+        "delta_resigned_minus_retained": 0.0064,
+        "resigned_median": 7.0,
+        "retained_median": 7.0,
+        "cohen_d": 0.0024,
+        "mannwhitney_p_value": 0.968889,
+        "is_statistically_significant_0_05": false
+      }
+    ],
+    "quartile_risk_gradients": {
+      "Employee_Work_Life_Balance_Rating": [
+        {
+          "band": "Q1",
+          "count": 1283,
+          "resignation_rate_pct": 51.208,
+          "resignation_lift_vs_overall_pp": 1.196,
+          "band_mean_value": 4.8769
+        },
+        {
+          "band": "Q2",
+          "count": 1137,
+          "resignation_rate_pct": 50.923,
+          "resignation_lift_vs_overall_pp": 0.911,
+          "band_mean_value": 7.4925
+        },
+        {
+          "band": "Q3",
+          "count": 851,
+          "resignation_rate_pct": 49.236,
+          "resignation_lift_vs_overall_pp": -0.776,
+          "band_mean_value": 9.4418
+        },
+        {
+          "band": "Q4",
+          "count": 730,
+          "resignation_rate_pct": 47.397,
+          "resignation_lift_vs_overall_pp": -2.615,
+          "band_mean_value": 12.3384
+        }
+      ],
+      "Overtime_Hours_Per_Week": [
+        {
+          "band": "Q1",
+          "count": 1156,
+          "resignation_rate_pct": 49.654,
+          "resignation_lift_vs_overall_pp": -0.359,
+          "band_mean_value": 4.0458
+        },
+        {
+          "band": "Q2",
+          "count": 1173,
+          "resignation_rate_pct": 51.151,
+          "resignation_lift_vs_overall_pp": 1.138,
+          "band_mean_value": 6.5064
+        },
+        {
+          "band": "Q3",
+          "count": 949,
+          "resignation_rate_pct": 48.472,
+          "resignation_lift_vs_overall_pp": -1.54,
+          "band_mean_value": 8.4594
+        },
+        {
+          "band": "Q4",
+          "count": 723,
+          "resignation_rate_pct": 50.761,
+          "resignation_lift_vs_overall_pp": 0.748,
+          "band_mean_value": 11.1743
+        }
+      ],
+      "Employee_Engagement_Score": [
+        {
+          "band": "Q1",
+          "count": 1121,
+          "resignation_rate_pct": 51.383,
+          "resignation_lift_vs_overall_pp": 1.37,
+          "band_mean_value": 69.5094
+        },
+        {
+          "band": "Q2",
+          "count": 996,
+          "resignation_rate_pct": 49.598,
+          "resignation_lift_vs_overall_pp": -0.414,
+          "band_mean_value": 77.5964
+        },
+        {
+          "band": "Q3",
+          "count": 959,
+          "resignation_rate_pct": 49.322,
+          "resignation_lift_vs_overall_pp": -0.69,
+          "band_mean_value": 83.367
+        },
+        {
+          "band": "Q4",
+          "count": 925,
+          "resignation_rate_pct": 49.514,
+          "resignation_lift_vs_overall_pp": -0.499,
+          "band_mean_value": 91.8162
+        }
+      ]
+    },
+    "combination_risk_pattern": {
+      "high_risk_group_count": 93,
+      "high_risk_group_resignation_rate_pct": 51.613,
+      "high_risk_lift_vs_overall_pp": 1.6,
+      "protective_group_count": 77,
+      "protective_group_resignation_rate_pct": 42.857,
+      "protective_lift_vs_overall_pp": -7.155
+    }
+  },
+  "llm_insights": {
+    "headline": "Work-Life Balance Shows a Statistically Significant Difference Between Resigned and Retained Employees",
+    "key_insight_1": "Employees who resigned reported a lower mean Work-Life Balance Rating (7.84) compared to retained employees (8.07), a difference of -0.23. This difference is statistically significant (p=0.017), indicating a potential link between poorer work-life balance and attrition.",
+    "key_insight_2": "While engagement scores and overtime hours showed no statistically significant differences between resigned and retained employees, the lowest quartile of Work-Life Balance (Q1) exhibited a higher resignation rate (51.21%) than the overall rate (50.01%), a lift of 1.20 pp. Conversely, the highest quartile (Q4) had a lower resignation rate (47.40%), a lift of -2.62 pp.",
+    "hidden_insight": "The highest risk group, defined by a combination of factors, shows a resignation rate of 51.61%, which is 1.60 pp higher than the overall resignation rate. In contrast, the most protective group has a significantly lower resignation rate of 42.86%, a difference of -7.15 pp.",
+    "risk_alert": "The lowest quartile of Work-Life Balance (Q1) has a resignation rate of 51.21%, suggesting that employees experiencing the poorest work-life balance are more likely to leave the organization.",
+    "business_implication": "The findings suggest that improving work-life balance could be a key lever for reducing employee turnover. While engagement and overtime hours do not show a clear distinction, the work-life balance metric, particularly at the lower end of the spectrum, is a notable differentiator.",
+    "action_plan": [
+      "Investigate the root causes of poor work-life balance within the organization, focusing on factors contributing to the lowest quartile.",
+      "Develop and implement targeted interventions to improve work-life balance, such as flexible work arrangements, workload management strategies, and promoting a culture that respects personal time.",
+      "Monitor work-life balance ratings and resignation rates in conjunction to assess the impact of implemented initiatives.",
+      "Further analyze the 'combination risk pattern' to identify specific employee segments that are at highest risk of attrition."
+    ],
+    "standout_statement": "A statistically significant negative correlation exists between Work-Life Balance ratings and resignation, with the lowest rated quartile experiencing a 51.21% resignation rate.",
+    "confidence_note": "The analysis indicates correlations between work-life balance and resignation. Causality cannot be definitively established from this data alone."
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1777668171,
+    "evidence_char_length": 2875
+  }
+}
