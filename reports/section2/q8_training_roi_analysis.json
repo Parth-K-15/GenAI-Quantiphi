@@ -2,7 +2,7 @@
   "question": "Q8 - Training Effectiveness Gap: Trained but Underperforming Employees",
   "training_roi_metric": {
     "formula": "Training_ROI = Performance_Rating / (Professional_Development_Hours + 1)",
-    "rationale": "Training_ROI reframes training from a cost measurement to a value metric. It captures how much performance output is generated per unit of training investment \u2014 a more actionable KPI than raw training hours.",
+    "rationale": "Training_ROI reframes training from a cost measurement to a value metric. It captures how much performance output is generated per unit of training investment — a more actionable KPI than raw training hours.",
     "level_formula": "Training_ROI_Level = pd.qcut(Training_ROI, 4, labels=['Low','Medium','High','Very High'])"
   },
   "roi_level_distribution": {
@@ -241,25 +241,267 @@
     "Professional_Development_Hours": -0.4268
   },
   "llm_insights": {
-    "headline_finding": "The problem is not a lack of training \u2014 it is a lack of training effectiveness. A significant segment of the workforce receives above-median training investment yet delivers below-median performance, revealing a fundamental ROI gap.",
-    "training_roi_statement": "We define Training ROI as a measure of performance output per unit training investment. This metric separates employees who convert training into results from those who absorb training passively without measurable performance improvement.",
-    "hypotheses_for_low_roi": {
-      "H1_Engagement_Deficit": "Low-ROI employees show lower engagement scores, suggesting training lacks motivational alignment. Employees who are disengaged don't apply what they learn.",
-      "H2_Job_Fit_Mismatch": "Training programs may not be tailored to individual roles or career goals. Generic training content fails to address specific performance gaps.",
-      "H3_Burnout_From_Overwork": "High overtime hours among low-ROI employees indicate cognitive overload \u2014 employees cannot absorb or apply training when already overwhelmed by workload.",
-      "H4_Satisfaction_Context": "Lower job satisfaction in the low-ROI segment suggests an unfavorable work environment undermines learning transfer \u2014 even effective training fails when contextual conditions don't support application.",
-      "H5_Mentorship_Mismatch": "Low-ROI employees often have high Mentorship_Dependency (from Q7) \u2014 they need guidance to apply training, but do not receive structured post-training support to bridge learning and execution.",
-      "H6_Career_Misalignment": "When training does not align with an employee's Career_Goals_Achievement_Status, motivation to internalize and apply training is severely reduced."
+    "headline": "Training Investment Yields Diminishing Returns for Underperforming Employees",
+    "key_insight_1": "Employees identified as 'trained but underperforming' (896 individuals, 22.39% of the workforce) exhibit a lower average Training ROI of 0.1273 compared to the overall average. This group also has a higher average of 56.24 Professional Development Hours, suggesting that additional training is not translating into improved performance for this segment.",
+    "key_insight_2": "The 'Very High' Training ROI group (994 individuals) invests significantly less in Professional Development Hours (46 hours) compared to the 'Low' Training ROI group (53.64 hours), while achieving substantially higher Performance Ratings (13.55 vs. 6.40). This indicates that training effectiveness is not solely dependent on the volume of hours invested.",
+    "hidden_insight": "Employees with 'No' resignation status represent 50.6% of the 'Low' Training ROI group, whereas 'Yes' resignation status accounts for 51.7% of the 'Very High' Training ROI group. This suggests that while high training ROI might be associated with retention, a significant portion of employees with low training ROI are also staying, potentially indicating a mismatch in training impact or engagement.",
+    "risk_alert": "The 'Trained but Underperforming' segment, comprising 896 employees, shows an average performance rating of 7.25 against an average of 56.24 development hours. This indicates a potential inefficiency in training programs or their application, leading to wasted resources and unfulfilled potential.",
+    "business_implication": "The current training strategy may not be effectively addressing the needs of all employee segments. A significant portion of the workforce is not seeing performance improvements despite training investment, and high-performing employees are achieving results with less training input, suggesting a need for personalized or more targeted training approaches.",
+    "action_plan": [
+      "Analyze the specific training programs and content received by the 'Trained but Underperforming' group to identify potential gaps or ineffectiveness.",
+      "Investigate the factors contributing to the higher performance with lower training hours in the 'Very High' ROI group to identify best practices that can be scaled.",
+      "Develop a more personalized training needs assessment process to ensure training is aligned with individual roles and performance objectives.",
+      "Explore alternative performance improvement strategies beyond traditional training for underperforming employees, such as enhanced coaching, mentorship, or role adjustments."
+    ],
+    "standout_statement": "High-performing employees achieve superior results with fewer training hours, while a substantial segment of the workforce fails to improve performance despite increased training investment.",
+    "confidence_note": "The analysis is based on correlational data. While patterns are observed, direct causality between training hours and performance outcomes cannot be definitively established without further experimental design."
+  },
+  "llm_evidence": {
+    "question": "Q8 - Training Effectiveness Gap: Trained but Underperforming Employees",
+    "training_roi_metric": {
+      "formula": "Training_ROI = Performance_Rating / (Professional_Development_Hours + 1)",
+      "rationale": "Training_ROI reframes training from a cost measurement to a value metric. It captures how much performance output is generated per unit of training investment — a more actionable KPI than raw training hours.",
+      "level_formula": "Training_ROI_Level = pd.qcut(Training_ROI, 4, labels=['Low','Medium','High','Very High'])"
     },
-    "connecting_q3_q6_q7": "This analysis unifies Q3 (efficiency gap), Q6 (training hours \u2260 performance), and Q7 (mentorship as compensatory mechanism) into a cohesive framework: Training investment without engagement + mentorship support + contextual readiness results in zero ROI \u2014 the three pillars of training effectiveness are inseparable.",
-    "strategic_insight": "Organizations must move from 'hours completed' KPIs to 'ROI generated' KPIs. Segment employees by Training_ROI_Level and design differentiated interventions: Low-ROI employees need engagement and contextual support, not more hours.",
-    "system_improvement_statement": "We are not just analyzing training failure \u2014 we are building a diagnostic framework that enables HR to intervene at the right level, at the right time, for the right employee segment.",
-    "roi_level_action_map": {
-      "Low": "Diagnose engagement, satisfaction, and job-fit. Redesign program relevance.",
-      "Medium": "Increase mentorship touchpoints and post-training application checks.",
-      "High": "Recognize and accelerate. Connect to advanced programs and stretch assignments.",
-      "Very High": "Model and replicate. Extract best practices for organizational playbook."
+    "roi_level_numeric_profile": {
+      "Low": {
+        "Performance_Rating": 6.4018,
+        "Professional_Development_Hours": 53.6387,
+        "Training_ROI": 0.1174,
+        "Employee_Engagement_Score": 80.4738,
+        "Employee_Job_Satisfaction_Score": 7.8855,
+        "Employee_Work_Life_Balance_Rating": 7.8983,
+        "Overtime_Hours_Per_Week": 7.0967,
+        "Mentor_Rating": 7.9457,
+        "Number_Of_Promotions": 0.8006,
+        "Conflict_Resolution_Cases": 2.4896,
+        "Feedback_From_Supervisors": 6.9418,
+        "Feedback_From_Colleagues": 7.0701,
+        "Tenure_Years": 4.7477
+      },
+      "Medium": {
+        "Performance_Rating": 8.9596,
+        "Professional_Development_Hours": 51.2932,
+        "Training_ROI": 0.1714,
+        "Employee_Engagement_Score": 79.7988,
+        "Employee_Job_Satisfaction_Score": 8.0121,
+        "Employee_Work_Life_Balance_Rating": 7.8413,
+        "Overtime_Hours_Per_Week": 7.1082,
+        "Mentor_Rating": 7.8453,
+        "Number_Of_Promotions": 0.8372,
+        "Conflict_Resolution_Cases": 2.5228,
+        "Feedback_From_Supervisors": 7.0121,
+        "Feedback_From_Colleagues": 6.8402,
+        "Tenure_Years": 4.652
+      },
+      "High": {
+        "Performance_Rating": 10.795,
+        "Professional_Development_Hours": 49.5582,
+        "Training_ROI": 0.2138,
+        "Employee_Engagement_Score": 79.8378,
+        "Employee_Job_Satisfaction_Score": 7.9194,
+        "Employee_Work_Life_Balance_Rating": 8.0507,
+        "Overtime_Hours_Per_Week": 7.0517,
+        "Mentor_Rating": 7.9761,
+        "Number_Of_Promotions": 0.8159,
+        "Conflict_Resolution_Cases": 2.5851,
+        "Feedback_From_Supervisors": 6.8587,
+        "Feedback_From_Colleagues": 7.0229,
+        "Tenure_Years": 4.7499
+      },
+      "Very High": {
+        "Performance_Rating": 13.5533,
+        "Professional_Development_Hours": 46.0091,
+        "Training_ROI": 0.2904,
+        "Employee_Engagement_Score": 79.8863,
+        "Employee_Job_Satisfaction_Score": 7.9085,
+        "Employee_Work_Life_Balance_Rating": 8.0191,
+        "Overtime_Hours_Per_Week": 7.1529,
+        "Mentor_Rating": 8.0402,
+        "Number_Of_Promotions": 0.7948,
+        "Conflict_Resolution_Cases": 2.4718,
+        "Feedback_From_Supervisors": 6.9487,
+        "Feedback_From_Colleagues": 6.9879,
+        "Tenure_Years": 4.6523
+      }
     },
-    "power_statement": "Training ROI is the north star metric for learning & development \u2014 it shifts HR analytics from measuring effort to measuring impact."
+    "roi_level_distribution": {
+      "Low": 1013,
+      "High": 1005,
+      "Very High": 994,
+      "Medium": 989
+    },
+    "trained_but_underperforming": {
+      "criteria": "Professional_Development_Hours > median AND Performance_Rating < median",
+      "count": 896,
+      "pct_of_workforce": 22.39,
+      "avg_dev_hours": 56.24,
+      "avg_performance": 7.25,
+      "avg_training_roi": 0.1273
+    },
+    "low_roi_categorical_profile": {
+      "Department": {
+        "Marketing": 21.5,
+        "Hr": 21.3,
+        "Finance": 21.099999999999998,
+        "It": 18.4
+      },
+      "Job_Title": {
+        "Consultant": 25.6,
+        "Developer": 25.5,
+        "Analyst": 25.1,
+        "Manager": 23.9
+      },
+      "Training_Program": {
+        "Basic": 35.199999999999996,
+        "Unknown": 32.6,
+        "Advanced": 32.2
+      },
+      "Project_Outcome": {
+        "Failed": 34.8,
+        "In Progress": 33.5,
+        "Successful": 31.7
+      },
+      "Highest_Education_Level": {
+        "Bachelor": 34.0,
+        "Master": 33.900000000000006,
+        "Phd": 32.2
+      },
+      "Leadership_Potential": {
+        "Low": 34.699999999999996,
+        "High": 34.2,
+        "Medium": 31.1
+      },
+      "Career_Goals_Achievement_Status": {
+        "Not Started": 37.0,
+        "Achieved": 32.7,
+        "In Progress": 30.3
+      },
+      "Employee_Resignation_Status": {
+        "No": 50.6,
+        "Yes": 49.4
+      },
+      "Mentor_Experience_Level": {
+        "Mid-Senior": 27.0,
+        "Senior": 26.400000000000002,
+        "Junior": 25.1,
+        "Associate": 21.5
+      },
+      "Project_Complexity": {
+        "Simple": 34.9,
+        "Moderate": 33.0,
+        "Complex": 32.1
+      }
+    },
+    "very_high_roi_categorical_profile": {
+      "Department": {
+        "Hr": 21.2,
+        "It": 20.3,
+        "Sales": 19.7,
+        "Marketing": 19.6
+      },
+      "Job_Title": {
+        "Manager": 25.5,
+        "Consultant": 25.2,
+        "Analyst": 25.1,
+        "Developer": 24.3
+      },
+      "Training_Program": {
+        "Basic": 35.0,
+        "Advanced": 32.800000000000004,
+        "Unknown": 32.2
+      },
+      "Project_Outcome": {
+        "In Progress": 36.8,
+        "Failed": 31.7,
+        "Successful": 31.5
+      },
+      "Highest_Education_Level": {
+        "Phd": 35.4,
+        "Master": 33.800000000000004,
+        "Bachelor": 30.8
+      },
+      "Leadership_Potential": {
+        "Low": 35.8,
+        "Medium": 32.9,
+        "High": 31.3
+      },
+      "Career_Goals_Achievement_Status": {
+        "In Progress": 34.599999999999994,
+        "Achieved": 33.6,
+        "Not Started": 31.8
+      },
+      "Employee_Resignation_Status": {
+        "Yes": 51.7,
+        "No": 48.3
+      },
+      "Mentor_Experience_Level": {
+        "Associate": 25.8,
+        "Mid-Senior": 25.7,
+        "Junior": 24.6,
+        "Senior": 23.9
+      },
+      "Project_Complexity": {
+        "Moderate": 34.599999999999994,
+        "Simple": 34.5,
+        "Complex": 30.9
+      }
+    },
+    "very_high_vs_low_key_differences": {
+      "Professional_Development_Hours": {
+        "very_high": 46.009,
+        "low": 53.639,
+        "delta": -7.63
+      },
+      "Performance_Rating": {
+        "very_high": 13.553,
+        "low": 6.402,
+        "delta": 7.151
+      },
+      "Employee_Engagement_Score": {
+        "very_high": 79.886,
+        "low": 80.474,
+        "delta": -0.588
+      },
+      "Training_ROI": {
+        "very_high": 0.29,
+        "low": 0.117,
+        "delta": 0.173
+      },
+      "Employee_Work_Life_Balance_Rating": {
+        "very_high": 8.019,
+        "low": 7.898,
+        "delta": 0.121
+      },
+      "Tenure_Years": {
+        "very_high": 4.652,
+        "low": 4.748,
+        "delta": -0.096
+      },
+      "Mentor_Rating": {
+        "very_high": 8.04,
+        "low": 7.946,
+        "delta": 0.094
+      },
+      "Feedback_From_Colleagues": {
+        "very_high": 6.988,
+        "low": 7.07,
+        "delta": -0.082
+      }
+    },
+    "training_roi_correlations": {
+      "Performance_Rating": 0.9002,
+      "Employee_Work_Life_Balance_Rating": 0.0251,
+      "Mentor_Rating": 0.0145,
+      "Overtime_Hours_Per_Week": 0.0119,
+      "Employee_Job_Satisfaction_Score": -0.0007,
+      "Employee_Engagement_Score": -0.0225,
+      "Professional_Development_Hours": -0.4268
+    }
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1779826941,
+    "evidence_char_length": 4357
   }
 }

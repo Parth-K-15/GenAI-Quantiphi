@@ -71,6 +71,22 @@ def main() -> None:
         ([sys.executable, "src/analysis/section2/q8_training_roi_analysis.py"], "Q8 analysis"),
         ([sys.executable, "src/analysis/section2/q9_training_program_comparison.py"], "Q9 analysis"),
         ([sys.executable, "src/analysis/section2/q10_advanced_training_readiness.py"], "Q10 analysis"),
+        (
+            [
+                sys.executable,
+                "src/analysis/enhance_reports_schema.py",
+                "reports/section2/q6_training_development_analysis.json",
+                "reports/section2/q7_mentorship_impact_analysis.json",
+                "reports/section2/q8_training_roi_analysis.json",
+                "reports/section2/q9_training_program_comparison.json",
+                "reports/section2/q10_advanced_training_readiness.json",
+                "--ensure-evidence",
+                "--normalize-insights",
+                "--add-local-meta",
+                "--quiet",
+            ],
+            "Section 2 schema enhancement",
+        ),
     ]
 
     if args.with_llm:

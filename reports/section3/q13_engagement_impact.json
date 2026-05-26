@@ -273,24 +273,299 @@
     ]
   },
   "llm_insights": {
-    "headline": "Employee Engagement Shows Minimal Direct Impact on Retention and Satisfaction, but High Risk Exists for Disengaged Employees",
-    "key_insight_1": "While overall correlations between engagement and job satisfaction (0.0091) and retention (0.0079) are very weak, the 'Very High' engagement band has a retention rate of 50.99%, only slightly higher than the 'Very Low' band at 48.58%. This suggests that engagement alone is not a primary driver of retention.",
-    "key_insight_2": "The 'Medium' engagement band exhibits the highest average job satisfaction score at 8.0732, and a retention rate of 50.85%. This indicates that a moderate level of engagement may be optimal for fostering satisfaction, though its retention impact is similar to other bands.",
-    "hidden_insight": "The Retention Risk Index, which weights job satisfaction more heavily (60%) than engagement (40%), identifies employees with very low satisfaction scores (e.g., 1 or 0) as having the highest risk. For instance, an employee with an engagement score of 68 and a satisfaction score of 1 has a Retention Risk Index of 0.668, highlighting satisfaction as a critical, often overlooked, factor.",
-    "risk_alert": "The 'disengaged_bottom25_attrition_pct' is 51.38%, which is higher than the 'highly_engaged_top25_attrition_pct' at 50.57%. This indicates a potential flight risk among the least engaged employees, despite the overall weak correlation.",
-    "business_implication": "Focusing solely on increasing engagement scores may not yield significant improvements in retention or satisfaction. However, neglecting employees with very low job satisfaction, regardless of their engagement score, poses a substantial retention risk.",
+    "headline": "Employee Engagement Shows Minimal Direct Impact on Job Satisfaction and Retention",
+    "key_insight_1": "Employee engagement has a very weak positive correlation with job satisfaction (0.0091) and retention (0.0079). This suggests that while engagement might play a role, it is not a primary driver of these outcomes based on the current data.",
+    "key_insight_2": "Retention rates across engagement bands show minimal variation, ranging from 48.58% in the 'Very Low' band to 50.99% in the 'Very High' band. The overall retention lift from the lowest to highest engagement band is only 2.41 percentage points, indicating that engagement level alone does not strongly differentiate retention.",
+    "hidden_insight": "The 'Very Low' engagement band, comprising 809 employees, has an average job satisfaction score of 7.8999 and an average performance rating of 9.9357. This suggests that employees with low engagement are not necessarily dissatisfied or underperforming, hinting at potential complexities in engagement measurement or other factors influencing their experience.",
+    "risk_alert": "The Retention Risk Index, which weights job satisfaction more heavily (60%) than engagement (40%), identifies employees with very low satisfaction scores (e.g., a score of 1) as being at high risk of attrition, regardless of their engagement level. For instance, an employee with an engagement score of 68 and a satisfaction score of 1 has a Retention Risk Index of 0.668, indicating a significant risk.",
+    "business_implication": "The weak correlation between engagement and satisfaction/retention suggests that current engagement initiatives may not be effectively translating into tangible improvements in employee retention or overall job satisfaction. This could lead to continued turnover and associated costs if not addressed.",
     "action_plan": [
-      "Investigate drivers of low job satisfaction, particularly among employees with low engagement scores, as this combination presents the highest retention risk.",
-      "Review the 'Retention Risk Index' methodology and consider its application in proactive retention efforts, focusing on the 60% weight given to job satisfaction.",
-      "Explore why the 'Medium' engagement band shows the highest job satisfaction and if these practices can be scaled.",
-      "Conduct qualitative research to understand the nuanced reasons behind retention patterns across different engagement bands, as quantitative correlations are weak."
+      "Investigate the drivers of job satisfaction more deeply, as it appears to be a stronger predictor of retention than engagement.",
+      "Review the current engagement survey and its linkage to actionable insights, ensuring it captures factors that genuinely influence employee retention.",
+      "Analyze the 'Very Low' engagement band to understand why these employees maintain relatively high performance and satisfaction, and if these factors can be leveraged across other segments.",
+      "Focus retention strategies on addressing low job satisfaction, particularly for employees scoring very low on this metric, as indicated by the Retention Risk Index."
     ],
-    "standout_statement": "Job satisfaction, weighted at 60% in the Retention Risk Index, appears to be a more potent predictor of retention than engagement, with the highest risk concentrated in employees experiencing extremely low satisfaction.",
-    "confidence_note": "The correlations between engagement and satisfaction/retention are very weak (0.0091 and 0.0079 respectively), suggesting these relationships are not statistically significant and may be driven by other factors. The analysis of retention by engagement band shows minimal differences in retention rates across bands."
+    "standout_statement": "Despite the focus on employee engagement, job satisfaction, particularly at the lower end of the spectrum, presents a more critical factor influencing retention risk.",
+    "confidence_note": "The correlations between engagement and job satisfaction/retention are very weak and should be considered indicative rather than statistically significant. Further investigation is recommended to understand the nuanced relationship between these factors."
+  },
+  "llm_evidence": {
+    "question": "Q13 — Employee Engagement Score Impact on Job Satisfaction & Retention",
+    "key_correlations": {
+      "engagement_vs_satisfaction": 0.0091,
+      "engagement_vs_retention": 0.0079
+    },
+    "retention_analysis": {
+      "very_high_band_retention_pct": 50.99,
+      "very_low_band_retention_pct": 48.58,
+      "retention_lift_pct_points": 2.41,
+      "disengaged_bottom25_attrition_pct": 51.38,
+      "highly_engaged_top25_attrition_pct": 50.57,
+      "disengaged_count": 1121,
+      "highly_engaged_count": 1056
+    },
+    "engagement_band_profile": [
+      {
+        "Engagement_Band": "Very Low",
+        "count": 809,
+        "avg_engagement": 67.9617,
+        "avg_satisfaction": 7.8999,
+        "retention_rate": 0.4858,
+        "avg_performance": 9.9357,
+        "avg_wlb": 7.9456,
+        "avg_promotions": 0.7874
+      },
+      {
+        "Engagement_Band": "Low",
+        "count": 940,
+        "avg_engagement": 75.5106,
+        "avg_satisfaction": 7.8574,
+        "retention_rate": 0.4989,
+        "avg_performance": 9.9106,
+        "avg_wlb": 8.0553,
+        "avg_promotions": 0.817
+      },
+      {
+        "Engagement_Band": "Medium",
+        "count": 710,
+        "avg_engagement": 80.4465,
+        "avg_satisfaction": 8.0732,
+        "retention_rate": 0.5085,
+        "avg_performance": 10.0437,
+        "avg_wlb": 7.9676,
+        "avg_promotions": 0.838
+      },
+      {
+        "Engagement_Band": "High",
+        "count": 832,
+        "avg_engagement": 85.1947,
+        "avg_satisfaction": 7.9555,
+        "retention_rate": 0.4988,
+        "avg_performance": 9.9351,
+        "avg_wlb": 7.887,
+        "avg_promotions": 0.8089
+      },
+      {
+        "Engagement_Band": "Very High",
+        "count": 710,
+        "avg_engagement": 93.1338,
+        "avg_satisfaction": 7.893,
+        "retention_rate": 0.5099,
+        "avg_performance": 9.7408,
+        "avg_wlb": 7.8859,
+        "avg_promotions": 0.8113
+      }
+    ],
+    "engagement_drivers": {
+      "Overtime_Hours_Per_Week": 0.0165,
+      "Professional_Development_Hours": 0.0153,
+      "Employee_Job_Satisfaction_Score": 0.0091,
+      "Number_Of_Promotions": 0.0066,
+      "Feedback_From_Supervisors": -0.0103,
+      "Feedback_From_Colleagues": -0.0126,
+      "Employee_Work_Life_Balance_Rating": -0.0163,
+      "Performance_Rating": -0.0171,
+      "Number_Of_Team_Building_Activities": -0.018
+    },
+    "retention_risk_index": {
+      "formula": "(1 - Engagement/100)*0.4 + (1 - Satisfaction/10)*0.6",
+      "definition": "We define a Retention Risk Index to quantify the combined effect of engagement and satisfaction on attrition likelihood. Weighted 40/60 to reflect that satisfaction is a stronger direct predictor of voluntary resignation.",
+      "stats": {
+        "count": 4001.0,
+        "mean": 0.2041,
+        "std": 0.173,
+        "min": -0.424,
+        "25%": 0.092,
+        "50%": 0.216,
+        "75%": 0.328,
+        "max": 0.668
+      },
+      "top20_at_risk": [
+        {
+          "Employee_ID": "2024/Sales/2725",
+          "Department": "Marketing",
+          "Job_Title": "Consultant",
+          "Employee_Engagement_Score": 68,
+          "Employee_Job_Satisfaction_Score": 1,
+          "Retention_Risk_Index": 0.668,
+          "Employee_Resignation_Status": "No"
+        },
+        {
+          "Employee_ID": "2024/IT/0435",
+          "Department": "Sales",
+          "Job_Title": "Consultant",
+          "Employee_Engagement_Score": 70,
+          "Employee_Job_Satisfaction_Score": 1,
+          "Retention_Risk_Index": 0.66,
+          "Employee_Resignation_Status": "Yes"
+        },
+        {
+          "Employee_ID": "2024/Sales/3067",
+          "Department": "It",
+          "Job_Title": "Consultant",
+          "Employee_Engagement_Score": 70,
+          "Employee_Job_Satisfaction_Score": 1,
+          "Retention_Risk_Index": 0.66,
+          "Employee_Resignation_Status": "Yes"
+        },
+        {
+          "Employee_ID": "2024/Sales/0883",
+          "Department": "It",
+          "Job_Title": "Consultant",
+          "Employee_Engagement_Score": 72,
+          "Employee_Job_Satisfaction_Score": 1,
+          "Retention_Risk_Index": 0.652,
+          "Employee_Resignation_Status": "Yes"
+        },
+        {
+          "Employee_ID": "2024/Marketing/3089",
+          "Department": "Finance",
+          "Job_Title": "Consultant",
+          "Employee_Engagement_Score": 87,
+          "Employee_Job_Satisfaction_Score": 0,
+          "Retention_Risk_Index": 0.652,
+          "Employee_Resignation_Status": "Yes"
+        },
+        {
+          "Employee_ID": "2024/Sales/3411",
+          "Department": "It",
+          "Job_Title": "Analyst",
+          "Employee_Engagement_Score": 73,
+          "Employee_Job_Satisfaction_Score": 1,
+          "Retention_Risk_Index": 0.648,
+          "Employee_Resignation_Status": "Yes"
+        },
+        {
+          "Employee_ID": "2024/Marketing/0149",
+          "Department": "Marketing",
+          "Job_Title": "Consultant",
+          "Employee_Engagement_Score": 76,
+          "Employee_Job_Satisfaction_Score": 1,
+          "Retention_Risk_Index": 0.636,
+          "Employee_Resignation_Status": "No"
+        },
+        {
+          "Employee_ID": "2024/Marketing/3705",
+          "Department": "Hr",
+          "Job_Title": "Consultant",
+          "Employee_Engagement_Score": 61,
+          "Employee_Job_Satisfaction_Score": 2,
+          "Retention_Risk_Index": 0.636,
+          "Employee_Resignation_Status": "Yes"
+        },
+        {
+          "Employee_ID": "2024/Marketing/2577",
+          "Department": "Sales",
+          "Job_Title": "Developer",
+          "Employee_Engagement_Score": 62,
+          "Employee_Job_Satisfaction_Score": 2,
+          "Retention_Risk_Index": 0.632,
+          "Employee_Resignation_Status": "Yes"
+        },
+        {
+          "Employee_ID": "2024/Sales/3605",
+          "Department": "It",
+          "Job_Title": "Consultant",
+          "Employee_Engagement_Score": 77,
+          "Employee_Job_Satisfaction_Score": 1,
+          "Retention_Risk_Index": 0.632,
+          "Employee_Resignation_Status": "No"
+        },
+        {
+          "Employee_ID": "2024/HR/1123",
+          "Department": "Finance",
+          "Job_Title": "Analyst",
+          "Employee_Engagement_Score": 77,
+          "Employee_Job_Satisfaction_Score": 1,
+          "Retention_Risk_Index": 0.632,
+          "Employee_Resignation_Status": "No"
+        },
+        {
+          "Employee_ID": "2024/HR/0006",
+          "Department": "Marketing",
+          "Job_Title": "Developer",
+          "Employee_Engagement_Score": 77,
+          "Employee_Job_Satisfaction_Score": 1,
+          "Retention_Risk_Index": 0.632,
+          "Employee_Resignation_Status": "Yes"
+        },
+        {
+          "Employee_ID": "2024/Sales/1985",
+          "Department": "Finance",
+          "Job_Title": "Developer",
+          "Employee_Engagement_Score": 93,
+          "Employee_Job_Satisfaction_Score": 0,
+          "Retention_Risk_Index": 0.628,
+          "Employee_Resignation_Status": "Yes"
+        },
+        {
+          "Employee_ID": "2024/HR/2480",
+          "Department": "It",
+          "Job_Title": "Developer",
+          "Employee_Engagement_Score": 66,
+          "Employee_Job_Satisfaction_Score": 2,
+          "Retention_Risk_Index": 0.616,
+          "Employee_Resignation_Status": "Yes"
+        },
+        {
+          "Employee_ID": "2024/Sales/2945",
+          "Department": "It",
+          "Job_Title": "Analyst",
+          "Employee_Engagement_Score": 66,
+          "Employee_Job_Satisfaction_Score": 2,
+          "Retention_Risk_Index": 0.616,
+          "Employee_Resignation_Status": "No"
+        },
+        {
+          "Employee_ID": "2024/HR/2850",
+          "Department": "Finance",
+          "Job_Title": "Developer",
+          "Employee_Engagement_Score": 68,
+          "Employee_Job_Satisfaction_Score": 2,
+          "Retention_Risk_Index": 0.608,
+          "Employee_Resignation_Status": "No"
+        },
+        {
+          "Employee_ID": "2024/Sales/1900",
+          "Department": "It",
+          "Job_Title": "Analyst",
+          "Employee_Engagement_Score": 69,
+          "Employee_Job_Satisfaction_Score": 2,
+          "Retention_Risk_Index": 0.604,
+          "Employee_Resignation_Status": "No"
+        },
+        {
+          "Employee_ID": "2024/Finance/3538",
+          "Department": "Marketing",
+          "Job_Title": "Developer",
+          "Employee_Engagement_Score": 69,
+          "Employee_Job_Satisfaction_Score": 2,
+          "Retention_Risk_Index": 0.604,
+          "Employee_Resignation_Status": "Yes"
+        },
+        {
+          "Employee_ID": "2024/Sales/1002",
+          "Department": "Sales",
+          "Job_Title": "Analyst",
+          "Employee_Engagement_Score": 70,
+          "Employee_Job_Satisfaction_Score": 2,
+          "Retention_Risk_Index": 0.6,
+          "Employee_Resignation_Status": "No"
+        },
+        {
+          "Employee_ID": "2024/Sales/0334",
+          "Department": "Hr",
+          "Job_Title": "Developer",
+          "Employee_Engagement_Score": 71,
+          "Employee_Job_Satisfaction_Score": 2,
+          "Retention_Risk_Index": 0.596,
+          "Employee_Resignation_Status": "Yes"
+        }
+      ]
+    }
   },
   "llm_generation_meta": {
     "model_used": "gemini-2.5-flash-lite",
-    "generated_at_epoch": 1779824649,
+    "generated_at_epoch": 1779827584,
     "evidence_char_length": 4357
   }
 }

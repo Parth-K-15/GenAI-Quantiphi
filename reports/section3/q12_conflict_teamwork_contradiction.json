@@ -378,24 +378,207 @@
     }
   ],
   "llm_insights": {
-    "headline": "High Conflict Resolution with Low Teamwork: A Complex Employee Profile",
-    "key_insight_1": "A significant group of 441 employees (11.0% of the total) exhibit a contradiction between high conflict resolution cases and low teamwork skills. This group has a slightly lower attrition rate (49.21%) compared to non-contradictory employees (50.11%), a delta of -0.9%.",
-    "key_insight_2": "Employees in the high conflict/low teamwork group show a marked difference in Teamwork Skills Rating (-3.451) compared to their non-contradictory counterparts, while their Conflict Resolution Cases are more than double (4.517 vs 2.27). This suggests a potential disconnect where conflict resolution skills are high, but collaborative abilities are low.",
-    "hidden_insight": "The 'Structural Outlier' archetype, characterized by role-based conflict exposure in customer-facing or project management functions, highlights that 11.0% of employees might be flagged due to organizational design rather than individual behavioral deficits. This is indicated by functional isolation as a key descriptor for this archetype.",
-    "risk_alert": "The 'Burned-Out Resolver' archetype is a critical retention and mental health risk signal. Employees experiencing repeated conflict exposure may become depleted, leading to a retreat from collaborative behavior and a decline in engagement, potentially impacting long-term productivity and well-being.",
-    "business_implication": "This contradiction points to potential inefficiencies in team dynamics and conflict management strategies. It may indicate that employees are being overloaded with conflict situations without adequate support or that their conflict resolution skills are being utilized in a way that hinders broader team collaboration, potentially impacting overall team performance and morale.",
+    "headline": "High Conflict Resolution Cases Coincide with Lower Teamwork Skills, Indicating Potential Structural or Burnout Issues",
+    "key_insight_1": "Employees with high conflict resolution cases (average 4.517) exhibit significantly lower teamwork skills (average 4.896) compared to those with lower conflict resolution cases (average 2.27, teamwork 8.347). This suggests that a high volume of conflict resolution may be a symptom of underlying team dysfunction or a drain on collaborative capacity.",
+    "key_insight_2": "The 'Burned-Out Resolver' archetype, characterized by low satisfaction, low work-life balance, and declining engagement, is a critical indicator within the high conflict resolution group. This points to a potential retention and mental health risk, where prolonged exposure to conflict erodes collaborative behaviors.",
+    "hidden_insight": "The 'Structural Outlier' archetype highlights that for some roles, high conflict resolution case counts (e.g., customer-facing or project management) may be a function of job design rather than interpersonal conflict skills. This is evidenced by the potential for functional isolation in these roles, which can artificially inflate conflict metrics.",
+    "risk_alert": "The group exhibiting high conflict resolution and low teamwork has an attrition rate of 49.21%, only slightly lower than the non-contradictory group (50.11%), but the delta of -0.9% is concerning given the potential for burnout and dissatisfaction indicated by other metrics.",
+    "business_implication": "The contradiction between high conflict resolution and low teamwork suggests that current conflict management strategies may be reactive and unsustainable, leading to employee burnout and potentially impacting overall team cohesion and productivity. This pattern is present in 11.0% of employees (441 individuals).",
     "action_plan": [
-      "Investigate the root causes of high conflict exposure for the 441 employees, differentiating between role-based and interpersonal conflict.",
-      "Develop targeted coaching programs for employees exhibiting the 'Dominant Resolver' archetype to foster more inclusive leadership and collaborative conflict resolution.",
-      "Review team compositions and project assignments to mitigate structural conflict and reduce friction sources for employees identified as 'Structural Outliers'.",
-      "Implement proactive well-being initiatives and support systems for employees frequently involved in conflict resolution to prevent burnout, as suggested by the 'Burned-Out Resolver' archetype."
+      "Investigate the root causes of high conflict resolution cases, differentiating between behavioral issues and structural/role-based demands.",
+      "Develop targeted interventions for the 'Burned-Out Resolver' archetype, focusing on workload management, mental health support, and engagement strategies.",
+      "Review team compositions and processes to identify and mitigate sources of structural conflict, particularly in customer-facing or project-heavy roles.",
+      "Provide coaching on collaborative leadership and conflict prevention for managers overseeing teams with high conflict resolution rates."
     ],
-    "standout_statement": "While 11.0% of employees show a concerning pattern of high conflict resolution and low teamwork, their slightly lower attrition rate suggests they may be 'sticking around' despite these challenges, potentially due to role requirements or a lack of better alternatives, highlighting a critical area for intervention.",
-    "confidence_note": "The evidence presented is correlational. While clear patterns and differences are observed between the contradictory and non-contradictory groups, causality cannot be definitively established. The observed differences in ratings and attrition rates are indicative of potential underlying issues but do not prove direct causation."
+    "standout_statement": "A significant portion of employees (11.0%) are caught in a high-conflict, low-teamwork paradox, with nearly half facing attrition, signaling a critical need to address the sustainability of conflict management and its impact on employee well-being.",
+    "confidence_note": "The observed differences in teamwork skills and attrition rates between the high conflict resolution group and the non-contradictory group are indicative. Further analysis with p-values would be required to establish statistical significance."
+  },
+  "llm_evidence": {
+    "question": "Q12 — High Conflict Resolution + Low Teamwork Contradiction Analysis",
+    "profile_comparison": {
+      "contradictory": {
+        "Conflict_Resolution_Cases": 4.517,
+        "Teamwork_Skills_Rating": 4.896,
+        "Leadership_Qualities_Rating": 7.959,
+        "Adaptability_Rating": 8.0,
+        "Creativity_Rating": 7.941,
+        "Performance_Rating": 9.961,
+        "Employee_Engagement_Score": 79.721,
+        "Employee_Job_Satisfaction_Score": 7.726,
+        "Overtime_Hours_Per_Week": 7.118,
+        "Employee_Work_Life_Balance_Rating": 8.107,
+        "Number_Of_Promotions": 0.81,
+        "Communication_Skills_Rating": 7.687,
+        "Initiative_Rating": 7.814
+      },
+      "non_contradictory": {
+        "Conflict_Resolution_Cases": 2.27,
+        "Teamwork_Skills_Rating": 8.347,
+        "Leadership_Qualities_Rating": 7.987,
+        "Adaptability_Rating": 8.024,
+        "Creativity_Rating": 8.029,
+        "Performance_Rating": 9.908,
+        "Employee_Engagement_Score": 80.036,
+        "Employee_Job_Satisfaction_Score": 7.956,
+        "Overtime_Hours_Per_Week": 7.1,
+        "Employee_Work_Life_Balance_Rating": 7.933,
+        "Number_Of_Promotions": 0.812,
+        "Communication_Skills_Rating": 7.925,
+        "Initiative_Rating": 8.043
+      },
+      "delta": {
+        "Conflict_Resolution_Cases": 2.247,
+        "Teamwork_Skills_Rating": -3.451,
+        "Leadership_Qualities_Rating": -0.028,
+        "Adaptability_Rating": -0.024,
+        "Creativity_Rating": -0.088,
+        "Performance_Rating": 0.053,
+        "Employee_Engagement_Score": -0.315,
+        "Employee_Job_Satisfaction_Score": -0.23,
+        "Overtime_Hours_Per_Week": 0.018,
+        "Employee_Work_Life_Balance_Rating": 0.174,
+        "Number_Of_Promotions": -0.002,
+        "Communication_Skills_Rating": -0.238,
+        "Initiative_Rating": -0.229
+      }
+    },
+    "thresholds": {
+      "high_conflict_q75": 4.0,
+      "low_teamwork_q25": 6.0
+    },
+    "counts": {
+      "contradictory_employees": 441,
+      "contradictory_pct": 11.0,
+      "total_employees": 4001
+    },
+    "attrition_rates": {
+      "contradictory_group_pct": 49.21,
+      "non_contradictory_group_pct": 50.11,
+      "delta": -0.9
+    },
+    "department_breakdown": [
+      {
+        "Department": "Marketing",
+        "count": 100,
+        "avg_conflict": 4.54,
+        "avg_teamwork": 5.03,
+        "avg_performance": 9.66
+      },
+      {
+        "Department": "Hr",
+        "count": 97,
+        "avg_conflict": 4.526,
+        "avg_teamwork": 4.629,
+        "avg_performance": 9.794
+      },
+      {
+        "Department": "Finance",
+        "count": 85,
+        "avg_conflict": 4.518,
+        "avg_teamwork": 5.071,
+        "avg_performance": 9.824
+      },
+      {
+        "Department": "Sales",
+        "count": 81,
+        "avg_conflict": 4.469,
+        "avg_teamwork": 4.852,
+        "avg_performance": 10.333
+      },
+      {
+        "Department": "It",
+        "count": 78,
+        "avg_conflict": 4.526,
+        "avg_teamwork": 4.91,
+        "avg_performance": 10.321
+      }
+    ],
+    "contradiction_archetypes": [
+      {
+        "name": "The Forced Mediator",
+        "emoji": "⚔️",
+        "description": "Employees thrust into conflict resolution roles by circumstance — not by interpersonal strength. High conflict exposure may be driven by toxic team dynamics or difficult stakeholders, not by the employee's ability to work with others. They resolve conflicts to survive, not because they thrive in collaboration.",
+        "indicator": "High overtime + low WLB + low engagement",
+        "action": "Reduce structural conflict exposure. Redesign team composition to reduce friction sources."
+      },
+      {
+        "name": "The Dominant Resolver",
+        "emoji": "👑",
+        "description": "High leadership and assertiveness drive conflict resolution success, but this same dominance creates friction in teamwork settings. These individuals resolve conflicts top-down, not collaboratively — they shut conflicts down rather than building consensus. Effective individually, but disruptive in flat or collaborative team structures.",
+        "indicator": "High leadership + high initiative + low teamwork + moderate performance",
+        "action": "Coaching on inclusive facilitation and participatory leadership styles."
+      },
+      {
+        "name": "The Structural Outlier",
+        "emoji": "🔧",
+        "description": "Role-based conflict exposure in customer-facing or project management functions artificially inflates their conflict resolution case count. Their low teamwork score reflects low team integration — they work in silos by design, not by choice. The contradiction is organizational, not behavioral.",
+        "indicator": "High customer complaints handled + functional isolation",
+        "action": "Distinguish structural conflict cases from interpersonal teamwork failures in HR metrics."
+      },
+      {
+        "name": "The Burned-Out Resolver",
+        "emoji": "🔥",
+        "description": "Once effective collaborators, now depleted. Repeated conflict exposure over time has eroded their willingness to engage as team players. Burnout from sustained conflict management causes retreat from collaborative behavior — creating the apparent paradox. This is a retention and mental health risk signal.",
+        "indicator": "Low satisfaction + low WLB + declining engagement over tenure",
+        "action": "Immediate wellbeing intervention and workload redistribution. Monitor for attrition risk."
+      }
+    ],
+    "conflict_to_teamwork_ratio": {
+      "definition": "Conflict_Resolution_Cases / (Teamwork_Skills_Rating + 1)",
+      "insight": "Conflict resolution metrics capture reactive problem-solving, whereas teamwork reflects proactive collaboration — the two are fundamentally different behavioral dimensions. We define a Conflict-to-Teamwork Ratio to identify employees who are disproportionately involved in conflict relative to their collaborative ability.",
+      "behavior_type_distribution": [
+        {
+          "Conflict_Behavior_Type": "Collaborative",
+          "count": 1015,
+          "avg_ratio": 0.035,
+          "avg_conflict": 0.383,
+          "avg_teamwork": 8.677,
+          "avg_performance": 9.865,
+          "attrition_pct": 49.75
+        },
+        {
+          "Conflict_Behavior_Type": "Balanced",
+          "count": 995,
+          "avg_ratio": 0.196,
+          "avg_conflict": 1.929,
+          "avg_teamwork": 8.743,
+          "avg_performance": 9.898,
+          "attrition_pct": 51.36
+        },
+        {
+          "Conflict_Behavior_Type": "Reactive",
+          "count": 1036,
+          "avg_ratio": 0.369,
+          "avg_conflict": 3.504,
+          "avg_teamwork": 8.509,
+          "avg_performance": 9.955,
+          "attrition_pct": 50.39
+        },
+        {
+          "Conflict_Behavior_Type": "Conflict-Heavy",
+          "count": 955,
+          "avg_ratio": 0.678,
+          "avg_conflict": 4.329,
+          "avg_teamwork": 5.816,
+          "avg_performance": 9.939,
+          "attrition_pct": 48.48
+        }
+      ],
+      "ratio_stats": {
+        "count": 4001.0,
+        "mean": 0.315,
+        "std": 0.268,
+        "min": 0.0,
+        "25%": 0.111,
+        "50%": 0.273,
+        "75%": 0.455,
+        "max": 2.5
+      }
+    }
   },
   "llm_generation_meta": {
     "model_used": "gemini-2.5-flash-lite",
-    "generated_at_epoch": 1779824619,
+    "generated_at_epoch": 1779827516,
     "evidence_char_length": 4357
   }
 }

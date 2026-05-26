@@ -145,16 +145,171 @@
     }
   ],
   "llm_insights": {
-    "headline_finding": "Professional Development Hours show only a negligible negative correlation (r=-0.020) with Performance Rating \u2014 confirming that training volume alone is not a performance driver.",
-    "advanced_insight": "Organizations should shift from measuring training hours to evaluating training effectiveness \u2014 specifically, the performance improvement achieved per training hour.",
-    "training_impact_statement": "We introduce a 'Training Impact' metric to better capture the effectiveness of learning investments. This metric reframes training from a cost center to a value-generation activity that can be measured and optimized.",
-    "system_improvement": "Rather than mandating more training hours, HR systems should track Training_Impact per employee cohort \u2014 identifying whether training programs are translating into real performance gains or simply accumulating hours with diminishing returns.",
-    "promotion_insight": "The correlation between training hours and promotions (r=-0.014) suggests promotions are not rewarded based on training participation alone \u2014 performance quality and role-specific outcomes dominate promotion decisions.",
-    "connecting_to_q3": "This aligns with Q3 findings: high and low performers have nearly identical training hours \u2014 the distinguishing factor is training efficiency, not volume. The 3x Training_Efficiency gap seen in Q3 is now directly quantified here through the Training_Impact metric.",
-    "power_statement": "The fundamental problem is not insufficient training \u2014 it is the inability to convert training exposure into measurable performance outcomes. Training_Impact is the missing KPI in most HR analytics frameworks.",
-    "recommendation": {
-      "immediate": "Introduce Training_Impact as a standard HR KPI alongside training hours.",
-      "strategic": "Design training programs with clear performance outcome targets \u2014 not hours-based completion metrics. Pair high-impact trainees with low-impact peers to transfer learning effectiveness strategies."
-    }
+    "headline": "Professional Development Hours Show Negligible Correlation with Performance and Promotions, While Training Impact is Highly Positive",
+    "key_insight_1": "There is a negligible negative correlation between professional development hours and both performance (r=-0.02) and promotions (r=-0.0139). This suggests that simply accumulating hours of professional development does not directly translate to improved performance or career advancement.",
+    "key_insight_2": "The 'Training Impact' metric, calculated as Performance Rating divided by Professional Development Hours + 1, shows a very strong positive correlation with performance (r=0.9002). This indicates that the effectiveness of training in driving performance is a critical factor, rather than the raw hours invested.",
+    "hidden_insight": "Employees in the highest quartile of professional development hours (Q4_High) have the lowest average performance rating (9.8047) and the second-lowest average promotion rate (55.49%), despite averaging 59.74 development hours. Conversely, the Q1_Low quartile, with the fewest development hours (41.41), has the highest average performance (9.9981) and the highest promotion rate (57.81%).",
+    "risk_alert": "A significant segment of the workforce, representing 22.39% (896 employees), falls into a 'high training, low performance' category, with an average performance rating of 7.25 and a low training impact of 0.1273. This indicates a potential inefficiency in training investment or application.",
+    "business_implication": "The current focus on accumulating professional development hours may be misaligned with driving actual performance and career progression. Resources and strategies should be re-evaluated to prioritize training effectiveness and its direct impact on performance outcomes.",
+    "action_plan": [
+      "Shift focus from tracking professional development hours to measuring and rewarding 'Training Impact' and its correlation with performance outcomes.",
+      "Investigate the reasons behind the low performance and training impact in the 'high training, low performance' segment to identify potential skill gaps or ineffective training programs.",
+      "Analyze the characteristics of employees in the Q1_Low quartile who achieve high performance and promotion rates with fewer development hours to identify best practices.",
+      "Review the design and delivery of professional development programs to ensure they are outcome-oriented and directly contribute to performance enhancement."
+    ],
+    "standout_statement": "Investing more hours in professional development does not equate to better performance or more promotions; rather, it's the *effectiveness* of training in boosting performance that truly matters.",
+    "confidence_note": "The correlations between development hours and performance/promotions are negligible, indicating a weak linear relationship. The strong positive correlation for Training Impact suggests a more robust relationship, but causality cannot be inferred from this data alone."
+  },
+  "llm_evidence": {
+    "question": "Q6 - Professional Development Hours vs Performance & Promotions",
+    "correlations": {
+      "dev_hours_vs_performance": {
+        "r": -0.02,
+        "interpretation": "negligible negative"
+      },
+      "dev_hours_vs_promotions": {
+        "r": -0.0139,
+        "interpretation": "negligible negative"
+      },
+      "training_impact_vs_performance": {
+        "r": 0.9002,
+        "interpretation": "very strong positive"
+      }
+    },
+    "quartile_analysis": [
+      {
+        "Dev_Hours_Quartile": "Q1_Low",
+        "count": 1050,
+        "avg_performance": 9.9981,
+        "avg_promotions": 0.8467,
+        "avg_training_impact": 0.2374,
+        "avg_dev_hours": 41.4095
+      },
+      {
+        "Dev_Hours_Quartile": "Q2_MedLow",
+        "count": 1053,
+        "avg_performance": 9.9212,
+        "avg_promotions": 0.7901,
+        "avg_training_impact": 0.2026,
+        "avg_dev_hours": 48.0095
+      },
+      {
+        "Dev_Hours_Quartile": "Q3_MedHigh",
+        "count": 997,
+        "avg_performance": 9.9178,
+        "avg_promotions": 0.8195,
+        "avg_training_impact": 0.1841,
+        "avg_dev_hours": 52.9097
+      },
+      {
+        "Dev_Hours_Quartile": "Q4_High",
+        "count": 901,
+        "avg_performance": 9.8047,
+        "avg_promotions": 0.7891,
+        "avg_training_impact": 0.1619,
+        "avg_dev_hours": 59.7325
+      }
+    ],
+    "promotion_rate_by_quartile_pct": {
+      "Q1_Low": 57.81,
+      "Q2_MedLow": 55.84,
+      "Q3_MedHigh": 58.07,
+      "Q4_High": 55.49
+    },
+    "training_impact_metric": {
+      "formula": "Training_Impact = Performance_Rating / (Professional_Development_Hours + 1)",
+      "rationale": "Raw training hours measure input, not outcome. Training_Impact captures how effectively each training hour translates to performance output.",
+      "statistics": {
+        "mean": 0.198,
+        "median": 0.1915,
+        "std": 0.0689,
+        "min": 0.02,
+        "max": 0.5789
+      }
+    },
+    "high_training_low_performance_segment": {
+      "count": 896,
+      "pct_of_workforce": 22.39,
+      "avg_dev_hours": 56.24,
+      "avg_performance": 7.25,
+      "avg_training_impact": 0.1273
+    },
+    "top10_efficiency_champions": [
+      {
+        "Employee_ID": "2024/Marketing/3667",
+        "Performance_Rating": 22,
+        "Professional_Development_Hours": 37,
+        "Training_Impact": 0.5789,
+        "Number_Of_Promotions": 0
+      },
+      {
+        "Employee_ID": "2024/IT/0815",
+        "Performance_Rating": 20,
+        "Professional_Development_Hours": 36,
+        "Training_Impact": 0.5405,
+        "Number_Of_Promotions": 1
+      },
+      {
+        "Employee_ID": "2024/Marketing/3138",
+        "Performance_Rating": 24,
+        "Professional_Development_Hours": 45,
+        "Training_Impact": 0.5217,
+        "Number_Of_Promotions": 1
+      },
+      {
+        "Employee_ID": "2024/HR/2850",
+        "Performance_Rating": 19,
+        "Professional_Development_Hours": 36,
+        "Training_Impact": 0.5135,
+        "Number_Of_Promotions": 2
+      },
+      {
+        "Employee_ID": "2024/Marketing/2043",
+        "Performance_Rating": 23,
+        "Professional_Development_Hours": 45,
+        "Training_Impact": 0.5,
+        "Number_Of_Promotions": 0
+      },
+      {
+        "Employee_ID": "2024/Finance/3024",
+        "Performance_Rating": 14,
+        "Professional_Development_Hours": 29,
+        "Training_Impact": 0.4667,
+        "Number_Of_Promotions": 1
+      },
+      {
+        "Employee_ID": "2024/HR/0741",
+        "Performance_Rating": 20,
+        "Professional_Development_Hours": 42,
+        "Training_Impact": 0.4651,
+        "Number_Of_Promotions": 0
+      },
+      {
+        "Employee_ID": "2024/Sales/2760",
+        "Performance_Rating": 20,
+        "Professional_Development_Hours": 42,
+        "Training_Impact": 0.4651,
+        "Number_Of_Promotions": 2
+      },
+      {
+        "Employee_ID": "2024/HR/2183",
+        "Performance_Rating": 19,
+        "Professional_Development_Hours": 41,
+        "Training_Impact": 0.4524,
+        "Number_Of_Promotions": 2
+      },
+      {
+        "Employee_ID": "2024/Finance/3225",
+        "Performance_Rating": 16,
+        "Professional_Development_Hours": 35,
+        "Training_Impact": 0.4444,
+        "Number_Of_Promotions": 2
+      }
+    ]
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1779826881,
+    "evidence_char_length": 3033
   }
 }

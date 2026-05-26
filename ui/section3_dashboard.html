@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Section 3: Soft Skills & Engagement | Quantiphi HR Dashboard</title>
+<title>Section 3: Soft Skills & Engagement | HR Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
@@ -518,7 +518,7 @@
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
     </a>
   </div>
-  <h1>Quantiphi HR Intelligence Command Center</h1>
+  <h1>HR Intelligence Command Center</h1>
   <p>Section 3 · Soft Skills, Behavioral Clustering &amp; Engagement · 4,001 Employees</p>
   <span class="badge badge-violet">Section 3 · Behavioral Archetypes (Q11–Q14)</span>
 </header>
@@ -545,7 +545,7 @@
 
   <div class="insight-box blue">
     <div class="insight-label">🏆 Headline Finding</div>
-    <div class="insight-text"><!-- S3_Q11_HEADLINE_START -->Soft Skill Cluster Analysis Reveals Distinct Employee Personas and Attrition Linkages<!-- S3_Q11_HEADLINE_END --><!-- S3_Q11_HEADLINE_END --></div>
+    <div class="insight-text"><!-- S3_Q11_HEADLINE_START -->Soft Skill Clusters Reveal Distinct Employee Personas with Varying Attrition Risks<!-- S3_Q11_HEADLINE_END --><!-- S3_Q11_HEADLINE_END --></div>
   </div>
 
   <div class="kpi-row">
@@ -599,14 +599,14 @@
 
   <div class="insight-box red">
     <div class="insight-label">🏆 Headline Finding</div>
-    <div class="insight-text"><!-- S3_Q12_HEADLINE_START -->High Conflict Resolution with Low Teamwork: A Complex Employee Profile<!-- S3_Q12_HEADLINE_END --><!-- S3_Q12_HEADLINE_END --></div>
+    <div class="insight-text"><!-- S3_Q12_HEADLINE_START -->High Conflict Resolution Cases Coincide with Lower Teamwork Skills, Indicating Potential Structural or Burnout Issues<!-- S3_Q12_HEADLINE_END --><!-- S3_Q12_HEADLINE_END --></div>
   </div>
 
   <div class="kpi-row">
     <div class="kpi-card red"><div class="kv">441</div><div class="kt">Contradictory Employees (11%)</div></div>
     <div class="kpi-card orange"><div class="kv">4.52</div><div class="kt">Avg Conflict Resolution Cases</div></div>
     <div class="kpi-card teal"><div class="kv">4.90</div><div class="kt">Avg Teamwork Rating</div></div>
-    <div class="kpi-card violet"><div class="kv">0.678</div><div class="kt">Conflict-to-Teamwork Ratio</div></div>
+    <div class="kpi-card violet"><div class="kv">0.315</div><div class="kt">Conflict-to-Teamwork Ratio</div></div>
   </div>
 
   <div class="formula-box">
@@ -661,7 +661,7 @@ df['Conflict_Teamwork_Ratio'] = df['Conflict_Resolution_Cases'] / (df['Teamwork_
 
   <div class="insight-box teal">
     <div class="insight-label">🏆 Headline Finding — Calibrated</div>
-    <div class="insight-text"><!-- S3_Q13_HEADLINE_START -->Employee Engagement Shows Minimal Direct Impact on Retention and Satisfaction, but High Risk Exists for Disengaged Employees<!-- S3_Q13_HEADLINE_END --><!-- S3_Q13_HEADLINE_END --></div>
+    <div class="insight-text"><!-- S3_Q13_HEADLINE_START -->Employee Engagement Shows Minimal Direct Impact on Job Satisfaction and Retention<!-- S3_Q13_HEADLINE_END --><!-- S3_Q13_HEADLINE_END --></div>
   </div>
 
   <!-- EFFECT SIZE CALIBRATION -->
@@ -721,7 +721,7 @@ df['Retention_Risk_Index'] = (1 - df['Engagement_Score']/100)*0.4 + (1 - df['Sat
 
   <div class="insight-box dark">
     <div class="insight-label">💡 Corrected Management Pathway</div>
-    <div class="insight-text"><!-- S3_Q13_BUSINESS_START -->Focusing solely on increasing engagement scores may not yield significant improvements in retention or satisfaction. However, neglecting employees with very low job satisfaction, regardless of their engagement score, poses a substantial retention risk.<!-- S3_Q13_BUSINESS_END --><!-- S3_Q13_BUSINESS_END --></div>
+    <div class="insight-text"><!-- S3_Q13_BUSINESS_START -->The weak correlation between engagement and satisfaction/retention suggests that current engagement initiatives may not be effectively translating into tangible improvements in employee retention or overall job satisfaction. This could lead to continued turnover and associated costs if not addressed.<!-- S3_Q13_BUSINESS_END --><!-- S3_Q13_BUSINESS_END --></div>
   </div>
 </div>
 
@@ -848,7 +848,7 @@ df['Innovation_Gap'] = df['Initiative_Rating'] * (1 - df['Innovation_Projects_In
           <td><strong>Q12</strong></td>
           <td>Conflict-Teamwork Ratio as isolation metric</td>
           <td>Derived ratio</td>
-          <td>0.678 (gap group)</td>
+          <td>0.315 (overall mean)</td>
           <td>Diagnostic metric</td>
           <td><span class="badge-pill pill-blue">Useful screen</span></td>
           <td>Ratio embeds both variables — use for cohort identification, not independent validation</td>
@@ -926,7 +926,7 @@ df['Innovation_Gap'] = df['Initiative_Rating'] * (1 - df['Innovation_Projects_In
 </div>
 
 <footer>
-  <p>Quantiphi HR Analytics Platform · Section 3: Soft Skills &amp; Engagement</p>
+  <p>HR Analytics Platform · Section 3: Soft Skills &amp; Engagement</p>
   <p style="margin-top:8px;">Dataset: 4,001 Employees · Analysis: LLM-Driven Inference · Built with <strong>Chart.js</strong></p>
 </footer>
 

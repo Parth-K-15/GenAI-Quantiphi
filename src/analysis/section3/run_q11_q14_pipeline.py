@@ -71,6 +71,21 @@ def main() -> None:
         ([sys.executable, "src/analysis/section3/q12_conflict_teamwork_contradiction.py"], "Q12 analysis"),
         ([sys.executable, "src/analysis/section3/q13_engagement_impact.py"], "Q13 analysis"),
         ([sys.executable, "src/analysis/section3/q14_initiative_innovation_gap.py"], "Q14 analysis"),
+        (
+            [
+                sys.executable,
+                "src/analysis/enhance_reports_schema.py",
+                "reports/section3/q11_soft_skill_clustering.json",
+                "reports/section3/q12_conflict_teamwork_contradiction.json",
+                "reports/section3/q13_engagement_impact.json",
+                "reports/section3/q14_initiative_innovation_gap.json",
+                "--ensure-evidence",
+                "--normalize-insights",
+                "--add-local-meta",
+                "--quiet",
+            ],
+            "Section 3 schema enhancement",
+        ),
     ]
 
     if args.with_llm:

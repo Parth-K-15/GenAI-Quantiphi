@@ -114,17 +114,140 @@
     }
   },
   "llm_insights": {
-    "headline_finding": "The difference between Basic and Advanced training programs is smaller than expected \u2014 Training Effectiveness scores are similar across program types, suggesting the program label is less important than how the training is applied.",
-    "advanced_insight": "Organizations should shift from 'training level-based programs' to 'impact-based training design', focusing on measurable outcomes rather than content complexity. A Basic program with high Training_Effectiveness outperforms an Advanced program with low ROI.",
-    "effectiveness_redefinition": "We redefine training success using Training Effectiveness (ROI), enabling comparison across program types beyond traditional labels. This framework empowers HR to evaluate programs by their real-world performance impact rather than complexity tiers.",
-    "cross_segment_insight": "The cross-segmentation (Training_Program \u00d7 Training_ROI_Level) reveals which program type actually produces Very High ROI employees \u2014 and which produces the most Low ROI outcomes. This is the definitive evidence for impact-based redesign.",
-    "career_growth_insight": "Career growth metrics (promotions, goal achievement, resignation rate) show marginal differences across program types, reinforcing that career outcomes are driven by individual readiness and organizational context \u2014 not program level alone.",
-    "system_proposal": {
-      "shift": "Move from 'Basic / Advanced' labels to 'Effectiveness Tier' classification.",
-      "measure": "Track Training_Effectiveness monthly per program cohort.",
-      "design": "Redesign programs based on which content modules produce the highest ROI improvement.",
-      "assign": "Match employees to programs based on Training Readiness Score (Q10), not job title or seniority."
+    "headline": "Advanced Training Programs Show Slightly Higher Effectiveness and Engagement, but Basic Programs Lead in Project Success",
+    "key_insight_1": "Advanced training programs demonstrate a marginal advantage in Training Effectiveness (0.1983 vs 0.1976) and Employee Engagement Score (80.25 vs 79.77), suggesting a potential for greater impact. However, Basic programs are associated with a higher project success rate (30.42% vs 34.44% for Advanced, which is a negative delta).",
+    "key_insight_2": "Despite similar average performance ratings (9.8974 for Basic vs 9.8683 for Advanced) and number of promotions (0.8092 for Basic vs 0.7989 for Advanced), Basic training programs are linked to a higher project success rate (30.42%) compared to Advanced programs (34.44%). This indicates that the type of training may influence different aspects of performance.",
+    "hidden_insight": "Employees in 'Unknown' training programs exhibit the highest average performance rating (9.9773) and the highest percentage of career achieved (33.28%), alongside the highest resignation rate (51.71%), suggesting a potential disconnect between their development and retention.",
+    "risk_alert": "The 'Unknown' training program category, while showing high performance and career achievement, also has the highest resignation rate (51.71%). This indicates a significant risk of losing high-performing talent who may not be adequately supported or recognized through formal training structures.",
+    "business_implication": "The subtle differences in effectiveness and engagement between Basic and Advanced programs, coupled with the contrasting impact on project success, suggest that training program design and content should be tailored to specific performance outcomes. The high attrition in the 'Unknown' category signals a critical need to understand and address the needs of this employee segment to improve retention.",
+    "action_plan": [
+      "Investigate the content and delivery of 'Unknown' training programs to identify best practices and address potential gaps contributing to high resignations.",
+      "Analyze the specific skills and knowledge gained from Basic vs. Advanced programs to understand why Basic programs correlate with higher project success rates.",
+      "Explore the drivers behind the slightly higher Employee Engagement Score in Advanced programs to see if these elements can be incorporated into Basic programs.",
+      "Conduct further analysis to understand the factors contributing to the higher project success rate in Basic programs, considering if it's due to foundational skill development or other contextual factors."
+    ],
+    "standout_statement": "While Advanced training shows marginal gains in effectiveness and engagement, Basic training programs are surprisingly linked to higher project success rates, and a significant retention risk is identified within the 'Unknown' training category.",
+    "confidence_note": "The observed differences in performance metrics between training program types are directional and not statistically significant. Correlation does not imply causation; other factors may influence these outcomes."
+  },
+  "llm_evidence": {
+    "question": "Q9 - Training Program Type Comparison (Basic vs Advanced): Performance & Career Growth",
+    "training_effectiveness_metric": {
+      "formula": "Training_Effectiveness = Training_ROI = Performance_Rating / (Professional_Development_Hours + 1)",
+      "rationale": "We redefine training success using Training Effectiveness (ROI), enabling comparison across program types beyond traditional labels. This shifts evaluation from 'what level is the program?' to 'what performance impact does the program generate?'"
     },
-    "power_statement": "The best training program is not the most advanced one \u2014 it is the one that produces the highest measurable impact per hour invested. Training_Effectiveness is the definitive benchmark that replaces the outdated Basic/Advanced binary."
+    "cross_segment_program_x_roi_level": {
+      "Basic": {
+        "Low": 25.79,
+        "Medium": 24.86,
+        "High": 24.21,
+        "Very High": 25.14
+      },
+      "Advanced": {
+        "Low": 25.12,
+        "Medium": 25.04,
+        "High": 24.73,
+        "Very High": 25.12
+      },
+      "Unknown": {
+        "Low": 25.02,
+        "Medium": 24.26,
+        "High": 26.46,
+        "Very High": 24.26
+      }
+    },
+    "program_kpi_summary": {
+      "Basic": {
+        "count": 1384,
+        "avg_promotions": 0.8092,
+        "avg_performance": 9.8974,
+        "avg_effectiveness": 0.1976,
+        "avg_dev_hours": 50.1395,
+        "career_achieved_pct": 31.21,
+        "resignation_pct": 49.57,
+        "project_success_pct": 30.42,
+        "high_leadership_pct": 31.21
+      },
+      "Advanced": {
+        "count": 1298,
+        "avg_promotions": 0.7989,
+        "avg_performance": 9.8683,
+        "avg_effectiveness": 0.1983,
+        "avg_dev_hours": 49.8159,
+        "career_achieved_pct": 32.82,
+        "resignation_pct": 48.77,
+        "project_success_pct": 34.44,
+        "high_leadership_pct": 32.97
+      },
+      "Unknown": {
+        "count": 1319,
+        "avg_promotions": 0.8279,
+        "avg_performance": 9.9773,
+        "avg_effectiveness": 0.198,
+        "avg_dev_hours": 50.4549,
+        "career_achieved_pct": 33.28,
+        "resignation_pct": 51.71,
+        "project_success_pct": 31.77,
+        "high_leadership_pct": 32.98
+      }
+    },
+    "programs_found": [
+      "Basic",
+      "Advanced",
+      "Unknown"
+    ],
+    "program_effectiveness_distribution": {
+      "Advanced": {
+        "eff_mean": 0.1983,
+        "eff_median": 0.1915,
+        "eff_std": 0.069,
+        "eff_min": 0.04,
+        "eff_max": 0.5789
+      },
+      "Basic": {
+        "eff_mean": 0.1976,
+        "eff_median": 0.1915,
+        "eff_std": 0.0682,
+        "eff_min": 0.0351,
+        "eff_max": 0.5405
+      },
+      "Unknown": {
+        "eff_mean": 0.198,
+        "eff_median": 0.1923,
+        "eff_std": 0.0697,
+        "eff_min": 0.02,
+        "eff_max": 0.5217
+      }
+    },
+    "basic_vs_advanced_direct": {
+      "basic_means": {
+        "Performance_Rating": 9.8974,
+        "Training_Effectiveness": 0.1976,
+        "Number_Of_Promotions": 0.8092,
+        "Employee_Engagement_Score": 79.7673,
+        "Employee_Work_Life_Balance_Rating": 7.8988,
+        "Avg_Skills_Score": 7.9254
+      },
+      "advanced_means": {
+        "Performance_Rating": 9.8683,
+        "Training_Effectiveness": 0.1983,
+        "Number_Of_Promotions": 0.7989,
+        "Employee_Engagement_Score": 80.2535,
+        "Employee_Work_Life_Balance_Rating": 8.0131,
+        "Avg_Skills_Score": 7.9864
+      },
+      "delta": {
+        "Performance_Rating": -0.0291,
+        "Training_Effectiveness": 0.0007,
+        "Number_Of_Promotions": -0.0103,
+        "Employee_Engagement_Score": 0.4862,
+        "Employee_Work_Life_Balance_Rating": 0.1143,
+        "Avg_Skills_Score": 0.061
+      }
+    }
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1779826970,
+    "evidence_char_length": 2515
   }
 }

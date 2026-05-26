@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Section 2: Training, Mentorship & Development | Quantiphi HR Dashboard</title>
+<title>Section 2: Training, Mentorship & Development | HR Dashboard</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
@@ -518,7 +518,7 @@
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
     </a>
   </div>
-  <h1>Quantiphi HR Intelligence Command Center</h1>
+  <h1>HR Intelligence Command Center</h1>
   <p>Section 2 · Training &amp; L&amp;D Performance ROI · 4,001 Employees · Advanced Competency Modeling</p>
   <span class="badge">Section 2 · Training ROI &amp; Mentorship (Q6–Q10)</span>
 </header>
@@ -545,7 +545,7 @@
 
   <div class="insight-box teal">
     <div class="insight-label">🔑 Headline Finding</div>
-    <div class="insight-text"><!-- S2_Q6_HEADLINE_START --><!-- S2_Q6_HEADLINE_END --><!-- S2_Q6_HEADLINE_END --></div>
+    <div class="insight-text"><!-- S2_Q6_HEADLINE_START -->Professional Development Hours Show Negligible Correlation with Performance and Promotions, While Training Impact is Highly Positive<!-- S2_Q6_HEADLINE_END --><!-- S2_Q6_HEADLINE_END --></div>
   </div>
 
   <div class="kpi-row">
@@ -615,7 +615,7 @@ df['Training_Impact'] = df['Performance_Rating'] / (df['Professional_Development
 
   <div class="insight-box orange">
     <div class="insight-label">🏆 Headline Finding</div>
-    <div class="insight-text"><!-- S2_Q7_HEADLINE_START --><!-- S2_Q7_HEADLINE_END --><!-- S2_Q7_HEADLINE_END --></div>
+    <div class="insight-text"><!-- S2_Q7_HEADLINE_START -->Mentor Rating and Experience Show Minimal Impact on Internship Conversion and Performance<!-- S2_Q7_HEADLINE_END --><!-- S2_Q7_HEADLINE_END --></div>
   </div>
 
   <div class="kpi-row">
@@ -663,7 +663,7 @@ df['Mentorship_Dependency'] = df['Mentor_Rating'] / (df['Performance_Rating'] + 
 
   <div class="insight-box violet">
     <div class="insight-label">💡 Counter-Intuitive Insight</div>
-    <div class="insight-text"><!-- S2_Q7_HIDDEN_START --><!-- S2_Q7_HIDDEN_END --><!-- S2_Q7_HIDDEN_END --></div>
+    <div class="insight-text"><!-- S2_Q7_HIDDEN_START -->The mentorship dependency metric, calculated as Mentor_Rating / (Performance_Rating + 1), reveals that 15.05% of employees (602 individuals) exhibit high dependency with low performance. This indicates a significant portion of the workforce may be relying heavily on mentorship without commensurate performance gains, suggesting mentorship might be compensating for struggles rather than driving growth.<!-- S2_Q7_HIDDEN_END --><!-- S2_Q7_HIDDEN_END --></div>
   </div>
 
   <div class="two-col">
@@ -678,7 +678,7 @@ df['Mentorship_Dependency'] = df['Mentor_Rating'] / (df['Performance_Rating'] + 
       </table>
       <div class="insight-box blue" style="margin-top:12px;">
         <div class="insight-label">📌 Note</div>
-        <div class="insight-text" style="font-size:0.88em;"><!-- S2_Q7_ALERT_START -->Conversion rates under junior mentors are 49.9%.<!-- S2_Q7_ALERT_END --><!-- S2_Q7_ALERT_END --></div>
+        <div class="insight-text" style="font-size:0.88em;"><!-- S2_Q7_ALERT_START -->A weak correlation (r = -0.5911) between mentorship dependency and performance indicates that increased dependency does not lead to improved performance. This suggests a potential systemic issue where mentorship is not effectively translating into improved output for a substantial segment of employees, potentially masking underlying performance gaps.<!-- S2_Q7_ALERT_END --><!-- S2_Q7_ALERT_END --></div>
       </div>
     </div>
     <div>
@@ -707,7 +707,7 @@ df['Mentorship_Dependency'] = df['Mentor_Rating'] / (df['Performance_Rating'] + 
 
   <div class="insight-box violet">
     <div class="insight-label">🏆 Headline Finding</div>
-    <div class="insight-text"><!-- S2_Q8_HEADLINE_START --><!-- S2_Q8_HEADLINE_END --><!-- S2_Q8_HEADLINE_END --></div>
+    <div class="insight-text"><!-- S2_Q8_HEADLINE_START -->Training Investment Yields Diminishing Returns for Underperforming Employees<!-- S2_Q8_HEADLINE_END --><!-- S2_Q8_HEADLINE_END --></div>
   </div>
 
   <div class="kpi-row">
@@ -756,7 +756,7 @@ df['Training_ROI_Level'] = pd.qcut(df['Training_ROI'], 4,
 
   <div class="insight-box orange">
     <div class="insight-label">💡 Sharpest Finding in Section 2</div>
-    <div class="insight-text"><!-- S2_Q8_HIDDEN_START --><!-- S2_Q8_HIDDEN_END --><!-- S2_Q8_HIDDEN_END --></div>
+    <div class="insight-text"><!-- S2_Q8_HIDDEN_START -->Employees with 'No' resignation status represent 50.6% of the 'Low' Training ROI group, whereas 'Yes' resignation status accounts for 51.7% of the 'Very High' Training ROI group. This suggests that while high training ROI might be associated with retention, a significant portion of employees with low training ROI are also staying, potentially indicating a mismatch in training impact or engagement.<!-- S2_Q8_HIDDEN_END --><!-- S2_Q8_HIDDEN_END --></div>
   </div>
 
   <!-- Hypotheses -->
@@ -819,7 +819,7 @@ df['Training_ROI_Level'] = pd.qcut(df['Training_ROI'], 4,
   </div>
   <div class="insight-box teal">
     <div class="insight-label">🏆 Headline Finding</div>
-    <div class="insight-text"><!-- S2_Q9_HEADLINE_START --><!-- S2_Q9_HEADLINE_END --><!-- S2_Q9_HEADLINE_END --></div>
+    <div class="insight-text"><!-- S2_Q9_HEADLINE_START -->Advanced Training Programs Show Slightly Higher Effectiveness and Engagement, but Basic Programs Lead in Project Success<!-- S2_Q9_HEADLINE_END --><!-- S2_Q9_HEADLINE_END --></div>
   </div>
   <div class="kpi-row">
     <div class="kpi-card"><div class="kv">1,384</div><div class="kt">Basic Program Employees</div></div>
@@ -847,7 +847,7 @@ df['Training_ROI_Level'] = pd.qcut(df['Training_ROI'], 4,
   </table>
   <div class="insight-box orange">
     <div class="insight-label">💡 System Proposal — Impact-Based Training Design</div>
-    <div class="insight-text"><!-- S2_Q9_BUSINESS_START --><!-- S2_Q9_BUSINESS_END --><!-- S2_Q9_BUSINESS_END --></div>
+    <div class="insight-text"><!-- S2_Q9_BUSINESS_START -->The subtle differences in effectiveness and engagement between Basic and Advanced programs, coupled with the contrasting impact on project success, suggest that training program design and content should be tailored to specific performance outcomes. The high attrition in the 'Unknown' category signals a critical need to understand and address the needs of this employee segment to improve retention.<!-- S2_Q9_BUSINESS_END --><!-- S2_Q9_BUSINESS_END --></div>
   </div>
   <div class="findings-grid">
     <div class="finding-card"><h4>📌 Project Success Signal</h4><p>Advanced program employees show 34.44% project success rate vs 30.42% for Basic — stronger applied project impact even with similar overall performance.</p></div>
@@ -867,7 +867,7 @@ df['Training_ROI_Level'] = pd.qcut(df['Training_ROI'], 4,
   </div>
   <div class="insight-box violet">
     <div class="insight-label">🏆 Headline Finding</div>
-    <div class="insight-text"><!-- S2_Q10_HEADLINE_START --><!-- S2_Q10_HEADLINE_END --><!-- S2_Q10_HEADLINE_END --></div>
+    <div class="insight-text"><!-- S2_Q10_HEADLINE_START -->Advanced Training Readiness Score Identifies High-Potential Employees<!-- S2_Q10_HEADLINE_END --><!-- S2_Q10_HEADLINE_END --></div>
   </div>
   <div class="kpi-row">
     <div class="kpi-card green"><div class="kv">1,000</div><div class="kt">Highly Ready Employees</div></div>
@@ -923,7 +923,7 @@ Advanced_Training_Readiness =
   </table>
   <div class="insight-box dark" style="margin-top:28px;">
     <div class="insight-label">🔗 Connecting Q6 → Q7 → Q8 → Q9 → Q10</div>
-    <div class="insight-text"><!-- S2_Q10_CONFIDENCE_START --><!-- S2_Q10_CONFIDENCE_END --><!-- S2_Q10_CONFIDENCE_END --></div>
+    <div class="insight-text"><!-- S2_Q10_CONFIDENCE_START -->The insights are derived from a composite score and correlational data. While strong patterns are observed, causality cannot be definitively established without experimental data. The 'statistically significant' designation is not used as p-values were not provided.<!-- S2_Q10_CONFIDENCE_END --><!-- S2_Q10_CONFIDENCE_END --></div>
   </div>
 
   <!-- 🚀 Stand-Out Statement -->
@@ -937,7 +937,7 @@ Advanced_Training_Readiness =
 </div>
 
 <footer style="text-align:center;padding:40px;color:#9ca3af;font-size:0.88em;">
-  <p>Quantiphi HR Analytics &middot; Section 2 Complete — Q6 through Q10 &middot; <a href="section3_dashboard.html" style="color:#0d9488;font-weight:600;">Continue to Section 3 &rarr;</a></p>
+  <p>HR Analytics &middot; Section 2 Complete — Q6 through Q10 &middot; <a href="section3_dashboard.html" style="color:#0d9488;font-weight:600;">Continue to Section 3 &rarr;</a></p>
 </footer>
 
 <script>
@@ -945,7 +945,7 @@ Advanced_Training_Readiness =
 new Chart(document.getElementById('q6PerfChart'),{type:'bar',data:{labels:['Q1 Low','Q2 Med-Low','Q3 Med-High','Q4 High'],datasets:[{label:'Avg Performance',data:[9.998,9.921,9.918,9.805],backgroundColor:['#0d9488','#14b8a6','#2dd4bf','#ef4444'],borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{min:9.7,grid:{color:'#f1f5f9'}}}}});
 new Chart(document.getElementById('q6ImpactChart'),{type:'line',data:{labels:['Q1 Low','Q2 Med-Low','Q3 Med-High','Q4 High'],datasets:[{label:'Training Impact',data:[0.237,0.203,0.184,0.162],borderColor:'#f97316',backgroundColor:'rgba(249,115,22,0.1)',tension:0.4,fill:true,pointBackgroundColor:'#f97316',pointRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{grid:{color:'#f1f5f9'}}}}});
 /* Q7 */
-new Chart(document.getElementById('q7ConvChart'),{type:'bar',data:{labels:['Q1 Low','Q2 Med-Low','Q3 Med-High','Q4 High'],datasets:[{label:'Conversion Rate %',data:[49.0,49.8,49.4,51.7],backgroundColor:['#e5e7eb','#7dd3fc','#38bdf8','#f97316'],borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{min:47,grid:{color:'#f1f5f9'}}}}});
+new Chart(document.getElementById('q7ConvChart'),{type:'bar',data:{labels:['Q1 Low','Q2 Med-Low','Q3 Med-High','Q4 High'],datasets:[{label:'Conversion Rate %',data:[46.7,49.77,47.69,51.68],backgroundColor:['#e5e7eb','#7dd3fc','#38bdf8','#f97316'],borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{min:46,grid:{color:'#f1f5f9'}}}}});
 new Chart(document.getElementById('q7ExpChart'),{type:'bar',data:{labels:['Associate','Junior','Mid-Senior','Senior'],datasets:[{label:'Avg Performance',data:[10.007,9.962,9.800,9.891],backgroundColor:['#0d9488','#f97316','#ef4444','#7c3aed'],borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{min:9.6,grid:{color:'#f1f5f9'}}}}});
 new Chart(document.getElementById('q7DepChart'),{type:'doughnut',data:{labels:['High Dep + Low Perf','Rest'],datasets:[{data:[602,3399],backgroundColor:['#ef4444','#e5e7eb'],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}});
 /* Q8 */

@@ -1,108 +1,112 @@
-# HR Analytics Command Center
+# ⚙️ Quantiphi HR Intelligence Command Center
 
-End-to-end HR analytics project on `4,001` employee records, combining:
-- statistical analysis (Sections 1-7, Q1-Q25)
-- model-based reasoning
-- Gemini-powered narrative insights
-- static dashboard generation
+[![Live Dashboard](https://img.shields.io/badge/Live_Dashboard-Vercel-blue?style=for-the-badge&logo=vercel&logoColor=white)](https://hr-analytics-dashboard-three.vercel.app/index.html)
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=flat-square&logo=python&logoColor=white)](#)
+[![Gemini API](https://img.shields.io/badge/Gemini_API-2.5_Flash-8E75C2?style=flat-square&logo=google-gemini&logoColor=white)](#)
+[![Chart.js](https://img.shields.io/badge/Chart.js-4.4-FF6384?style=flat-square&logo=chartdotjs&logoColor=white)](#)
+[![Licence](https://img.shields.io/badge/License-MIT-green?style=flat-square)](#)
 
-The project outputs JSON reports, optional CSV extracts, and section dashboards under `ui/`.
+An end-to-end HR analytics pipeline executing statistical reasoning, predictive modeling, and Gemini-powered LLM insights across `4,001` employee records. The system generates high-fidelity dashboards powered by a robust Python compilation build engine.
 
-## What This Project Covers
+> [!IMPORTANT]  
+> **Explore the Live Executive Command Center:**  
+> 👉 **[https://hr-analytics-dashboard-three.vercel.app/index.html](https://hr-analytics-dashboard-three.vercel.app/index.html)**
 
-### Section 1: Performance and Skills (Q1-Q5)
-- skill influence on performance
-- high performer / low leadership signals
-- behavioral comparisons across performance bands
-- inconsistency and anomaly detection
-- ideal employee profile
+---
 
-### Section 2: Training and Development (Q6-Q10)
-- dev hours vs performance and promotions
-- mentorship impact
-- training ROI gaps
-- basic vs advanced program comparison
-- advanced training readiness scoring
+## 🗺️ Project Scope & Phase Architecture
 
-### Section 3: Soft Skills and Leadership (Q11-Q14)
-- soft-skill clustering
-- conflict-teamwork contradictions
-- engagement effects
-- initiative-innovation gap analysis
+### 🧠 Section 1: Performance and Skills (Q1-Q5)
+*   **Skill Influence**: Computes skill-to-performance correlation (revealing the *"illusion of competence"* saturation).
+*   **Silent Contributors**: Filters high performance coupled with low leadership score and high flight risk.
+*   **Band Profiling**: Multi-factor statistical comparisons across high, medium, and low performance cohorts.
+*   **Anomaly Detection**: Flags high-skill individuals in failed projects (burnout and overtime mediators).
+*   **Ideal Employee Profile**: Synthesizes optimal composite threshold variables into a reusable talent metric.
 
-### Section 4: Project Execution (Q15-Q18)
-- project complexity and size impact
-- successful vs failed project patterns
-- success prediction model
-- role-wise execution comparison
+### 📚 Section 2: Training & L&D ROI (Q6-Q10)
+*   **Training Gaps**: Dev hours compared to performance ratings and promotions (hours vs. effectiveness).
+*   **Mentorship Impact**: Maps mentor rating/dependency (revealing mentorship as a compensatory buffer).
+*   **ROI Analysis**: Segments low-ROI vs. high-ROI training groups.
+*   **Program Comparison**: Rigorous $p$-value comparisons of Basic vs. Advanced training programs.
+*   **Advanced Training Readiness**: Trains a multi-factor logic classifier to select target cohorts.
 
-### Section 5: Attrition and Retention (Q19-Q21)
-- multi-variable resignation drivers
-- attrition risk profiling
-- resigned vs retained comparisons
+### 🗣️ Section 3: Soft Skills & Behavioral Clustering (Q11-Q14)
+*   **Behavioral Clustering**: Uses **K-Means Clustering** to partition employees into 4 distinct behavioral archetypes.
+*   **The Collaboration Paradox**: Resolves the conflict-teamwork variance.
+*   **Engagement Signals**: Evaluates engagement levels against direct retention indicators.
+*   **Initiative-Innovation Gap**: Spots high-initiative employees lacking active innovation opportunities.
 
-### Section 6: Compensation and Benefits (Q22-Q24)
-- pay-performance relationships
-- underpaid employee identification
-- benefits impact on retention and satisfaction
+### 🚀 Section 4: Project Execution Analytics (Q15-Q18)
+*   **Complexity & Scope**: Evaluates whether project size or complexity independently predict failure.
+*   **Department Outcomes**: Tracks success patterns (Finance success vs. Sales execution gaps).
+*   **Success Predictor**: Random Forest model mapping environmental vs. skill factors.
+*   **Role Profiling**: ANOVA calculations across Managers, Developers, and Analysts.
 
-### Section 7: Recruitment Impact (Q25)
-- hiring source, time-to-hire, and cost impact on outcomes
+### 🚪 Section 5: Attrition & Retention (Q19-Q21)
+*   **Resignation Drivers**: Logistic regression mapping dominant attrition drivers (WLB, overtime, delay).
+*   **Flight Risk Profiling**: Pinpoints the organization's **top 201 high-value flight risk employees**.
+*   **Resigned vs. Retained**: Conducts independent t-tests on critical retention features.
 
-## Repository Layout
+### 💵 Section 6: Compensation & Benefits (Q22-Q24)
+*   **Pay-Performance Disconnect**: Uncovers correlation ($r \approx 0.0$) between compensation and performance.
+*   **Underpaid Contributors**: Identifies high-performing employees positioned in low salary bands.
+*   **Benefits Correlation**: Evaluates stock options, health, and retirement options on employee retention.
+
+### 🔍 Section 7: Recruitment Impact (Q25)
+*   **Talent Sourcing**: Multi-variable audit of time-to-hire, hiring costs, and performance by recruitment channel.
+
+---
+
+## 📂 Repository Structure
 
 ```text
-data/
-  raw/employee_data.csv
-  processed/employee_data_cleaned.csv
-  processed/employee_data_final.csv
-reports/
-  preprocessing_report.json
-  preprocessing_phase2_report.json
-  section1..section7/*.json, *.csv
-src/
-  preprocessing/
-  analysis/section1..section7/
-  llm_section4_insights_generator.py
-ui/
-  index.html
-  section1_dashboard.html ... section7_dashboard.html
+├── data/
+│   ├── raw/employee_data.csv                 # Canonical raw dataset (4,001 rows)
+│   └── processed/
+│       ├── employee_data_cleaned.csv         # Cleaned baseline dataset
+│       └── employee_data_final.csv           # Final processed dataset with derived features
+├── reports/
+│   ├── preprocessing_report.json             # Cleaning pipeline validation
+│   ├── preprocessing_phase2_report.json      # Feature engineering validation
+│   └── section1..7/                          # Question-level JSON reports and target CSV extracts
+├── src/
+│   ├── preprocessing/                        # Cleaning and engineering scripts
+│   ├── analysis/
+│   │   └── section1..7/                      # Modular analysis pipelines
+│   └── llm_section4_insights_generator.py    # Gemini inference orchestrator
+└── ui/
+    ├── index.html                            # Dynamic Command Center (Interactive Stepper)
+    └── section1_dashboard.html..section7_dashboard.html  # Upgraded high-fidelity dashboards
 ```
 
-## Prerequisites
+---
 
-- Python `3.10+` (recommended `3.11`)
-- PowerShell (Windows) or any shell
-- Gemini API key for LLM insight generation
+## 🚀 Quick Start Guide
 
-Install dependencies:
+### 1. Prerequisites & Setup
+*   Requires Python `3.10+` (Recommended `3.11`)
+*   Install dependencies:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-```bash
-pip install -r requirements.txt
-```
-
-## Environment Setup
-
-1. Copy `.env.example` to `.env`.
-2. Set your key:
-
+### 2. Environment Configuration
+Create a `.env` file in the repository root:
 ```env
-GEMINI_API_KEY=your_key_here
+GEMINI_API_KEY=your_gemini_api_key_here
+GEMINI_MODEL_NAME=gemini-2.5-flash,gemini-2.5-flash-lite
+GEMINI_MIN_REQUEST_GAP_SEC=13
+GEMINI_OVERLOAD_RETRY_LIMIT=3
 ```
 
-Optional settings:
-- `GEMINI_MODEL_NAME` (comma-separated model candidates)
-- `GEMINI_MIN_REQUEST_GAP_SEC` (default: `13`)
-- `GEMINI_OVERLOAD_RETRY_LIMIT` (default: `2` or `3` depending on script defaults)
-
-## Quick Start (End-to-End)
-
-Run from repo root:
-
+### 3. Run End-to-End Pipeline
+Run the data cleaning, feature engineering, and statistical calculation routines:
 ```powershell
+# 1. Preprocess & Feature Engineer
 python src/preprocessing/preprocess.py
 python src/preprocessing/preprocess_phase2.py
 
+# 2. Execute Analytics Pipelines (with Gemini active)
 python src/analysis/section1/run_q1_q5_pipeline.py --with-llm --llm-quiet
 python src/analysis/section2/run_q6_q10_pipeline.py --with-llm --llm-quiet
 python src/analysis/section3/run_q11_q14_pipeline.py --with-llm --llm-quiet
@@ -111,94 +115,52 @@ python src/analysis/section5/run_q19_q20_pipeline.py --with-llm --llm-quiet
 python src/analysis/section6/run_q22_q23_pipeline.py --with-llm --llm-quiet
 python src/analysis/section7/run_q25_pipeline.py --with-llm --llm-quiet
 
-python src/analysis/compile_dashboards.py
+# 3. Compile and Style Dashboards
+python src/analysis/upgrade_ui.py
 ```
 
-Then serve UI locally:
-
+### 4. Serve Dashboards Locally
+Start a lightweight Python HTTP server to view dashboards offline:
 ```powershell
 python -m http.server 8000
 ```
+Then navigate to: **`http://localhost:8000/ui/index.html`**
 
-Open:
-- `http://localhost:8000/ui/index.html`
+---
 
-## Section Pipelines
+## ⚙️ Modular Pipelines Reference
 
-Each section has a runner script that executes all question-level analyses and can optionally enrich results with Gemini.
+Each section is powered by a dedicated pipeline runner, allowing target execution:
 
-| Section | Runner |
-|---|---|
-| 1 (Q1-Q5) | `src/analysis/section1/run_q1_q5_pipeline.py` |
-| 2 (Q6-Q10) | `src/analysis/section2/run_q6_q10_pipeline.py` |
-| 3 (Q11-Q14) | `src/analysis/section3/run_q11_q14_pipeline.py` |
-| 4 (Q15-Q18) | `src/analysis/section4/run_q15_q16_pipeline.py` |
-| 5 (Q19-Q21) | `src/analysis/section5/run_q19_q20_pipeline.py` |
-| 6 (Q22-Q24) | `src/analysis/section6/run_q22_q23_pipeline.py` |
-| 7 (Q25) | `src/analysis/section7/run_q25_pipeline.py` |
+| Section | Target Domain | Command Pipeline |
+| :--- | :--- | :--- |
+| **Section 1** | Performance & Skills | `python src/analysis/section1/run_q1_q5_pipeline.py` |
+| **Section 2** | Training & Mentorship | `python src/analysis/section2/run_q6_q10_pipeline.py` |
+| **Section 3** | Soft Skills & Clustering | `python src/analysis/section3/run_q11_q14_pipeline.py` |
+| **Section 4** | Project Execution | `python src/analysis/section4/run_q15_q16_pipeline.py` |
+| **Section 5** | Attrition & Retention | `python src/analysis/section5/run_q19_q20_pipeline.py` |
+| **Section 6** | Compensation & Benefits | `python src/analysis/section6/run_q22_q23_pipeline.py` |
+| **Section 7** | Recruitment ROI | `python src/analysis/section7/run_q25_pipeline.py` |
 
-Common flags:
-- `--with-llm` run Gemini insight generation
-- `--llm-quiet` reduce logs
-- `--llm-delay <seconds>` inter-file delay
-- `--llm-model <model_name>` preferred model
-- `--llm-strict-model` disable fallback candidates
+---
 
-## LLM Insight Generation
+## 💡 Gemini Narrative Integration Engine
 
-Primary generator:
-- `src/llm_section4_insights_generator.py`
+*   **Inference Orchestrator**: Governed by `src/llm_section4_insights_generator.py`.
+*   **Behavioral Principles**: Injects structured schemas directly into local report stores, verifying data grounding to avoid hallucination.
+*   **Throttling & Fallbacks**: Automatically handles API quota limits (`429` / `503`) through exponential backoff throttling and automatic model fallbacks (`gemini-2.5-flash` $\rightarrow$ `gemini-2.5-flash-lite`).
 
-Current behavior:
-- used by all section pipeline runners when `--with-llm` is enabled
-- writes/overwrites `llm_insights` in report JSON files
-- adds `llm_generation_meta` with model and timestamp
-- includes retries, throttling, and model fallback handling
+---
 
-Legacy script:
-- `src/llm_insights_generator.py` (older Section-3-focused flow)
-- prefer the section pipeline runners or `llm_section4_insights_generator.py`
+## 🛠️ Troubleshooting & Local Build Tips
 
-## Dashboard Build Notes
+*   **Missing Report Warnings**: Ensure you run the individual section pipeline script first to generate the raw statistical JSON files before running `upgrade_ui.py`.
+*   **CORS Local Browser Block**: Modern browsers block `fetch()` operations when HTML files are opened directly via `file://`. **Our compiler solves this** by injecting JSON payloads directly into comments (`<!-- Anchor_START -->`), allowing 100% offline usage without a local server.
+*   **Vercel / Hosting Deployment**: To deploy to hosting, simply push the repository to GitHub and link Vercel to serve the `ui/` directory.
 
-- `src/analysis/compile_dashboards.py` currently compiles dynamic content for `section1`, `section2`, and `section3` dashboards from JSON reports.
-- `section4` to `section7` dashboards exist in `ui/`, but are not currently rebuilt by `compile_dashboards.py`.
-- `src/analysis/upgrade_ui.py` applies UI restyling for sections 1-3 and then calls `compile_dashboards.py`.
+---
 
-## Output Artifacts
+## 🔬 Reproducibility Guarantee
 
-Generated artifacts include:
-- preprocessed datasets in `data/processed/`
-- statistical reports in `reports/section*/q*.json`
-- targeted employee lists in selected CSVs (for example top candidates / underpaid / at-risk subsets)
-- dashboard HTML in `ui/`
-
-## Troubleshooting
-
-### `GEMINI_API_KEY is not set`
-- Ensure `.env` exists at repo root and contains a valid key.
-
-### `ModuleNotFoundError`
-- Reinstall dependencies:
-  - `pip install -r requirements.txt`
-
-### Gemini `429` or `503` errors
-- Increase delay:
-  - add `--llm-delay 15` or `--llm-delay 20`
-- Use a lighter model:
-  - `--llm-model gemini-2.5-flash-lite`
-
-### Dashboard not reflecting updated reports
-- Re-run:
-  - `python src/analysis/compile_dashboards.py`
-- Refresh browser cache.
-
-### Missing report warnings during compile
-- Run the corresponding section pipeline first to generate required JSON files.
-
-## Reproducibility Notes
-
-- Use `data/raw/employee_data.csv` as the canonical input.
-- Run preprocessing phase 1 and phase 2 before section analyses for consistent derived features.
-- Keep `.env` private (`.gitignore` already excludes it).
-
+*   **Canon Data**: Always use `data/raw/employee_data.csv` as the baseline.
+*   **Execution Order**: Run preprocessing files before initiating analytical modules to ensure correct calculations for derived features.
