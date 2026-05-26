@@ -143,26 +143,93 @@
     }
   },
   "llm_reasoning": {
-    "anomaly_A_headline": "346 employees (8.6%) show high skills yet are associated with failed projects \u2014 a critical inconsistency.",
-    "anomaly_B_headline": "949 employees with below-average skills achieved project success, reinforcing that teamwork, context and luck play significant roles.",
+    "anomaly_A_headline": "346 employees (8.6%) show high skills yet failed project outcomes.",
+    "anomaly_B_headline": "949 employees with below-threshold skill composites still achieved success.",
     "reasons_for_anomaly_A": [
-      "Lower engagement despite high skills \u2014 disengaged employees underperform in execution.",
-      "More conflict cases \u2014 team friction may derail otherwise skilled employees.",
-      "Higher overtime \u2014 burnout risk may reduce effective contribution despite high skill.",
-      "Poorer work-life balance \u2014 organizational stress dampens skilled output.",
-      "Lower training efficiency \u2014 skills exist but are not being applied effectively.",
-      "Project complexity mismatch \u2014 highly skilled employees placed on overly complex projects without adequate support.",
-      "Leadership or team dynamics issues \u2014 individual skill does not guarantee team-level project success.",
-      "Skills may be domain-specific and not aligned to the project type assigned.",
-      "External/organizational factors (deadlines, resources) \u2014 not captured by skill ratings alone."
+      "Lower engagement despite high skills suggests execution friction.",
+      "Higher overtime indicates possible burnout and delivery instability.",
+      "Poorer work-life balance can reduce effective output under project pressure.",
+      "Lower training efficiency suggests skills are not translating into outcomes.",
+      "Project-role alignment and team dynamics can outweigh individual skill ratings.",
+      "Skill depth may be domain-specific and mismatched to assigned project demands."
     ],
-    "key_insight": "Skill ratings are necessary but not sufficient for project success. Engagement, work conditions, team dynamics and project-role alignment are critical mediating factors.",
-    "business_implication": "Organizations should not rely solely on skill assessments for project staffing. Engagement, WLB, role-project alignment and team composition must be evaluated together.",
-    "project_complexity_note": "Project complexity is mixed in failure cases (Simple ~39%, Complex ~31.5%), suggesting failure is not purely due to complexity but also organizational and execution factors \u2014 even simple projects fail when engagement and alignment are poor."
+    "key_insight": "Skill ratings are necessary but not sufficient for project success; operating context mediates outcomes."
   },
   "outcome_distribution": {
     "In Progress": 1386,
     "Failed": 1328,
     "Successful": 1287
+  },
+  "llm_evidence": {
+    "skill_threshold_75pct": 8.667,
+    "segment_counts": {
+      "high_skill_failed_anomaly_A": 346,
+      "low_skill_successful_anomaly_B": 949,
+      "high_skill_successful_expected": 338,
+      "total": 4001
+    },
+    "anomaly_A_pct_of_high_skill": 50.6,
+    "numeric_deltas_anomaly_A_minus_expected": {
+      "Performance_Rating": -0.169,
+      "Employee_Engagement_Score": -0.312,
+      "Employee_Job_Satisfaction_Score": 0.067,
+      "Overtime_Hours_Per_Week": 0.074,
+      "Conflict_Resolution_Cases": 0.003,
+      "Mentor_Rating": -0.029,
+      "Work_Hours_Per_Week": -0.195,
+      "Employee_Work_Life_Balance_Rating": -0.106,
+      "Training_Efficiency": -0.003,
+      "Engagement_Index": -0.075
+    },
+    "anomaly_A_numeric_means": {
+      "Performance_Rating": 9.861,
+      "Employee_Engagement_Score": 79.584,
+      "Employee_Job_Satisfaction_Score": 7.884,
+      "Overtime_Hours_Per_Week": 7.246,
+      "Conflict_Resolution_Cases": 2.503,
+      "Mentor_Rating": 7.829,
+      "Work_Hours_Per_Week": 39.841,
+      "Employee_Work_Life_Balance_Rating": 7.858,
+      "Training_Efficiency": 0.196,
+      "Engagement_Index": 25.358
+    },
+    "expected_numeric_means": {
+      "Performance_Rating": 10.03,
+      "Employee_Engagement_Score": 79.896,
+      "Employee_Job_Satisfaction_Score": 7.817,
+      "Overtime_Hours_Per_Week": 7.172,
+      "Conflict_Resolution_Cases": 2.5,
+      "Mentor_Rating": 7.858,
+      "Work_Hours_Per_Week": 40.036,
+      "Employee_Work_Life_Balance_Rating": 7.964,
+      "Training_Efficiency": 0.199,
+      "Engagement_Index": 25.433
+    },
+    "outcome_distribution": {
+      "In Progress": 1386,
+      "Failed": 1328,
+      "Successful": 1287
+    }
+  },
+  "llm_insights": {
+    "headline": "Skill-Performance Inconsistency: High-Skill Employees Show Performance Drop",
+    "key_insight_1": "A significant portion of high-skill employees (50.6%, or 346 individuals) are experiencing performance anomalies (Anomaly A), indicating a potential disconnect between skill acquisition and successful task completion. These employees show a -0.169 delta in Performance Rating compared to expected means.",
+    "key_insight_2": "Employees exhibiting Anomaly A, characterized by high skill but underperformance, report lower average Employee Engagement Scores (79.584 vs. expected 79.896) and Work-Life Balance Ratings (7.858 vs. expected 7.964). This suggests potential burnout or dissatisfaction impacting performance.",
+    "hidden_insight": "Despite a high skill threshold (75th percentile at 8.667), the 'Failed' outcome category has the highest count (1328), closely followed by 'In Progress' (1386), while 'Successful' outcomes are lower (1287). This indicates a systemic issue where high skill does not consistently translate to successful project completion.",
+    "risk_alert": "The prevalence of high-skill employees failing to meet performance expectations (50.6% of high-skill employees in Anomaly A) poses a risk to project timelines, quality, and overall productivity. This could lead to increased costs due to rework or project delays.",
+    "business_implication": "The organization may be under-investing in the support structures or environmental factors necessary for high-skill employees to translate their capabilities into successful outcomes. This could lead to talent attrition, reduced innovation, and missed business objectives.",
+    "action_plan": [
+      "Investigate the root causes of performance anomalies in high-skill employees, focusing on factors beyond technical skill, such as workload, management support, and role clarity.",
+      "Review and enhance performance management processes to better identify and address skill-performance gaps proactively.",
+      "Analyze the correlation between engagement, work-life balance, and performance for high-skill employees to identify potential interventions.",
+      "Evaluate the effectiveness of current training programs in ensuring skill application and performance outcomes."
+    ],
+    "standout_statement": "Over half of our high-skill employees are not meeting expected performance benchmarks, highlighting a critical gap between talent potential and realized results.",
+    "confidence_note": "The analysis identifies correlations between skill level and performance outcomes. Causal relationships cannot be definitively established without further investigation into the underlying mechanisms."
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1779822431,
+    "evidence_char_length": 1328
   }
 }

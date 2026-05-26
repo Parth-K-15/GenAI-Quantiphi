@@ -107,12 +107,12 @@
     }
   },
   "possible_reasons": [
-    "Lower conflict resolution cases suggest limited team leadership experience.",
-    "Fewer development hours may signal lack of investment in leadership-building activities.",
-    "Fewer promotions despite high performance may reflect lack of visible leadership behaviours.",
-    "Individual contributors often excel technically without needing to manage or influence others.",
-    "Role type (Analyst/Developer) may naturally limit leadership exposure.",
-    "High performance may be task/output driven rather than people/strategy driven."
+    "Lower conflict resolution cases suggest limited team leadership exposure.",
+    "Slightly lower development hours may reflect less leadership-focused upskilling.",
+    "Lower promotion velocity can signal weaker visibility of leadership behaviors.",
+    "High performers can be strong individual contributors without formal leadership orientation.",
+    "Role design may reward output delivery more than people-management capability.",
+    "Leadership potential labels may capture future readiness, not current task performance."
   ],
   "dept_breakdown": {
     "Finance": 96,
@@ -140,5 +140,99 @@
   "resignation_breakdown": {
     "No": 233,
     "Yes": 191
+  },
+  "llm_evidence": {
+    "total_high_performers": 1167,
+    "high_perf_low_leadership_count": 424,
+    "percentage_of_high_performers": 36.3,
+    "segment_numeric_means": {
+      "Performance_Rating": 13.58,
+      "Leadership_Qualities_Rating": 7.91,
+      "Technical_Skills_Rating": 7.96,
+      "Communication_Skills_Rating": 8.32,
+      "Problem_Solving_Skills_Rating": 7.99,
+      "Employee_Engagement_Score": 80.25,
+      "Employee_Job_Satisfaction_Score": 8.04,
+      "Overtime_Hours_Per_Week": 7.17,
+      "Professional_Development_Hours": 49.71,
+      "Number_Of_Promotions": 0.79,
+      "Conflict_Resolution_Cases": 2.44,
+      "Feedback_From_Supervisors": 7.05,
+      "Feedback_From_Colleagues": 6.94,
+      "Avg_Skills_Score": 8.05,
+      "Engagement_Index": 25.57
+    },
+    "comparison_means": {
+      "Performance_Rating": 13.73,
+      "Leadership_Qualities_Rating": 8.01,
+      "Technical_Skills_Rating": 8.12,
+      "Communication_Skills_Rating": 7.91,
+      "Problem_Solving_Skills_Rating": 7.97,
+      "Employee_Engagement_Score": 79.85,
+      "Employee_Job_Satisfaction_Score": 7.79,
+      "Overtime_Hours_Per_Week": 7.17,
+      "Professional_Development_Hours": 50.34,
+      "Number_Of_Promotions": 0.81,
+      "Conflict_Resolution_Cases": 2.56,
+      "Feedback_From_Supervisors": 6.83,
+      "Feedback_From_Colleagues": 6.99,
+      "Avg_Skills_Score": 7.99,
+      "Engagement_Index": 25.36
+    },
+    "numeric_deltas_segment_minus_comparison_top_abs": {
+      "Professional_Development_Hours": -0.63,
+      "Communication_Skills_Rating": 0.41,
+      "Employee_Engagement_Score": 0.4,
+      "Employee_Job_Satisfaction_Score": 0.25,
+      "Feedback_From_Supervisors": 0.22,
+      "Engagement_Index": 0.21,
+      "Technical_Skills_Rating": -0.16,
+      "Performance_Rating": -0.15,
+      "Conflict_Resolution_Cases": -0.12,
+      "Leadership_Qualities_Rating": -0.1
+    },
+    "dept_breakdown": {
+      "Finance": 96,
+      "It": 85,
+      "Sales": 84,
+      "Marketing": 80,
+      "Hr": 79
+    },
+    "role_breakdown": {
+      "Consultant": 116,
+      "Manager": 108,
+      "Analyst": 105,
+      "Developer": 95
+    },
+    "outcome_breakdown": {
+      "In Progress": 164,
+      "Successful": 130,
+      "Failed": 130
+    },
+    "resignation_breakdown": {
+      "No": 233,
+      "Yes": 191
+    }
+  },
+  "llm_insights": {
+    "headline": "High Performers with Low Leadership Potential Identified",
+    "key_insight_1": "A significant portion of high performers, specifically 424 individuals (36.3% of all high performers), exhibit lower leadership qualities compared to the average employee. This segment has an average Leadership Qualities Rating of 7.91, which is lower than the comparison mean of 8.01.",
+    "key_insight_2": "High performers with low leadership potential show a higher incidence of resignations, with 191 out of 424 (45.0%) having resigned, compared to the overall high performer resignation rate.",
+    "hidden_insight": "Despite being high performers, this segment has a slightly lower average Professional Development Hours (49.71) compared to the general employee population (50.34), a difference of -0.63 hours.",
+    "risk_alert": "The high resignation rate among high performers with low leadership potential (45.0%) signals a potential loss of critical talent and indicates a possible gap in career development or succession planning for this group.",
+    "business_implication": "Failure to identify and address the development needs of high performers with low leadership potential could lead to increased turnover, reduced bench strength for future leadership roles, and a potential decline in overall organizational performance.",
+    "action_plan": [
+      "Implement targeted leadership development programs for high performers identified with lower leadership potential.",
+      "Conduct stay interviews with this segment to understand their career aspirations and identify potential retention challenges.",
+      "Review and enhance career pathing and mentorship opportunities to better support the growth of high-potential employees.",
+      "Analyze the factors contributing to the higher resignation rate within this specific high-performer group."
+    ],
+    "standout_statement": "Over a third of our high performers are not demonstrating strong leadership potential, and nearly half of this subgroup have already resigned, highlighting a critical retention and development challenge.",
+    "confidence_note": "The insights are based on observed correlations. While the data indicates clear patterns, causality cannot be definitively established without further investigation into the underlying mechanisms driving performance, leadership potential, and resignation."
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1779822299,
+    "evidence_char_length": 1767
   }
 }

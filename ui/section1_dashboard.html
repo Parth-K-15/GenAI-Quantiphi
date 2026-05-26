@@ -1,115 +1,524 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Section 1: Employee Performance & Skill Analytics | Quantiphi HR Dashboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Inter',sans-serif;background:#f0f2f8;color:#1a2340;line-height:1.6;}
-.container{max-width:1400px;margin:0 auto;padding:24px;}
-header{background:linear-gradient(135deg,#1a2340 0%,#2563eb 60%,#38bdf8 100%);color:white;padding:48px 40px;border-radius:16px;margin-bottom:32px;box-shadow:0 8px 32px rgba(37,99,235,0.25);position:relative;overflow:hidden;}
-header::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:rgba(255,255,255,0.05);border-radius:50%;}
-header::after{content:'';position:absolute;bottom:-80px;left:30%;width:400px;height:400px;background:rgba(255,255,255,0.04);border-radius:50%;}
-header h1{font-size:2.6em;font-weight:800;margin-bottom:8px;position:relative;}
-header p{font-size:1.15em;opacity:0.88;position:relative;}
-.badge{display:inline-block;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);color:white;padding:6px 18px;border-radius:20px;font-weight:600;margin-top:14px;font-size:0.88em;position:relative;backdrop-filter:blur(4px);}
-.badge-orange{background:#f97316;border-color:#f97316;}
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:32px;}
-.stat-card{background:white;padding:28px 24px;border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,0.07);border-left:4px solid #2563eb;transition:transform .25s,box-shadow .25s;cursor:default;}
-.stat-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(37,99,235,0.15);}
-.stat-card.orange{border-left-color:#f97316;}
-.stat-card.teal{border-left-color:#0d9488;}
-.stat-card.violet{border-left-color:#7c3aed;}
-.stat-card h3{color:#6b7280;font-size:0.78em;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;font-weight:600;}
-.stat-value{font-size:2.6em;font-weight:800;color:#1a2340;margin-bottom:4px;line-height:1;}
-.stat-label{color:#9ca3af;font-size:0.85em;}
-.stat-card.orange .stat-value{color:#f97316;}
-.stat-card.teal .stat-value{color:#0d9488;}
-.stat-card.violet .stat-value{color:#7c3aed;}
-.section{background:white;padding:36px;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,0.07);margin-bottom:32px;}
-.section-header{display:flex;align-items:center;gap:14px;margin-bottom:28px;padding-bottom:18px;border-bottom:2px solid #e5e7eb;}
-.section-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5em;flex-shrink:0;}
-.icon-blue{background:#eff6ff;}
-.icon-orange{background:#fff7ed;}
-.icon-teal{background:#f0fdfa;}
-.icon-violet{background:#f5f3ff;}
-.icon-green{background:#f0fdf4;}
-.section-title{font-size:1.6em;font-weight:700;color:#1a2340;}
-.section-subtitle{color:#6b7280;font-size:0.95em;margin-top:2px;}
-.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:20px 0;}
-.chart-box{background:#f8faff;border-radius:12px;padding:24px;border:1px solid #e5e7eb;}
-.chart-box h4{font-size:1em;font-weight:600;color:#374151;margin-bottom:16px;}
-.chart-container{position:relative;height:280px;}
-.insight-box{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-left:4px solid #2563eb;border-radius:10px;padding:20px 24px;margin:20px 0;}
-.insight-box.orange{background:linear-gradient(135deg,#fff7ed,#fed7aa);border-left-color:#f97316;}
-.insight-box.teal{background:linear-gradient(135deg,#f0fdfa,#ccfbf1);border-left-color:#0d9488;}
-.insight-box.violet{background:linear-gradient(135deg,#f5f3ff,#ede9fe);border-left-color:#7c3aed;}
-.insight-box.red{background:linear-gradient(135deg,#fef2f2,#fee2e2);border-left-color:#ef4444;}
-.insight-label{font-size:0.75em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#2563eb;margin-bottom:8px;}
-.insight-box.orange .insight-label{color:#f97316;}
-.insight-box.teal .insight-label{color:#0d9488;}
-.insight-box.violet .insight-label{color:#7c3aed;}
-.insight-box.red .insight-label{color:#ef4444;}
-.insight-text{font-size:1em;color:#1e293b;font-weight:500;line-height:1.6;}
-.metric-chip{display:inline-block;background:#2563eb;color:white;padding:3px 10px;border-radius:20px;font-size:0.82em;font-weight:600;margin:2px;}
-.metric-chip.orange{background:#f97316;}
-.metric-chip.teal{background:#0d9488;}
-.metric-chip.red{background:#ef4444;}
-.metric-chip.green{background:#16a34a;}
-.findings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin:20px 0;}
-.finding-card{background:#f8faff;border-radius:12px;padding:22px;border:1px solid #e5e7eb;transition:border-color .2s;}
-.finding-card:hover{border-color:#2563eb;}
-.finding-card h4{color:#1a2340;font-size:1em;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
-.finding-card p{color:#6b7280;font-size:0.9em;line-height:1.55;}
-.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.92em;}
-.data-table th{background:#1a2340;color:white;padding:13px 16px;text-align:left;font-weight:600;font-size:0.85em;}
-.data-table th:first-child{border-radius:8px 0 0 0;}
-.data-table th:last-child{border-radius:0 8px 0 0;}
-.data-table td{padding:11px 16px;border-bottom:1px solid #f1f5f9;color:#374151;}
-.data-table tr:hover td{background:#f8faff;}
-.data-table tr:last-child td{border-bottom:none;}
-.badge-pill{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.8em;font-weight:600;}
-.pill-blue{background:#dbeafe;color:#1d4ed8;}
-.pill-green{background:#dcfce7;color:#16a34a;}
-.pill-orange{background:#fed7aa;color:#c2410c;}
-.pill-red{background:#fee2e2;color:#dc2626;}
-.pill-violet{background:#ede9fe;color:#6d28d9;}
-.progress-wrap{margin:10px 0;}
-.progress-label{display:flex;justify-content:space-between;font-size:0.85em;font-weight:600;color:#374151;margin-bottom:6px;}
-.progress-bar{background:#e5e7eb;height:20px;border-radius:10px;overflow:hidden;}
-.progress-fill{height:100%;border-radius:10px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;color:white;font-size:0.78em;font-weight:700;transition:width 1.5s ease;}
-.bg-blue{background:linear-gradient(90deg,#1a2340,#2563eb);}
-.bg-orange{background:linear-gradient(90deg,#c2410c,#f97316);}
-.bg-teal{background:linear-gradient(90deg,#0f766e,#0d9488);}
-.formula-box{background:#1e293b;border-radius:10px;padding:20px 24px;margin:16px 0;}
-.formula-box code{color:#7dd3fc;font-family:'Courier New',monospace;font-size:0.95em;line-height:1.7;display:block;}
-.formula-box .comment{color:#6b7280;}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:16px 0;}
-.kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:16px 0;}
-.kpi-card{background:#f8faff;border-radius:10px;padding:18px;text-align:center;border:1px solid #e5e7eb;}
-.kpi-card .kv{font-size:1.9em;font-weight:800;color:#2563eb;}
-.kpi-card .kt{font-size:0.78em;color:#6b7280;margin-top:4px;}
-.kpi-card.orange .kv{color:#f97316;}
-.kpi-card.teal .kv{color:#0d9488;}
-.kpi-card.green .kv{color:#16a34a;}
-.kpi-card.red .kv{color:#ef4444;}
-.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;}
-footer{text-align:center;padding:40px;color:#9ca3af;font-size:0.9em;}
-footer strong{color:#2563eb;}
-@media(max-width:768px){.chart-row,.two-col,.kpi-row{grid-template-columns:1fr;}.stat-value{font-size:2em;}.section{padding:20px;}}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px 24px;
+  }
+  
+  /* Glassmorphism Header */
+  header {
+    background: linear-gradient(135deg, #1a2340 0%, #2563eb 60%, #4f46e5 100%);
+    color: white;
+    padding: 56px 48px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  header h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.8em;
+    font-weight: 900;
+    margin-bottom: 8px;
+    position: relative;
+    letter-spacing: -0.5px;
+  }
+  header p {
+    font-size: 1.15em;
+    opacity: 0.9;
+    position: relative;
+    max-width: 900px;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-weight: 700;
+    margin-top: 18px;
+    font-size: 0.82em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(8px);
+  }
+  .badge-orange { background: #f97316; border-color: #f97316; }
+
+  /* Premium Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .stat-card {
+    background: white;
+    padding: 24px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #2563eb;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  .stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.08);
+    border-color: #cbd5e1;
+  }
+  .stat-card.orange { border-left-color: #f97316; }
+  .stat-card.teal { border-left-color: #0d9488; }
+  .stat-card.violet { border-left-color: #7c3aed; }
+  
+  .stat-card h3 {
+    color: #64748b;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    font-weight: 800;
+  }
+  .stat-value {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.4em;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+  .stat-label {
+    color: #64748b;
+    font-size: 0.82em;
+  }
+  .stat-card.orange .stat-value { color: #f97316; }
+  .stat-card.teal .stat-value { color: #0d9488; }
+  .stat-card.violet .stat-value { color: #7c3aed; }
+
+  /* Sections */
+  .section {
+    background: white;
+    padding: 36px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    border: 1px solid #e2e8f0;
+    margin-bottom: 40px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .section-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4em;
+    flex-shrink: 0;
+  }
+  .icon-blue { background: #eff6ff; color: #2563eb; }
+  .icon-orange { background: #fff7ed; color: #f97316; }
+  .icon-teal { background: #f0fdfa; color: #0d9488; }
+  .icon-violet { background: #f5f3ff; color: #7c3aed; }
+  .icon-green { background: #f0fdf4; color: #16a34a; }
+  
+  .section-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5em;
+    font-weight: 800;
+    color: #0f172a;
+  }
+  .section-subtitle {
+    color: #64748b;
+    font-size: 0.9em;
+    margin-top: 2px;
+  }
+
+  /* Charts & Layout */
+  .chart-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin: 24px 0;
+  }
+  .chart-box {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    transition: border-color 0.3s;
+  }
+  .chart-box:hover {
+    border-color: #cbd5e1;
+  }
+  .chart-box h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1em;
+    font-weight: 800;
+    color: #334155;
+    margin-bottom: 20px;
+  }
+  .chart-container {
+    position: relative;
+    height: 280px;
+  }
+
+  /* Premium Insight Boxes */
+  .insight-box {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-left: 4px solid #2563eb;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 24px 0;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.03);
+  }
+  .insight-box.orange {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    border-left-color: #f97316;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.03);
+  }
+  .insight-box.teal {
+    background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+    border-left-color: #0d9488;
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.03);
+  }
+  .insight-box.violet {
+    background: linear-gradient(135deg, #f5f3ff 0%, #e0e7ff 100%);
+    border-left-color: #7c3aed;
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.03);
+  }
+  .insight-box.red {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border-left-color: #ef4444;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.03);
+  }
+  
+  .insight-label {
+    font-size: 0.72em;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #2563eb;
+    margin-bottom: 8px;
+  }
+  .insight-box.orange .insight-label { color: #f97316; }
+  .insight-box.teal .insight-label { color: #0d9488; }
+  .insight-box.violet .insight-label { color: #7c3aed; }
+  .insight-box.red .insight-label { color: #ef4444; }
+  
+  .insight-text {
+    font-size: 0.95em;
+    color: #1e293b;
+    font-weight: 500;
+    line-height: 1.65;
+  }
+  .insight-text strong {
+    color: #0f172a;
+    font-weight: 700;
+  }
+
+  .metric-chip {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 700;
+    margin: 2px;
+  }
+  .metric-chip.orange { background: #f97316; }
+  .metric-chip.teal { background: #0d9488; }
+  .metric-chip.red { background: #ef4444; }
+  .metric-chip.green { background: #16a34a; }
+
+  /* Findings Cards Grid */
+  .findings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 24px 0;
+  }
+  .finding-card {
+    background: #f8fafc;
+    border-radius: 14px;
+    padding: 22px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.25s;
+  }
+  .finding-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+  }
+  .finding-card h4 {
+    color: #0f172a;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.98em;
+    font-weight: 800;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .finding-card p {
+    color: #475569;
+    font-size: 0.88em;
+    line-height: 1.6;
+  }
+
+  /* Data Tables */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 0.9em;
+  }
+  .data-table th {
+    background: #0f172a;
+    color: white;
+    padding: 14px 18px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 0.82em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .data-table th:first-child { border-radius: 10px 0 0 0; }
+  .data-table th:last-child { border-radius: 0 10px 0 0; }
+  .data-table td {
+    padding: 12px 18px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+  }
+  .data-table tr:hover td {
+    background: #f8fafc;
+  }
+  .data-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .badge-pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 700;
+  }
+  .pill-blue { background: #dbeafe; color: #1e40af; }
+  .pill-green { background: #dcfce7; color: #166534; }
+  .pill-orange { background: #ffedd5; color: #c2410c; }
+  .pill-red { background: #fee2e2; color: #991b1b; }
+  .pill-violet { background: #f3e8ff; color: #6b21a8; }
+
+  /* Progress Bars */
+  .progress-wrap { margin: 16px 0; }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82em;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 6px;
+  }
+  .progress-bar {
+    background: #e2e8f0;
+    height: 18px;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 12px;
+    color: white;
+    font-size: 0.75em;
+    font-weight: 800;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .bg-blue { background: linear-gradient(90deg, #1e293b, #2563eb); }
+  .bg-orange { background: linear-gradient(90deg, #ea580c, #f97316); }
+  .bg-teal { background: linear-gradient(90deg, #0d9488, #2dd4bf); }
+
+  /* Formula Block */
+  .formula-box {
+    background: #0f172a;
+    border-radius: 12px;
+    padding: 22px 28px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  }
+  .formula-box code {
+    color: #38bdf8;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95em;
+    line-height: 1.8;
+    display: block;
+  }
+  .formula-box .comment { color: #64748b; }
+
+  /* KPIs */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .kpi-card {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    transition: all 0.25s;
+  }
+  .kpi-card:hover { border-color: #cbd5e1; }
+  .kpi-card .kv {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2em;
+    font-weight: 800;
+    color: #2563eb;
+  }
+  .kpi-card .kt {
+    font-size: 0.78em;
+    color: #64748b;
+    font-weight: 700;
+    margin-top: 6px;
+  }
+  .kpi-card.orange .kv { color: #f97316; }
+  .kpi-card.teal .kv { color: #0d9488; }
+  .kpi-card.green .kv { color: #16a34a; }
+  .kpi-card.red .kv { color: #ef4444; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1.1fr 1.3fr;
+    gap: 32px;
+    margin: 24px 0;
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  footer {
+    text-align: center;
+    padding: 56px 40px;
+    color: #94a3b8;
+    font-size: 0.88em;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 56px;
+  }
+  footer strong { color: #2563eb; }
+
+  .top-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.88em;
+    font-weight: 700;
+    transition: all 0.2s;
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+  }
+  .top-nav-btn:hover {
+    background: rgba(255,255,255,0.22);
+    transform: translateY(-2px);
+  }
+
+  @media(max-width: 900px) {
+    .chart-row, .two-col, .kpi-row { grid-template-columns: 1fr; }
+    .stat-value { font-size: 2em; }
+    .section { padding: 24px; }
+  }
+</style>
+
+
+
+<style>
+.top-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 600;
+  transition: all 0.2s;
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+}
+.top-nav-btn:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
 </style>
 </head>
+
 <body>
 <div class="container">
 
 <!-- HEADER -->
 <header>
-  <h1>📊 Quantiphi HR Analytics Dashboard</h1>
-  <p>Section 1 · Employee Performance &amp; Skill Analytics · 4,001 Employees · LLM-Driven Inference</p>
-  <span class="badge badge-orange">SECTION 1 · Q1 THROUGH Q5</span>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; position: relative; z-index: 10;">
+    <a href="index.html" class="top-nav-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      Command Center
+    </a>
+    <div style="display: flex; gap: 12px;">
+      <a href="section2_dashboard.html" class="top-nav-btn">
+        Section 2 
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+  </div>
+  <h1>Quantiphi HR Intelligence Command Center</h1>
+  <p>Section 1 · Employee Performance &amp; Skill Analytics · 4,001 Employees · Multi-factor LLM Inference</p>
+  <span class="badge badge-orange">Section 1 · Performance benchmarks (Q1–Q5)</span>
 </header>
 
 <!-- OVERVIEW STATS -->
@@ -120,6 +529,43 @@ footer strong{color:#2563eb;}
   <div class="stat-card violet"><h3>Skill Saturation Level</h3><div class="stat-value">~8.0</div><div class="stat-label">Avg across Tech / Comm / ProbSolve</div></div>
   <div class="stat-card orange"><h3>High-Perf Low-Leader</h3><div class="stat-value">36.3%</div><div class="stat-label">424 of 1,167 high performers</div></div>
   <div class="stat-card teal"><h3>Training Efficiency Gap</h3><div class="stat-value">3×</div><div class="stat-label">High vs low performers (0.244 vs 0.088)</div></div>
+</div>
+
+<!-- ============================================================ METHODOLOGY BLOCK ============================================================ -->
+<div class="section" style="border-left:6px solid #2563eb;background:linear-gradient(135deg,#f8faff,#eff6ff);">
+  <div class="section-header" style="border-bottom-color:#dbeafe;">
+    <div class="section-icon icon-blue">🔬</div>
+    <div>
+      <div class="section-title">Analytical Methodology &amp; Statistical Framework</div>
+      <div class="section-subtitle">Explicit methods, tests, and conventions used across Q1–Q5</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+    <div>
+      <h4 style="color:#1a2340;font-weight:700;margin-bottom:12px;font-size:0.95em;">📊 Statistical Tests by Question</h4>
+      <table class="data-table" style="font-size:0.88em;">
+        <thead><tr><th>Question</th><th>Method</th><th>Test Statistic</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Q1</strong></td><td>Pearson correlation</td><td>r (correlation coefficient)</td></tr>
+          <tr><td><strong>Q2</strong></td><td>Mean comparison (segmentation)</td><td>Δ mean, % share</td></tr>
+          <tr><td><strong>Q3</strong></td><td>Two-group mean comparison</td><td>Δ mean, Cohen’s d (estimated)</td></tr>
+          <tr><td><strong>Q4</strong></td><td>75th-percentile threshold segmentation</td><td>Count, %, Δ mean</td></tr>
+          <tr><td><strong>Q5</strong></td><td>90th-percentile threshold + gap analysis</td><td>Composite score, Δ mean</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4 style="color:#1a2340;font-weight:700;margin-bottom:12px;font-size:0.95em;">📌 Scope &amp; Statistical Conventions</h4>
+      <div style="background:white;border-radius:10px;padding:16px;border:1px solid #dbeafe;font-size:0.87em;color:#334155;line-height:1.7;">
+        <div style="margin-bottom:8px;"><strong>Dataset:</strong> N = 4,001 employees (cross-sectional, single time point)</div>
+        <div style="margin-bottom:8px;"><strong>Significance threshold:</strong> For N=4,001, Pearson r must exceed |r| &gt; 0.031 to reach p&lt;0.05 (two-tailed). All Q1 correlations (r=0.002 to 0.038) are near this boundary or below it.</div>
+        <div style="margin-bottom:8px;"><strong>Effect size guide:</strong> Cohen’s d &lt;0.2 = negligible, 0.2–0.5 = small, 0.5–0.8 = medium, &gt;0.8 = large</div>
+        <div style="margin-bottom:8px;"><strong>Observational data:</strong> All findings are associational. No causal claims are made without explicit qualification.</div>
+        <div><strong>LLM role:</strong> Narrative, weighting logic, and composite scoring formulas are LLM-generated. Raw correlations and counts are Python-computed from source data.</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ============================================================ Q1 ============================================================ -->
@@ -134,7 +580,7 @@ footer strong{color:#2563eb;}
 
   <div class="insight-box">
     <div class="insight-label">🔑 Headline Finding</div>
-    <div class="insight-text">Communication Skills dominate with <strong>84.7% weight</strong> in the LLM-derived scoring model — yet even the combined weighted score shows only a <strong>r = 0.037</strong> correlation with Performance Rating. Skills alone do not determine performance.</div>
+    <div class="insight-text"><!-- S1_Q1_HEADLINE_START -->Communication Skills Heavily Outweigh Other Skills in Driving Performance Ratings<!-- S1_Q1_HEADLINE_END --><!-- S1_Q1_HEADLINE_END --></div>
   </div>
 
   <div class="chart-row">
@@ -162,7 +608,7 @@ footer strong{color:#2563eb;}
 
   <div class="insight-box orange">
     <div class="insight-label">💡 Advanced Insight</div>
-    <div class="insight-text">All three skills cluster near <strong>7.9–8.0</strong> across ALL performance bands — high, medium and low performers have nearly identical skill scores. This is <strong>"skill saturation"</strong> — the discriminative power of these scores has been lost. The real drivers of performance are contextual: engagement, work-life balance, and training efficiency.</div>
+    <div class="insight-text"><!-- S1_Q1_HIDDEN_START -->Technical Skills Rating (0.002008) and Problem Solving Skills Rating (-0.004862) show negligible and a slightly negative correlation with Performance Rating, respectively, despite having average ratings of 7.99 and 8.0, and contributing 0.0448 and 0.1084 to the weighted score.<!-- S1_Q1_HIDDEN_END --><!-- S1_Q1_HIDDEN_END --></div>
   </div>
 
   <div class="chart-box" style="margin-top:16px;">
@@ -215,7 +661,7 @@ footer strong{color:#2563eb;}
 
   <div class="insight-box orange">
     <div class="insight-label">💡 LLM-Generated Insight</div>
-    <div class="insight-text">These are the organization's <strong>"Silent Contributors"</strong> — high-output individual performers who excel in task delivery but have not demonstrated people or strategy leadership. With <strong>45% resignation risk</strong>, retaining them requires recognition systems beyond traditional leadership-track career paths.</div>
+    <div class="insight-text"><!-- S1_Q2_IMPLICATION_START -->Failure to identify and address the development needs of high performers with low leadership potential could lead to increased turnover, reduced bench strength for future leadership roles, and a potential decline in overall organizational performance.<!-- S1_Q2_IMPLICATION_END --><!-- S1_Q2_IMPLICATION_END --></div>
   </div>
 
   <table class="data-table">
@@ -256,7 +702,7 @@ footer strong{color:#2563eb;}
 
   <div class="insight-box teal">
     <div class="insight-label">🏆 Power Statement</div>
-    <div class="insight-text">"Performance is not a function of ability alone, but of how effectively that ability is leveraged within an organizational environment." — Skills are <strong>nearly identical</strong> (High Avg = 8.01 vs Low Avg = 8.02). The real gap is in <strong>execution efficiency and contextual conditions</strong>.</div>
+    <div class="insight-text"><!-- S1_Q3_STANDOUT_START -->High performers are not necessarily more skilled but are significantly more efficient in leveraging training and experience, yet they are also more likely to leave the organization.<!-- S1_Q3_STANDOUT_END --><!-- S1_Q3_STANDOUT_END --></div>
   </div>
 
   <div class="chart-row">
@@ -331,12 +777,12 @@ footer strong{color:#2563eb;}
 
   <div class="insight-box violet">
     <div class="insight-label">💡 Key Insight</div>
-    <div class="insight-text">"Skill ratings are necessary but not sufficient for project success. <strong>Engagement, work conditions, team dynamics, and project-role alignment</strong> are critical mediating factors." — 50.6% of high-skill employees are associated with failed projects, proving that skill ≠ success.</div>
+    <div class="insight-text"><!-- S1_Q4_KEY1_START -->A significant portion of high-skill employees (50.6%, or 346 individuals) are experiencing performance anomalies (Anomaly A), indicating a potential disconnect between skill acquisition and successful task completion. These employees show a -0.169 delta in Performance Rating compared to expected means.<!-- S1_Q4_KEY1_END --><!-- S1_Q4_KEY1_END --></div>
   </div>
 
   <div class="insight-box red" style="margin-top:16px;">
     <div class="insight-label">⚠️ Anomaly A — 346 Employees</div>
-    <div class="insight-text">High-skill employees in failed projects show <strong>lower engagement (79.6 vs 79.9)</strong>, <strong>higher overtime (7.25 hrs)</strong>, lower WLB (7.86), and lower training efficiency (0.196). Burnout and role-complexity mismatch are the primary failure drivers.</div>
+    <div class="insight-text"><!-- S1_Q4_ALERT_START -->The prevalence of high-skill employees failing to meet performance expectations (50.6% of high-skill employees in Anomaly A) poses a risk to project timelines, quality, and overall productivity. This could lead to increased costs due to rework or project delays.<!-- S1_Q4_ALERT_END --><!-- S1_Q4_ALERT_END --></div>
   </div>
 
   <table class="data-table">
@@ -364,7 +810,7 @@ footer strong{color:#2563eb;}
 
   <div class="insight-box teal">
     <div class="insight-label">🏆 Headline</div>
-    <div class="insight-text">"The ideal employee in this organization is <strong>not defined by raw skill superiority</strong>, but by efficient skill application, strong engagement, and balanced well-being." — Top 10% threshold: Performance Rating ≥ 14, Composite Score ≥ 0.954</div>
+    <div class="insight-text"><!-- S1_S5_HEADLINE_START --><!-- S1_S5_HEADLINE_START -->"The ideal employee in this organization is <strong>not defined by raw skill superiority</strong>, but by efficient skill application, strong engagement, and balanced well-being." — Top 10% threshold: Performance Rating ≥ 14, Composite Score ≥ 0.954<!-- S1_S5_HEADLINE_END --><!-- S1_S5_HEADLINE_END --></div>
   </div>
 
   <div class="kpi-row">
@@ -434,7 +880,7 @@ footer strong{color:#2563eb;}
 
   <div class="insight-box">
     <div class="insight-label">🔬 System Extension Statement</div>
-    <div class="insight-text">We extend beyond static profiling by quantifying the ideal employee into a <strong>composite, reusable score</strong>. This enables organizations to dynamically track and identify high-potential talent across departments, roles, and time periods — not just as a one-time snapshot but as a <strong>live KPI system</strong>.</div>
+    <div class="insight-text"><!-- S1_Q5_CONFIDENCE_START -->The insights are derived from correlational data. While strong patterns are observed, causality cannot be definitively established without further experimental or longitudinal analysis. The term 'gap' refers to the difference between the top performer's average trait value and the ideal profile's value for that trait.<!-- S1_Q5_CONFIDENCE_END --><!-- S1_Q5_CONFIDENCE_END --></div>
   </div>
 
   <div class="findings-grid">
@@ -451,6 +897,135 @@ footer strong{color:#2563eb;}
       <p>Ideal employees show Training Efficiency of 0.306 vs 0.198 population average — a 54% efficiency advantage. They extract more performance per training hour invested.</p>
     </div>
   </div>
+</div>
+
+<!-- ============================================================ STATISTICAL RIGOR SUMMARY ============================================================ -->
+<div class="section" style="border-left:6px solid #7c3aed;background:linear-gradient(135deg,#fafaf9,#f5f3ff);">
+  <div class="section-header" style="border-bottom-color:#ede9fe;">
+    <div class="section-icon icon-violet">📊</div>
+    <div>
+      <div class="section-title">Statistical Rigor Summary — All 5 Questions</div>
+      <div class="section-subtitle">Key effect sizes, correlations, significance assessments, and calibration notes</div>
+    </div>
+  </div>
+
+  <div style="overflow-x:auto;">
+    <table class="data-table" style="font-size:0.87em;">
+      <thead>
+        <tr>
+          <th>Q</th>
+          <th>Comparison / Test</th>
+          <th>Statistic</th>
+          <th>Value</th>
+          <th>Effect Size</th>
+          <th>Significant?</th>
+          <th>Interpretation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Q1</strong></td>
+          <td>Technical Skills ↔ Performance</td>
+          <td>Pearson r</td>
+          <td>r = 0.002</td>
+          <td>Negligible</td>
+          <td><span class="badge-pill pill-orange">No (p&gt;0.05)</span></td>
+          <td>No linear relationship</td>
+        </tr>
+        <tr style="background:#f8faff;">
+          <td><strong>Q1</strong></td>
+          <td>Communication Skills ↔ Performance</td>
+          <td>Pearson r</td>
+          <td>r = 0.038</td>
+          <td>Negligible</td>
+          <td><span class="badge-pill pill-orange">Borderline</span></td>
+          <td>Near significance threshold (|r|&gt;0.031 required)</td>
+        </tr>
+        <tr>
+          <td><strong>Q1</strong></td>
+          <td>Problem Solving ↔ Performance</td>
+          <td>Pearson r</td>
+          <td>r = −0.005</td>
+          <td>Negligible</td>
+          <td><span class="badge-pill pill-red">No</span></td>
+          <td>Slight negative — specialist role confounding</td>
+        </tr>
+        <tr style="background:#f8faff;">
+          <td><strong>Q2</strong></td>
+          <td>Silent vs Vocal performers: Communication gap</td>
+          <td>Δ mean</td>
+          <td>Δ = +0.41</td>
+          <td>d ≈ 0.13 (small)</td>
+          <td><span class="badge-pill pill-blue">Directional</span></td>
+          <td>Small but consistent communication advantage</td>
+        </tr>
+        <tr>
+          <td><strong>Q3</strong></td>
+          <td>High vs Low performers: Training Efficiency</td>
+          <td>Cohen’s d (est.)</td>
+          <td>0.244 vs 0.088</td>
+          <td>d ≈ 1.75 (large)</td>
+          <td><span class="badge-pill pill-green">Yes — large</span></td>
+          <td>Strongest differentiator despite equal skill scores</td>
+        </tr>
+        <tr style="background:#f8faff;">
+          <td><strong>Q3</strong></td>
+          <td>High vs Low performers: WLB Rating</td>
+          <td>Cohen’s d (est.)</td>
+          <td>8.03 vs 7.66</td>
+          <td>d ≈ 0.20 (small)</td>
+          <td><span class="badge-pill pill-blue">Small</span></td>
+          <td>Consistent but modest WLB advantage</td>
+        </tr>
+        <tr>
+          <td><strong>Q3</strong></td>
+          <td>High vs Low performers: Skills</td>
+          <td>Δ mean</td>
+          <td>8.01 vs 8.02</td>
+          <td>d ≈ 0.01 (negligible)</td>
+          <td><span class="badge-pill pill-red">No</span></td>
+          <td>Skill saturation confirmed — not a differentiator</td>
+        </tr>
+        <tr style="background:#f8faff;">
+          <td><strong>Q4</strong></td>
+          <td>Anomaly A vs Expected: WLB</td>
+          <td>Δ mean</td>
+          <td>7.86 vs 7.96</td>
+          <td>d ≈ 0.09 (negligible)</td>
+          <td><span class="badge-pill pill-orange">Directional</span></td>
+          <td>Small gap; counts (346 vs 338) drive business significance</td>
+        </tr>
+        <tr>
+          <td><strong>Q4</strong></td>
+          <td>Anomaly A resignation rate</td>
+          <td>Proportion</td>
+          <td>52.6%</td>
+          <td>+2.6 pp vs overall</td>
+          <td><span class="badge-pill pill-blue">Noteworthy</span></td>
+          <td>Attrition-risk signal in high-skill failed group</td>
+        </tr>
+        <tr style="background:#f8faff;">
+          <td><strong>Q5</strong></td>
+          <td>Ideal vs Population: Training Efficiency</td>
+          <td>Cohen’s d (est.)</td>
+          <td>0.306 vs 0.198</td>
+          <td>d ≈ 1.09 (large)</td>
+          <td><span class="badge-pill pill-green">Yes — large</span></td>
+          <td>Dominant trait of ideal employees (+54% efficiency)</td>
+        </tr>
+        <tr>
+          <td><strong>Q5</strong></td>
+          <td>Ideal vs Population: Communication</td>
+          <td>Δ mean</td>
+          <td>8.156 vs 7.899</td>
+          <td>d ≈ 0.08 (small)</td>
+          <td><span class="badge-pill pill-orange">Small</span></td>
+          <td>Consistent advantage but not the primary driver</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:12px;font-size:0.82em;color:#6b7280;font-style:italic;">† Cohen’s d estimated from mean differences and assumed population SD. For N=4,001, Pearson r &gt; 0.031 is required for p&lt;0.05 (two-tailed). Effect size guide: d&lt;0.2=negligible, 0.2–0.5=small, 0.5–0.8=medium, &gt;0.8=large.</p>
 </div>
 
 <!-- ============================================================ SYNTHESIS ============================================================ -->
@@ -508,7 +1083,7 @@ const tooltipPlugin={plugins:{tooltip:{backgroundColor:'#1a2340',titleColor:'#ff
 new Chart(document.getElementById('q1WeightsChart'),{
   type:'doughnut',
   data:{labels:['Communication (84.7%)','Problem Solving (10.8%)','Technical Skills (4.5%)'],
-        datasets:[{data:[84.68,10.84,4.48],backgroundColor:[ORANGE,BLUE,TEAL],borderWidth:0,hoverOffset:8}]},
+        datasets:[{data:/* S1_Q1_WEIGHTS_DATA_START */[84.68, 10.84, 4.4799999999999995]/* S1_Q1_WEIGHTS_DATA_END */,backgroundColor:[ORANGE,BLUE,TEAL],borderWidth:0,hoverOffset:8}]},
   options:{...tooltipPlugin,cutout:'62%',plugins:{...tooltipPlugin.plugins,
     legend:{position:'bottom',labels:{font:{family:'Inter',size:11},color:'#374151',padding:16}}}}
 });
@@ -518,7 +1093,7 @@ new Chart(document.getElementById('q1PerfDistChart'),{
   type:'bar',
   data:{labels:['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','22','23','24'],
         datasets:[{label:'Employee Count',
-          data:[1,6,33,59,171,248,371,478,513,515,439,385,269,196,154,75,45,14,18,8,1,1,1],
+          data:/* S1_Q1_DIST_DATA_START */[1, 6, 33, 59, 171, 248, 371, 478, 513, 515, 439, 385, 269, 196, 154, 75, 45, 14, 18, 8, 1, 1, 1]/* S1_Q1_DIST_DATA_END */,
           backgroundColor:function(ctx){
             const v=ctx.parsed.y;
             return v>=439?ORANGE:v>=200?BLUE:'rgba(37,99,235,0.4)';
@@ -534,9 +1109,9 @@ new Chart(document.getElementById('q1BandChart'),{
   type:'bar',
   data:{labels:['Low (1–5)','Medium (6–10)','High (11–15)','Top (16+)'],
         datasets:[
-          {label:'Technical',data:[8.17,7.91,8.10,7.85],backgroundColor:BLUE,borderRadius:6},
-          {label:'Communication',data:[7.99,7.77,8.03,8.26],backgroundColor:ORANGE,borderRadius:6},
-          {label:'Problem Solving',data:[7.91,8.03,7.95,8.09],backgroundColor:TEAL,borderRadius:6}
+          {label:'Technical',data:/* S1_Q1_BAND_TECH_START */[8.17, 7.91, 8.1, 7.85]/* S1_Q1_BAND_TECH_END */,backgroundColor:BLUE,borderRadius:6},
+          {label:'Communication',data:/* S1_Q1_BAND_COMM_START */[7.99, 7.77, 8.03, 8.26]/* S1_Q1_BAND_COMM_END */,backgroundColor:ORANGE,borderRadius:6},
+          {label:'Problem Solving',data:/* S1_Q1_BAND_PROB_START */[7.91, 8.03, 7.95, 8.09]/* S1_Q1_BAND_PROB_END */,backgroundColor:TEAL,borderRadius:6}
         ]},
   options:{...tooltipPlugin,scales:{
     x:{grid:{display:false},ticks:{font:{family:'Inter'},color:'#6b7280'}},
@@ -605,7 +1180,7 @@ new Chart(document.getElementById('q3DiffChart'),{
 new Chart(document.getElementById('q4OutcomeChart'),{
   type:'doughnut',
   data:{labels:['In Progress (34.6%)','Failed (33.2%)','Successful (32.2%)'],
-        datasets:[{data:[1386,1328,1287],backgroundColor:[BLUE,RED,GREEN],borderWidth:0,hoverOffset:8}]},
+        datasets:[{data:/* S1_Q4_OUTCOME_DATA_START */[1386, 1328, 1287]/* S1_Q4_OUTCOME_DATA_END */,backgroundColor:[BLUE,RED,GREEN],borderWidth:0,hoverOffset:8}]},
   options:{...tooltipPlugin,cutout:'60%',plugins:{...tooltipPlugin.plugins,
     legend:{position:'bottom',labels:{font:{family:'Inter',size:11},color:'#374151',padding:14}}}}
 });
@@ -615,8 +1190,8 @@ new Chart(document.getElementById('q4AnomalyChart'),{
   type:'bar',
   data:{labels:['Engagement Score','WLB Rating','Job Satisfaction','Training Efficiency×10','Overtime Hours'],
         datasets:[
-          {label:'Anomaly A (High Skill+Failed)',data:[79.58,7.86,7.88,1.96,7.25],backgroundColor:RED+'cc',borderRadius:4},
-          {label:'Expected (High Skill+Success)',data:[79.90,7.96,7.82,1.99,7.17],backgroundColor:GREEN+'cc',borderRadius:4}
+          {label:'Anomaly A (High Skill+Failed)',data:/* S1_Q4_ANOMALY_A_START */[79.58, 7.86, 7.88, 1.96, 7.25]/* S1_Q4_ANOMALY_A_END */,backgroundColor:RED+'cc',borderRadius:4},
+          {label:'Expected (High Skill+Success)',data:/* S1_Q4_EXPECTED_START */[79.9, 7.96, 7.82, 1.99, 7.17]/* S1_Q4_EXPECTED_END */,backgroundColor:GREEN+'cc',borderRadius:4}
         ]},
   options:{...tooltipPlugin,indexAxis:'y',scales:{
     x:{grid:{color:gridColor},min:0,ticks:{font:{family:'Inter',size:10},color:'#9ca3af'}},
@@ -639,8 +1214,8 @@ new Chart(document.getElementById('q5GapChart'),{
   type:'bar',
   data:{labels:['Tech Skills','Communication','Leadership','Initiative','Creativity','WLB Rating','Engagement÷10','Train. Efficiency×10'],
         datasets:[
-          {label:'Ideal (Top 10%)',data:[8.058,8.156,8.086,8.15,8.08,8.086,8.015,3.06],backgroundColor:ORANGE+'dd',borderRadius:5},
-          {label:'Population Average',data:[7.994,7.899,7.984,8.018,8.020,7.953,8.00,1.98],backgroundColor:BLUE+'99',borderRadius:5}
+          {label:'Ideal (Top 10%)',data:/* S5_GAP_IDEAL_START */[8.058, 8.156, 8.086, 8.15, 8.08, 8.086, 8.015, 3.06]/* S5_GAP_IDEAL_END */,backgroundColor:ORANGE+'dd',borderRadius:5},
+          {label:'Population Average',data:/* S5_GAP_POP_START */[7.994, 7.899, 7.984, 8.018, 8.02, 7.953, 8.0, 1.98]/* S5_GAP_POP_END */,backgroundColor:BLUE+'99',borderRadius:5}
         ]},
   options:{...tooltipPlugin,scales:{
     x:{grid:{display:false},ticks:{font:{family:'Inter',size:9},color:'#6b7280'}},

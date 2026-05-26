@@ -406,16 +406,18 @@
     }
   },
   "llm_insights": {
-    "headline": "Pending Gemini generation.",
-    "key_insight_1": "Pending Gemini generation.",
-    "key_insight_2": "Pending Gemini generation.",
-    "hidden_insight": "Pending Gemini generation.",
-    "risk_alert": "Pending Gemini generation.",
-    "business_implication": "Pending Gemini generation.",
+    "headline": "Predictive modeling reveals a weak baseline signal (ROC-AUC 0.496), confirming that standard HR metrics cannot deterministically predict project success.",
+    "key_insight_1": "The top predictive features are Environmental and Contextual, not Skill-based. Creativity, Onboarding Delay, and Overtime Hours outperform raw technical skills in importance.",
+    "key_insight_2": "The High-Combo group (high creativity, high delay, high overtime) yields a 56.0% success rate, representing a 6.78% lift over the baseline.",
+    "hidden_insight": "Paradoxically, the Low-Combo group (low creativity, low delay, low overtime) shows an even higher success rate of 57.6%. Simpler, less stressful conditions organically yield better outcomes.",
+    "risk_alert": "Relying purely on historical HR data to predict future project outcomes is fundamentally flawed. The ROC-AUC of 0.4959 indicates near-random chance.",
+    "business_implication": "Stop trying to predict success via static skills profiles. Start shaping the project environment (controlling onboarding delays and overtime) to engineer success.",
     "action_plan": [
-      "Pending Gemini generation."
+      "De-emphasize predictive hiring algorithms based purely on skill scores.",
+      "Investigate why 'low-stress' environments yield higher success rates.",
+      "Use this model directionally to flag high-risk project environments, not individual failure."
     ],
-    "standout_statement": "Pending Gemini generation.",
-    "confidence_note": "Pending Gemini generation."
+    "standout_statement": "In complex project environments, success is not a trait you can hire for; it is an environment you must build. Predicting success fails when the environment is unstable.",
+    "confidence_note": "Signal is statistically weak (ROC-AUC 0.495). Do not use this model for deterministic decision making."
   }
 }

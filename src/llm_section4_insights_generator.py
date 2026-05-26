@@ -332,22 +332,68 @@ def _build_evidence_payload(report: dict[str, Any]) -> dict[str, Any]:
     if isinstance(evidence, dict) and evidence:
         return evidence
 
-    # Fallback if llm_evidence is missing.
-    payload = {
-        "question": report.get("question"),
-        "dataset_scope": report.get("dataset_scope"),
-        "overall_baseline": report.get("overall_outcome_baseline_pct", report.get("overall_baseline_rates_pct")),
+    # Generic fallback if llm_evidence is missing (works across sections, not only Section 4).
+    payload: dict[str, Any] = {"question": report.get("question")}
+    skip_keys = {
+        "llm_evidence",
+        "llm_insights",
+        "llm_reasoning",
+        "llm_profile_description",
+        "llm_generation_meta",
+        "sample_employees",
+        "top20_wasted_potential",
+        "top20_at_risk",
+        "top20_candidates",
     }
-    for k in [
-        "complexity_vs_outcome",
-        "size_vs_outcome",
-        "complexity_size_interaction",
+
+    preferred_keys = [
+        "dataset_scope",
+        "dataset_summary",
+        "target_definition",
+        "segment_sizes",
+        "overall_baseline_rates_pct",
+        "overall_outcome_baseline_pct",
+        "overall_resignation_rate_pct",
+        "modeling",
+        "feature_influence",
+        "factor_evidence",
         "numeric_comparison",
         "categorical_patterns",
         "interaction_patterns",
-    ]:
-        if k in report:
-            payload[k] = report[k]
+        "multivariable_models",
+        "multivariable_regression",
+        "pairwise_correlations",
+        "correlations",
+        "key_correlations",
+        "quartile_analysis",
+        "role_performance_profile",
+        "performance_tests",
+        "summary_signals",
+    ]
+
+    def _trim_value(key: str, value: Any) -> Any:
+        if isinstance(value, list):
+            if not value:
+                return value
+            # Large person-level lists are usually not helpful and can blow token budget.
+            if key.lower().endswith("_employees"):
+                return value[:10]
+            if isinstance(value[0], dict):
+                return value[:12]
+            return value[:25]
+        return value
+
+    for key in preferred_keys:
+        if key in report and key not in skip_keys:
+            payload[key] = _trim_value(key, report[key])
+
+    # Include additional top-level keys as secondary evidence if compact/structured.
+    for key, value in report.items():
+        if key in payload or key in skip_keys:
+            continue
+        if isinstance(value, (int, float, str, bool, dict, list)):
+            payload[key] = _trim_value(key, value)
+
     return payload
 
 

@@ -1,5 +1,5 @@
 {
-  "question": "Q11 \u2014 Soft Skill Cluster Analysis: Leadership, Teamwork, Adaptability, Creativity",
+  "question": "Q11 — Soft Skill Cluster Analysis: Leadership, Teamwork, Adaptability, Creativity",
   "methodology": {
     "algorithm": "KMeans (k=4, n_init=10, random_state=42)",
     "features": [
@@ -9,7 +9,7 @@
       "Creativity_Rating"
     ],
     "preprocessing": "StandardScaler normalization",
-    "cluster_count_rationale": "4 clusters chosen for HR interpretability \u2014 maps directly to distinct HR personas (high-potential, collaborative, steady, at-risk) enabling targeted action."
+    "cluster_count_rationale": "4 clusters chosen for HR interpretability — maps directly to distinct HR personas (high-potential, collaborative, steady, at-risk) enabling targeted action."
   },
   "cluster_label_map": {
     "3": "Balanced Contributors",
@@ -29,7 +29,7 @@
       "persona_id": 0,
       "name": "Adaptive Innovators",
       "cluster_label": "Collaborative Specialists",
-      "emoji": "\ud83d\ude80",
+      "emoji": "🚀",
       "color": "#0d9488",
       "size": 988,
       "size_pct": 24.7,
@@ -51,7 +51,7 @@
       "persona_id": 3,
       "name": "At-Risk Disengaged",
       "cluster_label": "Independent Performers",
-      "emoji": "\u26a0\ufe0f",
+      "emoji": "⚠️",
       "color": "#ef4444",
       "size": 1216,
       "size_pct": 30.4,
@@ -73,7 +73,7 @@
       "persona_id": 2,
       "name": "Steady Contributors",
       "cluster_label": "Emerging Leaders",
-      "emoji": "\ud83d\udccb",
+      "emoji": "📋",
       "color": "#f97316",
       "size": 813,
       "size_pct": 20.3,
@@ -87,7 +87,7 @@
       "engagement_score": 79.911,
       "job_satisfaction": 7.86,
       "promotions": 0.871,
-      "description": "Mid-range scores across all soft skills \u2014 dependable, consistent, low-drama contributors. They perform reliably in structured roles but rarely step up as innovators or leaders. Form the backbone of operations and support functions.",
+      "description": "Mid-range scores across all soft skills — dependable, consistent, low-drama contributors. They perform reliably in structured roles but rarely step up as innovators or leaders. Form the backbone of operations and support functions.",
       "development_action": "Introduce stretch assignments and rotational roles to activate latent leadership potential. Targeted creativity and adaptability workshops can shift this cluster into higher tiers."
     },
     {
@@ -95,7 +95,7 @@
       "persona_id": 1,
       "name": "Collaborative Leaders",
       "cluster_label": "Balanced Contributors",
-      "emoji": "\ud83e\udd1d",
+      "emoji": "🤝",
       "color": "#2563eb",
       "size": 984,
       "size_pct": 24.6,
@@ -109,16 +109,29 @@
       "engagement_score": 79.948,
       "job_satisfaction": 7.935,
       "promotions": 0.818,
-      "description": "The strongest overall soft-skill profile \u2014 high across all four dimensions. These employees drive team cohesion, model adaptability, and contribute innovative approaches while naturally assuming leadership roles. They are the organizational glue. Highest performers and lowest attrition risk.",
+      "description": "The strongest overall soft-skill profile — high across all four dimensions. These employees drive team cohesion, model adaptability, and contribute innovative approaches while naturally assuming leadership roles. They are the organizational glue. Highest performers and lowest attrition risk.",
       "development_action": "Fast-track for senior roles, people management, and mentorship responsibilities. Use as peer coaches to elevate lower-cluster colleagues."
     }
   ],
   "llm_insights": {
-    "headline": "Soft skills cluster employees into four distinct behavioral archetypes \u2014 each requiring a completely different HR intervention strategy. One-size-fits-all development programs are structurally ineffective across these segments.",
-    "archetype_insight": "Rather than identifying a single ideal behavioral profile, this analysis reveals multiple successful behavioral archetypes, each suited to different organizational roles and contexts. Balanced Contributors anchor operations; Collaborative Specialists enable team cohesion; Emerging Leaders hold high-potential for growth; Independent Performers drive individual output.",
-    "key_finding_1": "The top cluster (Collaborative Specialists / Emerging Leaders) shows not just the highest soft scores, but also the highest performance ratings and lowest attrition \u2014 confirming that soft skills are a leading indicator of both productivity and retention.",
-    "key_finding_2": "The bottom cluster shows measurably lower engagement and satisfaction, suggesting that soft skill deficits are symptoms of deeper organizational disconnects, not just individual skill gaps.",
-    "strategic_recommendation": "Organizations should cluster-segment their workforce annually and tailor development programs, mentorship assignments, and career paths to each archetype \u2014 not to job titles or seniority levels. This increases training ROI and reduces structural attrition.",
-    "standout_statement": "Soft skills are not soft \u2014 they are the strongest structural predictors of whether an employee will lead, collaborate, innovate, or disengage. Clustering by behavioral archetype is more predictive than any single rating in isolation."
+    "headline": "Soft Skill Cluster Analysis Reveals Distinct Employee Personas and Attrition Linkages",
+    "key_insight_1": "The 'Adaptive Innovators' cluster (24.7% of employees) exhibits the highest creativity scores (11.477) but also the highest attrition rate at 51.11%, suggesting a potential disconnect between their innovative output and organizational retention strategies.",
+    "key_insight_2": "Employees in the 'Collaborative Leaders' cluster (24.6% of employees) demonstrate the highest average soft skill scores (8.873) and the lowest attrition rate (48.48%), indicating that a strong blend of leadership and teamwork is a key retention factor.",
+    "hidden_insight": "The 'Steady Contributors' cluster (20.3% of employees), while having the highest adaptability scores (11.76), has an attrition rate of 51.91%, suggesting that high adaptability alone does not guarantee retention without complementary leadership or teamwork development.",
+    "risk_alert": "The 'At-Risk Disengaged' cluster, representing 30.4% of employees, shows the lowest soft skill scores across all dimensions and a high attrition rate of 49.1%, posing a significant risk to organizational stability and productivity if not addressed.",
+    "business_implication": "The analysis highlights that soft skill profiles are strongly associated with attrition. Organizations must tailor development and engagement strategies to specific employee personas to mitigate turnover and foster growth, particularly for high-potential but at-risk groups.",
+    "action_plan": [
+      "Implement targeted leadership and collaboration training for 'Adaptive Innovators' to help them scale their ideas through teamwork.",
+      "Conduct in-depth engagement and job-fit assessments for the 'At-Risk Disengaged' cluster to identify root causes of low performance and high attrition risk.",
+      "Develop 'Steady Contributors' through stretch assignments and rotational roles to unlock latent leadership and innovation potential.",
+      "Leverage 'Collaborative Leaders' as mentors and coaches to uplift other employee clusters."
+    ],
+    "standout_statement": "A substantial portion of the workforce (30.4%) falls into an 'At-Risk Disengaged' category with low soft skills, indicating a critical need for immediate intervention to prevent widespread attrition and performance decline.",
+    "confidence_note": "The analysis uses KMeans clustering, and the identified relationships between clusters and attrition rates are correlational. While indicative of strong patterns, causality cannot be definitively established without further experimental data."
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1779824588,
+    "evidence_char_length": 4228
   }
 }

@@ -161,13 +161,13 @@
     }
   },
   "scoring_formula": {
-    "formula": "Ideal_Employee_Score = 0.25\u00d7(Avg_Skills/20) + 0.25\u00d7(Avg_Soft_Skills/20) + 0.20\u00d7(Training_Efficiency\u00d710) + 0.15\u00d7(Engagement/max) + 0.15\u00d7(WLB/max)",
+    "formula": "Ideal_Employee_Score = 0.25×(Avg_Skills/20) + 0.25×(Avg_Soft_Skills/20) + 0.20×(Training_Efficiency×10) + 0.15×(Engagement/max) + 0.15×(WLB/max)",
     "weights_rationale": {
-      "Avg_Skills_Score": "25% \u2014 core competency foundation",
-      "Avg_Soft_Skills_Score": "25% \u2014 collaboration and leadership enablers",
-      "Training_Efficiency": "20% \u2014 output-per-effort, the key differentiator found in Q3",
-      "Employee_Engagement_Score": "15% \u2014 motivation and commitment",
-      "Employee_Work_Life_Balance_Rating": "15% \u2014 sustainability and long-term retention"
+      "Avg_Skills_Score": "25% — core competency foundation",
+      "Avg_Soft_Skills_Score": "25% — collaboration and leadership enablers",
+      "Training_Efficiency": "20% — output-per-effort and execution quality",
+      "Employee_Engagement_Score": "15% — motivation and consistency",
+      "Employee_Work_Life_Balance_Rating": "15% — sustainability and long-term effectiveness"
     },
     "score_stats": {
       "mean": 0.764587,
@@ -176,18 +176,14 @@
     }
   },
   "llm_profile_description": {
-    "headline": "The ideal employee in this organization is not defined by raw skill superiority, but by efficient skill application, strong engagement, and balanced well-being.",
+    "headline": "Ideal employees are differentiated more by skill utilization quality, contextual balance, and execution consistency than by raw skill levels alone.",
     "trait_summary": {
-      "Skills": "Avg skill score of 8.05 \u2014 above population avg of 7.97",
-      "Soft_Skills": "Avg soft skill score of 8.05 \u2014 creativity, initiative and adaptability stand out",
-      "Efficiency": "Training efficiency of 0.306 vs population 0.198",
-      "Engagement": "Engagement score of 80.2 \u2014 consistently higher",
-      "Tenure": "Average tenure of 4.7 years \u2014 experienced contributors"
-    },
-    "system_extension_statement": "We extend the analysis by quantifying the ideal employee profile into a composite score, enabling organizations to identify and track high-potential talent dynamically.",
-    "final_statement": "Unlike static profiling, this approach enables dynamic identification of ideal employees using a data-driven scoring framework \u2014 reusable across departments, roles and time periods.",
-    "leadership_potential_note": "Leadership potential distribution is balanced among top performers (Low ~34%, High ~32%), indicating performance is not strictly tied to formal leadership roles \u2014 high-output individual contributors are just as valuable as leaders.",
-    "project_outcome_note": "High performers are also exposed to high-risk or complex projects, increasing failure exposure despite strong capabilities. A 33.5% failed project rate does not reflect poor performance, but rather willingness to take on challenging, high-stakes assignments."
+      "Skills": "Avg_Skills_Score: 8.05 vs population 7.97",
+      "Soft_Skills": "Avg_Soft_Skills_Score: 8.05 vs population 8.03",
+      "Efficiency": "Training_Efficiency: 0.306 vs population 0.198",
+      "Engagement": "Employee_Engagement_Score: 80.15",
+      "WLB": "Employee_Work_Life_Balance_Rating: 8.09"
+    }
   },
   "score_distribution_deciles": {
     "D1": 0.592432,
@@ -200,5 +196,52 @@
     "D8": 0.878214,
     "D9": 0.954048,
     "D10": 1.565186
+  },
+  "llm_evidence": {
+    "performance_90th_pct_threshold": 14.0,
+    "score_90th_pct_threshold": 0.954048,
+    "top10_by_performance_count": 513,
+    "top10_by_score_count": 401,
+    "overlap_both_criteria": 291,
+    "top5_standout_traits": {
+      "Communication_Skills_Rating": 0.257,
+      "Employee_Engagement_Score": 0.151,
+      "Employee_Work_Life_Balance_Rating": 0.133,
+      "Initiative_Rating": 0.132,
+      "Overtime_Hours_Per_Week": 0.128
+    },
+    "score_stats": {
+      "mean": 0.764587,
+      "top10_mean": 1.041313,
+      "max": 1.565186
+    },
+    "trait_gaps": {
+      "Avg_Skills_Score": 0.081,
+      "Avg_Soft_Skills_Score": 0.024,
+      "Training_Efficiency": 0.108,
+      "Employee_Engagement_Score": 0.151,
+      "Employee_Work_Life_Balance_Rating": 0.133
+    }
+  },
+  "llm_insights": {
+    "headline": "Profile of Top 10% Performers: Communication and Engagement Drive Success",
+    "key_insight_1": "The top 10% of performers, identified by a performance score above 14.0, exhibit a strong emphasis on Communication Skills Rating (0.257) and Employee Engagement Score (0.151). These traits are the most distinguishing factors among this elite group.",
+    "key_insight_2": "While 513 employees fall into the top 10% by performance, only 401 meet the top 10% threshold for overall score (0.954048). A significant overlap of 291 employees demonstrates that high performance is not always perfectly aligned with the composite score, suggesting potential nuances in how success is measured.",
+    "hidden_insight": "A notable gap exists in Employee Work-Life Balance Rating (0.133) and Employee Engagement Score (0.151) for top performers compared to the ideal profile, indicating that while these employees excel, they may be sacrificing personal well-being or are highly engaged despite potential work-life challenges.",
+    "risk_alert": "The top 10% of performers show a substantial gap in Employee Work-Life Balance Rating (0.133) and Employee Engagement Score (0.151), which could signal burnout risk and long-term sustainability issues for these high-value employees.",
+    "business_implication": "Understanding the profile of top performers allows for targeted talent development and retention strategies. Addressing the identified trait gaps, particularly in work-life balance and engagement, is crucial for sustaining high performance and preventing attrition.",
+    "action_plan": [
+      "Develop targeted training programs focusing on enhancing Communication Skills Rating for high-potential employees.",
+      "Investigate the drivers behind the high Employee Engagement Score in top performers and explore scalable engagement strategies for the broader workforce.",
+      "Analyze the factors contributing to the work-life balance gap among top performers and implement supportive policies or resources.",
+      "Review performance metrics to ensure they accurately capture the multifaceted nature of success, considering both performance and engagement scores."
+    ],
+    "standout_statement": "Top performers are characterized by superior communication skills and engagement, yet they exhibit concerning gaps in work-life balance, highlighting a potential trade-off between peak performance and well-being.",
+    "confidence_note": "The insights are derived from correlational data. While strong patterns are observed, causality cannot be definitively established without further experimental or longitudinal analysis. The term 'gap' refers to the difference between the top performer's average trait value and the ideal profile's value for that trait."
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1779822499,
+    "evidence_char_length": 601
   }
 }

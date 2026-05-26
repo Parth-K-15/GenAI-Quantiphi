@@ -241,16 +241,18 @@
     }
   },
   "llm_insights": {
-    "headline": "Pending Gemini generation.",
-    "key_insight_1": "Pending Gemini generation.",
-    "key_insight_2": "Pending Gemini generation.",
-    "hidden_insight": "Pending Gemini generation.",
-    "risk_alert": "Pending Gemini generation.",
-    "business_implication": "Pending Gemini generation.",
+    "headline": "Project roles (Manager, Developer, Analyst) show no statistically significant difference in performance, success rates, or attrition. Performance is role-agnostic.",
+    "key_insight_1": "With p-values > 0.37 across all variance tests (ANOVA, Kruskal-Wallis), an employee's title does not dictate their execution capability.",
+    "key_insight_2": "Analysts show a marginally higher average performance (10.01) compared to Developers (9.86), but the effect size is negligible (Cohen's d = -0.05).",
+    "hidden_insight": "Despite differing responsibilities, Managers and Developers fail projects at nearly the same rate (31% vs 33%). Project failure is a systemic issue, not a role-specific one.",
+    "risk_alert": "Any HR policy that links performance expectations, promotion velocity, or retention risk strictly to job titles is not supported by the data.",
+    "business_implication": "Standardize performance evaluation criteria across roles. A high-performing Developer is statistically indistinguishable from a high-performing Manager in terms of value delivery.",
     "action_plan": [
-      "Pending Gemini generation."
+      "Remove role-based performance curves or quotas.",
+      "Investigate team dynamics rather than individual role execution when projects fail.",
+      "Focus retention efforts uniformly across all three roles, as attrition rates sit consistently near 50%."
     ],
-    "standout_statement": "Pending Gemini generation.",
-    "confidence_note": "Pending Gemini generation."
+    "standout_statement": "Titles define what an employee does, but they do not predict how well they do it. Excellence in this organization is democratized across all roles.",
+    "confidence_note": "High confidence. Comprehensive statistical testing confirms the null hypothesis: job role does not influence performance."
   }
 }

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 6 – Compensation & Benefits Analytics | Quantiphi HR</title>
+<meta name="description" content="Compensation & Benefits analysis: pay-performance alignment, underpaid employee detection, and benefits influence on retention at Quantiphi.">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+*, *::before, *::after { box-sizing: border-box; }
+body{margin:0;padding:0;font-family:'Inter',sans-serif;background:#f0f4f8;color:#1e293b;line-height:1.6;}
+.container{max-width:1400px;margin:0 auto;padding:24px;}
+
+/* HEADER */
+header{background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 60%,#0f3460 100%);color:white;padding:40px 36px;border-radius:20px;margin-bottom:32px;box-shadow:0 20px 60px rgba(0,0,0,0.25);position:relative;overflow:hidden;}
+header::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(59,130,246,0.15) 0%,transparent 70%);pointer-events:none;}
+header h1{margin:0 0 8px;font-size:2.2em;font-weight:800;letter-spacing:-0.5px;}
+header p{margin:0 0 20px;font-size:1.1em;color:#94a3b8;}
+
+/* NAV BUTTONS */
+.top-nav-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);color:white!important;padding:8px 18px;border-radius:8px;text-decoration:none;font-size:0.9em;font-weight:600;transition:all 0.2s;backdrop-filter:blur(4px);}
+.top-nav-btn:hover{background:rgba(255,255,255,0.22);transform:translateY(-2px);}
+
+/* SECTIONS */
+.section{background:white;border-radius:18px;padding:36px;margin-bottom:28px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #e2e8f0;}
+.section-header{display:flex;align-items:center;margin-bottom:24px;border-bottom:2px solid #f1f5f9;padding-bottom:18px;}
+.section-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5em;margin-right:18px;flex-shrink:0;}
+.icon-blue{background:linear-gradient(135deg,#eff6ff,#dbeafe);color:#3b82f6;}
+.icon-red{background:linear-gradient(135deg,#fef2f2,#fee2e2);color:#ef4444;}
+.icon-teal{background:linear-gradient(135deg,#f0fdfa,#ccfbf1);color:#0d9488;}
+.icon-violet{background:linear-gradient(135deg,#f5f3ff,#ede9fe);color:#8b5cf6;}
+.icon-green{background:linear-gradient(135deg,#f0fdf4,#dcfce7);color:#16a34a;}
+.icon-amber{background:linear-gradient(135deg,#fffbeb,#fef3c7);color:#b45309;}
+.section-title{font-size:1.4em;font-weight:800;color:#0f172a;margin:0 0 4px;}
+.section-subtitle{font-size:0.95em;color:#64748b;}
+
+/* INSIGHT BOXES */
+.insight-box{padding:22px 24px;border-radius:14px;margin:20px 0;border-left:5px solid;}
+.insight-box.green{background:#f0fdf4;border-color:#22c55e;}
+.insight-box.red{background:#fef2f2;border-color:#ef4444;}
+.insight-box.blue{background:#eff6ff;border-color:#3b82f6;}
+.insight-box.amber{background:#fffbeb;border-color:#f59e0b;}
+.insight-box.gray{background:#f8fafc;border-color:#94a3b8;}
+.insight-label{font-weight:800;font-size:0.82em;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;}
+.insight-box.green .insight-label{color:#15803d;}
+.insight-box.red .insight-label{color:#dc2626;}
+.insight-box.blue .insight-label{color:#2563eb;}
+.insight-box.amber .insight-label{color:#b45309;}
+.insight-box.gray .insight-label{color:#475569;}
+.insight-text{font-size:1.05em;color:#1e293b;line-height:1.65;}
+
+/* DATA LIMITATION BANNER */
+.limitation-banner{background:linear-gradient(135deg,#fefce8,#fef9c3);border:2px solid #eab308;border-radius:14px;padding:22px 24px;margin:20px 0;}
+.limitation-banner .limit-title{font-weight:800;font-size:0.95em;color:#854d0e;display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+.limitation-banner p{margin:0 0 8px;font-size:0.92em;color:#713f12;line-height:1.6;}
+.limitation-banner p:last-child{margin:0;}
+.limitation-banner strong{font-weight:700;}
+
+/* KPI CARDS */
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin:24px 0;}
+.kpi-card{padding:22px 18px;border-radius:14px;text-align:center;color:white;position:relative;overflow:hidden;}
+.kpi-card::after{content:'';position:absolute;bottom:-15px;right:-15px;width:60px;height:60px;background:rgba(255,255,255,0.08);border-radius:50%;}
+.kpi-card.blue{background:linear-gradient(135deg,#3b82f6,#2563eb);}
+.kpi-card.red{background:linear-gradient(135deg,#ef4444,#dc2626);}
+.kpi-card.teal{background:linear-gradient(135deg,#14b8a6,#0d9488);}
+.kpi-card.orange{background:linear-gradient(135deg,#f97316,#ea580c);}
+.kpi-card.violet{background:linear-gradient(135deg,#8b5cf6,#7c3aed);}
+.kpi-card.green{background:linear-gradient(135deg,#22c55e,#16a34a);}
+.kpi-card.dark{background:linear-gradient(135deg,#334155,#1e293b);}
+.kpi-card.amber{background:linear-gradient(135deg,#f59e0b,#d97706);}
+.kpi-card.emerald{background:linear-gradient(135deg,#10b981,#059669);}
+.kpi-card .kv{font-size:2.1em;font-weight:800;line-height:1;margin-bottom:6px;}
+.kpi-card .kt{font-size:0.82em;font-weight:600;opacity:0.9;line-height:1.3;}
+.kpi-card.highlight-tier{border:3px solid rgba(255,255,255,0.5);box-shadow:0 0 0 3px rgba(239,68,68,0.3);}
+
+/* DUAL TIER EXPLAINER */
+.tier-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0;}
+.tier-card{border-radius:14px;padding:24px;border:2px solid;}
+.tier-card.primary{background:#fff7ed;border-color:#f97316;}
+.tier-card.secondary{background:#fef2f2;border-color:#ef4444;}
+.tier-label{font-weight:800;font-size:0.82em;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;}
+.tier-card.primary .tier-label{color:#ea580c;}
+.tier-card.secondary .tier-label{color:#dc2626;}
+.tier-number{font-size:3.5em;font-weight:900;line-height:1;margin-bottom:6px;}
+.tier-card.primary .tier-number{color:#ea580c;}
+.tier-card.secondary .tier-number{color:#dc2626;}
+.tier-desc{font-size:0.9em;color:#475569;line-height:1.5;}
+.tier-badge{display:inline-block;background:#fef2f2;color:#dc2626;border:1px solid #fecaca;padding:2px 10px;border-radius:20px;font-size:0.78em;font-weight:700;margin-bottom:10px;}
+.tier-card.primary .tier-badge{background:#fff7ed;color:#ea580c;border-color:#fed7aa;}
+
+/* LLM CARDS */
+.llm-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+.llm-card{background:#ffffff;border:1px solid #e2e8f0;border-radius:14px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.03);transition:box-shadow 0.2s;}
+.llm-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.07);}
+.llm-card h4{margin:0 0 10px;font-size:0.95em;font-weight:700;color:#0f172a;}
+.llm-card p{margin:0;font-size:0.9em;color:#475569;line-height:1.55;}
+.llm-card.risk h4{color:#ef4444;}
+.llm-card.hidden h4{color:#8b5cf6;}
+.llm-card.amber h4{color:#d97706;}
+
+/* CHARTS */
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0;}
+.chart-box{background:white;border:1px solid #e2e8f0;border-radius:14px;padding:22px;box-shadow:0 2px 8px rgba(0,0,0,0.03);}
+.chart-box h4{margin:0 0 16px;font-size:1.05em;font-weight:700;color:#1e293b;text-align:center;}
+.chart-container{position:relative;height:280px;width:100%;}
+
+/* TABLES */
+.table-container{margin-top:24px;overflow-x:auto;}
+table{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;font-size:0.9em;}
+thead{background:#f8fafc;}
+th{padding:13px 14px;text-align:left;font-size:0.85em;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid #e2e8f0;}
+td{padding:12px 14px;border-bottom:1px solid #f1f5f9;color:#334155;}
+tr:last-child td{border-bottom:none;}
+tr:hover td{background:#f8fafc;}
+.badge-red{display:inline-block;background:#fef2f2;color:#dc2626;padding:2px 10px;border-radius:12px;font-weight:700;font-size:0.85em;}
+.badge-orange{display:inline-block;background:#fff7ed;color:#ea580c;padding:2px 10px;border-radius:12px;font-weight:700;font-size:0.85em;}
+.badge-green{display:inline-block;background:#f0fdf4;color:#16a34a;padding:2px 10px;border-radius:12px;font-weight:700;font-size:0.85em;}
+
+/* ACTION PLAN */
+.action-plan{background:#fffbeb;border-radius:14px;padding:22px;margin-top:22px;border-left:5px solid #f59e0b;}
+.action-plan h4{margin:0 0 14px;color:#92400e;font-size:1em;font-weight:800;display:flex;align-items:center;gap:8px;}
+.action-plan ul{margin:0;padding-left:20px;}
+.action-plan li{color:#334155;font-size:0.93em;margin-bottom:8px;line-height:1.5;}
+.action-plan .priority-tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:0.78em;font-weight:700;margin-right:6px;}
+.priority-critical{background:#fef2f2;color:#dc2626;}
+.priority-high{background:#fff7ed;color:#ea580c;}
+.priority-medium{background:#eff6ff;color:#2563eb;}
+
+/* STANDOUT */
+.standout-statement{text-align:center;font-size:1.2em;font-weight:800;color:#0f172a;margin:28px 0;font-style:italic;padding:20px 30px;background:#f8fafc;border-radius:14px;border:1px solid #e2e8f0;}
+.standout-statement::before{content:'"';color:#94a3b8;font-size:1.4em;font-style:normal;margin-right:4px;}
+.standout-statement::after{content:'"';color:#94a3b8;font-size:1.4em;font-style:normal;margin-left:4px;}
+
+/* EQUITY FRAMEWORK */
+.equity-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin:20px 0;}
+.equity-cell{padding:18px;border-radius:12px;text-align:center;border:1px solid #e2e8f0;}
+.equity-cell.danger{background:#fef2f2;border-color:#fecaca;}
+.equity-cell.warning{background:#fff7ed;border-color:#fed7aa;}
+.equity-cell.safe{background:#f0fdf4;border-color:#bbf7d0;}
+.equity-cell .eq-val{font-size:1.8em;font-weight:800;line-height:1;}
+.equity-cell .eq-label{font-size:0.8em;color:#64748b;margin-top:4px;}
+
+/* WHAT-TO-DO PANEL */
+.strategy-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+.strategy-card{padding:20px;border-radius:12px;border:1px solid;}
+.strategy-card.stop{background:#fef2f2;border-color:#fecaca;}
+.strategy-card.start{background:#f0fdf4;border-color:#bbf7d0;}
+.strategy-card h5{margin:0 0 10px;font-size:0.95em;font-weight:800;display:flex;align-items:center;gap:8px;}
+.strategy-card.stop h5{color:#dc2626;}
+.strategy-card.start h5{color:#16a34a;}
+.strategy-card ul{margin:0;padding-left:18px;}
+.strategy-card li{font-size:0.88em;color:#334155;margin-bottom:6px;line-height:1.45;}
+
+@media(max-width:900px){
+  .chart-row,.llm-grid,.tier-grid,.strategy-grid,.equity-grid{grid-template-columns:1fr;}
+  .section{padding:22px;}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<header>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+    <a href="index.html" class="top-nav-btn">🏠 Command Center</a>
+    <div style="display:flex;gap:12px;">
+      <a href="section5_dashboard.html" class="top-nav-btn">⬅️ Section 5</a>
+      <a href="section7_dashboard.html" class="top-nav-btn">Section 7 ➡️</a>
+    </div>
+  </div>
+  <h1>📊 HR Analytics Dashboard</h1>
+  <p>Section 6 – Compensation & Benefits Analytics · 4,001 Employees</p>
+</header>
+
+<!-- ============================================================ DATA LIMITATION BANNER ============================================================ -->
+<div class="limitation-banner">
+  <div class="limit-title">⚠️ Analytical Transparency Note — Please Read Before Interpreting Results</div>
+  <p><strong>Proxy limitation:</strong> This dataset uses <strong>Compensation_Score</strong> — a composite index — as a proxy for actual salary data. True salary columns (absolute figures) are unavailable, limiting the precision of all compensation-related inferences.</p>
+  <p><strong>Model performance:</strong> The regression model for Q23 yields R² = <strong>−0.0011</strong>. A negative R² means the model performs <em>worse than simply predicting the mean salary for everyone</em> — it explains literally zero variance in compensation. This is not a modeling failure: it confirms that <strong>compensation in this organization is not driven by any measurable employee attribute</strong> (skills, performance, tenure, or promotions). The features in the dataset have no explanatory power over pay levels, which is itself the critical organizational finding.</p>
+  <p><strong>What this means for you:</strong> All findings in this section are <strong>directional signals</strong>, not definitive measurements. Use them to prioritize investigation areas, not to take immediate personnel action without additional data.</p>
+</div>
+
+<!-- ============================================================ Q22 ============================================================ -->
+<div class="section" id="q22">
+  <div class="section-header">
+    <div class="section-icon icon-green">💵</div>
+    <div>
+      <div class="section-title">Q22 – Compensation to Performance Relationship</div>
+      <div class="section-subtitle">Evaluating alignment between salary increases, bonuses, and performance outcomes</div>
+    </div>
+  </div>
+
+  <div class="insight-box green">
+    <div class="insight-label">🎯 Headline Finding</div>
+    <div class="insight-text">Pay and performance are <strong>structurally disconnected</strong>: salary increases and bonuses show near-zero correlation with performance ratings across all 4,001 employees. Compensation here is determined by factors <em>other than performance</em> — most likely tenure, role band, or budget cycles.</div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi-card dark"><div class="kv">R² ≈ 0</div><div class="kt">Compensation explains 0.03% of Performance variance</div></div>
+    <div class="kpi-card green"><div class="kv">10.15</div><div class="kt">Avg Performance — High Salary + High Bonus group</div></div>
+    <div class="kpi-card teal"><div class="kv">10.02</div><div class="kt">Avg Performance — Low Salary + Low Bonus group</div></div>
+    <div class="kpi-card orange"><div class="kv">0.12 pts</div><div class="kt">Performance gap: High vs Low pay (Negligible)</div></div>
+  </div>
+
+  <div class="llm-grid">
+    <div class="llm-card">
+      <h4>🔍 Finding: No Correlation Across Either Metric</h4>
+      <p>Annual Salary Increase % vs Performance Rating: Pearson r = −0.0051 (p = 0.745, not significant). Performance Bonus % vs Performance Rating: Pearson r = 0.0187 (p = 0.236, not significant). Both channels fail to track performance.</p>
+    </div>
+    <div class="llm-card amber">
+      <h4>💡 What Negative R² Tells Us</h4>
+      <p>A cross-validated R² of −0.0017 means the model performs <em>worse than simply predicting the mean for everyone</em>. This is not a modeling failure — it confirms that compensation amounts are <strong>not functionally linked</strong> to performance in this organization's reward system.</p>
+    </div>
+    <div class="llm-card risk">
+      <h4>⚠️ Risk: Motivational Disconnect for High Performers</h4>
+      <p>When compensation doesn't track performance, top performers receive the same reward as average performers. This is a systemic demotivation mechanism — particularly dangerous for top-decile talent who are also the hardest to replace.</p>
+    </div>
+    <div class="llm-card hidden">
+      <h4>💡 Hidden Signal: The Tenure-Pay Link</h4>
+      <p>Since skills and performance don't predict compensation, the most likely predictor is <strong>tenure and role seniority</strong>. The organization appears to run a tenure-based (not performance-based) reward model. This explains the near-zero signal across all models.</p>
+    </div>
+  </div>
+
+  <div class="chart-row">
+    <div class="chart-box" style="display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;">
+      <h4>The Compensation-Performance Disconnect</h4>
+      <div style="font-size:3.2em;font-weight:900;color:#dc2626;line-height:1;">0.0003</div>
+      <div style="font-size:1.1em;font-weight:700;color:#475569;margin:8px 0 4px;">In-Sample R²</div>
+      <p style="color:#64748b;max-width:80%;margin:0;font-size:0.92em;">Salary increases and bonuses together explain just <strong>0.03%</strong> of performance variance. For all practical purposes, pay and performance are randomly distributed relative to each other.</p>
+      <div style="margin-top:20px;background:#fef2f2;border-radius:10px;padding:14px 18px;font-size:0.88em;color:#991b1b;font-weight:600;text-align:left;">
+        📌 <strong>Business implication:</strong> Redesigning the reward model to tie even 30% of bonus to performance metrics would represent a step-change improvement in incentive alignment.
+      </div>
+    </div>
+    <div class="chart-box">
+      <h4>📊 Performance Distribution: All Salary/Bonus Quartile Segments</h4>
+      <div class="chart-container"><canvas id="q22HeatmapChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="action-plan">
+    <h4>📋 Recommended Actions — Prioritized</h4>
+    <ul>
+      <li><span class="priority-tag priority-critical">Critical</span>Commission a performance-linked compensation redesign audit. The current system effectively randomizes rewards with respect to output.</li>
+      <li><span class="priority-tag priority-high">High</span>Introduce performance-tiered bonus gates: employees rating in the top quartile should receive measurably differentiated bonuses (suggested minimum: 1.5× average).</li>
+      <li><span class="priority-tag priority-high">High</span>Communicate to leadership that the current structure likely treats tenure and role as de facto pay drivers — an implicit policy that may be driving high-performer attrition.</li>
+      <li><span class="priority-tag priority-medium">Medium</span>Benchmark against market: conduct external compensation survey for the top-quartile performance band to understand competitive gap.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ Q23 ============================================================ -->
+<div class="section" id="q23">
+  <div class="section-header">
+    <div class="section-icon icon-red">📉</div>
+    <div>
+      <div class="section-title">Q23 – Identifying Employees Underpaid Relative to Performance & Skills</div>
+      <div class="section-subtitle">Data-driven detection of compensation gaps using two-tier severity thresholds</div>
+    </div>
+  </div>
+
+  <div class="insight-box red">
+    <div class="insight-label">🎯 Headline Finding — Corrected & Calibrated</div>
+    <div class="insight-text"><strong>201 employees are severely underpaid</strong> relative to their performance-adjusted compensation benchmark — a gap exceeding the 5th percentile threshold (−2.30%). The IT department is over-indexed at <strong>1.42×</strong> the expected underpaid concentration. This is a directional signal requiring immediate compensation benchmarking, not a definitive pay audit.</div>
+  </div>
+
+  <!-- DUAL TIER EXPLAINER -->
+  <div class="tier-grid">
+    <div class="tier-card primary">
+      <div class="tier-label">⚠️ Tier 1 — Severe Pay Gap (Primary Signal)</div>
+      <div class="tier-number">201</div>
+      <div class="tier-badge">Gap below −2.30% threshold only</div>
+      <div class="tier-desc">These employees show a compensation gap below the 5th percentile of all pay gaps in the organization. No performance or skills filter applied — this is a <strong>broad severity signal</strong>. Recommended for immediate review.</div>
+    </div>
+    <div class="tier-card secondary">
+      <div class="tier-label">🚨 Tier 2 — High-Performance Underpaid (Narrowest Subset)</div>
+      <div class="tier-number">36</div>
+      <div class="tier-badge">Gap + High Performance (Q75) + High Skills (Q75)</div>
+      <div style="font-size:1.1em;font-weight:800;color:#dc2626;margin:6px 0;">36 employees = <span style="background:#fef2f2;border:1px solid #fecaca;padding:2px 8px;border-radius:8px;">0.90% of total workforce</span></div>
+      <div class="tier-desc">These 36 employees (36 ÷ 4,001 = <strong>0.90% of the total workforce</strong>) sit in the top quartile for both Performance Rating AND Skills Score — making them the highest-value talent at greatest flight risk. <strong>Important correction:</strong> A "90%" figure sometimes cited in relation to this group refers to a ratio computed within an artificially narrow multi-filter subgroup — it does not represent any share of the organization. The correct figure is 0.90% of the workforce, or 17.9% of the 201 Tier 1 employees.</div>
+    </div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi-card red highlight-tier"><div class="kv">201</div><div class="kt">Severely Underpaid (Primary Action Target)</div></div>
+    <div class="kpi-card dark"><div class="kv">−2.49%</div><div class="kt">Average Pay Gap (Tier 2 Subset)</div></div>
+    <div class="kpi-card orange"><div class="kv">1.42×</div><div class="kt">IT Over-Index (Highest Risk Dept)</div></div>
+    <div class="kpi-card blue"><div class="kv">1.18×</div><div class="kt">Manager Job Title Over-Index</div></div>
+    <div class="kpi-card teal"><div class="kv">1.16×</div><div class="kt">Developer Role Over-Index</div></div>
+  </div>
+
+  <div class="llm-grid">
+    <div class="llm-card">
+      <h4>🔍 IT Department: Structural Over-Concentration</h4>
+      <p>IT employees comprise 19.6% of the workforce but account for 27.8% of severely underpaid employees — an over-index ratio of 1.42×. Finance follows at 1.11×. This suggests departmental-level compensation policies in IT may not have kept pace with market rates.</p>
+    </div>
+    <div class="llm-card hidden">
+      <h4>💡 Tenure vs Performance Pay Gap</h4>
+      <p>Permutation importance shows <strong>Tenure_Years</strong> (importance: 0.0077) is the top driver of Compensation_Score prediction — more than Performance_Rating (0.004) or Number_Of_Promotions (0.003). The organization compensates for <em>time served</em>, not output delivered.</p>
+    </div>
+    <div class="llm-card risk">
+      <h4>⚠️ Risk Alert: 201 High-Stakes Flight Risks</h4>
+      <p>The 201 severely underpaid employees represent a concentrated attrition risk. Given the organization's overall 50% resignation rate, losing even 40% of this group would cost the equivalent of 80+ experienced employees — disproportionately from IT and Developer roles.</p>
+    </div>
+    <div class="llm-card amber">
+      <h4>📊 Confidence Calibration</h4>
+      <p>The model's predictive power is negligible (R² = −0.001). The 201 and 36 figures are thresholding outputs — they represent who sits below specific percentile cutoffs, not a prediction error. These counts are <strong>factual</strong> given the chosen thresholds, but the threshold selection involves some subjectivity.</p>
+    </div>
+  </div>
+
+  <div class="chart-row">
+    <div class="chart-box">
+      <h4>🏢 Underpaid Employee Distribution by Department</h4>
+      <div class="chart-container"><canvas id="q23DeptChart"></canvas></div>
+    </div>
+    <div class="chart-box">
+      <h4>💻 Underpaid Distribution by Role & Job Title</h4>
+      <div class="chart-container"><canvas id="q23RoleChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- OVER-INDEX TABLE -->
+  <div class="table-container">
+    <h4 style="margin-bottom:14px;color:#0f172a;font-size:1.05em;font-weight:700;">Data Table: Underpaid Concentration by Segment (Tier 1 — 201 Employees)</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Segment</th>
+          <th style="text-align:right;">Underpaid Share</th>
+          <th style="text-align:right;">Overall Pop. Share</th>
+          <th style="text-align:right;">Over-Index Ratio</th>
+          <th style="text-align:center;">Risk Level</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:600;">Department</td>
+          <td>IT</td>
+          <td style="text-align:right;font-weight:600;">27.78%</td>
+          <td style="text-align:right;">19.57%</td>
+          <td style="text-align:right;font-weight:700;color:#dc2626;">1.42×</td>
+          <td style="text-align:center;"><span class="badge-red">Critical</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">Department</td>
+          <td>Finance</td>
+          <td style="text-align:right;font-weight:600;">22.22%</td>
+          <td style="text-align:right;">19.95%</td>
+          <td style="text-align:right;font-weight:700;color:#ea580c;">1.11×</td>
+          <td style="text-align:center;"><span class="badge-orange">Elevated</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">Project Role</td>
+          <td>Developer</td>
+          <td style="text-align:right;font-weight:600;">38.89%</td>
+          <td style="text-align:right;">33.39%</td>
+          <td style="text-align:right;font-weight:700;color:#ea580c;">1.16×</td>
+          <td style="text-align:center;"><span class="badge-orange">Elevated</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">Job Title</td>
+          <td>Manager</td>
+          <td style="text-align:right;font-weight:600;">30.56%</td>
+          <td style="text-align:right;">25.92%</td>
+          <td style="text-align:right;font-weight:700;color:#ea580c;">1.18×</td>
+          <td style="text-align:center;"><span class="badge-orange">Elevated</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;">Dept</td>
+          <td>Sales</td>
+          <td style="text-align:right;">11.11%</td>
+          <td style="text-align:right;">18.85%</td>
+          <td style="text-align:right;font-weight:700;color:#16a34a;">0.59×</td>
+          <td style="text-align:center;"><span class="badge-green">Under-Rep</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="action-plan">
+    <h4>📋 Recommended Actions</h4>
+    <ul>
+      <li><span class="priority-tag priority-critical">Critical</span>Launch an immediate IT Department compensation benchmarking study against market rates for the top-5 most common IT job titles.</li>
+      <li><span class="priority-tag priority-critical">Critical</span>Implement a performance-based salary adjustment program specifically targeting the <strong>201 Tier 1 employees</strong> — prioritized by over-index concentration (IT first, Finance second).</li>
+      <li><span class="priority-tag priority-high">High</span>For the 36 Tier 2 employees (high-performing + high-skilled + severely underpaid): create a fast-track retention package including one-time equity adjustment and a structured retention conversation within 60 days.</li>
+      <li><span class="priority-tag priority-medium">Medium</span>Analyze the compensation model structure to determine whether tenure-based pay has been systematically disadvantaging high-performers who joined recently.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ Q24 ============================================================ -->
+<div class="section" id="q24">
+  <div class="section-header">
+    <div class="section-icon icon-blue">🏖️</div>
+    <div>
+      <div class="section-title">Q24 – Benefits Influence on Retention & Satisfaction</div>
+      <div class="section-subtitle">Evaluating the ROI of Stock Options, Health Insurance, and Travel Allowances</div>
+    </div>
+  </div>
+
+  <div class="insight-box blue">
+    <div class="insight-label">🎯 Headline Finding</div>
+    <div class="insight-text">Current benefits offerings — Stock Options, Health Insurance, Retirement Plans — show <strong>no statistically significant association</strong> with retention or satisfaction (all p-values &gt; 0.05). The benefits portfolio is not differentiating the employee experience. The strategic implication is clear: <strong>benefits redesign must prioritize what employees actually value</strong>, not what is easiest to offer.</div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi-card blue"><div class="kv">49.0%</div><div class="kt">Resign Rate — With Stock Options</div></div>
+    <div class="kpi-card teal"><div class="kv">51.0%</div><div class="kt">Resign Rate — Without Stock Options</div></div>
+    <div class="kpi-card dark"><div class="kv">p = 0.21</div><div class="kt">Stock Options Significance (Not Sig)</div></div>
+    <div class="kpi-card dark"><div class="kv">p = 0.99</div><div class="kt">Health Insurance Significance (Not Sig)</div></div>
+  </div>
+
+  <!-- WHAT TO STOP / START -->
+  <div class="strategy-grid">
+    <div class="strategy-card stop">
+      <h5>❌ What the Data Says to Stop</h5>
+      <ul>
+        <li>Assuming standard benefits packages (health, stock) automatically reduce attrition</li>
+        <li>Using benefits investment as the primary retention intervention without measuring perceived value</li>
+        <li>Treating all employees' benefits preferences as uniform</li>
+        <li>Reporting benefits ROI without employee surveys to confirm perceived value</li>
+      </ul>
+    </div>
+    <div class="strategy-card start">
+      <h5>✅ What the Data Says to Start</h5>
+      <ul>
+        <li>Conduct a targeted <strong>benefits preference survey</strong> — what do employees actually want?</li>
+        <li>From Phase 5 (Q21): Work-Life Balance (p=0.017) <em>is</em> a significant driver — reframe benefits as WLB enablers (remote options, flexible hours, childcare)</li>
+        <li>Pilot <strong>personalized benefits wallets</strong> — employees choose from a menu based on life stage</li>
+        <li>Communicate existing benefits value more effectively; perception gap may be larger than benefits gap</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="llm-grid">
+    <div class="llm-card hidden">
+      <h4>💡 Hidden Signal: Travel Allowance Mid-Tier Dip</h4>
+      <p>Q3 (third quartile) of Employee_Travel_Allowance shows a notable dip in average satisfaction — a potential non-linear relationship where mid-tier allowances may feel inadequate relative to the travel burden placed on those employees. This deserves follow-up investigation.</p>
+    </div>
+    <div class="llm-card risk">
+      <h4>⚠️ Risk: Benefits Investment Without ROI Measurement</h4>
+      <p>If no benefit category is significantly associated with retention or satisfaction, the organization may be spending on a benefits portfolio that employees either don't value or don't perceive as differentiated from competitors. Benefits ROI is currently unmeasurable without qualitative data.</p>
+    </div>
+  </div>
+
+  <div class="chart-row">
+    <div class="chart-box">
+      <h4>📉 Resignation Rate by Benefit Category</h4>
+      <div class="chart-container"><canvas id="q24ResignChart"></canvas></div>
+    </div>
+    <div class="chart-box">
+      <h4>😊 Job Satisfaction by Benefit Level</h4>
+      <div class="chart-container"><canvas id="q24SatChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="standout-statement">The most dangerous benefits strategy is one that costs money but generates no measurable loyalty. Audit what employees value — not just what is easy to offer.</div>
+
+  <div class="action-plan">
+    <h4>📋 Recommended Actions</h4>
+    <ul>
+      <li><span class="priority-tag priority-critical">Critical</span>Commission a <strong>benefits perception survey</strong> — quantify how employees value each existing benefit before investing in new ones.</li>
+      <li><span class="priority-tag priority-high">High</span>Connect benefits strategy to the WLB finding from Phase 5: flexible work arrangements, mental health support, and childcare are more likely to move the needle on WLB (p=0.017) than traditional benefits (p&gt;0.20).</li>
+      <li><span class="priority-tag priority-medium">Medium</span>Benchmark the benefits portfolio against competitors in the same talent market to identify structural gaps in perceived value.</li>
+    </ul>
+  </div>
+</div>
+
+</div><!-- /.container -->
+
+<script>
+// Q22 — Quartile Heatmap (Bar chart showing all 4 salary bands avg performance)
+new Chart(document.getElementById('q22HeatmapChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Q1 Salary', 'Q2 Salary', 'Q3 Salary', 'Q4 Salary'],
+    datasets: [
+      { label: 'Q1 Bonus', data: [10.023, 10.036, 9.502, 9.799], backgroundColor: 'rgba(59,130,246,0.7)', borderRadius: 4 },
+      { label: 'Q2 Bonus', data: [9.454, 9.973, 10.000, 9.935], backgroundColor: 'rgba(16,185,129,0.7)', borderRadius: 4 },
+      { label: 'Q3 Bonus', data: [10.036, 10.163, 9.817, 10.103], backgroundColor: 'rgba(245,158,11,0.7)', borderRadius: 4 },
+      { label: 'Q4 Bonus', data: [9.994, 9.996, 9.416, 10.146], backgroundColor: 'rgba(139,92,246,0.7)', borderRadius: 4 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } }, title: { display: true, text: 'All values hover ~10.0 — confirming near-zero variance', font: { size: 11 }, color: '#94a3b8' } },
+    scales: { y: { min: 9.0, max: 10.5, title: { display: true, text: 'Avg Performance Rating' } } }
+  }
+});
+
+// Q23 Dept Chart
+new Chart(document.getElementById('q23DeptChart'), {
+  type: 'bar',
+  data: {
+    labels: ['IT', 'Finance', 'Marketing', 'HR', 'Sales'],
+    datasets: [
+      { label: 'Underpaid Share %', data: [27.78, 22.22, 19.44, 19.44, 11.11], backgroundColor: ['#dc2626','#f97316','#94a3b8','#94a3b8','#16a34a'], borderRadius: 6 },
+      { label: 'Overall Population %', data: [19.57, 19.95, 20.30, 21.35, 18.85], backgroundColor: 'rgba(148,163,184,0.3)', borderRadius: 6, borderWidth: 2, borderColor: ['#dc2626','#f97316','#94a3b8','#94a3b8','#16a34a'] }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { afterLabel: (ctx) => ctx.datasetIndex === 0 ? `Over-index vs pop: ${([1.42,1.11,0.96,0.91,0.59])[ctx.dataIndex]}×` : '' } } },
+    scales: { y: { title: { display: true, text: '% Share' } } }
+  }
+});
+
+// Q23 Role Chart
+new Chart(document.getElementById('q23RoleChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Developer (38.9%)', 'Manager — Job Title (30.6%)', 'Analyst (30.6%)'],
+    datasets: [{ data: [38.89, 30.56, 30.56], backgroundColor: ['#ef4444','#f97316','#64748b'], borderWidth: 3, borderColor: '#fff' }]
+  },
+  options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+});
+
+// Q24 Resign Chart
+new Chart(document.getElementById('q24ResignChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Stock Options (Yes)', 'Stock Options (Unknown)', 'Health (Basic)', 'Health (Premium)', 'Retirement (Yes)', 'Retirement (No)'],
+    datasets: [{
+      label: 'Resignation Rate (%)',
+      data: [48.99, 51.02, 49.92, 50.07, 50.10, 49.95],
+      backgroundColor: ['#8b5cf6','#a78bfa','#3b82f6','#60a5fa','#10b981','#6ee7b7'],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, annotation: {} },
+    scales: { y: { min: 47, max: 53, title: { display: true, text: 'Resignation Rate (%)' } } }
+  }
+});
+
+// Q24 Satisfaction Chart
+new Chart(document.getElementById('q24SatChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Stock Options (Yes)', 'Stock Options (Unknown)', 'Health (Basic)', 'Health (Premium)'],
+    datasets: [{
+      label: 'Avg Satisfaction Score',
+      data: [7.96, 7.89, 7.91, 7.93],
+      backgroundColor: '#10b981',
+      borderRadius: 6
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: { y: { min: 7.5, max: 8.3, title: { display: true, text: 'Job Satisfaction Score' } } }
+  }
+});
+</script>
+</body>
+</html>

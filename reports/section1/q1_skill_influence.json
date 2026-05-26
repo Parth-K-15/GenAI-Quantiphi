@@ -259,10 +259,82 @@
   },
   "llm_reasoning": {
     "finding": "Low linear correlations indicate these 3 skills are not sole predictors of performance.",
-    "communication_dominance": "Communication_Skills_Rating carries 84.7% weight \u2014 the strongest individual predictor.",
-    "technical_insight": "Technical_Skills_Rating shows near-zero correlation (r=0.002), suggesting technical skill alone does not drive performance scores in this dataset.",
-    "problem_solving_insight": "Problem_Solving_Skills_Rating shows a slight negative correlation (-0.0049), hinting that high scorers may be in roles with lower performance expectations.",
-    "conclusion": "Performance_Rating in this dataset appears to be influenced by broader contextual factors (project complexity, leadership, engagement) rather than these three skills in isolation. Recommended: build a multi-feature model incorporating all skill + soft-skill ratings.",
-    "weighted_formula": "Weighted_Score = 0.0448\u00d7Tech + 0.8468\u00d7Comm + 0.1084\u00d7ProbSolve"
+    "communication_dominance": "Communication_Skills_Rating carries 84.7% weight — the strongest individual predictor.",
+    "technical_insight": "Technical_Skills_Rating shows near-zero correlation, suggesting technical skill alone does not drive performance scores in this dataset.",
+    "problem_solving_insight": "Problem_Solving_Skills_Rating is near-zero in linear correlation, hinting that role context may matter more than isolated skill rating.",
+    "conclusion": "Performance_Rating appears influenced by broader contextual factors beyond these three skill dimensions in isolation.",
+    "weighted_formula": "Weighted_Score = 0.0448×Tech + 0.8468×Comm + 0.1084×ProbSolve"
+  },
+  "llm_evidence": {
+    "rows_used": 4001,
+    "target": "Performance_Rating",
+    "skills_evaluated": [
+      "Technical_Skills_Rating",
+      "Communication_Skills_Rating",
+      "Problem_Solving_Skills_Rating"
+    ],
+    "individual_correlations": {
+      "Technical_Skills_Rating": 0.002008,
+      "Communication_Skills_Rating": 0.037981,
+      "Problem_Solving_Skills_Rating": -0.004862
+    },
+    "normalized_weights": {
+      "Technical_Skills_Rating": 0.0448,
+      "Communication_Skills_Rating": 0.8468,
+      "Problem_Solving_Skills_Rating": 0.1084
+    },
+    "weighted_score_vs_performance_corr": 0.03706,
+    "strongest_skill_by_abs_correlation": "Communication_Skills_Rating",
+    "performance_stats": {
+      "mean": 9.91,
+      "median": 10.0,
+      "std": 3.09
+    },
+    "skill_means": {
+      "Technical_Skills_Rating": 7.99,
+      "Communication_Skills_Rating": 7.9,
+      "Problem_Solving_Skills_Rating": 8.0
+    },
+    "band_skill_avg": {
+      "Technical_Skills_Rating": {
+        "Low(1-5)": 8.17,
+        "Medium(6-10)": 7.91,
+        "High(11-15)": 8.1,
+        "Top(16+)": 7.85
+      },
+      "Communication_Skills_Rating": {
+        "Low(1-5)": 7.99,
+        "Medium(6-10)": 7.77,
+        "High(11-15)": 8.03,
+        "Top(16+)": 8.26
+      },
+      "Problem_Solving_Skills_Rating": {
+        "Low(1-5)": 7.91,
+        "Medium(6-10)": 8.03,
+        "High(11-15)": 7.95,
+        "Top(16+)": 8.09
+      }
+    }
+  },
+  "llm_insights": {
+    "headline": "Communication Skills Heavily Outweigh Other Skills in Driving Performance Ratings",
+    "key_insight_1": "Communication Skills Rating has the strongest positive correlation with Performance Rating (0.037981) and the largest normalized weight (0.8468), indicating it is the most influential skill in the performance evaluation model.",
+    "key_insight_2": "Despite a strong positive correlation and weight, the average Communication Skills Rating for employees in the 'Medium (6-10)' performance band is lower (7.77) than in the 'Low (1-5)' band (7.99), suggesting a potential disconnect in how this skill is assessed or utilized across performance levels.",
+    "hidden_insight": "Technical Skills Rating (0.002008) and Problem Solving Skills Rating (-0.004862) show negligible and a slightly negative correlation with Performance Rating, respectively, despite having average ratings of 7.99 and 8.0, and contributing 0.0448 and 0.1084 to the weighted score.",
+    "risk_alert": "The disproportionately high weight on Communication Skills (0.8468) and its weak correlation with other skills (Technical: 0.002008, Problem Solving: -0.004862) may lead to under-evaluation of critical technical or problem-solving contributions, potentially impacting innovation and operational efficiency.",
+    "business_implication": "The current performance evaluation framework may be overly reliant on communication, potentially overlooking employees with strong technical or problem-solving abilities but less developed communication skills. This could lead to misallocation of talent, reduced employee engagement for high-technical performers, and a skewed perception of overall team capability.",
+    "action_plan": [
+      "Review and re-calibrate the weighting of skills in the performance evaluation model to ensure a more balanced representation of technical, problem-solving, and communication abilities.",
+      "Investigate the discrepancy in Communication Skills Ratings between performance bands to understand if assessment criteria are applied consistently.",
+      "Conduct a deeper analysis to understand the relationship between Technical Skills, Problem Solving Skills, and actual business outcomes, beyond their correlation with the current performance rating.",
+      "Develop targeted training programs to enhance communication skills for all employees, while also providing avenues for high-performers in other skill areas to be recognized and developed."
+    ],
+    "standout_statement": "Communication skills are weighted 19 times more heavily than technical skills in performance evaluations, yet the average communication skill score for 'Medium' performers is lower than for 'Low' performers.",
+    "confidence_note": "The correlations observed are weak, indicating that while there are directional relationships, skill ratings explain only a small portion of the variance in performance ratings. Causality cannot be inferred from these correlational findings."
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1779822244,
+    "evidence_char_length": 1046
   }
 }

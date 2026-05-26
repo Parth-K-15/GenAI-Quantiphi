@@ -215,34 +215,71 @@
       "Complex": 23.7
     }
   },
-  "llm_insights": {
-    "headline_finding": "Skill scores nearly identical: High Avg=8.01 vs Low Avg=8.02. Raw skill levels do NOT drive performance differences.",
-    "key_statement": "The findings challenge the traditional assumption that higher performance is directly linked to superior skills, instead highlighting the importance of execution efficiency and contextual/organizational factors.",
-    "power_line": "Performance is not a function of ability alone, but of how effectively that ability is leveraged within an organizational environment.",
-    "what_actually_differentiates": {
-      "Training_Efficiency": "High=0.244 vs Low=0.088 \u2014 High performers extract ~3x more output per dev hour.",
-      "Work_Life_Balance": "High=8.03 vs Low=7.66 \u2014 Better conditions = better output.",
-      "Job_Satisfaction": "High=7.90 vs Low=7.67 \u2014 Satisfaction drives performance.",
-      "Mentorship_Paradox": "Low performers have HIGHER mentor ratings (8.24 vs 7.99) \u2014 struggling employees need more support.",
-      "Creativity_Edge": "High performers show slightly higher creativity (8.10 vs 7.89)."
+  "llm_evidence": {
+    "segment_sizes": {
+      "high_ge10": 2121,
+      "low_le5": 270
     },
-    "deep_reasoning": {
-      "Skill_Saturation": "Skills cluster at ~8 across all employees \u2014 discriminative power lost.",
-      "Execution_Gap": "Low performers have capability but not efficiency (Training_Efficiency 3x lower).",
-      "Environmental_Factors": "Context (WLB, satisfaction, onboarding) explains variance more than skill.",
-      "Mentorship_Paradox": "High mentor support for low performers is a signal of struggle, not strength."
+    "top_differentiators": [
+      "Onboarding_Delay_Days",
+      "Professional_Development_Hours",
+      "Employee_Engagement_Score",
+      "Employee_Work_Life_Balance_Rating",
+      "Mentor_Rating",
+      "Employee_Job_Satisfaction_Score",
+      "Strategic_Thinking_Rating",
+      "Creativity_Rating",
+      "Adaptability_Rating",
+      "Training_Efficiency"
+    ],
+    "top_differentiator_deltas": {
+      "Onboarding_Delay_Days": 0.767,
+      "Professional_Development_Hours": -0.583,
+      "Employee_Engagement_Score": -0.463,
+      "Employee_Work_Life_Balance_Rating": 0.369,
+      "Mentor_Rating": -0.246,
+      "Employee_Job_Satisfaction_Score": 0.23,
+      "Strategic_Thinking_Rating": -0.207,
+      "Creativity_Rating": 0.203,
+      "Adaptability_Rating": -0.179,
+      "Training_Efficiency": 0.156
     },
-    "cluster_summary": {
-      "Efficient_Performers_High_ge10": "Similar skills to low performers. Differentiated by higher training efficiency, better WLB, higher satisfaction, slight creativity advantage. Pattern: Effective execution under favorable conditions.",
-      "Inefficient_Performers_Low_le5": "Comparable skills. Lower efficiency, lower satisfaction, higher mentor reliance. Pattern: Capable but underperforming due to context or inefficiency."
+    "skills_summary": {
+      "high_avg_skills_score": 8.006,
+      "low_avg_skills_score": 8.021,
+      "high_training_efficiency": 0.244,
+      "low_training_efficiency": 0.088,
+      "high_wlb": 8.025,
+      "low_wlb": 7.656
     },
-    "resignation_high": {
+    "resignation_high_pct": {
       "Yes": 51.0,
       "No": 49.0
     },
-    "resignation_low": {
+    "resignation_low_pct": {
       "No": 59.3,
       "Yes": 40.699999999999996
     }
+  },
+  "llm_insights": {
+    "headline": "High Performers Exhibit Shorter Onboarding Delays and Higher Engagement, Despite Similar Skill Scores",
+    "key_insight_1": "Employees with high performance (>=10) experience an average of 0.767 fewer Onboarding_Delay_Days compared to low performers (<=5). This suggests that efficient onboarding processes are strongly associated with higher performance outcomes.",
+    "key_insight_2": "High performers report a 0.463 lower Employee_Engagement_Score, and 0.583 fewer Professional_Development_Hours, indicating that while they may be more engaged, they are not necessarily receiving more development opportunities or reporting higher engagement levels in this specific metric compared to low performers. Conversely, high performers report a higher Employee_Work_Life_Balance_Rating (0.369) and Employee_Job_Satisfaction_Score (0.23).",
+    "hidden_insight": "Despite high performers having an average skills score of 8.006, which is very close to low performers' average of 8.021, their Training_Efficiency is notably higher at 0.244 compared to 0.088 for low performers. This indicates that high performers are more effective at translating training into tangible results.",
+    "risk_alert": "The high-performance group shows a 51.0% resignation rate, which is significantly higher than the 40.7% resignation rate among low performers. This suggests a potential retention issue among the top talent.",
+    "business_implication": "The data highlights a critical need to optimize onboarding to foster higher performance and to investigate the drivers behind the higher resignation rates in the high-performing segment. Furthermore, understanding how high performers achieve better results with similar skill levels and less formal development time is crucial for scaling success.",
+    "action_plan": [
+      "Investigate root causes for longer onboarding delays for low performers and implement targeted process improvements.",
+      "Analyze the factors contributing to the higher resignation rate among high performers, focusing on career development, recognition, and workload.",
+      "Explore the mechanisms by which high performers achieve higher Training_Efficiency and identify best practices to share across the organization.",
+      "Benchmark Employee_Engagement_Score and Professional_Development_Hours for high performers against industry best practices to identify potential gaps."
+    ],
+    "standout_statement": "High performers are not necessarily more skilled but are significantly more efficient in leveraging training and experience, yet they are also more likely to leave the organization.",
+    "confidence_note": "The provided data indicates associations and differences between performance groups. Causal relationships cannot be definitively established from this correlational evidence. The differences in resignation rates and onboarding delays are notable but should be interpreted with caution regarding causality."
+  },
+  "llm_generation_meta": {
+    "model_used": "gemini-2.5-flash-lite",
+    "generated_at_epoch": 1779822367,
+    "evidence_char_length": 975
   }
 }

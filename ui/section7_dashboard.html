@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 7 – Recruitment & Hiring Impact | Quantiphi HR</title>
+<meta name="description" content="Recruitment & Hiring analysis: impact of hiring source, time-to-hire, and cost on performance, retention, and satisfaction at Quantiphi.">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+*, *::before, *::after { box-sizing: border-box; }
+body{margin:0;padding:0;font-family:'Inter',sans-serif;background:#f0f4f8;color:#1e293b;line-height:1.6;}
+.container{max-width:1400px;margin:0 auto;padding:24px;}
+
+/* HEADER */
+header{background:linear-gradient(135deg,#0f172a 0%,#1a3a5c 60%,#0d2d4a 100%);color:white;padding:40px 36px;border-radius:20px;margin-bottom:32px;box-shadow:0 20px 60px rgba(0,0,0,0.25);position:relative;overflow:hidden;}
+header::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(100,116,139,0.2) 0%,transparent 70%);pointer-events:none;}
+header h1{margin:0 0 8px;font-size:2.2em;font-weight:800;letter-spacing:-0.5px;}
+header p{margin:0 0 20px;font-size:1.1em;color:#94a3b8;}
+
+/* NAV BUTTONS */
+.top-nav-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);color:white!important;padding:8px 18px;border-radius:8px;text-decoration:none;font-size:0.9em;font-weight:600;transition:all 0.2s;backdrop-filter:blur(4px);}
+.top-nav-btn:hover{background:rgba(255,255,255,0.22);transform:translateY(-2px);}
+
+/* SECTIONS */
+.section{background:white;border-radius:18px;padding:36px;margin-bottom:28px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #e2e8f0;}
+.section-header{display:flex;align-items:center;margin-bottom:24px;border-bottom:2px solid #f1f5f9;padding-bottom:18px;}
+.section-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5em;margin-right:18px;flex-shrink:0;}
+.icon-slate{background:linear-gradient(135deg,#f1f5f9,#e2e8f0);color:#475569;}
+.icon-teal{background:linear-gradient(135deg,#f0fdfa,#ccfbf1);color:#0d9488;}
+.icon-violet{background:linear-gradient(135deg,#f5f3ff,#ede9fe);color:#8b5cf6;}
+.icon-amber{background:linear-gradient(135deg,#fffbeb,#fef3c7);color:#b45309;}
+.section-title{font-size:1.4em;font-weight:800;color:#0f172a;margin:0 0 4px;}
+.section-subtitle{font-size:0.95em;color:#64748b;}
+
+/* INSIGHT BOXES */
+.insight-box{padding:22px 24px;border-radius:14px;margin:20px 0;border-left:5px solid;}
+.insight-box.slate{background:#f8fafc;border-color:#64748b;}
+.insight-box.teal{background:#f0fdfa;border-color:#14b8a6;}
+.insight-box.violet{background:#f5f3ff;border-color:#8b5cf6;}
+.insight-box.amber{background:#fffbeb;border-color:#f59e0b;}
+.insight-box.green{background:#f0fdf4;border-color:#22c55e;}
+.insight-label{font-weight:800;font-size:0.82em;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;}
+.insight-box.slate .insight-label{color:#334155;}
+.insight-box.teal .insight-label{color:#0f766e;}
+.insight-box.violet .insight-label{color:#6d28d9;}
+.insight-box.amber .insight-label{color:#b45309;}
+.insight-box.green .insight-label{color:#15803d;}
+.insight-text{font-size:1.05em;color:#1e293b;line-height:1.65;}
+
+/* KPI CARDS */
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin:24px 0;}
+.kpi-card{padding:22px 18px;border-radius:14px;text-align:center;color:white;position:relative;overflow:hidden;}
+.kpi-card::after{content:'';position:absolute;bottom:-15px;right:-15px;width:60px;height:60px;background:rgba(255,255,255,0.08);border-radius:50%;}
+.kpi-card.blue{background:linear-gradient(135deg,#3b82f6,#2563eb);}
+.kpi-card.red{background:linear-gradient(135deg,#ef4444,#dc2626);}
+.kpi-card.teal{background:linear-gradient(135deg,#14b8a6,#0d9488);}
+.kpi-card.slate{background:linear-gradient(135deg,#64748b,#475569);}
+.kpi-card.dark{background:linear-gradient(135deg,#334155,#1e293b);}
+.kpi-card.violet{background:linear-gradient(135deg,#8b5cf6,#7c3aed);}
+.kpi-card.green{background:linear-gradient(135deg,#22c55e,#16a34a);}
+.kpi-card .kv{font-size:2.1em;font-weight:800;line-height:1;margin-bottom:6px;}
+.kpi-card .kt{font-size:0.82em;font-weight:600;opacity:0.9;line-height:1.3;}
+
+/* LLM CARDS */
+.llm-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;}
+.llm-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.03);transition:box-shadow 0.2s;}
+.llm-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.07);}
+.llm-card h4{margin:0 0 10px;font-size:0.95em;font-weight:700;color:#0f172a;}
+.llm-card p{margin:0;font-size:0.9em;color:#475569;line-height:1.55;}
+.llm-card.risk h4{color:#ef4444;}
+.llm-card.hidden h4{color:#8b5cf6;}
+.llm-card.cross h4{color:#0d9488;}
+.llm-card.directive h4{color:#2563eb;}
+
+/* STRATEGIC DIRECTIVE PANEL */
+.directive-panel{background:linear-gradient(135deg,#0f172a,#1e3a5c);color:white;border-radius:18px;padding:32px;margin:24px 0;}
+.directive-panel h3{margin:0 0 6px;font-size:1.3em;font-weight:800;color:#f1f5f9;}
+.directive-panel .subtitle{color:#94a3b8;font-size:0.95em;margin:0 0 24px;}
+.directive-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;}
+.directive-card{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:20px;}
+.directive-card h5{margin:0 0 10px;font-size:0.9em;font-weight:700;color:#93c5fd;}
+.directive-card ul{margin:0;padding-left:18px;}
+.directive-card li{font-size:0.88em;color:#cbd5e1;margin-bottom:6px;line-height:1.45;}
+
+/* NULL RESULT FRAMEWORK */
+.null-framework{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin:24px 0;}
+.null-card{border-radius:14px;padding:20px;border:2px solid;text-align:center;}
+.null-card.stop{background:#fef2f2;border-color:#fecaca;}
+.null-card.start{background:#f0fdf4;border-color:#bbf7d0;}
+.null-card.keep{background:#eff6ff;border-color:#bfdbfe;}
+.null-card.invest{background:#f5f3ff;border-color:#ddd6fe;}
+.null-card .nc-icon{font-size:1.8em;margin-bottom:8px;}
+.null-card .nc-label{font-weight:800;font-size:0.8em;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+.null-card.stop .nc-label{color:#dc2626;}
+.null-card.start .nc-label{color:#16a34a;}
+.null-card.keep .nc-label{color:#2563eb;}
+.null-card.invest .nc-label{color:#7c3aed;}
+.null-card ul{margin:0;padding-left:16px;text-align:left;}
+.null-card li{font-size:0.82em;color:#334155;margin-bottom:5px;line-height:1.4;}
+
+/* CHARTS */
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0;}
+.chart-box{background:white;border:1px solid #e2e8f0;border-radius:14px;padding:22px;box-shadow:0 2px 8px rgba(0,0,0,0.03);}
+.chart-box h4{margin:0 0 16px;font-size:1.05em;font-weight:700;color:#1e293b;text-align:center;}
+.chart-container{position:relative;height:280px;width:100%;}
+
+/* CROSS-SECTION PANEL */
+.cross-section-panel{background:linear-gradient(135deg,#f0fdfa,#e6fffa);border:2px solid #14b8a6;border-radius:16px;padding:24px;margin:24px 0;}
+.cross-section-panel h4{margin:0 0 6px;color:#0f766e;font-size:1.05em;font-weight:800;display:flex;align-items:center;gap:8px;}
+.cross-section-panel p{margin:0;font-size:0.93em;color:#0f766e;line-height:1.55;}
+.cross-link-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:16px;}
+.cross-link-card{background:rgba(255,255,255,0.7);border-radius:10px;padding:14px;text-align:center;border:1px solid #ccfbf1;}
+.cross-link-card .clv{font-size:1.6em;font-weight:800;color:#0d9488;}
+.cross-link-card .cll{font-size:0.8em;color:#0f766e;margin-top:2px;}
+
+/* INTERACTION TABLE */
+.interaction-container{margin-top:24px;overflow-x:auto;}
+.interaction-table{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;font-size:0.88em;}
+.interaction-table thead{background:#f8fafc;}
+.interaction-table th{padding:10px 12px;text-align:center;font-weight:700;color:#475569;border-bottom:2px solid #e2e8f0;font-size:0.82em;text-transform:uppercase;}
+.interaction-table td{padding:10px 12px;text-align:center;border-bottom:1px solid #f1f5f9;}
+.interaction-table tr:hover td{background:#f8fafc;}
+.cell-best{background:#dcfce7!important;color:#15803d;font-weight:700;}
+.cell-worst{background:#fee2e2!important;color:#991b1b;font-weight:700;}
+
+/* ACTION PLAN */
+.action-plan{background:#fffbeb;border-radius:14px;padding:22px;margin-top:22px;border-left:5px solid #f59e0b;}
+.action-plan h4{margin:0 0 14px;color:#92400e;font-size:1em;font-weight:800;display:flex;align-items:center;gap:8px;}
+.action-plan ul{margin:0;padding-left:20px;}
+.action-plan li{color:#334155;font-size:0.93em;margin-bottom:8px;line-height:1.5;}
+.priority-tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:0.78em;font-weight:700;margin-right:6px;}
+.priority-critical{background:#fef2f2;color:#dc2626;}
+.priority-high{background:#fff7ed;color:#ea580c;}
+.priority-medium{background:#eff6ff;color:#2563eb;}
+
+/* STANDOUT */
+.standout-statement{text-align:center;font-size:1.2em;font-weight:800;color:#0f172a;margin:28px 0;font-style:italic;padding:24px 32px;background:#f8fafc;border-radius:16px;border:1px solid #e2e8f0;line-height:1.5;}
+.standout-statement::before{content:'"';color:#94a3b8;font-size:1.4em;font-style:normal;}
+.standout-statement::after{content:'"';color:#94a3b8;font-size:1.4em;font-style:normal;}
+
+@media(max-width:900px){
+  .chart-row,.llm-grid,.directive-grid,.null-framework,.cross-link-grid{grid-template-columns:1fr;}
+  .section{padding:22px;}
+}
+
+/* PIPELINE FLOW STYLING */
+.pipeline-section {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  padding: 32px 28px;
+  margin: 28px 0;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.01);
+}
+.pipeline-header {
+  margin-bottom: 24px;
+}
+.pipeline-title {
+  font-size: 1.3em;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pipeline-subtitle {
+  font-size: 0.92em;
+  color: #64748b;
+  margin: 0;
+}
+.process-flow-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  align-items: stretch;
+}
+.flow-row-container {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.flow-row-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.04);
+}
+.flow-row-container.data-row {
+  border-top: 4px solid #3b82f6;
+}
+.flow-row-container.llm-row {
+  border-top: 4px solid #a855f7;
+  background: #faf5ff;
+  border-color: #e9d5ff #e2e8f0 #e2e8f0 #e2e8f0;
+}
+.flow-row-container.dashboard-row {
+  border-top: 4px solid #10b981;
+  background: #f0fdf4;
+  border-color: #a7f3d0 #e2e8f0 #e2e8f0 #e2e8f0;
+}
+.row-header {
+  margin-bottom: 18px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 10px;
+}
+.flow-row-container.llm-row .row-header {
+  border-bottom-color: #f3e8ff;
+}
+.flow-row-container.dashboard-row .row-header {
+  border-bottom-color: #dcfce7;
+}
+.row-title-text {
+  font-size: 0.98em;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.row-subtitle-text {
+  font-size: 0.8em;
+  color: #64748b;
+  margin: 3px 0 0 0;
+  font-weight: 500;
+}
+.row-steps-grid {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+.step-card-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.pillar-step-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+.pillar-step-card:hover {
+  background: white;
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+}
+.flow-row-container.llm-row .pillar-step-card {
+  background: white;
+  border-color: #f3e8ff;
+}
+.flow-row-container.llm-row .pillar-step-card:hover {
+  border-color: #c084fc;
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.05);
+}
+.flow-row-container.dashboard-row .pillar-step-card {
+  background: white;
+  border-color: #dcfce7;
+}
+.flow-row-container.dashboard-row .pillar-step-card:hover {
+  border-color: #34d399;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.05);
+}
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: #475569;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.78em;
+  font-weight: 800;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+.flow-row-container.llm-row .step-badge {
+  background: #7c3aed;
+}
+.flow-row-container.dashboard-row .step-badge {
+  background: #16a34a;
+}
+.step-card-title {
+  font-size: 0.9em;
+  font-weight: 800;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  margin: 0 0 6px 0;
+}
+.step-card-text {
+  font-size: 0.82em;
+  color: #475569;
+  line-height: 1.4;
+  margin: 0 0 8px 0;
+}
+.step-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.step-pill {
+  font-size: 0.68em;
+  font-weight: 600;
+  background: white;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.flow-row-container.llm-row .step-pill {
+  border-color: #e9d5ff;
+  color: #7c3aed;
+}
+.flow-row-container.dashboard-row .step-pill {
+  border-color: #bbf7d0;
+  color: #16a34a;
+}
+.step-arrow-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cbd5e1;
+  padding: 0 4px;
+}
+.flow-row-container.llm-row .step-arrow-right {
+  color: #e9d5ff;
+}
+.row-connector-down {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  color: #94a3b8;
+  margin: -6px 0;
+  position: relative;
+}
+.row-connector-down svg {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+.row-connector-down:hover svg {
+  transform: scale(1.1);
+  color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+@media(max-width: 900px) {
+  .row-steps-grid {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .step-arrow-right {
+    transform: rotate(90deg);
+    margin: -4px 0;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<header>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+    <a href="index.html" class="top-nav-btn">🏠 Command Center</a>
+    <div style="display:flex;gap:12px;">
+      <a href="section6_dashboard.html" class="top-nav-btn">⬅️ Section 6</a>
+    </div>
+  </div>
+  <h1>📊 HR Analytics Dashboard</h1>
+  <p>Section 7 – Recruitment & Hiring Impact Analytics · 4,001 Employees</p>
+</header>
+
+<!-- ============================================================ Q25 ============================================================ -->
+<div class="section" id="q25">
+  <div class="section-header">
+    <div class="section-icon icon-slate">🔍</div>
+    <div>
+      <div class="section-title">Q25 – Impact of Hiring Source, Time to Hire, and Cost</div>
+      <div class="section-subtitle">Multi-method analysis: ANOVA, Chi-square, Correlation, Random Forest across all recruitment dimensions</div>
+    </div>
+  </div>
+
+  <div class="insight-box slate">
+    <div class="insight-label">🎯 Headline Finding — A Valuable Null Result</div>
+    <div class="insight-text">Across all 4,001 employees and 4 hiring sources, <strong>no statistically significant differences</strong> exist in performance (p=0.38), satisfaction (p=0.82), or retention (Cramér's V=0.03, p=0.29). Time-to-hire and recruitment cost show near-zero correlations with all outcomes. <strong>This is strategically important:</strong> if the source doesn't matter, stop optimizing for source — optimize for speed, cost, and post-hire quality.</div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi-card dark"><div class="kv">p=0.38</div><div class="kt">Performance ANOVA — Not Significant</div></div>
+    <div class="kpi-card dark"><div class="kv">p=0.82</div><div class="kt">Satisfaction ANOVA — Not Significant</div></div>
+    <div class="kpi-card teal"><div class="kv">47.9%</div><div class="kt">Lowest Resign Rate — Internal Hires</div></div>
+    <div class="kpi-card red"><div class="kv">51.9%</div><div class="kt">Highest Resign Rate — Referrals</div></div>
+    <div class="kpi-card dark"><div class="kv">V=0.030</div><div class="kt">Cramér's V — Source vs Retention (Very Weak)</div></div>
+  </div>
+
+  <!-- PIPELINE FLOW DIAGRAM -->
+  <div class="pipeline-section">
+    <div class="pipeline-header">
+      <h3 class="pipeline-title">⛓️ Data Processing & LLM Insight Pipeline Flow</h3>
+      <p class="pipeline-subtitle">Visualizing the 7-step process from ingestion, classical stats, machine learning, through model evidence packaging, and Gemini output mapping.</p>
+    </div>
+    
+    <div class="process-flow-container">
+      
+      <!-- ROW 1: DATA PIPELINE -->
+      <div class="flow-row-container data-row">
+        <div class="row-header">
+          <h4 class="row-title-text">📊 1. Data Prep & Analysis</h4>
+          <p class="row-subtitle-text">Dataset cleansing and significance testing (Horizontal Flow)</p>
+        </div>
+        
+        <div class="row-steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card-wrapper">
+            <div class="pillar-step-card">
+              <h5 class="step-card-title"><span class="step-badge">1</span> Raw Ingestion</h5>
+              <p class="step-card-text">Reads the base table of 4,001 employee profiles from the database.</p>
+              <div class="step-pills">
+                <span class="step-pill">employee_data_final.csv</span>
+                <span class="step-pill">Hiring_Source</span>
+                <span class="step-pill">Time_to_Hire</span>
+                <span class="step-pill">Recruitment_Cost</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="step-arrow-right">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:block;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+          
+          <!-- Step 2 -->
+          <div class="step-card-wrapper">
+            <div class="pillar-step-card">
+              <h5 class="step-card-title"><span class="step-badge">2</span> Data Processing</h5>
+              <p class="step-card-text">Standardizes text labels, handles NaNs, and maps resignation status to binary targets.</p>
+              <div class="step-pills">
+                <span class="step-pill">Resignation_Target (0/1)</span>
+                <span class="step-pill">dropna()</span>
+                <span class="step-pill">4,001 Rows</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="step-arrow-right">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:block;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+          
+          <!-- Step 3 -->
+          <div class="step-card-wrapper">
+            <div class="pillar-step-card">
+              <h5 class="step-card-title"><span class="step-badge">3</span> Hypothesis Testing</h5>
+              <p class="step-card-text">Calculates ANOVA for ratings and Chi-Square for channel retention association.</p>
+              <div class="step-pills">
+                <span class="step-pill">Performance ANOVA p=0.38</span>
+                <span class="step-pill">Chi-Square p=0.29</span>
+                <span class="step-pill">Cramér's V = 0.030</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="step-arrow-right">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:block;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+          
+          <!-- Step 4 -->
+          <div class="step-card-wrapper">
+            <div class="pillar-step-card">
+              <h5 class="step-card-title"><span class="step-badge">4</span> Machine Learning</h5>
+              <p class="step-card-text">Trains Random Forest models and computes permutation importances.</p>
+              <div class="step-pills">
+                <span class="step-pill">RF Regressor / Classifier</span>
+                <span class="step-pill">5-Fold CV metrics</span>
+                <span class="step-pill">Permutation Importance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Down Connector to Row 2 -->
+      <div class="row-connector-down">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:block;"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+      </div>
+      
+      <!-- ROW 2: LLM PIPELINE -->
+      <div class="flow-row-container llm-row">
+        <div class="row-header">
+          <h4 class="row-title-text">🔮 2. LLM Engine Layer</h4>
+          <p class="row-subtitle-text">Structured prompt evidence & reasoning (Horizontal Flow)</p>
+        </div>
+        
+        <div class="row-steps-grid">
+          <!-- Step 5 -->
+          <div class="step-card-wrapper">
+            <div class="pillar-step-card">
+              <h5 class="step-card-title"><span class="step-badge">5</span> Evidence Packaging</h5>
+              <p class="step-card-text">Assembles statistical summaries, correlations, and importances into a token-efficient JSON payload.</p>
+              <div class="step-pills">
+                <span class="step-pill">rows_used (4001)</span>
+                <span class="step-pill">hiring_source_profiles</span>
+                <span class="step-pill">significance_stats</span>
+                <span class="step-pill">model_metrics</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="step-arrow-right">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:block;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+          
+          <!-- Step 6 -->
+          <div class="step-card-wrapper">
+            <div class="pillar-step-card">
+              <h5 class="step-card-title"><span class="step-badge">6</span> Gemini Inference</h5>
+              <p class="step-card-text">Runs prompt logic on Gemini with a validated JSON response schema.</p>
+              <div class="step-pills">
+                <span class="step-pill">gemini-2.5-flash-lite</span>
+                <span class="step-pill">Temperature: 0.2</span>
+                <span class="step-pill">JSON Schema Mapping</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Down Connector to Row 3 -->
+      <div class="row-connector-down">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:block;"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+      </div>
+      
+      <!-- ROW 3: STRATEGIC DASHBOARD -->
+      <div class="flow-row-container dashboard-row">
+        <div class="row-header">
+          <h4 class="row-title-text">🎯 3. Strategic Output</h4>
+          <p class="row-subtitle-text">Visual directives and action playbooks (Final Output)</p>
+        </div>
+        
+        <div class="row-steps-grid">
+          <!-- Step 7 -->
+          <div class="step-card-wrapper">
+            <div class="pillar-step-card">
+              <h5 class="step-card-title"><span class="step-badge">7</span> UI Dashboard Render</h5>
+              <p class="step-card-text">Parses Gemini's JSON response and renders risk callouts and strategic directive boxes.</p>
+              <div class="step-pills">
+                <span class="step-pill">headline finding</span>
+                <span class="step-pill">risk_alert</span>
+                <span class="step-pill">business_implication</span>
+                <span class="step-pill">action_plan (4 items)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- STRATEGIC DIRECTIVE PANEL -->
+  <div class="directive-panel">
+    <h3>🎯 Strategic Business Directive</h3>
+    <p class="subtitle">The null result is not a failure to find insight — it IS the insight. Here is what leadership should do.</p>
+    <div class="directive-grid">
+      <div class="directive-card">
+        <h5>🚫 Stop Investing in Source Optimization</h5>
+        <ul>
+          <li>Cease A/B testing expensive recruitment channels against each other — the data shows no ROI</li>
+          <li>Stop treating agency, referral, job board, or internal hire as quality signals for candidate selection</li>
+          <li>Remove source-based quotas or biases from your hiring manager guidelines</li>
+        </ul>
+      </div>
+      <div class="directive-card">
+        <h5>✅ Redirect Budget to What Actually Matters</h5>
+        <ul>
+          <li>Invest in <strong>post-hire onboarding quality</strong> — Phase 4 shows Onboarding_Delay is a top project success predictor</li>
+          <li>Optimize for <strong>cost per hire</strong> — since all sources deliver equivalent quality, choose the cheapest at equal speed</li>
+          <li>Invest in <strong>internal mobility programs</strong> — internal hires show the best directional retention (47.9%)</li>
+        </ul>
+      </div>
+      <div class="directive-card">
+        <h5>📊 Standardize Your Recruiting Process</h5>
+        <ul>
+          <li>With no significant channel differences, focus on standardizing the <em>interview and assessment process</em> — this is likely the key quality lever not captured here</li>
+          <li>Implement structured interview scorecards uniformly across all sources</li>
+          <li>Track <strong>90-day performance post-hire</strong> as the real quality metric going forward</li>
+        </ul>
+      </div>
+      <div class="directive-card">
+        <h5>🔄 Invest in Internal Mobility</h5>
+        <ul>
+          <li>Internal hires show the lowest resignation rate (47.9% vs 52.0% for referrals) — a directional signal worth investing in</li>
+          <li>Build structured internal job boards, lateral move programs, and skill-based internal matching</li>
+          <li>Phase 5 cross-link: WLB is the primary retention driver — prioritize role design over channel optimization</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- NULL RESULT BUSINESS FRAMEWORK -->
+  <h3 style="margin:28px 0 12px;font-size:1.15em;font-weight:800;color:#0f172a;">📋 What to Do When the Null Result IS the Finding</h3>
+  <div class="null-framework">
+    <div class="null-card stop">
+      <div class="nc-icon">🛑</div>
+      <div class="nc-label">Stop Doing</div>
+      <ul>
+        <li>Paying premiums for agency hires expecting better performance</li>
+        <li>Extending time-to-hire to improve candidate quality</li>
+        <li>Ranking hiring channels by "expected quality"</li>
+        <li>Attributing performance gaps to hiring source</li>
+      </ul>
+    </div>
+    <div class="null-card start">
+      <div class="nc-icon">🚀</div>
+      <div class="nc-label">Start Doing</div>
+      <ul>
+        <li>Measuring 90-day, 6-month post-hire performance by cohort</li>
+        <li>Tracking cost-per-successful-hire as primary channel KPI</li>
+        <li>Investing in structured onboarding improvements</li>
+        <li>Building internal mobility pathways as a retention tool</li>
+      </ul>
+    </div>
+    <div class="null-card keep">
+      <div class="nc-icon">✅</div>
+      <div class="nc-label">Keep Doing</div>
+      <ul>
+        <li>Using multiple channels (diversity of source ≠ worse quality)</li>
+        <li>Tracking time-to-fill for operational planning</li>
+        <li>Internal hiring for culture alignment benefit</li>
+        <li>Monitoring recruitment cost for budget control</li>
+      </ul>
+    </div>
+    <div class="null-card invest">
+      <div class="nc-icon">💡</div>
+      <div class="nc-label">Invest In</div>
+      <ul>
+        <li>Assessment quality — structured interviews, skill tests</li>
+        <li>Hiring manager training in bias-reduction</li>
+        <li>Onboarding program quality (see Phase 4)</li>
+        <li>WLB initiatives to retain <em>all</em> hires post-join</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CROSS SECTION LINK -->
+  <div class="cross-section-panel">
+    <h4>🔗 Cross-Section Insight: The Internal Hire Advantage Confirmed in Phase 5</h4>
+    <p>Internal hires show the best directional retention outcome (47.9% resignation rate). This aligns with Phase 5's finding that Work-Life Balance (WLB) is the only statistically significant predictor of retention (p=0.017). Internal hires likely have higher WLB because they already know the culture, manager, and role expectations — reducing post-join friction and disillusionment.</p>
+    <div class="cross-link-grid">
+      <div class="cross-link-card">
+        <div class="clv">47.9%</div>
+        <div class="cll">Internal Hire Resign Rate (Best)</div>
+      </div>
+      <div class="cross-link-card">
+        <div class="clv">p=0.017</div>
+        <div class="cll">WLB vs Retention (Phase 5 — Significant)</div>
+      </div>
+      <div class="cross-link-card">
+        <div class="clv">4.0 pts</div>
+        <div class="cll">Retention Gap: Internal vs Referral</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-row">
+    <div class="chart-box">
+      <h4>📉 Resignation Rate by Hiring Source</h4>
+      <div class="chart-container"><canvas id="q25ResignChart"></canvas></div>
+    </div>
+    <div class="chart-box">
+      <h4>📊 Average Performance by Hiring Source</h4>
+      <div class="chart-container"><canvas id="q25PerfChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="chart-row">
+    <div class="chart-box">
+      <h4>⏱️ Time-to-Hire vs Resignation Rate by Source</h4>
+      <div class="chart-container"><canvas id="q25TimeResignChart"></canvas></div>
+    </div>
+    <div class="chart-box">
+      <h4>💰 Avg Recruitment Cost by Source (All ~Equal)</h4>
+      <div class="chart-container"><canvas id="q25CostChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- INTERACTION TABLE -->
+  <div class="interaction-container">
+    <h4 style="margin-bottom:14px;font-size:1.05em;font-weight:700;color:#0f172a;">Source × Time-to-Hire Quartile: Resignation Rate Interaction Matrix</h4>
+    <table class="interaction-table">
+      <thead>
+        <tr>
+          <th>Hiring Source</th>
+          <th>Q1 (Fastest)</th>
+          <th>Q2</th>
+          <th>Q3</th>
+          <th>Q4 (Slowest)</th>
+          <th>Source Avg</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight:600;text-align:left;">Agency</td>
+          <td>49.3%</td>
+          <td>52.7%</td>
+          <td class="cell-best">44.5%</td>
+          <td>51.4%</td>
+          <td style="font-weight:600;">49.4%</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;text-align:left;">Internal</td>
+          <td>50.0%</td>
+          <td class="cell-best">45.2%</td>
+          <td>49.4%</td>
+          <td>47.0%</td>
+          <td style="font-weight:600;color:#0d9488;">47.9%</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;text-align:left;">Job Board</td>
+          <td>48.9%</td>
+          <td class="cell-worst">53.3%</td>
+          <td>50.8%</td>
+          <td>50.0%</td>
+          <td style="font-weight:600;">50.7%</td>
+        </tr>
+        <tr>
+          <td style="font-weight:600;text-align:left;">Referral</td>
+          <td>48.3%</td>
+          <td class="cell-worst">55.6%</td>
+          <td>51.5%</td>
+          <td>51.9%</td>
+          <td style="font-weight:600;color:#dc2626;">51.9%</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:8px;font-size:0.82em;color:#64748b;font-style:italic;">Note: Referral Q2 time-to-hire shows 55.6% resignation — a notable pattern suggesting moderate delays in referral processing compound attrition risk. All interaction effects are directional only; no cells meet statistical significance at p&lt;0.05.</p>
+  </div>
+
+  <div class="llm-grid" style="margin-top:24px;">
+    <div class="llm-card">
+      <h4>🔍 Finding: The Referral Paradox</h4>
+      <p>Employee referrals — conventionally considered a "gold standard" channel — show the <em>highest</em> resignation rate (51.9%) and the lowest performance delta (−0.13 vs overall). This challenges conventional HR wisdom and suggests referral programs may generate strong network loyalty but not performance alignment or long-term organizational fit.</p>
+    </div>
+    <div class="llm-card hidden">
+      <h4>💡 The Agency Speed Paradox</h4>
+      <p>For Agency hires, the Q3 time-band (moderate speed) shows the lowest resignation rate (44.5%). This suggests that neither rushing nor delaying agency hires optimizes retention. A "deliberate" pace for agency screening may outperform urgency-driven sourcing.</p>
+    </div>
+    <div class="llm-card cross">
+      <h4>🔗 The Real Levers (Not Captured Here)</h4>
+      <p>Given that hiring source, time, and cost explain nothing, the <em>actual</em> drivers of employee outcomes lie elsewhere: onboarding quality (Phase 4), work-life balance (Phase 5), compensation alignment (Phase 6), and engagement/skills (Phases 1–3). Recruiting is the starting line, not the finish line.</p>
+    </div>
+    <div class="llm-card risk">
+      <h4>⚠️ Model Confidence Caveat</h4>
+      <p>All three predictive models (performance, retention, satisfaction) produce negative R² values (range: −0.011 to −0.023), confirming that hiring-related variables have no usable predictive power. Model results are reported as secondary evidence only. The primary evidence is the directional null finding from ANOVA and Chi-square tests.</p>
+    </div>
+  </div>
+
+  <div class="standout-statement">If where you hire from doesn't predict who stays or who succeeds, stop optimizing where — and start optimizing how you onboard, develop, and retain the people you hire.</div>
+
+  <div class="action-plan">
+    <h4>📋 Recommended Actions — Post-Null-Result Strategic Playbook</h4>
+    <ul>
+      <li><span class="priority-tag priority-critical">Critical</span><strong>Invest in internal mobility:</strong> Build a structured internal job marketplace. Internal hires show the best directional retention (47.9%) and carry zero external recruiting cost.</li>
+      <li><span class="priority-tag priority-critical">Critical</span><strong>Re-evaluate the referral program:</strong> Referral hires have the highest resignation rate (51.9%) and below-average performance. The program may need redesign — consider selective referral incentives tied to 6-month retention, not just hiring.</li>
+      <li><span class="priority-tag priority-high">High</span><strong>Optimize for cost-per-hire, not channel preference:</strong> Since all channels deliver equivalent quality, standardize on the lowest-cost channel mix and reinvest savings in onboarding and WLB programs.</li>
+      <li><span class="priority-tag priority-high">High</span><strong>Implement structured assessment uniformly:</strong> The quality lever is interview rigor, not channel selection. Introduce a standardized competency interview scorecard across all four channels.</li>
+      <li><span class="priority-tag priority-medium">Medium</span>Add a 90-day and 180-day post-hire performance tracking system to build a true "hiring quality" dataset that this analysis currently lacks.</li>
+      <li><span class="priority-tag priority-medium">Medium</span>Cross-function insight: connect the WLB intervention (Phase 5, p=0.017) to post-hire onboarding — new hires who receive WLB-supportive environments are more likely to become retained employees regardless of source.</li>
+    </ul>
+  </div>
+</div>
+
+</div><!-- /.container -->
+
+<script>
+// Q25 Resign Chart
+new Chart(document.getElementById('q25ResignChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Internal', 'Agency', 'Job Board', 'Referral'],
+    datasets: [{
+      label: 'Resignation Rate (%)',
+      data: [47.90, 49.39, 50.73, 51.95],
+      backgroundColor: ['#10b981','#3b82f6','#f59e0b','#ef4444'],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, annotation: {} },
+    scales: { y: { min: 45, max: 55, title: { display: true, text: 'Resignation Rate (%)' } } }
+  }
+});
+
+// Q25 Performance Chart
+new Chart(document.getElementById('q25PerfChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Agency', 'Internal', 'Job Board', 'Referral'],
+    datasets: [{
+      label: 'Avg Performance Rating',
+      data: [10.018, 9.944, 9.918, 9.784],
+      backgroundColor: ['#3b82f6','#10b981','#f59e0b','#ef4444'],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: { y: { min: 9.5, max: 10.3, title: { display: true, text: 'Avg Performance Rating' } } }
+  }
+});
+
+// Q25 Time vs Resign Chart (by source avg time & resign)
+new Chart(document.getElementById('q25TimeResignChart'), {
+  type: 'scatter',
+  data: {
+    datasets: [
+      { label: 'Agency', data: [{x: 29.65, y: 49.39}], backgroundColor: '#3b82f6', pointRadius: 12, pointHoverRadius: 15 },
+      { label: 'Internal', data: [{x: 29.71, y: 47.90}], backgroundColor: '#10b981', pointRadius: 12, pointHoverRadius: 15 },
+      { label: 'Job Board', data: [{x: 29.96, y: 50.73}], backgroundColor: '#f59e0b', pointRadius: 12, pointHoverRadius: 15 },
+      { label: 'Referral', data: [{x: 30.15, y: 51.95}], backgroundColor: '#ef4444', pointRadius: 12, pointHoverRadius: 15 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.x}d avg, ${ctx.parsed.y}% resign` } } },
+    scales: {
+      x: { title: { display: true, text: 'Avg Time to Hire (days)' }, min: 28, max: 31.5 },
+      y: { title: { display: true, text: 'Resignation Rate (%)' }, min: 46, max: 54 }
+    }
+  }
+});
+
+// Q25 Cost Chart
+new Chart(document.getElementById('q25CostChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Job Board', 'Agency', 'Referral', 'Internal'],
+    datasets: [{
+      label: 'Avg Recruitment Cost ($)',
+      data: [4997.14, 5001.22, 5001.88, 5004.43],
+      backgroundColor: ['#f59e0b','#3b82f6','#ef4444','#10b981'],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, title: { display: true, text: 'All channels within $7 of each other — cost is undifferentiated', color: '#94a3b8', font: { size: 11 } } },
+    scales: { y: { min: 4990, max: 5015, title: { display: true, text: 'Avg Cost ($)' } } }
+  }
+});
+</script>
+</body>
+</html>
