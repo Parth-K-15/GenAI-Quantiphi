@@ -192,6 +192,7 @@
   .chart-container {
     position: relative;
     height: 280px;
+    width: 100%;
   }
 
   /* Premium Insight Boxes */
@@ -466,10 +467,35 @@
     transform: translateY(-2px);
   }
 
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 18px 0;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+  }
+  .data-table {
+    margin: 0 !important;
+  }
+
   @media(max-width: 900px) {
+    .container { padding: 16px 12px; }
+    header { padding: 32px 20px; margin-bottom: 24px; }
+    header h1 { font-size: 2em; }
+    header p { font-size: 1.05em; }
+    header > div { flex-direction: column !important; align-items: center !important; gap: 12px !important; }
     .chart-row, .two-col, .kpi-row { grid-template-columns: 1fr; }
     .stat-value { font-size: 2em; }
     .section { padding: 24px; }
+    .responsive-two-col-grid { grid-template-columns: 1fr !important; }
+    .data-table { min-width: 600px; }
+  }
+
+  @media(max-width: 480px) {
+    header h1 { font-size: 1.6em; }
+    .stat-value { font-size: 1.8em; }
+    .stats-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
   }
 </style>
 
@@ -541,19 +567,21 @@
     </div>
   </div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+  <div class="responsive-two-col-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
     <div>
       <h4 style="color:#1a2340;font-weight:700;margin-bottom:12px;font-size:0.95em;">📊 Statistical Tests by Question</h4>
-      <table class="data-table" style="font-size:0.88em;">
-        <thead><tr><th>Question</th><th>Method</th><th>Test Statistic</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Q1</strong></td><td>Pearson correlation</td><td>r (correlation coefficient)</td></tr>
-          <tr><td><strong>Q2</strong></td><td>Mean comparison (segmentation)</td><td>Δ mean, % share</td></tr>
-          <tr><td><strong>Q3</strong></td><td>Two-group mean comparison</td><td>Δ mean, Cohen’s d (estimated)</td></tr>
-          <tr><td><strong>Q4</strong></td><td>75th-percentile threshold segmentation</td><td>Count, %, Δ mean</td></tr>
-          <tr><td><strong>Q5</strong></td><td>90th-percentile threshold + gap analysis</td><td>Composite score, Δ mean</td></tr>
-        </tbody>
-      </table>
+      <div class="table-container">
+        <table class="data-table" style="font-size:0.88em;">
+          <thead><tr><th>Question</th><th>Method</th><th>Test Statistic</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Q1</strong></td><td>Pearson correlation</td><td>r (correlation coefficient)</td></tr>
+            <tr><td><strong>Q2</strong></td><td>Mean comparison (segmentation)</td><td>Δ mean, % share</td></tr>
+            <tr><td><strong>Q3</strong></td><td>Two-group mean comparison</td><td>Δ mean, Cohen’s d (estimated)</td></tr>
+            <tr><td><strong>Q4</strong></td><td>75th-percentile threshold segmentation</td><td>Count, %, Δ mean</td></tr>
+            <tr><td><strong>Q5</strong></td><td>90th-percentile threshold + gap analysis</td><td>Composite score, Δ mean</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <div>
       <h4 style="color:#1a2340;font-weight:700;margin-bottom:12px;font-size:0.95em;">📌 Scope &amp; Statistical Conventions</h4>
@@ -664,17 +692,19 @@
     <div class="insight-text"><!-- S1_Q2_IMPLICATION_START -->Failure to identify and address the development needs of high performers with low leadership potential could lead to increased turnover, reduced bench strength for future leadership roles, and a potential decline in overall organizational performance.<!-- S1_Q2_IMPLICATION_END --><!-- S1_Q2_IMPLICATION_END --></div>
   </div>
 
-  <table class="data-table">
-    <thead><tr><th>Attribute</th><th>High Perf + Low Leadership</th><th>High Perf + High Leadership</th><th>Difference</th></tr></thead>
-    <tbody>
-      <tr><td>Performance Rating</td><td><span class="badge-pill pill-blue">13.58</span></td><td><span class="badge-pill pill-green">13.73</span></td><td>−0.15</td></tr>
-      <tr><td>Communication Skills</td><td><span class="badge-pill pill-orange">8.32</span></td><td><span class="badge-pill pill-blue">7.91</span></td><td>+0.41 ✅ Higher</td></tr>
-      <tr><td>Engagement Score</td><td><span class="badge-pill pill-blue">80.25</span></td><td><span class="badge-pill pill-blue">79.85</span></td><td>+0.40</td></tr>
-      <tr><td>Job Satisfaction</td><td><span class="badge-pill pill-orange">8.04</span></td><td><span class="badge-pill pill-blue">7.79</span></td><td>+0.25 ✅ Higher</td></tr>
-      <tr><td>Resignation Risk</td><td><span class="badge-pill pill-red">45%</span></td><td><span class="badge-pill pill-green">~50%</span></td><td>Flight risk</td></tr>
-      <tr><td>Dev Hours / week</td><td>49.71 hrs</td><td>50.34 hrs</td><td>−0.63</td></tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="data-table">
+      <thead><tr><th>Attribute</th><th>High Perf + Low Leadership</th><th>High Perf + High Leadership</th><th>Difference</th></tr></thead>
+      <tbody>
+        <tr><td>Performance Rating</td><td><span class="badge-pill pill-blue">13.58</span></td><td><span class="badge-pill pill-green">13.73</span></td><td>−0.15</td></tr>
+        <tr><td>Communication Skills</td><td><span class="badge-pill pill-orange">8.32</span></td><td><span class="badge-pill pill-blue">7.91</span></td><td>+0.41 ✅ Higher</td></tr>
+        <tr><td>Engagement Score</td><td><span class="badge-pill pill-blue">80.25</span></td><td><span class="badge-pill pill-blue">79.85</span></td><td>+0.40</td></tr>
+        <tr><td>Job Satisfaction</td><td><span class="badge-pill pill-orange">8.04</span></td><td><span class="badge-pill pill-blue">7.79</span></td><td>+0.25 ✅ Higher</td></tr>
+        <tr><td>Resignation Risk</td><td><span class="badge-pill pill-red">45%</span></td><td><span class="badge-pill pill-green">~50%</span></td><td>Flight risk</td></tr>
+        <tr><td>Dev Hours / week</td><td>49.71 hrs</td><td>50.34 hrs</td><td>−0.63</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="findings-grid">
     <div class="finding-card"><h4>📌 Root Cause 1</h4><p>Analyst and Developer roles naturally limit leadership exposure — output is individual, not people-directed.</p></div>
@@ -716,17 +746,19 @@
     </div>
   </div>
 
-  <table class="data-table">
-    <thead><tr><th>Differentiator</th><th>High Performers (≥10)</th><th>Low Performers (≤5)</th><th>Delta</th><th>Interpretation</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Training Efficiency</strong></td><td><span class="badge-pill pill-green">0.244</span></td><td><span class="badge-pill pill-red">0.088</span></td><td><strong>+0.156 ✅</strong></td><td>High performers extract 3× more output per dev hour</td></tr>
-      <tr><td><strong>Work-Life Balance</strong></td><td><span class="badge-pill pill-green">8.03</span></td><td><span class="badge-pill pill-red">7.66</span></td><td>+0.37</td><td>Better conditions = better output</td></tr>
-      <tr><td><strong>Job Satisfaction</strong></td><td><span class="badge-pill pill-blue">7.90</span></td><td><span class="badge-pill pill-orange">7.67</span></td><td>+0.23</td><td>Satisfaction is a performance enabler</td></tr>
-      <tr><td><strong>Mentor Rating</strong></td><td><span class="badge-pill pill-blue">7.99</span></td><td><span class="badge-pill pill-orange">8.24</span></td><td>−0.25 ⚠️</td><td>Low performers have HIGHER mentor ratings — compensatory signal</td></tr>
-      <tr><td><strong>Creativity Rating</strong></td><td><span class="badge-pill pill-green">8.10</span></td><td><span class="badge-pill pill-red">7.89</span></td><td>+0.20</td><td>Creative thinking is a soft differentiator</td></tr>
-      <tr><td><strong>Avg Skills Score</strong></td><td>8.01</td><td>8.02</td><td>≈ 0.00</td><td>Skills are virtually equal — not the differentiator</td></tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="data-table">
+      <thead><tr><th>Differentiator</th><th>High Performers (≥10)</th><th>Low Performers (≤5)</th><th>Delta</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Training Efficiency</strong></td><td><span class="badge-pill pill-green">0.244</span></td><td><span class="badge-pill pill-red">0.088</span></td><td><strong>+0.156 ✅</strong></td><td>High performers extract 3× more output per dev hour</td></tr>
+        <tr><td><strong>Work-Life Balance</strong></td><td><span class="badge-pill pill-green">8.03</span></td><td><span class="badge-pill pill-red">7.66</span></td><td>+0.37</td><td>Better conditions = better output</td></tr>
+        <tr><td><strong>Job Satisfaction</strong></td><td><span class="badge-pill pill-blue">7.90</span></td><td><span class="badge-pill pill-orange">7.67</span></td><td>+0.23</td><td>Satisfaction is a performance enabler</td></tr>
+        <tr><td><strong>Mentor Rating</strong></td><td><span class="badge-pill pill-blue">7.99</span></td><td><span class="badge-pill pill-orange">8.24</span></td><td>−0.25 ⚠️</td><td>Low performers have HIGHER mentor ratings — compensatory signal</td></tr>
+        <tr><td><strong>Creativity Rating</strong></td><td><span class="badge-pill pill-green">8.10</span></td><td><span class="badge-pill pill-red">7.89</span></td><td>+0.20</td><td>Creative thinking is a soft differentiator</td></tr>
+        <tr><td><strong>Avg Skills Score</strong></td><td>8.01</td><td>8.02</td><td>≈ 0.00</td><td>Skills are virtually equal — not the differentiator</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="findings-grid">
     <div class="finding-card">
@@ -785,17 +817,19 @@
     <div class="insight-text"><!-- S1_Q4_ALERT_START -->The prevalence of high-skill employees failing to meet performance expectations (50.6% of high-skill employees in Anomaly A) poses a risk to project timelines, quality, and overall productivity. This could lead to increased costs due to rework or project delays.<!-- S1_Q4_ALERT_END --><!-- S1_Q4_ALERT_END --></div>
   </div>
 
-  <table class="data-table">
-    <thead><tr><th>Root Cause</th><th>Evidence</th><th>Severity</th></tr></thead>
-    <tbody>
-      <tr><td>Lower engagement despite high skills</td><td>Engagement 79.6 vs expected 79.9</td><td><span class="badge-pill pill-orange">Medium</span></td></tr>
-      <tr><td>Higher conflict resolution cases</td><td>2.50 vs 2.50 — team friction present</td><td><span class="badge-pill pill-orange">Medium</span></td></tr>
-      <tr><td>Higher overtime hours</td><td>7.25 vs 7.17 — burnout risk</td><td><span class="badge-pill pill-red">High</span></td></tr>
-      <tr><td>Poor work-life balance</td><td>WLB 7.86 vs 7.96 — organisational stress</td><td><span class="badge-pill pill-red">High</span></td></tr>
-      <tr><td>Project complexity mismatch</td><td>39% assigned to simple projects — under-utilization</td><td><span class="badge-pill pill-orange">Medium</span></td></tr>
-      <tr><td>High resignation rate</td><td>52.6% resigned in Anomaly A group</td><td><span class="badge-pill pill-red">Critical</span></td></tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="data-table">
+      <thead><tr><th>Root Cause</th><th>Evidence</th><th>Severity</th></tr></thead>
+      <tbody>
+        <tr><td>Lower engagement despite high skills</td><td>Engagement 79.6 vs expected 79.9</td><td><span class="badge-pill pill-orange">Medium</span></td></tr>
+        <tr><td>Higher conflict resolution cases</td><td>2.50 vs 2.50 — team friction present</td><td><span class="badge-pill pill-orange">Medium</span></td></tr>
+        <tr><td>Higher overtime hours</td><td>7.25 vs 7.17 — burnout risk</td><td><span class="badge-pill pill-red">High</span></td></tr>
+        <tr><td>Poor work-life balance</td><td>WLB 7.86 vs 7.96 — organisational stress</td><td><span class="badge-pill pill-red">High</span></td></tr>
+        <tr><td>Project complexity mismatch</td><td>39% assigned to simple projects — under-utilization</td><td><span class="badge-pill pill-orange">Medium</span></td></tr>
+        <tr><td>High resignation rate</td><td>52.6% resigned in Anomaly A group</td><td><span class="badge-pill pill-red">Critical</span></td></tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <!-- ============================================================ Q5 ============================================================ -->
@@ -863,18 +897,20 @@
     </div>
     <div>
       <h4 style="color:#1a2340;font-weight:700;margin-bottom:14px;">🎓 Categorical Profile of Ideal Employees</h4>
-      <table class="data-table">
-        <thead><tr><th>Attribute</th><th>Top Distribution</th></tr></thead>
-        <tbody>
-          <tr><td>Education</td><td><span class="badge-pill pill-violet">PhD 38.6%</span> · <span class="badge-pill pill-blue">Master 33.9%</span></td></tr>
-          <tr><td>Job Title</td><td><span class="badge-pill pill-blue">Manager 27.9%</span> · <span class="badge-pill pill-green">Developer 25.7%</span></td></tr>
-          <tr><td>Hiring Source</td><td><span class="badge-pill pill-orange">Referral 26.5%</span> · Internal 25.5%</td></tr>
-          <tr><td>Certifications</td><td>Google Cloud 20.9% · AWS 20.3%</td></tr>
-          <tr><td>Leadership Potential</td><td>Low 34.3% ≈ High 32% — balanced!</td></tr>
-          <tr><td>Career Goals</td><td><span class="badge-pill pill-green">Achieved 34.3%</span></td></tr>
-          <tr><td>Project Outcome</td><td>Failed 33.5% — takes complex challenges</td></tr>
-        </tbody>
-      </table>
+      <div class="table-container">
+        <table class="data-table">
+          <thead><tr><th>Attribute</th><th>Top Distribution</th></tr></thead>
+          <tbody>
+            <tr><td>Education</td><td><span class="badge-pill pill-violet">PhD 38.6%</span> · <span class="badge-pill pill-blue">Master 33.9%</span></td></tr>
+            <tr><td>Job Title</td><td><span class="badge-pill pill-blue">Manager 27.9%</span> · <span class="badge-pill pill-green">Developer 25.7%</span></td></tr>
+            <tr><td>Hiring Source</td><td><span class="badge-pill pill-orange">Referral 26.5%</span> · Internal 25.5%</td></tr>
+            <tr><td>Certifications</td><td>Google Cloud 20.9% · AWS 20.3%</td></tr>
+            <tr><td>Leadership Potential</td><td>Low 34.3% ≈ High 32% — balanced!</td></tr>
+            <tr><td>Career Goals</td><td><span class="badge-pill pill-green">Achieved 34.3%</span></td></tr>
+            <tr><td>Project Outcome</td><td>Failed 33.5% — takes complex challenges</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -909,7 +945,7 @@
     </div>
   </div>
 
-  <div style="overflow-x:auto;">
+  <div class="table-container">
     <table class="data-table" style="font-size:0.87em;">
       <thead>
         <tr>

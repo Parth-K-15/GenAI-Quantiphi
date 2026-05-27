@@ -192,6 +192,7 @@
   .chart-container {
     position: relative;
     height: 280px;
+    width: 100%;
   }
 
   /* Premium Insight Boxes */
@@ -466,10 +467,37 @@
     transform: translateY(-2px);
   }
 
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 18px 0;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+  }
+  .data-table {
+    margin: 0 !important;
+  }
+
   @media(max-width: 900px) {
-    .chart-row, .two-col, .kpi-row { grid-template-columns: 1fr; }
+    .container { padding: 16px 12px; }
+    header { padding: 30px 20px; margin-bottom: 24px; }
+    header h1 { font-size: 1.8em; }
+    header p { font-size: 1.05em; }
+    .header-nav { flex-direction: column !important; align-items: center !important; gap: 12px !important; }
+    .chart-row, .two-col, .kpi-row { grid-template-columns: 1fr !important; }
     .stat-value { font-size: 2em; }
-    .section { padding: 24px; }
+    .section { padding: 22px; }
+    .table-container table { min-width: 600px; }
+    .stats-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important; gap: 12px !important; }
+  }
+
+  @media(max-width: 480px) {
+    header h1 { font-size: 1.5em; }
+    .kpi-row { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) !important; }
+    .kpi-card { padding: 12px 8px !important; }
+    .kpi-card .kv { font-size: 1.5em; }
+    .stats-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) !important; }
   }
 </style>
 
@@ -504,7 +532,7 @@
 
 <!-- HEADER -->
 <header>
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; position: relative; z-index: 10;">
+  <div class="header-nav" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; position: relative; z-index: 10;">
     <a href="section1_dashboard.html" class="top-nav-btn">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
       [Back] Section 1
@@ -581,15 +609,17 @@ df['Training_Impact'] = df['Performance_Rating'] / (df['Professional_Development
     </div>
   </div>
 
-  <table class="data-table">
-    <thead><tr><th>Dev Hours Quartile</th><th>Avg Dev Hours</th><th>Avg Performance</th><th>Avg Promotions</th><th>Avg Training Impact</th><th>Promotion Rate</th></tr></thead>
-    <tbody>
-      <tr><td>Q1 — Low</td><td>41.4 hrs</td><td><span class="badge-pill pill-green">9.998</span></td><td>0.847</td><td><span class="badge-pill pill-orange">0.237 ✅</span></td><td>57.8%</td></tr>
-      <tr><td>Q2 — Med-Low</td><td>48.0 hrs</td><td>9.921</td><td>0.790</td><td>0.203</td><td>55.8%</td></tr>
-      <tr><td>Q3 — Med-High</td><td>52.9 hrs</td><td>9.918</td><td>0.820</td><td>0.184</td><td>58.1%</td></tr>
-      <tr><td>Q4 — High</td><td>59.7 hrs</td><td><span class="badge-pill pill-red">9.805 ⬇</span></td><td>0.789</td><td><span class="badge-pill pill-red">0.162 ⬇</span></td><td>55.5%</td></tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="data-table">
+      <thead><tr><th>Dev Hours Quartile</th><th>Avg Dev Hours</th><th>Avg Performance</th><th>Avg Promotions</th><th>Avg Training Impact</th><th>Promotion Rate</th></tr></thead>
+      <tbody>
+        <tr><td>Q1 — Low</td><td>41.4 hrs</td><td><span class="badge-pill pill-green">9.998</span></td><td>0.847</td><td><span class="badge-pill pill-orange">0.237 ✅</span></td><td>57.8%</td></tr>
+        <tr><td>Q2 — Med-Low</td><td>48.0 hrs</td><td>9.921</td><td>0.790</td><td>0.203</td><td>55.8%</td></tr>
+        <tr><td>Q3 — Med-High</td><td>52.9 hrs</td><td>9.918</td><td>0.820</td><td>0.184</td><td>58.1%</td></tr>
+        <tr><td>Q4 — High</td><td>59.7 hrs</td><td><span class="badge-pill pill-red">9.805 ⬇</span></td><td>0.789</td><td><span class="badge-pill pill-red">0.162 ⬇</span></td><td>55.5%</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="insight-box orange">
     <div class="insight-label">💡 Advanced Insight — What Makes You Stand Out</div>
@@ -651,15 +681,17 @@ df['Mentorship_Dependency'] = df['Mentor_Rating'] / (df['Performance_Rating'] + 
     </div>
   </div>
 
-  <table class="data-table">
-    <thead><tr><th>Mentor Experience Level</th><th>Avg Performance</th><th>Avg Mentor Rating</th><th>Avg Dep Score</th><th>Conversion Rate</th></tr></thead>
-    <tbody>
-      <tr><td>Associate</td><td><span class="badge-pill pill-green">10.007 🥇</span></td><td>8.022</td><td>0.796</td><td>47.1%</td></tr>
-      <tr><td>Junior</td><td>9.962</td><td>7.898</td><td>0.790</td><td><span class="badge-pill pill-orange">49.9% 🥇</span></td></tr>
-      <tr><td>Mid-Senior</td><td><span class="badge-pill pill-red">9.800</span></td><td>7.981</td><td><span class="badge-pill pill-red">0.813 ⬆</span></td><td>49.8%</td></tr>
-      <tr><td>Senior</td><td>9.891</td><td>7.906</td><td>0.792</td><td>47.8%</td></tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="data-table">
+      <thead><tr><th>Mentor Experience Level</th><th>Avg Performance</th><th>Avg Mentor Rating</th><th>Avg Dep Score</th><th>Conversion Rate</th></tr></thead>
+      <tbody>
+        <tr><td>Associate</td><td><span class="badge-pill pill-green">10.007 🥇</span></td><td>8.022</td><td>0.796</td><td>47.1%</td></tr>
+        <tr><td>Junior</td><td>9.962</td><td>7.898</td><td>0.790</td><td><span class="badge-pill pill-orange">49.9% 🥇</span></td></tr>
+        <tr><td>Mid-Senior</td><td><span class="badge-pill pill-red">9.800</span></td><td>7.981</td><td><span class="badge-pill pill-red">0.813 ⬆</span></td><td>49.8%</td></tr>
+        <tr><td>Senior</td><td>9.891</td><td>7.906</td><td>0.792</td><td>47.8%</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="insight-box violet">
     <div class="insight-label">💡 Counter-Intuitive Insight</div>
@@ -669,13 +701,15 @@ df['Mentorship_Dependency'] = df['Mentor_Rating'] / (df['Performance_Rating'] + 
   <div class="two-col">
     <div>
       <h4 style="color:#1a2340;font-weight:700;margin-bottom:14px;">📊 Internship Conversion by Group</h4>
-      <table class="data-table">
-        <thead><tr><th>Status</th><th>Count</th><th>Avg Mentor Rating</th><th>Avg Performance</th></tr></thead>
-        <tbody>
-          <tr><td><span class="badge-pill pill-green">Converted</span></td><td>1,947</td><td>8.032</td><td>9.864</td></tr>
-          <tr><td><span class="badge-pill pill-red">Not Converted</span></td><td>2,054</td><td>7.876</td><td>9.962</td></tr>
-        </tbody>
-      </table>
+      <div class="table-container">
+        <table class="data-table">
+          <thead><tr><th>Status</th><th>Count</th><th>Avg Mentor Rating</th><th>Avg Performance</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge-pill pill-green">Converted</span></td><td>1,947</td><td>8.032</td><td>9.864</td></tr>
+            <tr><td><span class="badge-pill pill-red">Not Converted</span></td><td>2,054</td><td>7.876</td><td>9.962</td></tr>
+          </tbody>
+        </table>
+      </div>
       <div class="insight-box blue" style="margin-top:12px;">
         <div class="insight-label">📌 Note</div>
         <div class="insight-text" style="font-size:0.88em;"><!-- S2_Q7_ALERT_START -->A weak correlation (r = -0.5911) between mentorship dependency and performance indicates that increased dependency does not lead to improved performance. This suggests a potential systemic issue where mentorship is not effectively translating into improved output for a substantial segment of employees, potentially masking underlying performance gaps.<!-- S2_Q7_ALERT_END --><!-- S2_Q7_ALERT_END --></div>
@@ -744,15 +778,17 @@ df['Training_ROI_Level'] = pd.qcut(df['Training_ROI'], 4,
     </div>
   </div>
 
-  <table class="data-table">
-    <thead><tr><th>ROI Level</th><th>Count</th><th>Avg Performance</th><th>Avg Dev Hours</th><th>Avg Training ROI</th><th>Avg WLB Rating</th></tr></thead>
-    <tbody>
-      <tr><td><span class="badge-pill pill-red">🔴 Low</span></td><td>1,013</td><td><span class="badge-pill pill-red">6.40</span></td><td><strong>53.6 hrs</strong></td><td>0.117</td><td>7.898</td></tr>
-      <tr><td><span class="badge-pill pill-orange">🟡 Medium</span></td><td>989</td><td>8.96</td><td>51.3 hrs</td><td>0.171</td><td>7.841</td></tr>
-      <tr><td><span class="badge-pill pill-teal">🟢 High</span></td><td>1,005</td><td>10.80</td><td>49.6 hrs</td><td>0.214</td><td>8.051</td></tr>
-      <tr><td><span class="badge-pill pill-violet">🌟 Very High</span></td><td>994</td><td><span class="badge-pill pill-green">13.55</span></td><td><strong>46.0 hrs ✅</strong></td><td><span class="badge-pill pill-green">0.290</span></td><td>8.019</td></tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="data-table">
+      <thead><tr><th>ROI Level</th><th>Count</th><th>Avg Performance</th><th>Avg Dev Hours</th><th>Avg Training ROI</th><th>Avg WLB Rating</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge-pill pill-red">🔴 Low</span></td><td>1,013</td><td><span class="badge-pill pill-red">6.40</span></td><td><strong>53.6 hrs</strong></td><td>0.117</td><td>7.898</td></tr>
+        <tr><td><span class="badge-pill pill-orange">🟡 Medium</span></td><td>989</td><td>8.96</td><td>51.3 hrs</td><td>0.171</td><td>7.841</td></tr>
+        <tr><td><span class="badge-pill pill-teal">🟢 High</span></td><td>1,005</td><td>10.80</td><td>49.6 hrs</td><td>0.214</td><td>8.051</td></tr>
+        <tr><td><span class="badge-pill pill-violet">🌟 Very High</span></td><td>994</td><td><span class="badge-pill pill-green">13.55</span></td><td><strong>46.0 hrs ✅</strong></td><td><span class="badge-pill pill-green">0.290</span></td><td>8.019</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="insight-box orange">
     <div class="insight-label">💡 Sharpest Finding in Section 2</div>
@@ -838,13 +874,15 @@ df['Training_ROI_Level'] = pd.qcut(df['Training_ROI'], 4,
       <div class="chart-container"><canvas id="q9CareerChart"></canvas></div>
     </div>
   </div>
-  <table class="data-table">
-    <thead><tr><th>Program</th><th>Count</th><th>Avg Performance</th><th>Avg Effectiveness</th><th>Avg Promotions</th><th>Career Achieved %</th><th>Resignation %</th><th>Project Success %</th></tr></thead>
-    <tbody>
-      <tr><td><span class="badge-pill pill-teal">🟢 Basic</span></td><td>1,384</td><td>9.897</td><td>0.1976</td><td>0.809</td><td>31.21%</td><td>49.57%</td><td>30.42%</td></tr>
-      <tr><td><span class="badge-pill pill-blue">🔵 Advanced</span></td><td>1,298</td><td>9.868</td><td>0.1983</td><td>0.799</td><td>32.82%</td><td>48.77%</td><td>34.44%</td></tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="data-table">
+      <thead><tr><th>Program</th><th>Count</th><th>Avg Performance</th><th>Avg Effectiveness</th><th>Avg Promotions</th><th>Career Achieved %</th><th>Resignation %</th><th>Project Success %</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge-pill pill-teal">🟢 Basic</span></td><td>1,384</td><td>9.897</td><td>0.1976</td><td>0.809</td><td>31.21%</td><td>49.57%</td><td>30.42%</td></tr>
+        <tr><td><span class="badge-pill pill-blue">🔵 Advanced</span></td><td>1,298</td><td>9.868</td><td>0.1983</td><td>0.799</td><td>32.82%</td><td>48.77%</td><td>34.44%</td></tr>
+      </tbody>
+    </table>
+  </div>
   <div class="insight-box orange">
     <div class="insight-label">💡 System Proposal — Impact-Based Training Design</div>
     <div class="insight-text"><!-- S2_Q9_BUSINESS_START -->The subtle differences in effectiveness and engagement between Basic and Advanced programs, coupled with the contrasting impact on project success, suggest that training program design and content should be tailored to specific performance outcomes. The high attrition in the 'Unknown' category signals a critical need to understand and address the needs of this employee segment to improve retention.<!-- S2_Q9_BUSINESS_END --><!-- S2_Q9_BUSINESS_END --></div>
@@ -895,15 +933,17 @@ Advanced_Training_Readiness =
       <div class="chart-container"><canvas id="q10DeptChart"></canvas></div>
     </div>
   </div>
-  <table class="data-table">
-    <thead><tr><th>Readiness Tier</th><th>Count</th><th>Avg Performance</th><th>Avg Training ROI</th><th>Avg WLB</th><th>Avg Skills</th><th>Mentor Dependency</th></tr></thead>
-    <tbody>
-      <tr><td><span class="badge-pill pill-green">🌟 Highly Ready</span></td><td>1,000</td><td><span class="badge-pill pill-green">11.665</span></td><td>0.2388</td><td><strong>10.424</strong></td><td>8.602</td><td><span class="badge-pill pill-green">0.614 ✅</span></td></tr>
-      <tr><td><span class="badge-pill pill-teal">✅ Ready</span></td><td>1,000</td><td>10.457</td><td>0.2084</td><td>8.375</td><td>8.152</td><td>0.717</td></tr>
-      <tr><td><span class="badge-pill pill-orange">🔄 Developing</span></td><td>1,000</td><td>9.428</td><td>0.1863</td><td>7.229</td><td>7.816</td><td>0.815</td></tr>
-      <tr><td><span class="badge-pill pill-red">⛔ Not Ready</span></td><td>1,001</td><td><span class="badge-pill pill-red">8.109</span></td><td>0.1584</td><td>5.784</td><td>7.304</td><td><span class="badge-pill pill-red">1.045 ⬆</span></td></tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="data-table">
+      <thead><tr><th>Readiness Tier</th><th>Count</th><th>Avg Performance</th><th>Avg Training ROI</th><th>Avg WLB</th><th>Avg Skills</th><th>Mentor Dependency</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge-pill pill-green">🌟 Highly Ready</span></td><td>1,000</td><td><span class="badge-pill pill-green">11.665</span></td><td>0.2388</td><td><strong>10.424</strong></td><td>8.602</td><td><span class="badge-pill pill-green">0.614 ✅</span></td></tr>
+        <tr><td><span class="badge-pill pill-teal">✅ Ready</span></td><td>1,000</td><td>10.457</td><td>0.2084</td><td>8.375</td><td>8.152</td><td>0.717</td></tr>
+        <tr><td><span class="badge-pill pill-orange">🔄 Developing</span></td><td>1,000</td><td>9.428</td><td>0.1863</td><td>7.229</td><td>7.816</td><td>0.815</td></tr>
+        <tr><td><span class="badge-pill pill-red">⛔ Not Ready</span></td><td>1,001</td><td><span class="badge-pill pill-red">8.109</span></td><td>0.1584</td><td>5.784</td><td>7.304</td><td><span class="badge-pill pill-red">1.045 ⬆</span></td></tr>
+      </tbody>
+    </table>
+  </div>
   <h4 style="color:#1a2340;font-weight:700;font-size:1.1em;margin:24px 0 16px;">🗺️ Tier-Based Action Map</h4>
   <div class="findings-grid">
     <div class="finding-card" style="border-color:#ccfbf1;"><h4>🌟 Highly Ready</h4><p>Enroll immediately in Advanced Training. High ROI, strong skills, autonomous learner, excellent WLB — all conditions for maximum return are met.</p></div>
@@ -911,16 +951,18 @@ Advanced_Training_Readiness =
     <div class="finding-card" style="border-color:#fed7aa;"><h4>🔄 Developing</h4><p>Invest in readiness-building first: improve WLB conditions, reduce Mentorship_Dependency, confirm engagement before advancing.</p></div>
     <div class="finding-card" style="border-color:#fee2e2;"><h4>⛔ Not Ready</h4><p>Do not advance yet. Focus on Q8 interventions: engagement diagnosis, job-fit review, structured post-training support.</p></div>
   </div>
-  <table class="data-table" style="margin-top:20px;">
-    <thead><tr><th>Rank</th><th>Employee ID</th><th>Department</th><th>Job Title</th><th>Performance</th><th>Training ROI</th><th>Readiness Score</th></tr></thead>
-    <tbody>
-      <tr><td>🥇 1</td><td>2024/Marketing/0155</td><td>Marketing</td><td>Developer</td><td>15</td><td>0.3947</td><td><span class="badge-pill pill-green">0.9018</span></td></tr>
-      <tr><td>🥈 2</td><td>2024/Marketing/3673</td><td>Finance</td><td>Manager</td><td>13</td><td>0.260</td><td><span class="badge-pill pill-green">0.8420</span></td></tr>
-      <tr><td>🥉 3</td><td>2024/Marketing/3138</td><td>IT</td><td>Consultant</td><td>24</td><td>0.5217</td><td><span class="badge-pill pill-green">0.8267</span></td></tr>
-      <tr><td>4</td><td>2024/Finance/2770</td><td>Marketing</td><td>Consultant</td><td>14</td><td>0.3590</td><td><span class="badge-pill pill-teal">0.8202</span></td></tr>
-      <tr><td>5</td><td>2024/IT/0096</td><td>Sales</td><td>Manager</td><td>18</td><td>0.3600</td><td><span class="badge-pill pill-teal">0.8056</span></td></tr>
-    </tbody>
-  </table>
+  <div class="table-container">
+    <table class="data-table" style="margin-top:20px;">
+      <thead><tr><th>Rank</th><th>Employee ID</th><th>Department</th><th>Job Title</th><th>Performance</th><th>Training ROI</th><th>Readiness Score</th></tr></thead>
+      <tbody>
+        <tr><td>🥇 1</td><td>2024/Marketing/0155</td><td>Marketing</td><td>Developer</td><td>15</td><td>0.3947</td><td><span class="badge-pill pill-green">0.9018</span></td></tr>
+        <tr><td>🥈 2</td><td>2024/Marketing/3673</td><td>Finance</td><td>Manager</td><td>13</td><td>0.260</td><td><span class="badge-pill pill-green">0.8420</span></td></tr>
+        <tr><td>🥉 3</td><td>2024/Marketing/3138</td><td>IT</td><td>Consultant</td><td>24</td><td>0.5217</td><td><span class="badge-pill pill-green">0.8267</span></td></tr>
+        <tr><td>4</td><td>2024/Finance/2770</td><td>Marketing</td><td>Consultant</td><td>14</td><td>0.3590</td><td><span class="badge-pill pill-teal">0.8202</span></td></tr>
+        <tr><td>5</td><td>2024/IT/0096</td><td>Sales</td><td>Manager</td><td>18</td><td>0.3600</td><td><span class="badge-pill pill-teal">0.8056</span></td></tr>
+      </tbody>
+    </table>
+  </div>
   <div class="insight-box dark" style="margin-top:28px;">
     <div class="insight-label">🔗 Connecting Q6 → Q7 → Q8 → Q9 → Q10</div>
     <div class="insight-text"><!-- S2_Q10_CONFIDENCE_START -->The insights are derived from a composite score and correlational data. While strong patterns are observed, causality cannot be definitively established without experimental data. The 'statistically significant' designation is not used as p-values were not provided.<!-- S2_Q10_CONFIDENCE_END --><!-- S2_Q10_CONFIDENCE_END --></div>

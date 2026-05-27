@@ -466,10 +466,36 @@
     transform: translateY(-2px);
   }
 
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 18px 0;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+  }
+  .data-table {
+    margin: 0 !important;
+  }
+
   @media(max-width: 900px) {
+    .container { padding: 16px 12px; }
+    header { padding: 32px 20px; margin-bottom: 24px; }
+    header h1 { font-size: 2em; }
+    header p { font-size: 1.05em; }
+    header > div { flex-direction: column !important; align-items: center !important; gap: 12px !important; }
     .chart-row, .two-col, .kpi-row { grid-template-columns: 1fr; }
     .stat-value { font-size: 2em; }
     .section { padding: 24px; }
+    .responsive-two-col-grid { grid-template-columns: 1fr !important; }
+    .responsive-three-col-grid { grid-template-columns: 1fr !important; }
+    .data-table { min-width: 600px; }
+  }
+
+  @media(max-width: 480px) {
+    header h1 { font-size: 1.6em; }
+    .stat-value { font-size: 1.8em; }
+    .stats-grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
   }
 </style>
 
@@ -667,7 +693,7 @@ df['Conflict_Teamwork_Ratio'] = df['Conflict_Resolution_Cases'] / (df['Teamwork_
   <!-- EFFECT SIZE CALIBRATION -->
   <div style="background:linear-gradient(135deg,#fefce8,#fef9c3);border:2px solid #eab308;border-radius:14px;padding:20px 24px;margin:16px 0;">
     <div style="font-weight:800;font-size:0.9em;color:#854d0e;margin-bottom:14px;display:flex;align-items:center;gap:8px;">📐 Effect Size Calibration — What the Data Actually Shows</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+    <div class="responsive-three-col-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
       <div style="background:white;border-radius:10px;padding:14px;text-align:center;border:1px solid #fef08a;">
         <div style="font-size:1.5em;font-weight:800;color:#ca8a04;">2.4 pp</div>
         <div style="font-size:0.78em;color:#78350f;margin-top:4px;">Max retention spread across all engagement bands (Very Low → Very High)</div>
@@ -693,10 +719,9 @@ df['Conflict_Teamwork_Ratio'] = df['Conflict_Resolution_Cases'] / (df['Teamwork_
 
   <div class="formula-box">
     <code><span class="comment"># 🚀 Predictive Metric — Retention Risk Index</span>
-df['Retention_Risk_Index'] = (1 - df['Engagement_Score']/100)*0.4 + (1 - df['Satisfaction_Score']/10)*0.6
-
-<span class="comment"># Interpretation: Satisfaction is a stronger direct predictor of voluntary resignation (60%).</span>
-<span class="comment"># Engagement acts as the early-warning leading indicator (40%).</span></code>
+    <code>df['Retention_Risk_Index'] = (1 - df['Engagement_Score']/100)*0.4 + (1 - df['Satisfaction_Score']/10)*0.6</code>
+    <code><span class="comment"># Interpretation: Satisfaction is a stronger direct predictor of voluntary resignation (60%).</span></code>
+    <code><span class="comment"># Engagement acts as the early-warning leading indicator (40%).</span></code>
   </div>
 
   <div class="chart-row">
@@ -706,16 +731,18 @@ df['Retention_Risk_Index'] = (1 - df['Engagement_Score']/100)*0.4 + (1 - df['Sat
     </div>
     <div class="chart-box">
       <h4>⚠️ Top 5 Employees at Highest Retention Risk</h4>
-      <table class="data-table" style="margin-top:0;">
-        <thead><tr><th>Employee ID</th><th>Dept</th><th>Engage</th><th>Satis.</th><th>Risk Index</th></tr></thead>
-        <tbody>
-          <tr><td>2024/Sales/2725</td><td>Mktg</td><td><span class="badge-pill pill-red">68</span></td><td><span class="badge-pill pill-red">1</span></td><td><span class="badge-pill pill-red">0.668</span></td></tr>
-          <tr><td>2024/IT/0435</td><td>Sales</td><td>70</td><td>1</td><td>0.660</td></tr>
-          <tr><td>2024/Sales/3067</td><td>IT</td><td>70</td><td>1</td><td>0.660</td></tr>
-          <tr><td>2024/Sales/0883</td><td>IT</td><td>72</td><td>1</td><td>0.652</td></tr>
-          <tr><td>2024/Mktg/3089</td><td>Fin</td><td>87</td><td>0</td><td>0.652</td></tr>
-        </tbody>
-      </table>
+      <div class="table-container">
+        <table class="data-table" style="margin-top:0;">
+          <thead><tr><th>Employee ID</th><th>Dept</th><th>Engage</th><th>Satis.</th><th>Risk Index</th></tr></thead>
+          <tbody>
+            <tr><td>2024/Sales/2725</td><td>Mktg</td><td><span class="badge-pill pill-red">68</span></td><td><span class="badge-pill pill-red">1</span></td><td><span class="badge-pill pill-red">0.668</span></td></tr>
+            <tr><td>2024/IT/0435</td><td>Sales</td><td>70</td><td>1</td><td>0.660</td></tr>
+            <tr><td>2024/Sales/3067</td><td>IT</td><td>70</td><td>1</td><td>0.660</td></tr>
+            <tr><td>2024/Sales/0883</td><td>IT</td><td>72</td><td>1</td><td>0.652</td></tr>
+            <tr><td>2024/Mktg/3089</td><td>Fin</td><td>87</td><td>0</td><td>0.652</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -812,7 +839,7 @@ df['Innovation_Gap'] = df['Initiative_Rating'] * (1 - df['Innovation_Projects_In
     </div>
   </div>
 
-  <div style="overflow-x:auto;">
+  <div class="table-container">
     <table class="data-table" style="font-size:0.87em;">
       <thead>
         <tr>

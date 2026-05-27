@@ -75,6 +75,36 @@ header p{margin:0 0 20px 0;font-size:1.1em;color:#94a3b8;}
   .chart-row,.llm-grid{grid-template-columns:1fr;}
   .section{padding:20px;}
 }
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 18px 0;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+@media(max-width:900px){
+  .container { padding: 16px 12px; }
+  header { padding: 32px 20px; margin-bottom: 24px; }
+  header h1 { font-size: 1.8em; }
+  header p { font-size: 1.05em; }
+  header > div { flex-direction: column !important; align-items: center !important; gap: 12px !important; }
+  .chart-row,.llm-grid{grid-template-columns:1fr;}
+  .section{padding: 24px 16px;}
+  .responsive-two-col-grid { grid-template-columns: 1fr !important; }
+  .responsive-three-col-grid { grid-template-columns: 1fr !important; }
+  .responsive-four-col-grid { grid-template-columns: 1fr !important; }
+  .table-container table { min-width: 600px; }
+}
+
+@media(max-width:480px){
+  header h1 { font-size: 1.5em; }
+  .kpi-row { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important; }
+  .kpi-card { padding: 12px 8px !important; }
+  .kpi-card .kv { font-size: 1.5em; }
+}
 </style>
 
 <style>
@@ -130,7 +160,7 @@ header p{margin:0 0 20px 0;font-size:1.1em;color:#94a3b8;}
   <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;padding:24px;margin-bottom:20px;font-size:1.05em;color:#e2e8f0;line-height:1.7;">
     <strong style="color:#93c5fd;">The key finding across all 4 questions:</strong> Individual employee skills, roles, and attributes are <em>not</em> the primary drivers of project success. The data consistently shows that <strong style="color:#6ee7b7;">only tenure and environmental factors</strong> — onboarding quality, overtime, creativity enablement — move the needle. Project failure is a <strong style="color:#fca5a5;">systemic and structural problem</strong>, not an individual capability problem.
   </div>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+  <div class="responsive-four-col-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
     <div style="background:rgba(255,255,255,0.07);border-radius:12px;padding:18px;text-align:center;">
       <div style="font-size:2em;margin-bottom:6px;">📐</div>
       <div style="font-weight:700;color:#93c5fd;font-size:0.9em;margin-bottom:4px;">Complexity & Size</div>
@@ -367,7 +397,7 @@ header p{margin:0 0 20px 0;font-size:1.1em;color:#94a3b8;}
     <div style="font-weight:800;font-size:1em;color:#5b21b6;margin-bottom:16px;display:flex;align-items:center;gap:8px;">🎯 Model Calibration &amp; Error Analysis — Q17 Random Forest</div>
 
     <!-- Metrics table -->
-    <div style="overflow-x:auto;margin-bottom:18px;">
+    <div class="table-container" style="margin-bottom:18px;">
       <table style="width:100%;border-collapse:collapse;font-size:0.88em;background:white;border-radius:10px;overflow:hidden;">
         <thead style="background:#ede9fe;">
           <tr>
@@ -425,7 +455,7 @@ header p{margin:0 0 20px 0;font-size:1.1em;color:#94a3b8;}
     </div>
 
     <!-- CAN vs CANNOT -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+    <div class="responsive-two-col-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
       <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:14px;">
         <div style="font-weight:800;color:#15803d;font-size:0.88em;margin-bottom:8px;">✅ This model CAN be used to…</div>
         <ul style="margin:0;padding-left:16px;font-size:0.85em;color:#166534;line-height:1.7;">
@@ -582,8 +612,8 @@ header p{margin:0 0 20px 0;font-size:1.1em;color:#94a3b8;}
   </div>
 
   <!-- ROLE × COMPLEXITY HEATMAP TABLE -->
-  <div style="margin:24px 0;overflow-x:auto;">
-    <h4 style="margin-bottom:14px;color:#0f172a;font-size:1.05em;font-weight:700;">🗺️ Role × Complexity Failure Rate Matrix (% Failed — Red = High Risk)</h4>
+  <div class="table-container">
+    <h4 style="margin: 12px 14px 12px 14px;color:#0f172a;font-size:1.05em;font-weight:700;">🗺️ Role × Complexity Failure Rate Matrix (% Failed — Red = High Risk)</h4>
     <table style="width:100%;border-collapse:collapse;background:white;border-radius:12px;overflow:hidden;font-size:0.92em;">
       <thead style="background:#f8fafc;">
         <tr>
@@ -653,7 +683,7 @@ header p{margin:0 0 20px 0;font-size:1.1em;color:#94a3b8;}
   <div style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid #22c55e;border-radius:16px;padding:28px;margin-top:28px;">
     <h4 style="margin:0 0 6px;color:#15803d;font-size:1.15em;font-weight:800;display:flex;align-items:center;gap:8px;">✅ What DOES Predict Project Success — The Evidence-Based Framework</h4>
     <p style="margin:0 0 20px;color:#166534;font-size:0.93em;">Synthesizing Q15, Q16, Q17, Q18 into actionable success drivers</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div class="responsive-two-col-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
       <div style="background:white;border-radius:12px;padding:18px;border-left:4px solid #22c55e;">
         <h5 style="margin:0 0 8px;color:#15803d;font-size:0.9em;font-weight:800;">🥇 #1 — Institutional Knowledge (Tenure)</h5>
         <p style="margin:0;font-size:0.87em;color:#334155;line-height:1.5;">Tenure_Years is the only statistically significant differentiator (p=0.020, Cohen's d=0.09). Experienced employees deliver better outcomes — not because they are "better" but because institutional knowledge reduces decision error. <strong>Implication: assign experienced staff to complex, high-stakes projects.</strong></p>

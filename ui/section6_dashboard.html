@@ -106,8 +106,15 @@ header p{margin:0 0 20px;font-size:1.1em;color:#94a3b8;}
 .chart-container{position:relative;height:280px;width:100%;}
 
 /* TABLES */
-.table-container{margin-top:24px;overflow-x:auto;}
-table{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;font-size:0.9em;}
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 18px 0;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+table{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;font-size:0.9em;margin:0 !important;}
 thead{background:#f8fafc;}
 th{padding:13px 14px;text-align:left;font-size:0.85em;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid #e2e8f0;}
 td{padding:12px 14px;border-bottom:1px solid #f1f5f9;color:#334155;}
@@ -153,8 +160,22 @@ tr:hover td{background:#f8fafc;}
 .strategy-card li{font-size:0.88em;color:#334155;margin-bottom:6px;line-height:1.45;}
 
 @media(max-width:900px){
+  .container { padding: 16px 12px; }
+  header { padding: 30px 20px; margin-bottom: 24px; }
+  header h1 { font-size: 1.8em; }
+  header p { font-size: 1.05em; }
+  .header-nav { flex-direction: column !important; align-items: center !important; gap: 12px !important; }
   .chart-row,.llm-grid,.tier-grid,.strategy-grid,.equity-grid{grid-template-columns:1fr;}
   .section{padding:22px;}
+  .table-container table { min-width: 600px; }
+}
+
+@media(max-width:480px){
+  header h1 { font-size: 1.5em; }
+  .kpi-row { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)) !important; }
+  .kpi-card { padding: 12px 8px !important; }
+  .kpi-card .kv { font-size: 1.5em; }
+  .equity-cell .eq-val { font-size: 1.4em; }
 }
 </style>
 </head>
@@ -164,7 +185,7 @@ tr:hover td{background:#f8fafc;}
 
 <!-- HEADER -->
 <header>
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+  <div class="header-nav" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
     <a href="index.html" class="top-nav-btn">🏠 Command Center</a>
     <div style="display:flex;gap:12px;">
       <a href="section5_dashboard.html" class="top-nav-btn">⬅️ Section 5</a>
